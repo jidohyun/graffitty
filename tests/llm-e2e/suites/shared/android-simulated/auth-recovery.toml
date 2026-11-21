@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "auth-recovery"
+goal = "Reject an incorrect password, keep existing workspaces connected, mask and clear the failed secret, then correct credentials through the production form."
+instructions = "auth-recovery.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/auth-recovery.gd"

@@ -1,0 +1,7 @@
+{
+  "name": "Review score",
+  "input": ".payload.review.score",
+  "condition": ". < 0.5",
+  "transform": "{text: (\"Review: \" + .payload.review.reason), payload: .payload}",
+  "output_names": {"matched": "Revise", "unmatched": "Approved"}
+}

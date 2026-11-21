@@ -1,0 +1,10 @@
+PROMPT='%F{cyan}%1~%f $ '
+RPROMPT=''
+PROMPT_EOL_MARK=''
+unsetopt PROMPT_SP
+mkdir -p src docs tests assets
+printf '# demo\n' > README.md
+printf 'print("hello")\n' > src/main.py
+printf 'body { color: white; }\n' > src/style.css
+source /opt/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+printf '\033[2J\033[H\033[8mCAPTURE_READY\033[0m\n'

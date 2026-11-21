@@ -1,0 +1,58 @@
+{
+  "model": "Opus 5.5",
+  "billing": "API Usage Billing",
+  "think_ms": 2200,
+  "char_ms": 16,
+  "turns": [
+    {
+      "title": "Review the dashboard",
+      "steps": [
+        {
+          "type": "think",
+          "ms": 5500
+        },
+        {
+          "type": "message",
+          "text": "I'll review the implementation and check the test results."
+        },
+        {
+          "type": "tool",
+          "name": "Read",
+          "input": "src/app.tsx",
+          "output": "Read 148 lines",
+          "ms": 1000
+        },
+        {
+          "type": "edit",
+          "path": "src/app.tsx",
+          "line": 42,
+          "before": "export function Dashboard() {\n  return <div>Dashboard</div>;\n}\n",
+          "after": "export function Dashboard() {\n  return <main aria-label=\"Analytics\">\n    <RevenueChart />\n    <ActivityFeed />\n  </main>;\n}\n",
+          "ms": 900
+        },
+        {
+          "type": "tool",
+          "name": "Bash",
+          "input": "npm test -- --run",
+          "output": "Test Files  3 passed (3)\n     Tests  12 passed (12)",
+          "ms": 1800
+        },
+        {
+          "type": "think",
+          "ms": 1200
+        }
+      ],
+      "response": "The dashboard looks good. The components are accessible, the layout works on mobile, and all 12 tests pass. **Ready to ship.**"
+    }
+  ],
+  "response": "The review is complete. Everything looks good.",
+  "stream": {
+    "mode": "words",
+    "jitter_percent": 45,
+    "seed": 1
+  },
+  "completion": {
+    "elapsed_ms": 1080000,
+    "completed_at": "3:03 PM"
+  }
+}

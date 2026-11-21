@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "session-defaults"
+instructions = "session-defaults.md"
+goal = "New local terminals honor typed launch defaults without changing existing sessions or treating environment values as shell commands."
+verify = "real_pty_launch_and_rendered_ui"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Configure future sessions"
+tools = []
+
+[[stages]]
+name = "Prove real launch behavior"
+tools = []
+
+[[stages]]
+name = "Reject invalid defaults without mutation"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "session-defaults"]

@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-gestures"
+goal = "Direct touch, pane and wire drags, title double-tap, and unchanged two-finger pinch anchors."
+instructions = "android-gestures.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-gestures"

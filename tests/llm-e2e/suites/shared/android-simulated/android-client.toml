@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "android-client"
+record_client = true
+goal = "Run the Android interaction profile in desktop Godot against a real remote server, including resource and node-state synchronization."
+instructions = "android-client.md"
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/android-client.gd"

@@ -1,0 +1,109 @@
+{
+  "watcher": [
+    {
+      "id": "watcher-intro",
+      "beat": "Watcher session clicked",
+      "offset": 0
+    },
+    {
+      "id": "watcher-connect",
+      "beat": "Watcher: connect",
+      "offset": 0
+    },
+    {
+      "id": "watcher-result",
+      "beat": "Watcher: result",
+      "offset": 0
+    }
+  ],
+  "android": [
+    {
+      "id": "android-intro",
+      "offset": 0.25
+    },
+    {
+      "id": "android-workspace",
+      "beat": "Android: launch Codex and Claude",
+      "offset": 0.25
+    },
+    {
+      "id": "android-wiring",
+      "beat": "Android: connect Turn completed to Receive",
+      "offset": 0.25
+    },
+    {
+      "id": "android-review",
+      "beat": "Android: review instructions",
+      "offset": 0
+    },
+    {
+      "id": "android-implement",
+      "beat": "Android: implement the website",
+      "offset": 0.0
+    },
+    {
+      "id": "android-handoff",
+      "beat": "Android: completion payload to reviewer",
+      "offset": 0.0
+    },
+    {
+      "id": "android-slack",
+      "beat": "Android: Slack queue and log",
+      "offset": 0.0
+    }
+  ],
+  "parallel": [
+    {
+      "id": "parallel-intro",
+      "beat": "Parallel session clicked",
+      "offset": 0
+    },
+    {
+      "id": "parallel-combined",
+      "beat": "Parallel: all three completed; compare combined implementation",
+      "offset": 0
+    }
+  ],
+  "protocol": [
+    {
+      "id": "protocol-inspector",
+      "beat": "Protocol: inspector",
+      "offset": 0
+    },
+    {
+      "id": "protocol-payload",
+      "beat": "Protocol: payload",
+      "offset": 0
+    },
+    {
+      "id": "protocol-code",
+      "beat": "Protocol: code",
+      "offset": 0
+    },
+    {
+      "id": "protocol-ports",
+      "beat": "Protocol: ports",
+      "offset": 0
+    },
+    {
+      "id": "protocol-run",
+      "beat": "Protocol: run",
+      "offset": 0
+    },
+    {
+      "id": "protocol-connect",
+      "beat": "Protocol: connect",
+      "offset": 0
+    },
+    {
+      "id": "protocol-send",
+      "beat": "Protocol: send",
+      "offset": 0
+    },
+    {
+      "id": "protocol-result",
+      "beat": "Protocol: result",
+      "offset": 0
+    }
+  ]
+}

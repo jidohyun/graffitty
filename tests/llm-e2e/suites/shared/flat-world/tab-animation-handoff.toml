@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "tab-animation-handoff"
+instructions = "tab-animation-handoff.md"
+goal = "Switching terminal tabs preserves text visibility, sharpness, and alignment at the start and end of the scatter animation, and each window's frame and background colour stay while its text leaves and go last, and arrive first."
+verify = "visual_continuity"
+tool_budget = 80
+turn_timeout_seconds = 240
+
+[[stages]]
+name = "Prepare config and tabs"
+tools = []
+
+[[stages]]
+name = "Switch tabs"
+tools = []
+
+[[stages]]
+name = "Verify animation handoffs"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/tab-animation-handoff.gd"

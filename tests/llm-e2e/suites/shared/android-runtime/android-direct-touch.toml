@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-direct-touch"
+goal = "Touch titles and drag node wires directly; verify client-local chrome, cursor shape, and stable typing with IME."
+instructions = "android-direct-touch.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-direct-touch"

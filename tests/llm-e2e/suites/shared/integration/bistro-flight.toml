@@ -1,0 +1,29 @@
+required_frontends = ["godot"]
+
+name = "bistro-flight"
+instructions = "bistro-flight.md"
+goal = "The real Bistro geometry, fourteen live sessions cycling through authored destinations, saved camera views, and interrupted pane arrival animations remain continuous."
+verify = "rendered_frames_and_camera_telemetry"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Open the real Bistro"
+tools = []
+
+[[stages]]
+name = "Preserve a pinched camera view"
+tools = []
+
+[[stages]]
+name = "Inspect session 14 to 13 arrival"
+tools = []
+
+[[stages]]
+name = "Interrupt the incoming pane"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/bistro-world/replays/all-destinations.gd"
+timeout_seconds = 600

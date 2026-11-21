@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-terminal-throughput"
+goal = "Stream bounded colored Unicode output from six real server PTYs; record frame intervals and reject sustained stalls."
+instructions = "android-terminal-throughput.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-terminal-throughput"

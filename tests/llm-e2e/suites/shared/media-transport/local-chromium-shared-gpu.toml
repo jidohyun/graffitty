@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "local-chromium-shared-gpu"
+instructions = "local-chromium-shared-gpu.md"
+goal = "MUST render same-host chromium frames through verified shared GPU imports, with no video/JPEG/PNG encode-decode transport."
+verify = "visual_and_transport_evidence"
+tool_budget = 150
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Verify native sharing and rendered chromium content"
+tools = []
+
+[[stages]]
+name = "Exercise resize, reconnect and resource lifetime"
+tools = []

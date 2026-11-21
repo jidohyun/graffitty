@@ -1,0 +1,30 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/scene-core",
+    "crates/secrets",
+    "crates/terminal-core",
+    "crates/client-core",
+    "crates/client-config",
+    "crates/mods",
+    "crates/fuzzy-rank",
+    "crates/dictation-audio",
+    "crates/transport",
+    "crates/platform",
+    "tests/conformance",
+    "crates/protocol",
+    "crates/graph-protocol",
+    "crates/workspace-core",
+    "apps/cli",
+    "apps/server",
+    "crates/transport/chromium-video",
+    "crates/transport/ipc",
+    "crates/platform/resource-monitor",
+    "crates/transport/auth",
+    "crates/transport/datagram",
+]
+# These forks and build-only SDK sources retain independent build settings.
+exclude = ["frontends/godot/extension", "fork/portable-pty", "build/native/accesskit/accesskit-c"]
+
+[workspace.package]
+version = "0.0.1"

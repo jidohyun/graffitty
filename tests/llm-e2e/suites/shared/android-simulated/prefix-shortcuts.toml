@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "prefix-shortcuts"
+goal = "Use an external-keyboard prefix to create a remote tab, edit numeric navigation, cancel, handle invalid targets and cancel on focus loss."
+instructions = "prefix-shortcuts.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/prefix-shortcuts.gd"

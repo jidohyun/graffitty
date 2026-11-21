@@ -1,0 +1,35 @@
+required_frontends = ["godot"]
+
+name = "last-session-shutdown"
+instructions = "last-session-shutdown.md"
+goal = "Closing a session's last pane removes that live session. Other sessions keep running, and a private server with remote access disabled stops automatically when its final session ends."
+verify = "session_inventory_and_actual_process_exit"
+tool_budget = 140
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Start an isolated local server with two live sessions"
+tools = []
+
+[[stages]]
+name = "Close panes without ending surviving sessions"
+tools = []
+
+[[stages]]
+name = "Close the last pane of one session"
+tools = []
+
+[[stages]]
+name = "Close sessions explicitly"
+tools = []
+
+[[stages]]
+name = "Close the last pane of the last session"
+tools = []
+
+[[stages]]
+name = "Preserve detached sessions and restart after automatic shutdown"
+tools = []
+
+# No adapter currently observes every close route and natural server exit before
+# fixture teardown. Missing frontend bindings must remain BLOCKED.

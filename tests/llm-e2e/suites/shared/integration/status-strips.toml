@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "status-strips"
+instructions = "status-strips.md"
+goal = "Overview status strips follow real projected panes, show their own CPU/RAM and agent state, and preserve access to terminal contents and advertised ports."
+verify = "real_resources_projected_placement_and_rendered_ui"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Read real per-pane status"
+tools = []
+
+[[stages]]
+name = "Pan and avoid ports"
+tools = []
+
+[[stages]]
+name = "Check hidden and unavailable states"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "status-strips"]

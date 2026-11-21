@@ -1,0 +1,14 @@
+required_frontends = ["godot"]
+platforms = ["windows"]
+name = "elevated-pane-titles"
+instructions = "pane-titles.md"
+goal = "Elevated Windows panes show actual titles instead of only a localized Administrator prefix."
+verify = "real_shell_token_and_visible_pane_titles"
+requires_headful = true
+[[stages]]
+name = "Verify elevated shells, integration modes, title changes and pins"
+tools = []
+[adapters.godot]
+kind = "python"
+script = "../../../../platform/windows/windows_pane_titles_e2e.py"
+args = ["--elevated", "true"]

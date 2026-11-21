@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-remote-state"
+goal = "Reuse remote client replay inside the APK: Unicode, ANSI, graph and StatusStrip, shared resize, reconnect, latency and authentication."
+instructions = "android-remote-state.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-remote-state"

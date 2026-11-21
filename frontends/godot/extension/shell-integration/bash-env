@@ -1,0 +1,15 @@
+# ENV is read for interactive POSIX-mode startup, including login shells.
+if [[ -n ${GRAFFITTY_ORIGINAL_ENV+x} ]]; then export ENV=$GRAFFITTY_ORIGINAL_ENV; else unset ENV; fi
+unset GRAFFITTY_ORIGINAL_ENV
+set +o posix
+if shopt -q login_shell; then
+  [[ ! -r /etc/profile ]] || source /etc/profile
+  for _graffitty_rc in "$HOME/.bash_profile" "$HOME/.bash_login" "$HOME/.profile"; do
+    if [[ -r $_graffitty_rc ]]; then source "$_graffitty_rc"; break; fi
+  done
+else
+  [[ ! -r /etc/bash.bashrc ]] || source /etc/bash.bashrc
+  [[ ! -r $HOME/.bashrc ]] || source "$HOME/.bashrc"
+fi
+unset _graffitty_rc
+source "$GRAFFITTY_RESOURCES_DIR/integration.sh"

@@ -1,0 +1,90 @@
+--- a/ui/views/widget/desktop_aura/desktop_window_tree_host_platform.h
++++ b/ui/views/widget/desktop_aura/desktop_window_tree_host_platform.h
+@@ -57,6 +57,12 @@
+   // A way of converting a |widget| into this object.
+   static DesktopWindowTreeHostPlatform* GetHostForWidget(
+       gfx::AcceleratedWidget widget);
++
++  // Render a logically visible widget to a GPU offscreen output surface.
++  // Its platform window stays unmapped, including before the first Show().
++  // Used by embedders that capture the compositor without a desktop window.
++  void SetOffscreenCapture(bool enabled);
++  bool offscreen_capture() const { return offscreen_capture_; }
+ 
+   // Get all open top-level windows. This includes windows that may not be
+   // visible. This list is sorted in their stacking order, i.e. the first window
+@@ -255,6 +261,7 @@
+   const base::WeakPtr<internal::NativeWidgetDelegate> native_widget_delegate_;
+   const raw_ptr<DesktopNativeWidgetAura> desktop_native_widget_aura_;
+ 
++  bool offscreen_capture_ = false;
+   bool is_active_ = false;
+ 
+   // Holds the platform window's paint-as-active hint. Null on platforms that
+--- a/ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc
++++ b/ui/views/widget/desktop_aura/desktop_window_tree_host_platform.cc
+@@ -454,6 +454,23 @@
+   return this;
+ }
+ 
++void DesktopWindowTreeHostPlatform::SetOffscreenCapture(bool enabled) {
++  if (offscreen_capture_ == enabled)
++    return;
++  CHECK(compositor());
++  const bool was_visible = compositor()->IsVisible();
++  compositor()->SetVisible(false);
++  // Release synchronously retires the old output surface before the native
++  // surface is unmapped or reused. The new sink retains GPU compositing.
++  compositor()->ReleaseAcceleratedWidget();
++  offscreen_capture_ = enabled;
++  if (enabled)
++    platform_window()->Hide();
++  compositor()->SetAcceleratedWidget(enabled ? gfx::kNullAcceleratedWidget
++                                            : GetAcceleratedWidget());
++  compositor()->SetVisible(was_visible);
++}
++
+ void DesktopWindowTreeHostPlatform::Show(ui::mojom::WindowShowState show_state,
+                                          const gfx::Rect& restore_bounds) {
+   OnAcceleratedWidgetMadeVisible(true);
+@@ -461,6 +478,12 @@
+     compositor()->SetVisible(true);
+   }
+ 
++  if (offscreen_capture_) {
++    if (!GetContentWindow()->IsVisible())
++      GetContentWindow()->Show();
++    native_widget_delegate_->OnNativeWidgetVisibilityChanged(true);
++    return;
++  }
+   platform_window()->Show(DetermineInactivity(show_state));
+ 
+   auto weak_ptr = weak_factory_.GetWeakPtr();
+@@ -528,7 +551,8 @@
+ }
+ 
+ bool DesktopWindowTreeHostPlatform::IsVisible() const {
+-  return platform_window() && platform_window()->IsVisible();
++  return offscreen_capture_ ? desktop_native_widget_aura_->content_window()->IsVisible()
++                            : platform_window() && platform_window()->IsVisible();
+ }
+ 
+ void DesktopWindowTreeHostPlatform::SetSize(const gfx::Size& size) {
+@@ -649,6 +673,8 @@
+ }
+ 
+ void DesktopWindowTreeHostPlatform::Activate() {
++  if (offscreen_capture_)
++    return;
+   if (WidgetActivationDelegate::Get()) {
+     WidgetActivationDelegate::Get()->MaybeActivate(GetWidget(),
+                                                    /*activate=*/true);
+@@ -666,6 +692,8 @@
+ }
+ 
+ bool DesktopWindowTreeHostPlatform::IsActive() const {
++  if (offscreen_capture_)
++    return false;
+   if (WidgetActivationDelegate::Get()) {
+     return WidgetActivationDelegate::Get()->IsActive(GetWidget());
+   }

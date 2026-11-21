@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "windows": [
+    {
+      "active": 1,
+      "position": [
+        100,
+        100
+      ],
+      "size": [
+        1000,
+        700
+      ],
+      "mode": 0,
+      "plugin": "",
+      "panes": [
+        {
+          "id": 1,
+          "pid": -1,
+          "cwd": "/tmp",
+          "title": "Pane 1"
+        },
+        {
+          "id": 2,
+          "pid": -1,
+          "cwd": "/tmp",
+          "title": "Pane 2"
+        },
+        {
+          "id": 3,
+          "pid": -1,
+          "cwd": "/tmp",
+          "title": "Pane 3"
+        }
+      ],
+      "tabs": [
+        {
+          "id": 1,
+          "title": "Pair",
+          "focused": "%2",
+          "tree": {
+            "windows": [
+              {
+                "pane": "%1",
+                "shown": true,
+                "rect": {
+                  "rect2": [
+                    20,
+                    80,
+                    420,
+                    500
+                  ]
+                }
+              },
+              {
+                "pane": "%2",
+                "shown": true,
+                "rect": {
+                  "rect2": [
+                    470,
+                    80,
+                    420,
+                    500
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": 3,
+          "focused": "%3",
+          "tree": {
+            "pane": "%3",
+            "shown": true,
+            "rect": {
+              "rect2": [
+                -500,
+                100,
+                400,
+                300
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "active": 19,
+      "position": [
+        140,
+        100
+      ],
+      "size": [
+        1000,
+        700
+      ],
+      "mode": 0,
+      "plugin": "",
+      "panes": [
+        {
+          "id": 10,
+          "pid": -1,
+          "cwd": "/tmp",
+          "title": "Pane 10"
+        },
+        {
+          "id": 11,
+          "pid": -1,
+          "cwd": "/tmp",
+          "title": "Pane 11"
+        },
+        {
+          "id": 12,
+          "pid": -1,
+          "cwd": "/tmp",
+          "title": "Pane 12"
+        }
+      ],
+      "tabs": [
+        {
+          "id": 19,
+          "title": "Pair",
+          "focused": "%11",
+          "tree": {
+            "windows": [
+              {
+                "pane": "%10",
+                "shown": true,
+                "rect": {
+                  "rect2": [
+                    20,
+                    80,
+                    420,
+                    500
+                  ]
+                }
+              },
+              {
+                "pane": "%11",
+                "shown": true,
+                "rect": {
+                  "rect2": [
+                    470,
+                    80,
+                    420,
+                    500
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": 12,
+          "focused": "%12",
+          "tree": {
+            "pane": "%12",
+            "shown": true,
+            "rect": {
+              "rect2": [
+                -500,
+                100,
+                400,
+                300
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

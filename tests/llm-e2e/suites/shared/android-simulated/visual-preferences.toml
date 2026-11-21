@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "visual-preferences"
+goal = "Change the focused remote pane font independently and select every cursor trail style, including Off, while terminal output continues."
+instructions = "visual-preferences.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/visual-preferences.gd"

@@ -1,0 +1,11 @@
+[package]
+name = "graffitty-fuzzy-rank"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+# `safe_read` disables frizbee's deliberate page-bounded over-read; candidate
+# lists here are tiny, so its speedup does not matter.
+frizbee = { version = "0.13.0", features = ["safe_read"] }

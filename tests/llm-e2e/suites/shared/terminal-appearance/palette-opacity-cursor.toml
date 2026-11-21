@@ -1,0 +1,22 @@
+required_frontends = ["godot"]
+
+name = "palette-opacity-cursor"
+instructions = "palette-opacity-cursor.md"
+goal = "Terminal appearance settings affect real terminal pixels while application colors, cursor modes and live PTYs remain correct."
+verify = "real_vt_raster_alpha_cursor_phase_and_godot_controls"
+tool_budget = 60
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect terminal colors and translucency"
+tools = []
+
+[[stages]]
+name = "Inspect cursor phases and actual Appearance controls"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_appearance_e2e.py"
+args = ["--mode", "palette"]

@@ -1,0 +1,22 @@
+{
+  "type": "bgm",
+  "provider": "Audiio",
+  "origin": "user-supplied download",
+  "original_filename": "Audiio_Ben-Laver_Sonder_Keeper_Instrumental.wav",
+  "source": "assets/music/Audiio_Ben-Laver_Sonder_Keeper_Instrumental.wav",
+  "sha256": "987d2b6c2d5737a0be8c24c69a5c6dfd68ae4759b0e77dcf7a90ad97cf123846",
+  "original_duration_seconds": 297.593968,
+  "original_sample_rate": 44100,
+  "channels": 2,
+  "bed": "assets/music/bed.flac",
+  "profile": "music-profile.json",
+  "processing": {
+    "source_gain_db": -10,
+    "fade_in_seconds": 1.5,
+    "fade_out_seconds": 5,
+    "carve_strength": 0.65,
+    "analysis": "HyperFrames core 0.8.167, all fifteen narration clips",
+    "bake": "Web Audio OfflineAudioContext, 48 kHz stereo, 10 ms dB envelope interpolation"
+  },
+  "dvc": "../assets.dvc"
+}

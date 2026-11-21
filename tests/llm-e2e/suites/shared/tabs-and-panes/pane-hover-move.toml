@@ -1,0 +1,36 @@
+required_frontends = ["godot"]
+
+name = "pane-hover-move"
+instructions = "pane-hover-move.md"
+goal = "Holding a dragged window on another tab for half a second previews that tab; moving into its content and releasing moves the window there, landing where it was dropped. Escape during the preview restores everything."
+verify = "pane_move"
+tool_budget = 140
+turn_timeout_seconds = 420
+
+[[stages]]
+name = "Prepare a tab with two windows"
+tools = []
+
+[[stages]]
+name = "Cancel a preview"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Hover another tab"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Drop the window inside"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify the moved window"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-hover-move.gd"

@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "tab-reorder"
+instructions = "tab-reorder.md"
+goal = "Dragging a workspace tab along the tab bar reorders the tabs live and on release, keeps the dragged tab selected and its shell alive, and creates no window."
+verify = "tab_order"
+tool_budget = 80
+turn_timeout_seconds = 240
+
+[[stages]]
+name = "Prepare labelled tabs"
+tools = []
+
+[[stages]]
+name = "Drag a tab along the bar"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify the new order"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-reorder.gd"

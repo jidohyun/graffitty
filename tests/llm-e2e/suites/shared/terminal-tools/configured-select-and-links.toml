@@ -1,0 +1,22 @@
+required_frontends = ["godot"]
+
+name = "configured-select-and-links"
+instructions = "configured-select-and-links.md"
+goal = "Configured Quick Select labels, hyperlink handlers and small fonts affect real terminal input and rendering."
+verify = "real_vt_matches_pty_bytes_pointer_actions_and_pixels"
+tool_budget = 60
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect configured labels and input evidence"
+tools = []
+
+[[stages]]
+name = "Inspect literal hyperlink routing and restored terminal"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_private_replay.py"
+args = ["--replay", "tests/llm-e2e/suites/godot/integration/replays/custom-tools.gd"]

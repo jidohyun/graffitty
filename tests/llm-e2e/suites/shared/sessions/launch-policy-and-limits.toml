@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "launch-policy-and-limits"
+instructions = "launch-policy-and-limits.md"
+goal = "New-session shell integration and page-rounded history byte budgets/image limits affect real PTYs and survive checkpoint reconstruction without changing existing sessions."
+verify = "real_shell_semantic_markers_and_checkpoint_policy"
+tool_budget = 140
+turn_timeout_seconds = 480
+
+[[stages]]
+name = "Configure isolated shell hooks and per-session budgets"
+tools = []
+
+[[stages]]
+name = "Exercise history and image policy"
+tools = []
+
+[[stages]]
+name = "Reattach fresh mirrors to the retained server"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "launch-policy"]

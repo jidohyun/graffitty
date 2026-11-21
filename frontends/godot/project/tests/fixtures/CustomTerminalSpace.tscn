@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/TerminalSpace.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/TerminalTabBar.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://tests/fixtures/CustomPaneHeader.tscn" id="3"]
+
+[node name="CustomTerminalSpace" instance=ExtResource("1")]
+pane_header_scene = ExtResource("3")
+tab_strip_path = NodePath("MyTabs")
+tile_button_path = NodePath("MyTile")
+split_right_button_path = NodePath("MySplitRight")
+split_down_button_path = NodePath("MySplitDown")
+
+[node name="MyTabs" parent="." instance=ExtResource("2")]
+
+[node name="MyTile" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 56.0
+offset_bottom = 70.0
+
+[node name="MySplitRight" type="Button" parent="."]
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 110.0
+offset_bottom = 70.0
+
+[node name="MySplitDown" type="Button" parent="."]
+offset_left = 114.0
+offset_top = 40.0
+offset_right = 164.0
+offset_bottom = 70.0

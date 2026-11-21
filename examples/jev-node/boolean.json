@@ -1,0 +1,5 @@
+{
+  "question": "Does the latest conversation talk about coding?",
+  "threshold": 0.5,
+  "output_colors": { "True": "#89ddbd", "False": "#ff8585" }
+}

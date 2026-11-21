@@ -1,0 +1,185 @@
+{
+  "cases": [
+    {
+      "source": "",
+      "members": "0000000000000000000000000000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "@,48-57,_,192-255",
+      "members": "000000000000ff03feffff87feffff070000000000002000ffffffffffffffff",
+      "valid": true
+    },
+    {
+      "source": "@",
+      "members": "0000000000000000feffff07feffff070000000000002000ffff7fffffff7fff",
+      "valid": true
+    },
+    {
+      "source": "@,^a-z",
+      "members": "0000000000000000feffff07000000000000000000002000ffff7fffffff7fff",
+      "valid": true
+    },
+    {
+      "source": "@,^@,_",
+      "members": "0000000000000000000000800000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "48-57,,,_",
+      "members": "000000000010ff03000000800000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": " -~,^,,9",
+      "members": "00020000ffefffffffffffffffffff7f00000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "_,-,128-140,#-43",
+      "members": "00000000f82f00000000008000000000ff1f0000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "a-z,A-Z,@-@",
+      "members": "0000000000000000ffffff07feffff0700000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "^a-z,#,^",
+      "members": "0000000008000000000000400000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "^",
+      "members": "0000000000000000000000400000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "^,",
+      "members": "0000000000000000000000000000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "a,,",
+      "members": "0000000000100000000000000200000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "a, b",
+      "members": "0000000000000000000000000600000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "a, ",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "a-c,^b,b",
+      "members": "0000000000000000000000000e00000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "^a",
+      "members": "0000000000000000000000000000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "1-255,^65-90,88",
+      "members": "feffffffffffffff010000f9ffffffffffffffffffffffffffffffffffffffff",
+      "valid": true
+    },
+    {
+      "source": "é",
+      "members": "0000000000000000000000000000000000000000000000000000000000020000",
+      "valid": true
+    },
+    {
+      "source": "-",
+      "members": "0000000000200000000000000000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "---",
+      "members": "0000000000200000000000000000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "@,",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": ",",
+      "members": "0000000000100000000000000000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": ",,",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "0",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "256",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "1-256",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "z-a",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "a-",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "ab",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "^,a",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "가",
+      "members": "",
+      "valid": false
+    },
+    {
+      "source": "\\",
+      "members": "0000000000000000000000100000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "94",
+      "members": "0000000000000000000000400000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "9-13,32",
+      "members": "003e000001000000000000000000000000000000000000000000000000000000",
+      "valid": true
+    },
+    {
+      "source": "a,\tb",
+      "members": "",
+      "valid": false
+    }
+  ],
+  "generator": "Neovim 0.12.4 --clean; \\k for codepoints 1..255; least-significant bit first"
+}

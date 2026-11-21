@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-filetree-layout"
+goal = "Open a real Mac filetree and viewer through the Android federation, checking connected placement in tiled and floating modes."
+instructions = "android-filetree-layout.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-filetree-layout"

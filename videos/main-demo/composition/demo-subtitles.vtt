@@ -1,0 +1,425 @@
+WEBVTT
+
+1
+00:00:00.367 --> 00:00:02.250
+Graffitty is a terminal emulator,
+
+2
+00:00:02.250 --> 00:00:04.217
+with a tiling manager and Chromium.
+
+3
+00:00:07.117 --> 00:00:08.717
+But if you zoom out, you'll notice
+
+4
+00:00:08.717 --> 00:00:10.533
+there's much more space to work with.
+
+5
+00:00:11.600 --> 00:00:13.983
+Each pane shows CPU, RAM usage,
+
+6
+00:00:13.983 --> 00:00:15.470
+and agent status.
+
+7
+00:00:16.300 --> 00:00:18.400
+Stash a pane outside the main view.
+
+8
+00:00:19.517 --> 00:00:21.717
+You can return to the main view at any time.
+
+9
+00:00:22.767 --> 00:00:24.467
+Or jump back to your previous view
+
+10
+00:00:24.467 --> 00:00:25.967
+and take a closer look at any pane.
+
+11
+00:00:32.350 --> 00:00:34.067
+The builtin filetree is synchronised
+
+12
+00:00:34.067 --> 00:00:35.650
+with the shell's current working directory.
+
+13
+00:00:39.833 --> 00:00:42.283
+You can edit the file name like editing a vim buffer,
+
+14
+00:00:42.283 --> 00:00:43.570
+and save to apply it.
+
+15
+00:00:49.367 --> 00:00:51.267
+Opening the files opens Neovim,
+
+16
+00:00:51.267 --> 00:00:54.200
+or Chromium to preview all kinds of media.
+
+17
+00:01:03.100 --> 00:01:05.300
+You can also send file paths to the terminal,
+
+18
+00:01:05.300 --> 00:01:07.877
+allowing you to change directory or open files.
+
+19
+00:01:09.133 --> 00:01:10.750
+Get creative with Chromium.
+
+20
+00:01:10.750 --> 00:01:12.617
+It's a versatile viewer that handles things
+
+21
+00:01:12.617 --> 00:01:15.117
+traditional terminals often need workarounds for.
+
+22
+00:01:15.300 --> 00:01:18.133
+For example, use the MarkdownPreview plugin
+
+23
+00:01:18.133 --> 00:01:20.433
+in Neovim to open Graffitty Chromium.
+
+24
+00:01:20.433 --> 00:01:22.367
+Now you have a live Markdown preview
+
+25
+00:01:22.367 --> 00:01:24.017
+right inside your terminal.
+
+26
+00:01:28.867 --> 00:01:30.917
+Ask Claude to explain with a diagram.
+
+27
+00:01:30.917 --> 00:01:33.817
+Graffitty Chromium will open right beside your terminal.
+
+28
+00:01:46.117 --> 00:01:47.317
+Multiple agents can each use
+
+29
+00:01:47.317 --> 00:01:49.133
+an isolated Chromium session,
+
+30
+00:01:49.133 --> 00:01:51.530
+so they can run end-to-end tests in parallel.
+
+31
+00:01:57.233 --> 00:01:59.417
+You can also use Chromium's native interface
+
+32
+00:01:59.417 --> 00:02:00.717
+in a separate window.
+
+33
+00:02:00.883 --> 00:02:02.767
+Closing that window doesn't close Chromium.
+
+34
+00:02:02.767 --> 00:02:05.417
+It simply brings the same chromium back into Graffitty.
+
+35
+00:02:08.900 --> 00:02:11.833
+One thing I find frustrating about agentic coding
+
+36
+00:02:11.933 --> 00:02:14.867
+is how quickly agents can open a jumble of windows.
+
+37
+00:02:15.150 --> 00:02:17.100
+They get in the way, steal focus,
+
+38
+00:02:17.100 --> 00:02:20.550
+and make it hard to tell which agent is using which browser.
+
+39
+00:02:20.683 --> 00:02:22.717
+That's why Graffitty shows clear ownership
+
+40
+00:02:22.717 --> 00:02:24.183
+with a connecting line.
+
+41
+00:02:24.183 --> 00:02:26.133
+You can move chromiums out of the main view
+
+42
+00:02:26.150 --> 00:02:27.747
+and still see who's using them.
+
+43
+00:02:30.917 --> 00:02:33.583
+The down arrow gives you a summary of every tab,
+
+44
+00:02:33.583 --> 00:02:35.917
+including its panes, CPU and RAM usage,
+
+45
+00:02:35.917 --> 00:02:37.117
+and agent status.
+
+46
+00:02:37.117 --> 00:02:40.517
+Type to fuzzy search tab and pane titles.
+
+47
+00:02:42.383 --> 00:02:45.033
+Aren't you already used to Vim's command line?
+
+48
+00:02:45.033 --> 00:02:46.200
+The same thing is here,
+
+49
+00:02:46.200 --> 00:02:47.983
+with a fuzzy finder built in.
+
+50
+00:02:47.983 --> 00:02:49.083
+You no longer have to keep
+
+51
+00:02:49.083 --> 00:02:51.317
+every terminal feature as a key map.
+
+52
+00:02:51.317 --> 00:02:53.667
+Search commands, switch tabs, or jump to a pane.
+
+53
+00:02:54.867 --> 00:02:56.717
+Just like tmux keeps your session alive
+
+54
+00:02:56.717 --> 00:02:58.150
+on an SSH server,
+
+55
+00:02:58.150 --> 00:02:59.533
+you can detach from Graffitty
+
+56
+00:02:59.533 --> 00:03:01.150
+and attach again any time.
+
+57
+00:03:01.150 --> 00:03:02.733
+It even has mobile clients,
+
+58
+00:03:02.733 --> 00:03:04.250
+so you can code wherever you are.
+
+59
+00:03:08.950 --> 00:03:10.867
+Let me explain how the graph feature works.
+
+60
+00:03:10.867 --> 00:03:13.683
+Each terminal pane can advertise itself as a node,
+
+61
+00:03:13.683 --> 00:03:15.867
+so it can queue messages to another pane.
+
+62
+00:03:16.167 --> 00:03:19.283
+For example, Codex on the left implements a feature
+
+63
+00:03:19.283 --> 00:03:21.433
+and sends its work to Claude in the middle.
+
+64
+00:03:22.033 --> 00:03:24.000
+Claude only sends to the Slack node
+
+65
+00:03:24.000 --> 00:03:25.000
+when a condition is met
+
+66
+00:03:25.000 --> 00:03:26.150
+that the user needs to know about.
+
+67
+00:03:33.467 --> 00:03:36.333
+Now ask Codex to implement the website.
+
+68
+00:03:38.083 --> 00:03:39.167
+When Codex finishes,
+
+69
+00:03:39.317 --> 00:03:41.880
+Claude receives its session and checks the work.
+
+70
+00:03:48.617 --> 00:03:50.167
+Claude finds missing requirements
+
+71
+00:03:50.167 --> 00:03:51.417
+and sends the review to Slack.
+
+72
+00:03:54.817 --> 00:03:56.433
+Graph is very useful when you want
+
+73
+00:03:56.433 --> 00:03:58.167
+to quickly prototype a pipeline.
+
+74
+00:03:58.317 --> 00:04:00.117
+This SystemOne node that calls
+
+75
+00:04:00.117 --> 00:04:01.433
+the JEV decision model in the middle
+
+76
+00:04:01.433 --> 00:04:03.000
+will route the session for you
+
+77
+00:04:03.000 --> 00:04:04.150
+based on your question!
+
+78
+00:04:15.233 --> 00:04:16.433
+The parallel node waits
+
+79
+00:04:16.433 --> 00:04:18.073
+until every agent finishes.
+
+80
+00:04:23.267 --> 00:04:24.467
+Once all three finish,
+
+81
+00:04:24.467 --> 00:04:26.750
+it sends their results and session references
+
+82
+00:04:26.750 --> 00:04:27.900
+together to the reviewer.
+
+83
+00:04:31.700 --> 00:04:33.417
+You can even make your own custom node
+
+84
+00:04:33.417 --> 00:04:36.017
+very easily with Graffitty Graph Protocol.
+
+85
+00:04:36.067 --> 00:04:38.967
+First, let's use the Payload Inspector node,
+
+86
+00:04:38.967 --> 00:04:41.013
+which shows what data are sent through the graph.
+
+87
+00:04:41.817 --> 00:04:43.717
+It sends just enough information
+
+88
+00:04:43.717 --> 00:04:45.150
+for the next node to process,
+
+89
+00:04:45.150 --> 00:04:47.933
+like the session file path and the last message.
+
+90
+00:04:49.133 --> 00:04:51.017
+Here is a minimal Python example
+
+91
+00:04:51.017 --> 00:04:52.683
+that uses the GGP protocol
+
+92
+00:04:52.683 --> 00:04:55.217
+to convert the data to uppercase.
+
+93
+00:04:56.333 --> 00:04:58.300
+Define the input and output ports,
+
+94
+00:04:58.450 --> 00:05:00.483
+process the data, and send it on.
+
+95
+00:05:01.733 --> 00:05:02.150
+Run it.
+
+96
+00:05:02.667 --> 00:05:03.960
+Connect the nodes,
+
+97
+00:05:05.717 --> 00:05:06.627
+Send the message.
+
+98
+00:05:11.883 --> 00:05:14.683
+This node converts the message to uppercase.
+
+99
+00:05:14.683 --> 00:05:17.000
+The Payload Inspector shows the result.
+
+100
+00:05:17.083 --> 00:05:17.843
+That's it.
+
+101
+00:05:21.050 --> 00:05:22.950
+This makes your graph pipeline versatile.
+
+102
+00:05:23.067 --> 00:05:24.767
+For example, create a simple watcher node
+
+103
+00:05:24.767 --> 00:05:27.450
+that triggers your agent when a condition is met.
+
+104
+00:05:33.967 --> 00:05:35.437
+Connect the watcher to Claude.
+
+105
+00:05:36.267 --> 00:05:37.667
+A new email arrives,
+
+106
+00:05:37.667 --> 00:05:40.367
+and Claude makes a podcast just as it's told to!

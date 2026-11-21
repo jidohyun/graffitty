@@ -1,0 +1,16 @@
+[package]
+name = "graffitty-chromium-video"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+
+[build-dependencies]
+cc = "1"
+pkg-config = "0.3"
+
+[[example]]
+name = "linux_capture_test"
+crate-type = ["cdylib"]

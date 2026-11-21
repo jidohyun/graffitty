@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "tab-reorder"
+goal = "Drag a tab with one finger to the end, preserve its selected state and order through server updates, and send input afterward."
+instructions = "tab-reorder.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/tab-reorder.gd"

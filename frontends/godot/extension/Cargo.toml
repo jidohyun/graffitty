@@ -1,0 +1,114 @@
+[package]
+name = "graffitty-godot"
+version = "0.0.1"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+name = "graffitty"
+# GDExtensions are loaded as dynamic libraries; gdext produces libgraffitty.so.
+crate-type = ["cdylib"]
+
+# The editor loads the debug build; keep the FFI-heavy deps optimized.
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+# libghostty-vt-sys selects Zig Debug whenever Cargo's DEBUG is true,
+# regardless of opt-level. Keep the native VT in ReleaseFast while the
+# Godot adapter retains debug information and incremental compilation.
+[profile.dev.package.libghostty-vt-sys]
+debug = false
+
+[profile.release]
+strip = true
+lto = "thin"
+
+[features]
+default = []
+
+[dependencies]
+graffitty-scene-core = { path = "../../../crates/scene-core" }
+graffitty-dictation-audio = { path = "../../../crates/dictation-audio", features = ["device-capture"] }
+anyhow = "1"
+graffitty-terminal-core = { path = "../../../crates/terminal-core" }
+graffitty-workspace-core = { path = "../../../crates/workspace-core" }
+graffitty-client-core = { path = "../../../crates/client-core" }
+graffitty-client-config = { path = "../../../crates/client-config" }
+graffitty-mods = { path = "../../../crates/mods" }
+serde = "1"
+graffitty-fuzzy-rank = { path = "../../../crates/fuzzy-rank" }
+graffitty-protocol = { path = "../../../crates/protocol" }
+graffitty-chromium-video = { path = "../../../crates/transport/chromium-video" }
+graffitty-session-transport = { path = "../../../crates/transport/ipc" }
+graffitty-remote-auth = { path = "../../../crates/transport/auth" }
+graffitty-video-datagram = { path = "../../../crates/transport/datagram" }
+serde_json = "1.0.151"
+toml = "1.2.1"
+sha2 = "0.11.1"
+fancy-regex = "0.20.1"
+base64 = "0.23.1"
+godot = { version = "0.5.5", features = ["api-4-7"] }
+# wcwidth for the preedit: a composing syllable is not in the grid yet, so its
+# cell advance cannot come from the vt the way every other cell's does.
+unicode-width = "0.2.2"
+# PNG for the Kitty graphics protocol. libghostty hands the bytes to whatever
+# decoder its embedder registers; see GodotPngDecoder / PngCrateDecoder.
+png = "0.18.1"
+notify = "8.2.0"
+terminal-resource-monitor = { path = "../../../crates/platform/resource-monitor" }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+cpal = "0.18.2"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.190"
+rustix = { version = "1.1.5", features = ["fs", "event", "process"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+# ChromiumGpuReceiver is called on Godot's render thread, which may differ from
+# the main thread. Its native Vulkan state remains confined to that thread.
+godot = { version = "0.5.5", features = ["experimental-threads"] }
+x11-dl = "2.21.0"
+
+[target.'cfg(target_os = "android")'.dependencies]
+libloading = "0.9.0"
+# The video decoder prepares immutable packed bytes on its worker. No scene,
+# resource or rendering objects are accessed from that thread.
+godot = { version = "0.5.5", features = ["experimental-threads"] }
+
+[build-dependencies]
+cc = "1.6.0"
+
+# Direct dep so build.rs receives DEP_GHOSTTY_VT_INCLUDE for the .lib alias.
+[target.'cfg(windows)'.dependencies]
+# Direct Manipulation reports precision touchpad gestures with their phases.
+# `windows-core` is named by the `implement` macro's expansion.
+windows-core = "0.62.2"
+windows = { version = "0.62.2", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_DirectManipulation",
+    "Win32_Graphics_Gdi",
+    "Win32_System_Com",
+    "Win32_UI_HiDpi",
+    "Win32_UI_Input_Pointer",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+] }
+libghostty-vt-sys = { git = "https://github.com/uzaaft/libghostty-rs", rev = "768add93c54ccdba3f5c4d8763789ab6416f3151" }
+
+[target.'cfg(target_os = "ios")'.dependencies]
+security-framework = "3.7"
+# Immutable NV12 packed arrays are prepared on the video decoder worker.
+godot = { version = "0.5.5", features = ["experimental-threads"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+keyring = { version = "4.2.0", features = ["v1"] }
+[target.'cfg(target_os = "windows")'.dependencies]
+keyring = { version = "4.2.0", features = ["v1"] }
+[target.'cfg(target_os = "linux")'.dependencies.keyring]
+version = "4.2.0"
+features = ["v1"]

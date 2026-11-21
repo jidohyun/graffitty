@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "pane-edge-resize"
+instructions = "pane-edge-resize.md"
+goal = "A single tiled pane fills the main area; shared pane edges and corners resize adjacent tiles, floating corner grips resize both dimensions, and all shells survive."
+verify = "state_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Expanded first pane and icons"
+tools = []
+
+[[stages]]
+name = "Left edge and diagonal tiled corner"
+tools = []
+
+[[stages]]
+name = "Cancel and floating corner"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-edge-resize.gd"

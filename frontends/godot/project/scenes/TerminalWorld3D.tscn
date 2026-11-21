@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/TerminalWorld3D.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/TerminalSpace3D.tscn" id="2"]
+
+[node name="TerminalWorld3D" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Spaces" type="Node3D" parent="."]
+
+[node name="Desk" parent="Spaces" instance=ExtResource("2")]

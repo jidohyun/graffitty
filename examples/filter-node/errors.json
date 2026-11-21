@@ -1,0 +1,8 @@
+{
+  "name": "Find errors",
+  "input": ".text",
+  "condition": "ascii_downcase | contains(\"error\")",
+  "transform": "",
+  "output_names": {"matched": "Needs attention", "unmatched": "No errors"},
+  "output_colors": {"matched": "#ff8585", "unmatched": "#89ddbd"}
+}

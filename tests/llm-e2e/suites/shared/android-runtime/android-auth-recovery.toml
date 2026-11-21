@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-auth-recovery"
+goal = "Reject an incorrect password, keep existing workspaces connected, mask and clear the failed secret, then correct credentials through the production form."
+instructions = "android-auth-recovery.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-auth-recovery"

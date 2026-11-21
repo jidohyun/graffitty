@@ -1,0 +1,28 @@
+required_frontends = ["godot"]
+
+name = "fit-to-pane"
+instructions = "fit-to-pane.md"
+goal = "The platform fit shortcut and title double-click share an animated fit/restore toggle, with a centered 30% fallback when already fitted without history. Navigation preserves pane layout, focus, and sessions."
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "First launch without view history"
+tools = []
+
+[[stages]]
+name = "Animated fit and restore"
+tools = []
+
+[[stages]]
+name = "Pan and zoom invalidate restore"
+tools = []
+
+[[stages]]
+name = "Interrupted animation and session preservation"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/fit-to-pane.gd"

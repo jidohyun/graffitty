@@ -1,0 +1,21 @@
+required_frontends = ["godot"]
+
+name = "rich-clipboard"
+instructions = "rich-clipboard.md"
+goal = "OSC5522 transfers preserve actual binary and Unicode clipboard formats and enforce scoped consent without OS clipboard access."
+verify = "live_raw_pty_bytes_and_native_consent_pixels"
+tool_budget = 60
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect live rich clipboard transfer evidence"
+tools = []
+
+[[stages]]
+name = "Inspect actual frontend consent and record scoped visual review"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_rich_clipboard_e2e.py"

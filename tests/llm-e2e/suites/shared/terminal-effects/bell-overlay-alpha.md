@@ -1,0 +1,5 @@
+For Godot, run the bound `terminal-effects/bell-overlay-alpha` replay and record it. It starts a real Python raw-console probe in the production server's PTY, opens Bistro, and retains PNGs and sampled pixel measurements under the isolated state's `bell-alpha` directory. It also verifies the related integer cursor-blink interval with actual cursor pixels. Compare alpha in linear color space: Forward+ screenshots encode sRGB values.
+
+Inspect the opaque, quarter-alpha, halfway-decayed and zero-alpha captures. A real raw PTY emits BEL; this is not a direct renderer injection. The quarter-alpha image should be a restrained red tint, with a weaker tint halfway through its lifetime. The zero-alpha bell must leave the baseline unchanged.
+
+Inspect the translucent-backdrop series independently: Bistro geometry remains visible behind the terminal, the bell appears over it, and the after image returns exactly to that baseline. Retain the measured sample rectangle/median levels, original captures, control trace and first failure. This checks rendered visual bell behavior only; headless acceptance does not verify native audible playback.

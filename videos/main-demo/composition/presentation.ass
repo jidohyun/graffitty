@@ -1,0 +1,135 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Title,Open Sans SemiBold,40,&H00F4F2F1,&H00F4F2F1,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,5,100,100,0,1
+Style: Voice,Open Sans SemiBold,34,&H00F4F2F1,&H00F4F2F1,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,0,1,5,100,100,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:32.18,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Terminal with tiling windows{\c&HF4F2F1&}
+Dialogue: 0,0:00:32.18,0:00:39.65,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Filetree{\c&HF4F2F1&}
+Dialogue: 0,0:00:39.65,0:00:49.37,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Filetree:{\c&HF4F2F1&} Edit filenames like a vim buffer
+Dialogue: 0,0:00:49.37,0:01:02.92,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Filetree:{\c&HF4F2F1&} Open text files in nvim, and image/video/pdf in chromium
+Dialogue: 0,0:01:02.92,0:01:08.68,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Filetree:{\c&HF4F2F1&} Send paths to the terminal
+Dialogue: 0,0:01:08.68,0:01:24.68,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Chromium:{\c&HF4F2F1&} Markdown preview
+Dialogue: 0,0:01:24.68,0:01:39.58,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Chromium:{\c&HF4F2F1&} Visual explanations
+Dialogue: 0,0:01:39.58,0:02:30.47,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Chromium:{\c&HF4F2F1&} Automation
+Dialogue: 0,0:02:30.47,0:02:41.85,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Tabs:{\c&HF4F2F1&} Status at a glance
+Dialogue: 0,0:02:41.85,0:02:54.38,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Command line:{\c&HF4F2F1&} Fuzzy finder built in
+Dialogue: 0,0:02:54.38,0:03:15.72,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Connect to your PC from another computer—or your phone.{\c&HF4F2F1&}
+Dialogue: 0,0:03:15.72,0:03:54.62,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Node-based agent orchestration:{\c&HF4F2F1&} Connect how agent should interact
+Dialogue: 0,0:03:54.62,0:04:14.35,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}SystemOne node:{\c&HF4F2F1&} Choose an agent for each prompt
+Dialogue: 0,0:04:14.35,0:04:28.62,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Parallel node:{\c&HF4F2F1&} Wait until all agents finish
+Dialogue: 0,0:04:28.62,0:05:20.17,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Graffitty Graph Protocol (GGP):{\c&HF4F2F1&} Make your custom node
+Dialogue: 0,0:05:20.17,0:05:41.85,Title,,0,0,0,,{\fad(280,180)\move(960,66,960,62,0,280)}{\c&HF8D8B8&}Watcher:{\c&HF4F2F1&} Turn new email into a podcast
+Dialogue: 1,0:00:00.37,0:00:02.25,Voice,,0,0,0,,{\pos(960,1008)}Graffitty is a terminal emulator,
+Dialogue: 1,0:00:02.25,0:00:04.22,Voice,,0,0,0,,{\pos(960,1008)}with a tiling manager and Chromium.
+Dialogue: 1,0:00:07.12,0:00:08.72,Voice,,0,0,0,,{\pos(960,1008)}But if you zoom out, you'll notice
+Dialogue: 1,0:00:08.72,0:00:10.53,Voice,,0,0,0,,{\pos(960,1008)}there's much more space to work with.
+Dialogue: 1,0:00:11.60,0:00:13.98,Voice,,0,0,0,,{\pos(960,1008)}Each pane shows CPU, RAM usage,
+Dialogue: 1,0:00:13.98,0:00:15.47,Voice,,0,0,0,,{\pos(960,1008)}and agent status.
+Dialogue: 1,0:00:16.30,0:00:18.40,Voice,,0,0,0,,{\pos(960,1008)}Stash a pane outside the main view.
+Dialogue: 1,0:00:19.52,0:00:21.72,Voice,,0,0,0,,{\pos(960,1008)}You can return to the main view at any time.
+Dialogue: 1,0:00:22.77,0:00:24.47,Voice,,0,0,0,,{\pos(960,1008)}Or jump back to your previous view
+Dialogue: 1,0:00:24.47,0:00:25.97,Voice,,0,0,0,,{\pos(960,1008)}and take a closer look at any pane.
+Dialogue: 1,0:00:32.35,0:00:34.07,Voice,,0,0,0,,{\pos(960,1008)}The builtin filetree is synchronised
+Dialogue: 1,0:00:34.07,0:00:35.65,Voice,,0,0,0,,{\pos(960,1008)}with the shell's current working directory.
+Dialogue: 1,0:00:39.83,0:00:42.28,Voice,,0,0,0,,{\pos(960,1008)}You can edit the file name like editing a vim buffer,
+Dialogue: 1,0:00:42.28,0:00:43.57,Voice,,0,0,0,,{\pos(960,1008)}and save to apply it.
+Dialogue: 1,0:00:49.37,0:00:51.27,Voice,,0,0,0,,{\pos(960,1008)}Opening the files opens Neovim,
+Dialogue: 1,0:00:51.27,0:00:54.20,Voice,,0,0,0,,{\pos(960,1008)}or Chromium to preview all kinds of media.
+Dialogue: 1,0:01:03.10,0:01:05.30,Voice,,0,0,0,,{\pos(960,1008)}You can also send file paths to the terminal,
+Dialogue: 1,0:01:05.30,0:01:07.88,Voice,,0,0,0,,{\pos(960,1008)}allowing you to change directory or open files.
+Dialogue: 1,0:01:09.13,0:01:10.75,Voice,,0,0,0,,{\pos(960,1008)}Get creative with Chromium.
+Dialogue: 1,0:01:10.75,0:01:12.62,Voice,,0,0,0,,{\pos(960,1008)}It's a versatile viewer that handles things
+Dialogue: 1,0:01:12.62,0:01:15.12,Voice,,0,0,0,,{\pos(960,1008)}traditional terminals often need workarounds for.
+Dialogue: 1,0:01:15.30,0:01:18.13,Voice,,0,0,0,,{\pos(960,1008)}For example, use the MarkdownPreview plugin
+Dialogue: 1,0:01:18.13,0:01:20.43,Voice,,0,0,0,,{\pos(960,1008)}in Neovim to open Graffitty Chromium.
+Dialogue: 1,0:01:20.43,0:01:22.37,Voice,,0,0,0,,{\pos(960,1008)}Now you have a live Markdown preview
+Dialogue: 1,0:01:22.37,0:01:24.02,Voice,,0,0,0,,{\pos(960,1008)}right inside your terminal.
+Dialogue: 1,0:01:28.87,0:01:30.92,Voice,,0,0,0,,{\pos(960,1008)}Ask Claude to explain with a diagram.
+Dialogue: 1,0:01:30.92,0:01:33.82,Voice,,0,0,0,,{\pos(960,1008)}Graffitty Chromium will open right beside your terminal.
+Dialogue: 1,0:01:46.12,0:01:47.32,Voice,,0,0,0,,{\pos(960,1008)}Multiple agents can each use
+Dialogue: 1,0:01:47.32,0:01:49.13,Voice,,0,0,0,,{\pos(960,1008)}an isolated Chromium session,
+Dialogue: 1,0:01:49.13,0:01:51.53,Voice,,0,0,0,,{\pos(960,1008)}so they can run end-to-end tests in parallel.
+Dialogue: 1,0:01:57.23,0:01:59.42,Voice,,0,0,0,,{\pos(960,1008)}You can also use Chromium's native interface
+Dialogue: 1,0:01:59.42,0:02:00.72,Voice,,0,0,0,,{\pos(960,1008)}in a separate window.
+Dialogue: 1,0:02:00.88,0:02:02.77,Voice,,0,0,0,,{\pos(960,1008)}Closing that window doesn't close Chromium.
+Dialogue: 1,0:02:02.77,0:02:05.42,Voice,,0,0,0,,{\pos(960,1008)}It simply brings the same chromium back into Graffitty.
+Dialogue: 1,0:02:08.90,0:02:11.83,Voice,,0,0,0,,{\pos(960,1008)}One thing I find frustrating about agentic coding
+Dialogue: 1,0:02:11.93,0:02:14.87,Voice,,0,0,0,,{\pos(960,1008)}is how quickly agents can open a jumble of windows.
+Dialogue: 1,0:02:15.15,0:02:17.10,Voice,,0,0,0,,{\pos(960,1008)}They get in the way, steal focus,
+Dialogue: 1,0:02:17.10,0:02:20.55,Voice,,0,0,0,,{\pos(960,1008)}and make it hard to tell which agent is using which browser.
+Dialogue: 1,0:02:20.68,0:02:22.72,Voice,,0,0,0,,{\pos(960,1008)}That's why Graffitty shows clear ownership
+Dialogue: 1,0:02:22.72,0:02:24.18,Voice,,0,0,0,,{\pos(960,1008)}with a connecting line.
+Dialogue: 1,0:02:24.18,0:02:26.13,Voice,,0,0,0,,{\pos(960,1008)}You can move chromiums out of the main view
+Dialogue: 1,0:02:26.15,0:02:27.75,Voice,,0,0,0,,{\pos(960,1008)}and still see who's using them.
+Dialogue: 1,0:02:30.92,0:02:33.58,Voice,,0,0,0,,{\pos(960,1008)}The down arrow gives you a summary of every tab,
+Dialogue: 1,0:02:33.58,0:02:35.92,Voice,,0,0,0,,{\pos(960,1008)}including its panes, CPU and RAM usage,
+Dialogue: 1,0:02:35.92,0:02:37.12,Voice,,0,0,0,,{\pos(960,1008)}and agent status.
+Dialogue: 1,0:02:37.12,0:02:40.52,Voice,,0,0,0,,{\pos(960,1008)}Type to fuzzy search tab and pane titles.
+Dialogue: 1,0:02:42.38,0:02:45.03,Voice,,0,0,0,,{\pos(960,1008)}Aren't you already used to Vim's command line?
+Dialogue: 1,0:02:45.03,0:02:46.20,Voice,,0,0,0,,{\pos(960,1008)}The same thing is here,
+Dialogue: 1,0:02:46.20,0:02:47.98,Voice,,0,0,0,,{\pos(960,1008)}with a fuzzy finder built in.
+Dialogue: 1,0:02:47.98,0:02:49.08,Voice,,0,0,0,,{\pos(960,1008)}You no longer have to keep
+Dialogue: 1,0:02:49.08,0:02:51.32,Voice,,0,0,0,,{\pos(960,1008)}every terminal feature as a key map.
+Dialogue: 1,0:02:51.32,0:02:53.67,Voice,,0,0,0,,{\pos(960,1008)}Search commands, switch tabs, or jump to a pane.
+Dialogue: 1,0:02:54.87,0:02:56.72,Voice,,0,0,0,,{\pos(960,1008)}Just like tmux keeps your session alive
+Dialogue: 1,0:02:56.72,0:02:58.15,Voice,,0,0,0,,{\pos(960,1008)}on an SSH server,
+Dialogue: 1,0:02:58.15,0:02:59.53,Voice,,0,0,0,,{\pos(960,1008)}you can detach from Graffitty
+Dialogue: 1,0:02:59.53,0:03:01.15,Voice,,0,0,0,,{\pos(960,1008)}and attach again any time.
+Dialogue: 1,0:03:01.15,0:03:02.73,Voice,,0,0,0,,{\pos(960,1008)}It even has mobile clients,
+Dialogue: 1,0:03:02.73,0:03:04.25,Voice,,0,0,0,,{\pos(960,1008)}so you can code wherever you are.
+Dialogue: 1,0:03:08.95,0:03:10.87,Voice,,0,0,0,,{\pos(960,1008)}Let me explain how the graph feature works.
+Dialogue: 1,0:03:10.87,0:03:13.68,Voice,,0,0,0,,{\pos(960,1008)}Each terminal pane can advertise itself as a node,
+Dialogue: 1,0:03:13.68,0:03:15.87,Voice,,0,0,0,,{\pos(960,1008)}so it can queue messages to another pane.
+Dialogue: 1,0:03:16.17,0:03:19.28,Voice,,0,0,0,,{\pos(960,1008)}For example, Codex on the left implements a feature
+Dialogue: 1,0:03:19.28,0:03:21.43,Voice,,0,0,0,,{\pos(960,1008)}and sends its work to Claude in the middle.
+Dialogue: 1,0:03:22.03,0:03:24.00,Voice,,0,0,0,,{\pos(960,1008)}Claude only sends to the Slack node
+Dialogue: 1,0:03:24.00,0:03:25.00,Voice,,0,0,0,,{\pos(960,1008)}when a condition is met
+Dialogue: 1,0:03:25.00,0:03:26.15,Voice,,0,0,0,,{\pos(960,1008)}that the user needs to know about.
+Dialogue: 1,0:03:33.47,0:03:36.33,Voice,,0,0,0,,{\pos(960,1008)}Now ask Codex to implement the website.
+Dialogue: 1,0:03:38.08,0:03:39.17,Voice,,0,0,0,,{\pos(960,1008)}When Codex finishes,
+Dialogue: 1,0:03:39.32,0:03:41.88,Voice,,0,0,0,,{\pos(960,1008)}Claude receives its session and checks the work.
+Dialogue: 1,0:03:48.62,0:03:50.17,Voice,,0,0,0,,{\pos(960,1008)}Claude finds missing requirements
+Dialogue: 1,0:03:50.17,0:03:51.42,Voice,,0,0,0,,{\pos(960,1008)}and sends the review to Slack.
+Dialogue: 1,0:03:54.82,0:03:56.43,Voice,,0,0,0,,{\pos(960,1008)}Graph is very useful when you want
+Dialogue: 1,0:03:56.43,0:03:58.17,Voice,,0,0,0,,{\pos(960,1008)}to quickly prototype a pipeline.
+Dialogue: 1,0:03:58.32,0:04:00.12,Voice,,0,0,0,,{\pos(960,1008)}This SystemOne node that calls
+Dialogue: 1,0:04:00.12,0:04:01.43,Voice,,0,0,0,,{\pos(960,1008)}the JEV decision model in the middle
+Dialogue: 1,0:04:01.43,0:04:03.00,Voice,,0,0,0,,{\pos(960,1008)}will route the session for you
+Dialogue: 1,0:04:03.00,0:04:04.15,Voice,,0,0,0,,{\pos(960,1008)}based on your question!
+Dialogue: 1,0:04:15.23,0:04:16.43,Voice,,0,0,0,,{\pos(960,1008)}The parallel node waits
+Dialogue: 1,0:04:16.43,0:04:18.07,Voice,,0,0,0,,{\pos(960,1008)}until every agent finishes.
+Dialogue: 1,0:04:23.27,0:04:24.47,Voice,,0,0,0,,{\pos(960,1008)}Once all three finish,
+Dialogue: 1,0:04:24.47,0:04:26.75,Voice,,0,0,0,,{\pos(960,1008)}it sends their results and session references
+Dialogue: 1,0:04:26.75,0:04:27.90,Voice,,0,0,0,,{\pos(960,1008)}together to the reviewer.
+Dialogue: 1,0:04:31.70,0:04:33.42,Voice,,0,0,0,,{\pos(960,1008)}You can even make your own custom node
+Dialogue: 1,0:04:33.42,0:04:36.02,Voice,,0,0,0,,{\pos(960,1008)}very easily with Graffitty Graph Protocol.
+Dialogue: 1,0:04:36.07,0:04:38.97,Voice,,0,0,0,,{\pos(960,1008)}First, let's use the Payload Inspector node,
+Dialogue: 1,0:04:38.97,0:04:41.01,Voice,,0,0,0,,{\pos(960,1008)}which shows what data are sent through the graph.
+Dialogue: 1,0:04:41.82,0:04:43.72,Voice,,0,0,0,,{\pos(960,1008)}It sends just enough information
+Dialogue: 1,0:04:43.72,0:04:45.15,Voice,,0,0,0,,{\pos(960,1008)}for the next node to process,
+Dialogue: 1,0:04:45.15,0:04:47.93,Voice,,0,0,0,,{\pos(960,1008)}like the session file path and the last message.
+Dialogue: 1,0:04:49.13,0:04:51.02,Voice,,0,0,0,,{\pos(960,1008)}Here is a minimal Python example
+Dialogue: 1,0:04:51.02,0:04:52.68,Voice,,0,0,0,,{\pos(960,1008)}that uses the GGP protocol
+Dialogue: 1,0:04:52.68,0:04:55.22,Voice,,0,0,0,,{\pos(960,1008)}to convert the data to uppercase.
+Dialogue: 1,0:04:56.33,0:04:58.30,Voice,,0,0,0,,{\pos(960,1008)}Define the input and output ports,
+Dialogue: 1,0:04:58.45,0:05:00.48,Voice,,0,0,0,,{\pos(960,1008)}process the data, and send it on.
+Dialogue: 1,0:05:01.73,0:05:02.15,Voice,,0,0,0,,{\pos(960,1008)}Run it.
+Dialogue: 1,0:05:02.67,0:05:03.96,Voice,,0,0,0,,{\pos(960,1008)}Connect the nodes,
+Dialogue: 1,0:05:05.72,0:05:06.63,Voice,,0,0,0,,{\pos(960,1008)}Send the message.
+Dialogue: 1,0:05:11.88,0:05:14.68,Voice,,0,0,0,,{\pos(960,1008)}This node converts the message to uppercase.
+Dialogue: 1,0:05:14.68,0:05:17.00,Voice,,0,0,0,,{\pos(960,1008)}The Payload Inspector shows the result.
+Dialogue: 1,0:05:17.08,0:05:17.84,Voice,,0,0,0,,{\pos(960,1008)}That's it.
+Dialogue: 1,0:05:21.05,0:05:22.95,Voice,,0,0,0,,{\pos(960,1008)}This makes your graph pipeline versatile.
+Dialogue: 1,0:05:23.07,0:05:24.77,Voice,,0,0,0,,{\pos(960,1008)}For example, create a simple watcher node
+Dialogue: 1,0:05:24.77,0:05:27.45,Voice,,0,0,0,,{\pos(960,1008)}that triggers your agent when a condition is met.
+Dialogue: 1,0:05:33.97,0:05:35.44,Voice,,0,0,0,,{\pos(960,1008)}Connect the watcher to Claude.
+Dialogue: 1,0:05:36.27,0:05:37.67,Voice,,0,0,0,,{\pos(960,1008)}A new email arrives,
+Dialogue: 1,0:05:37.67,0:05:40.37,Voice,,0,0,0,,{\pos(960,1008)}and Claude makes a podcast just as it's told to!

@@ -1,0 +1,2 @@
+# DVC owns the media; keep assets.dvc in Git.
+/assets

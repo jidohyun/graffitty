@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "android-ime-resume"
+goal = "Compose and edit Korean with native Gboard, visit IME settings, then resume and compose again without raw jamo."
+instructions = "android-ime-resume.md"
+runtime = "android"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-ime-resume"

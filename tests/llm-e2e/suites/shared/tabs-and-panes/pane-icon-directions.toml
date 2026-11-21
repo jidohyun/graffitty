@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "pane-icon-directions"
+goal = "Left-click split icons creates right/below panes; right-click creates left/above panes"
+instructions = "pane-icon-directions.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Both mouse buttons and both split axes"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-icon-directions.gd"

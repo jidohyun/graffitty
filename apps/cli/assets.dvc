@@ -1,0 +1,6 @@
+outs:
+- md5: c508700fd03dc17e17a2f521ff273431.dir
+  size: 1582150
+  nfiles: 3
+  hash: md5
+  path: assets/parallel

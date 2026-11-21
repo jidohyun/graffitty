@@ -1,0 +1,5 @@
+# The shared effects-recording image plus the REPLs the demo sends code to.
+ARG BASE=localhost/graffitty-effects:4
+FROM ${BASE}
+RUN apt-get update && apt-get install -y --no-install-recommends python3 ipython3 python3-numpy \
+    && rm -rf /var/lib/apt/lists/*

@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "prefix-shortcuts"
+instructions = "prefix-shortcuts.md"
+goal = "Workspace prefix shortcuts arm visibly, navigate multi-digit tabs, split and focus panes without leaking keys."
+verify = "state_continuity"
+tool_budget = 100
+turn_timeout_seconds = 180
+
+[[stages]]
+name = "Prefix shortcuts"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/prefix-shortcuts.gd"

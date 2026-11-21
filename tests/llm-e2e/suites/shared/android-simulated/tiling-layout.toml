@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "tiling-layout"
+goal = "Create nested horizontal/vertical splits in tiled mode; verify bounds, non-overlap and split proportions, then float and retile."
+instructions = "tiling-layout.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/tiling-layout.gd"

@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+
+name = "terminal-scrolling"
+instructions = "terminal-scrolling.md"
+goal = "Fractional terminal scrolling is immediate, correctly clipped and preserves app-controlled scrolling."
+verify = "visual_continuity"
+tool_budget = 70
+turn_timeout_seconds = 180
+[[stages]]
+name = "Interaction and rendering"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/mac-trackpad/replays/terminal-scrolling.gd"

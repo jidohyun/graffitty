@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-navigation"
+goal = "Create a real server chromium, receive frames, click and type Unicode into its DOM, navigate Back/Forward, and close only the chromium."
+instructions = "android-chromium-navigation.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-navigation"

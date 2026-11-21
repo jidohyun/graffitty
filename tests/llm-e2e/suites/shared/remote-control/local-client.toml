@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "local-client"
+instructions = "local-client.md"
+goal = "A separate Godot client authenticates, renders terminal cells, controls a shared PTY and dimensions, and reconnects without changing desktop tab/focus or restarting shells."
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Authenticated connection and shared terminal state"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/remote-control/replays/local-client.gd"

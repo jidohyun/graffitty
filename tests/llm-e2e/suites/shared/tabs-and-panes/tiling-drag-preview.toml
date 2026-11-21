@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "tiling-drag-preview"
+instructions = "tiling-drag-preview.md"
+goal = "Tiled drags show the complete proposed layout before release; cancellation leaves the split tree unchanged and dropping commits exactly the preview, including cross-tab merges."
+verify = "state_continuity"
+tool_budget = 90
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Preview a split and cancel"
+tools = []
+
+[[stages]]
+name = "Commit the preview"
+tools = []
+
+[[stages]]
+name = "Preview a merge from another tab"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tiling-drag-preview.gd"

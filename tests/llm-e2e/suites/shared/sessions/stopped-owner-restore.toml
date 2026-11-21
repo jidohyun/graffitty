@@ -1,0 +1,20 @@
+required_frontends = ["godot"]
+
+name = "stopped-owner-restore"
+instructions = "stopped-owner-restore.md"
+goal = "Private saved history recreates real shells and separate window layouts after the original isolated server has stopped."
+verify = "actual_native_cli_and_stopped_server_restore"
+tool_budget = 180
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Save complete window layouts through the actual CLI"
+tools = []
+
+[[stages]]
+name = "Stop original PTYs and restore separate windows"
+tools = []
+
+[[stages]]
+name = "Inspect restored layout and exercise every new shell"
+tools = []

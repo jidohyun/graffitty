@@ -1,0 +1,13 @@
+FROM docker.io/library/debian:trixie-slim
+RUN apt-get update && apt-get install -y --no-install-recommends zsh git ca-certificates ncurses-bin eza bat
+RUN git clone https://github.com/zdharma-continuum/fast-syntax-highlighting /opt/fast-syntax-highlighting
+COPY zshrc /opt/capture/.zshrc
+COPY scatter-demo /opt/capture/scatter-demo
+RUN mkdir -p /opt/capture/scatter-demo/assets /opt/capture/scatter-demo/tests /opt/capture/scatter-demo/scripts /opt/capture/scatter-demo/data && \
+    touch /opt/capture/scatter-demo/Makefile /opt/capture/scatter-demo/package.json /opt/capture/scatter-demo/LICENSE
+# videos/shared/demo_container.py stages the canonical apps/server/terminfo source.
+COPY xterm-ghostty.terminfo /tmp/xterm-ghostty.terminfo
+RUN tic -x /tmp/xterm-ghostty.terminfo && rm /tmp/xterm-ghostty.terminfo
+ENV TERM=xterm-ghostty LANG=C.UTF-8 ZDOTDIR=/opt/capture
+WORKDIR /tmp/demo
+CMD ["sleep", "infinity"]

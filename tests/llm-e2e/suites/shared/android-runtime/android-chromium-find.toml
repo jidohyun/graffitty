@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-find"
+goal = "Find text in a real server browser page through the frontend's in-page find box, with Chromium's own matching, count and selection."
+instructions = "android-chromium-find.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-find"

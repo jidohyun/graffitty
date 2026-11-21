@@ -1,0 +1,30 @@
+required_frontends = ["godot"]
+
+name = "workspace-controls"
+instructions = "workspace-controls.md"
+goal = "Use actual workspace controls without losing viewport state or terminal input; show selectable live monitor data and retained diagnostics."
+verify = "real_godot_controls_exact_pty_file_drop_and_readable_private_resource_diagnostics"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Navigate and preserve literal file-drop input"
+tools = []
+
+[[stages]]
+name = "Read, drag and copy the real resource monitor"
+tools = []
+
+[[stages]]
+name = "Select diagnostic history and open its private log"
+tools = []
+
+[[stages]]
+name = "Inspect actual Chromium resource samples"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "workspace-controls"]

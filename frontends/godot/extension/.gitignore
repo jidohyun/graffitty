@@ -1,0 +1,11 @@
+# Rust
+/target
+/.cargo/
+
+# Build outputs
+/addons/graffitty/bin/
+/dist/
+
+# Godot
+*.uid
+/fonts

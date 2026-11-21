@@ -1,0 +1,6 @@
+name = "implement-e2e-loop-demo"
+goal = "Claude implements a sign-up page; Codex tests every build in its Chromium and sends failures back until all E2E tests pass."
+instructions = "scenario.md"
+replay = "LoopDemo.gd"
+verify = "e2e_results_match_expected_builds"
+subtitle = "Implement, test, fix: until every E2E test passes (no captions)"

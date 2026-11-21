@@ -1,0 +1,8 @@
+required_frontends = ["godot"]
+name = "scrollbar-interactions"
+goal = "Bistro scrollbar receives real host-viewport input: thumb drag, track click and hold-to-repeat."
+instructions = "../flat-world/scrollbar-interactions.md"
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/bistro-world/replays/scrollbar-interactions.gd"

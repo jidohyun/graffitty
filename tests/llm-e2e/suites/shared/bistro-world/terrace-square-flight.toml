@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+name = "terrace-square-flight"
+instructions = "terrace-square-flight.md"
+goal = "Bistro's terrace-to-square camera flight rises and advances smoothly without backtracking or clipping scenery."
+verify = "visual_continuity_and_geometry_clearance"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Fly from tab 15 to tab 16 and back"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/bistro-world/replays/terrace-square-flight.gd"

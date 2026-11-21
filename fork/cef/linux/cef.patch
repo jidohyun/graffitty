@@ -1,0 +1,42 @@
+--- a/BUILD.gn
++++ b/BUILD.gn
+@@ -1036,6 +1036,10 @@
+ 
+   if (is_linux) {
+     sources += includes_linux + [
++      "libcef/browser/chrome_gpu_capture.cc",
++      "libcef/browser/chrome_gpu_capture.h",
++      "libcef/browser/linux_native_window.cc",
++      "libcef/browser/linux_native_window.h",
+       "libcef/browser/native/browser_platform_delegate_native_linux.cc",
+       "libcef/browser/native/browser_platform_delegate_native_linux.h",
+       "libcef/browser/osr/browser_platform_delegate_osr_linux.cc",
+--- a/libcef/browser/browser_host_base.cc
++++ b/libcef/browser/browser_host_base.cc
+@@ -7,6 +7,9 @@
+ #include <tuple>
+ 
+ #include "base/logging.h"
++#if BUILDFLAG(IS_LINUX)
++#include "cef/libcef/browser/chrome_gpu_capture.h"
++#endif
+ #include "cef/libcef/browser/browser_guest_util.h"
+ #include "cef/libcef/browser/browser_info_manager.h"
+ #include "cef/libcef/browser/browser_platform_delegate.h"
+@@ -1502,10 +1505,16 @@
+       handler->OnAfterCreated(this);
+     }
+   }
++#if BUILDFLAG(IS_LINUX)
++  MaybeStartChromeGpuCapture(this);
++#endif
+ }
+ 
+ void CefBrowserHostBase::OnBeforeClose() {
+   CEF_REQUIRE_UIT();
++#if BUILDFLAG(IS_LINUX)
++  StopChromeGpuCapture(this);
++#endif
+   if (client_) {
+     if (auto handler = client_->GetLifeSpanHandler()) {
+       handler->OnBeforeClose(this);

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Effects · Graffitty</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,sans-serif;background:light-dark(#f8f6fc,#19171e);color:light-dark(#302a3b,#efebf5);--accent:light-dark(#7043aa,#c4a0f0);--muted:light-dark(#62576d,#b5aabd);--panel:light-dark(#ece7f4,#28232f)}
+*{box-sizing:border-box}body{max-width:1440px;margin:auto;padding:40px 32px 72px}header{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}h1{font-size:clamp(32px,5vw,54px);letter-spacing:-.04em;margin:6px 0}header p{color:var(--muted);margin:8px 0 24px}.eyebrow{color:var(--accent);font-weight:600}button{font:inherit;border:1px solid var(--accent);background:var(--panel);color:inherit;border-radius:24px;padding:10px 20px;cursor:pointer}nav{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 36px}nav a{color:var(--accent);padding:8px 16px;background:var(--panel);border-radius:24px;text-decoration:none}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}h2{font-size:25px;margin:40px 0 20px}h3{font-size:18px;margin:14px 0 6px}.fx{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:32px 24px}figure{margin:0;min-width:0}video,.pending{width:100%;display:block;border-radius:12px;background:var(--panel);aspect-ratio:8/5}.pending{display:grid;place-items:center;color:var(--muted)}figcaption p{font-size:15px;line-height:1.5;margin:0;color:var(--muted)}figcaption .status{font-size:12px;margin-top:8px;color:var(--accent)}details{margin-top:12px;font-size:12px;color:var(--muted)}summary{cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:var(--panel);border-radius:8px}section{scroll-margin-top:24px}@media(max-width:600px){body{padding:24px 18px}}
+html.embedded{background:transparent}html.embedded body{padding:8px 0}html.embedded .eyebrow,html.embedded h1{display:none}html.embedded header{justify-content:flex-end}
+header{position:sticky;top:0;z-index:4;background:light-dark(#f8f6fc,#19171e)}.effect-setting-group{position:relative;margin-top:16px}.effect-code{position:relative}.effect-code [data-copy-settings]{position:absolute;right:5px;left:auto;top:5px;width:32px;height:32px;padding:5px;border:0;border-radius:4px;background:transparent;display:grid;place-items:center;color:var(--muted)}.effect-code [data-copy-settings]:hover{background:var(--panel);color:var(--accent)}.effect-code svg{width:22px;height:22px;fill:currentColor}.effect-code .check-icon,.effect-code [data-copied] .copy-icon{display:none}.effect-code [data-copied] .check-icon{display:block}.effect-code pre{padding:12px 44px 12px 12px}.effect-setting-group pre{margin:0}
+video{height:auto;aspect-ratio:auto;object-fit:contain}
+</style>
+<script>if (self !== top) document.documentElement.classList.add("embedded");</script>
+</head>
+<body class="effects-gallery">
+<header><div><span class="eyebrow">Graffitty</span><h1>Effects</h1></div><button id="motion" data-effects-motion type="button" aria-pressed="false">Play previews</button></header>
+<nav aria-label="Effect categories">{{navigation}}</nav>
+<p>Copy the settings below into <code>client.toml</code> to try an effect.</p>
+<main>{{sections}}</main>
+<script>
+{{script}}
+</script>
+</body></html>

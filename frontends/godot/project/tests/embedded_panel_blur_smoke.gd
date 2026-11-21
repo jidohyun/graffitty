@@ -1,0 +1,37 @@
+extends "res://tests/mods_fixture.gd"
+func run() -> void:
+ setup(true)
+ var dialog: Window = PanelWindow.open(host, "sessions")
+ await settle()
+ dialog.float_native(Vector2(100, 120))
+ await settle()
+ check(dialog.is_embedded(), "Fixture uses a floating embedded window")
+ check(is_instance_valid(dialog._embedded_backdrop) and dialog._embedded_backdrop.visible, "Embedded panel has a visible parent-scene blur")
+ var backdrop: Panel = dialog._embedded_backdrop
+ check(backdrop.get_viewport() == root and backdrop.get_viewport() != dialog, "Blur reads parent scene, not the panel's own viewport")
+ check(backdrop.mouse_filter == Control.MOUSE_FILTER_IGNORE, "Backdrop does not steal pointer input")
+ check(not backdrop.material.get_shader_parameter("tint_surface"), "Window tint is not applied twice")
+ dialog.position += Vector2i(30, 20)
+ dialog.size += Vector2i(40, 30)
+ dialog.background_blur_radius = 24.0
+ await settle()
+ check(backdrop.position == Vector2(dialog.position) - Vector2(0, 24), "Backdrop follows window and title position")
+ check(backdrop.size == Vector2(dialog.size) + Vector2(0, 24), "Backdrop follows both resize axes")
+ check(is_equal_approx(backdrop.material.get_shader_parameter("radius"), 24.0 * root.content_scale_factor), "Embedded blur follows configured radius")
+ dialog.background_blur_radius = 0.0
+ await settle()
+ check(not backdrop.visible, "Zero radius removes embedded blur")
+ dialog.background_blur_radius = 12.0
+ await settle()
+ dialog.hide()
+ check(not backdrop.visible, "Hiding the panel immediately hides the blur")
+ dialog.show()
+ await settle()
+ check(backdrop.visible, "Showing the panel restores blur")
+ dialog.attach_to_dock()
+ await settle()
+ check(not backdrop.visible, "Docking removes floating backdrop")
+ dialog._close_panel()
+ await settle()
+ check(not is_instance_valid(backdrop), "Closing frees parent backdrop")
+ finish("EMBEDDED_PANEL_BLUR")

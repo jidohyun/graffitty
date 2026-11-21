@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "android-ui"
+record_client = true
+goal = "Exercise the full Android client entry scene with real touch events: messages, dialogs, floating keyboard and microphone buttons, toolbar, and return to trackpad."
+instructions = "android-ui.md"
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/android-ui.gd"

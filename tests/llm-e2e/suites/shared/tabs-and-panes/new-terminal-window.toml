@@ -1,0 +1,21 @@
+required_frontends = ["godot"]
+
+name = "new-terminal-window"
+instructions = "new-terminal-window.md"
+goal = "The split icons in a terminal window's title bar open another tiled terminal window beside or below that pane in the same tab, with its own shell and the keyboard. It never opens a chromium; the Chromium button does that."
+verify = "state_continuity"
+tool_budget = 70
+turn_timeout_seconds = 240
+
+[[stages]]
+name = "Open a second terminal window"
+tools = []
+
+[[stages]]
+name = "Open a third, then close one"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/new-terminal-window.gd"

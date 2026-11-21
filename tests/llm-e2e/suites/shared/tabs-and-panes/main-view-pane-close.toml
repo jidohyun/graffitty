@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "main-view-pane-close"
+instructions = "main-view-pane-close.md"
+goal = "Creating and closing a pane above a terminal inside Main View preserves Main View and its typing zoom, including while zoomed and with multiple surviving panes."
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 240
+
+[[stages]]
+name = "Close a new top pane in Main View"
+tools = []
+
+[[stages]]
+name = "Type after closing and return to the same Main View"
+tools = []
+
+[[stages]]
+name = "Close while typing with other panes still in Main View"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/main-view-pane-close.gd"

@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-clipboard"
+goal = "Transfer plain Unicode clipboard text between the Android frontend and a real server browser, preserving password protection and cut input events."
+instructions = "android-chromium-clipboard.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-clipboard"

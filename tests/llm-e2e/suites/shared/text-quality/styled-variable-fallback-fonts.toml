@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "styled-variable-fallback-fonts"
+instructions = "styled-variable-fallback-fonts.md"
+goal = "Advanced font preferences change real styled, variable, fallback and color glyphs while keeping terminal state, metrics, selection and inline images coherent."
+verify = "real_font_metadata_pty_and_pixels"
+tool_budget = 180
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Prove actual glyph sources and shaping"
+tools = []
+
+[[stages]]
+name = "Verify metrics through real PTY and rendered interaction"
+tools = []
+
+[[stages]]
+name = "Reject invalid and non-fitting preferences atomically"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "fonts"]

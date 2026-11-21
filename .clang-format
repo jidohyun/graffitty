@@ -1,0 +1,5 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+# Platform headers and bridge headers depend on their existing include order.
+SortIncludes: Never

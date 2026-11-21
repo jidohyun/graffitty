@@ -1,0 +1,17 @@
+required_frontends = ["godot"]
+
+name = "pane-working-directory"
+instructions = "pane-working-directory.md"
+goal = "New panes inherit the originating shell's current directory, with the first startup directory as the fallback."
+verify = "state_continuity"
+tool_budget = 70
+turn_timeout_seconds = 240
+
+[[stages]]
+name = "Split an unfocused pane and fall back from a deleted directory"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-working-directory.gd"
+server_config = "[terminal]\nshell_integration = true\n"

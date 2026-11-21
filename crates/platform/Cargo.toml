@@ -1,0 +1,21 @@
+[package]
+name = "graffitty-platform"
+version.workspace = true
+edition = "2024"
+publish = false
+
+[features]
+default = []
+clipboard = ["dep:arboard", "dep:cc", "dep:png"]
+
+[dependencies]
+libc = "0.2"
+graffitty-terminal-core = { path = "../terminal-core" }
+graffitty-protocol = { path = "../protocol" }
+anyhow = "1"
+dunce = "1"
+arboard = { version = "3", default-features = false, features = ["image-data"], optional = true }
+png = { version = "0.18.1", optional = true }
+
+[build-dependencies]
+cc = { version = "1", optional = true }

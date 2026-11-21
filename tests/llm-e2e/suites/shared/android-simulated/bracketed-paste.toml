@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "bracketed-paste"
+goal = "Paste Unicode and newlines into a real raw PTY; require exact bracketed-paste markers and payload with no duplicated bytes."
+instructions = "bracketed-paste.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/bracketed-paste.gd"

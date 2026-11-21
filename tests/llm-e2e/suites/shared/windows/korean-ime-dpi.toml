@@ -1,0 +1,27 @@
+required_frontends = ["godot"]
+platforms = ["windows"]
+name = "korean-ime-dpi"
+instructions = "korean-ime-dpi.md"
+goal = "Korean IME and native windows at 150% scaling"
+verify = "native_windows_recording_and_shell_assertions"
+requires_headful = true
+
+[[stages]]
+name = "Verify the physical desktop setup"
+tools = []
+
+[[stages]]
+name = "Compose Korean through the IME"
+tools = []
+
+[[stages]]
+name = "Exercise native focus and window chrome"
+tools = []
+
+[[stages]]
+name = "Review scaling and camera behavior"
+tools = []
+
+[adapters.godot]
+kind = "manual"
+reason = "Requires the native Windows desktop, per-shell evidence and physical input/visual review described in the procedure."

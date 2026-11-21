@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "tab-titles"
+instructions = "tab-titles.md"
+goal = "gft tab rename names the tab it runs in, or another tab by position or id; the name stays over titles programs set and moves with the tab; no title returns it to automatic."
+verify = "tab_titles"
+tool_budget = 80
+turn_timeout_seconds = 240
+
+[[stages]]
+name = "Name tabs from the command line"
+tools = []
+
+[[stages]]
+name = "The name holds"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Return to automatic"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-titles.gd"

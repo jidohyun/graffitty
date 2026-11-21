@@ -1,0 +1,25 @@
+[package]
+name = "graffitty-mods"
+version = "0.0.1"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+description = "JavaScript mods: QuickJS describes native UI, taffy lays it out, each frontend paints the draw list"
+
+[dependencies]
+# QuickJS through the rquickjs API. Herdr uses Longbridge's JIT fork of the
+# same crate; plain rquickjs is enough for a few mods and builds for Android.
+rquickjs = { version = "0.14", features = ["loader", "macro"] }
+# The flexbox engine GPUI itself lays out with. Grid/block kept for `div()`.
+taffy = { version = "0.15", default-features = false, features = ["std", "taffy_tree", "flexbox", "block_layout", "content_size"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# The rubber band lists share with terminals and Godot scrollers.
+graffitty-scene-core = { path = "../scene-core" }
+
+# Mobile targets generate bindings using their SDK's libclang (LIBCLANG_PATH).
+[target.'cfg(any(target_os = "android", target_os = "ios"))'.dependencies]
+rquickjs = { version = "0.14", features = ["loader", "macro", "bindgen"] }
+
+[dev-dependencies]
+tempfile = "3"

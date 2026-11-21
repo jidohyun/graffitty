@@ -1,0 +1,20 @@
+required_frontends = ["godot"]
+
+name = "status-strip-camera-effects"
+goal = "Bake status-strip layout from deliberate zoom and pan, then inherit the sheet's typing camera motion, perspective and depth-of-field blur."
+instructions = "status-strip-camera-effects.md"
+verify = "rendered_status_blur_and_stable_sheet_layout"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Baked placement and rendered 3D camera effects"
+tools = []
+
+[[stages]]
+name = "Manual framing and Flat 2D parity"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/status-strip-camera-effects.gd"

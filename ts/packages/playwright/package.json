@@ -1,0 +1,54 @@
+{
+  "name": "@graffitty/playwright",
+  "version": "0.0.1-alpha.2",
+  "description": "Playwright for Graffitty chromium panes: launch a placed pane or attach to an existing one",
+  "license": "Apache-2.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./test": {
+      "types": "./dist/test.d.ts",
+      "import": "./dist/test.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test tests/unit.test.mjs",
+    "test:e2e": "python3 tests/e2e.py",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "@playwright/test": ">=1.60.0 <2",
+    "playwright-core": ">=1.60.0 <2"
+  },
+  "peerDependenciesMeta": {
+    "@playwright/test": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/node": "^26.6.6",
+    "playwright-core": "1.65.0",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graffitty/graffitty.git",
+    "directory": "ts/packages/playwright"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

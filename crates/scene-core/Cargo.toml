@@ -1,0 +1,15 @@
+[package]
+name = "graffitty-scene-core"
+version.workspace = true
+edition = "2024"
+publish = false
+
+[dependencies]
+anyhow = "1"
+indexmap = "2"
+# Adapters use the re-exported glam, so Pose and effect vectors share this exact version.
+glam = "=0.32.1"
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1"

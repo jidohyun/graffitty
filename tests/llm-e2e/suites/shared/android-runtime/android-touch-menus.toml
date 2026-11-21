@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "android-touch-menus"
+goal = "Keep Android menus compact, scroll without activating or highlighting commands, and preserve submenu and Back behavior."
+instructions = "android-touch-menus.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-touch-menus"

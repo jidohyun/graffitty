@@ -1,0 +1,433 @@
+{
+  "valid": [
+    {
+      "case": "empty",
+      "manifest": {
+        "inputs": [],
+        "outputs": []
+      }
+    },
+    {
+      "case": "all-port-features",
+      "manifest": {
+        "name": "Judge",
+        "icon": {
+          "text": "⚖",
+          "font": "Symbols Nerd Font Mono"
+        },
+        "inputs": [
+          {
+            "id": "in",
+            "name": "Evaluate",
+            "color": "#ABCDEF",
+            "icon": "📥",
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "id": "send",
+            "mode": "send",
+            "name": "Approved",
+            "color": "#89DDBD",
+            "icon": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0h32v32H0z\"/></svg>"
+            },
+            "line_style": "solid",
+            "application": {
+              "result": true
+            }
+          },
+          {
+            "id": "read",
+            "mode": "read",
+            "icon": {
+              "text": "R",
+              "font": "Monospace"
+            },
+            "line_style": "dashed"
+          },
+          {
+            "id": "done",
+            "mode": "turn_completed",
+            "icon": "✓"
+          }
+        ],
+        "application": {
+          "version": 1
+        }
+      }
+    },
+    {
+      "case": "icon-defaults",
+      "manifest": {
+        "icon": {
+          "font": "Monospace"
+        },
+        "inputs": [
+          {
+            "id": "same",
+            "icon": {}
+          }
+        ],
+        "outputs": [
+          {
+            "id": "same",
+            "icon": {
+              "svg": "<svg/>",
+              "text": "discarded"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "unicode-icon",
+      "manifest": {
+        "icon": "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가",
+        "name": "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가",
+        "inputs": [],
+        "outputs": [
+          {
+            "id": "x",
+            "name": "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가"
+          }
+        ]
+      }
+    },
+    {
+      "case": "null-application-metadata",
+      "manifest": {
+        "inputs": [{"id": "in", "schema": null}],
+        "outputs": [{"id": "out", "application": {"result": null}}],
+        "application": null
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "case": "bad-mode",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out",
+            "mode": "automatic"
+          }
+        ]
+      }
+    },
+    {
+      "case": "bad-style",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out",
+            "line_style": "dotted"
+          }
+        ]
+      }
+    },
+    {
+      "case": "input-style",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in",
+            "line_style": "solid"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ]
+      }
+    },
+    {
+      "case": "bad-id",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "a b"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ]
+      }
+    },
+    {
+      "case": "long-id",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        ]
+      }
+    },
+    {
+      "case": "unicode-id",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "가"
+          }
+        ]
+      }
+    },
+    {
+      "case": "name-bytes",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ],
+        "name": "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가"
+      }
+    },
+    {
+      "case": "port-name-bytes",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out",
+            "name": "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가"
+          }
+        ]
+      }
+    },
+    {
+      "case": "bad-color",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in",
+            "color": "red"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ]
+      }
+    },
+    {
+      "case": "long-icon-text",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ],
+        "icon": "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가"
+      }
+    },
+    {
+      "case": "bad-icon-type",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ],
+        "icon": true
+      }
+    },
+    {
+      "case": "bad-icon-text",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out",
+            "icon": {
+              "text": 42
+            }
+          }
+        ]
+      }
+    },
+    {
+      "case": "bad-icon-font",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in",
+            "icon": {
+              "font": false
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ]
+      }
+    },
+    {
+      "case": "long-font",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ],
+        "icon": {
+          "font": "가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가"
+        }
+      }
+    },
+    {
+      "case": "invalid-svg",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ],
+        "icon": {
+          "svg": "not SVG"
+        }
+      }
+    },
+    {
+      "case": "invalid-svg-no-fallback",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ],
+        "icon": {
+          "svg": false,
+          "text": "valid"
+        }
+      }
+    },
+    {
+      "case": "duplicate-input",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "a"
+          },
+          {
+            "id": "a"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ]
+      }
+    },
+    {
+      "case": "duplicate-output",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": [
+          {
+            "id": "a"
+          },
+          {
+            "id": "a"
+          }
+        ]
+      }
+    },
+    {
+      "case": "missing-inputs",
+      "manifest": {
+        "inputs": null,
+        "outputs": [
+          {
+            "id": "out"
+          }
+        ]
+      }
+    },
+    {
+      "case": "missing-outputs",
+      "manifest": {
+        "inputs": [
+          {
+            "id": "in"
+          }
+        ],
+        "outputs": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "name": "Slack Send",
+  "message_template": "{text: (.text // \"\"), content: (.content // []), renderings: (.renderings // {})}"
+}

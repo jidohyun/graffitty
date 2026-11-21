@@ -1,0 +1,79 @@
+[agents]
+entry = "res://mods/agents/main.js"
+host = "panel"
+place = "left"
+size = 300
+title = "Agents"
+sides = ["left", "right"]
+background_opacity = 0.8
+background_blur = true
+open = true
+
+[command-line]
+entry = "res://mods/command-line/main.js"
+host = "embedded"
+title = "Command Line"
+
+[pane-header]
+entry = "res://mods/pane-header/main.js"
+host = "embedded"
+title = "Pane Header"
+
+[pane-status]
+entry = "res://mods/pane-status/main.js"
+host = "panel"
+place = "left"
+size = 300
+title = "Pane Status"
+sides = ["left", "right", "top", "bottom"]
+background_opacity = 0.8
+background_blur = true
+open = false
+
+[pane-strip]
+entry = "res://mods/pane-strip/main.js"
+host = "pane"
+title = "Pane Strip"
+
+[resource-monitor]
+entry = "res://mods/resource-monitor/main.js"
+host = "panel"
+place = "bottom"
+size = 220
+title = "Resource Monitor"
+sides = ["left", "right", "top", "bottom"]
+background_opacity = 0.78
+background_blur = true
+open = false
+
+[sessions]
+entry = "res://mods/sessions/main.js"
+host = "panel"
+place = "left"
+size = 300
+title = "Sessions"
+sides = ["left", "right"]
+background_opacity = 0.8
+background_blur = true
+open = true
+
+[status-line]
+entry = "res://mods/status-line/main.js"
+host = "bar"
+place = "bottom"
+size = 28
+title = "Status Line"
+sides = ["top", "bottom"]
+background_opacity = 0.8
+background_blur = true
+open = true
+
+[tab-menu]
+entry = "res://mods/tab-menu/main.js"
+host = "embedded"
+title = "Tabs"
+
+[touch-controls]
+entry = "res://mods/touch-controls/main.js"
+host = "embedded"
+title = "Touch Controls"

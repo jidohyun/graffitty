@@ -1,0 +1,606 @@
+{
+  "font": {
+    "file": "/System/Library/Fonts/AppleSDGothicNeo.ttc",
+    "index": 6,
+    "title": 42,
+    "caption": 36
+  },
+  "titles": [
+    {
+      "en": "Terminal with tiling windows",
+      "text": "타일링 창을 갖춘 터미널"
+    },
+    {
+      "en": "Filetree",
+      "text": "파일 트리"
+    },
+    {
+      "en": "Filetree: Edit filenames like a vim buffer",
+      "text": "파일 트리: vim 버퍼처럼 파일 이름 편집"
+    },
+    {
+      "en": "Filetree: Open text files in nvim, and image/video/pdf in chromium",
+      "text": "파일 트리: 텍스트 파일은 nvim으로, 이미지/영상/PDF는 Chromium으로 열기"
+    },
+    {
+      "en": "Filetree: Send paths to the terminal",
+      "text": "파일 트리: 경로를 터미널로 보내기"
+    },
+    {
+      "en": "Chromium: Markdown preview",
+      "text": "Chromium: Markdown 미리보기"
+    },
+    {
+      "en": "Chromium: Visual explanations",
+      "text": "Chromium: 시각적 설명"
+    },
+    {
+      "en": "Chromium: Automation",
+      "text": "Chromium: 자동화"
+    },
+    {
+      "en": "Tabs: Status at a glance",
+      "text": "탭: 한눈에 보는 상태"
+    },
+    {
+      "en": "Command line: Fuzzy finder built in",
+      "text": "명령줄: 퍼지 파인더 내장"
+    },
+    {
+      "en": "Connect to your PC from another computer—or your phone.",
+      "text": "다른 컴퓨터는 물론, 휴대폰에서도 PC에 접속하세요."
+    },
+    {
+      "en": "Node-based agent orchestration: Connect how agent should interact",
+      "text": "노드 기반 에이전트 오케스트레이션: 에이전트 간 상호작용을 연결로 정의"
+    },
+    {
+      "en": "SystemOne node: Choose an agent for each prompt",
+      "text": "SystemOne 노드: 프롬프트마다 에이전트 선택"
+    },
+    {
+      "en": "Parallel node: Wait until all agents finish",
+      "text": "Parallel 노드: 모든 에이전트가 끝날 때까지 대기"
+    },
+    {
+      "en": "Graffitty Graph Protocol (GGP): Make your custom node",
+      "text": "Graffitty Graph Protocol (GGP): 나만의 커스텀 노드 만들기"
+    },
+    {
+      "en": "Watcher: Turn new email into a podcast",
+      "text": "Watcher: 새 이메일을 팟캐스트로"
+    }
+  ],
+  "captions": [
+    {
+      "voice": "intro",
+      "en": "Graffitty is a terminal emulator,",
+      "text": "Graffitty는 터미널 에뮬레이터로,"
+    },
+    {
+      "voice": "intro",
+      "en": "with a tiling manager and Chromium.",
+      "text": "타일링 매니저와 Chromium까지 갖췄습니다."
+    },
+    {
+      "voice": "workspace-space",
+      "en": "But if you zoom out, you'll notice",
+      "text": "하지만 줌 아웃해 보면"
+    },
+    {
+      "voice": "workspace-space",
+      "en": "there's much more space to work with.",
+      "text": "작업 공간이 훨씬 넓다는 걸 알게 됩니다."
+    },
+    {
+      "voice": "workspace-status",
+      "en": "Each pane shows CPU, RAM usage,",
+      "text": "각 창에는 CPU, RAM 사용량과"
+    },
+    {
+      "voice": "workspace-status",
+      "en": "and agent status.",
+      "text": "에이전트 상태가 표시됩니다."
+    },
+    {
+      "voice": "workspace-stash",
+      "en": "Stash a pane outside the main view.",
+      "text": "창을 메인 뷰 밖으로 치워 둘 수 있습니다."
+    },
+    {
+      "voice": "workspace-main",
+      "en": "You can return to the main view at any time.",
+      "text": "언제든지 메인 뷰로 돌아올 수 있습니다."
+    },
+    {
+      "voice": "workspace-pane",
+      "en": "Or jump back to your previous view",
+      "text": "또는 이전 뷰로 돌아가"
+    },
+    {
+      "voice": "workspace-pane",
+      "en": "and take a closer look at any pane.",
+      "text": "원하는 창을 자세히 볼 수 있습니다."
+    },
+    {
+      "voice": "filetree-cwd",
+      "en": "The builtin filetree is synchronised",
+      "text": "내장 파일 트리는"
+    },
+    {
+      "voice": "filetree-cwd",
+      "en": "with the shell's current working directory.",
+      "text": "셸의 현재 작업 디렉터리와 동기화됩니다."
+    },
+    {
+      "voice": "filetree-rename",
+      "en": "You can edit the file name like editing a vim buffer,",
+      "text": "vim 버퍼를 편집하듯 파일 이름을 고치고,"
+    },
+    {
+      "voice": "filetree-rename",
+      "en": "and save to apply it.",
+      "text": "저장하면 바로 적용됩니다."
+    },
+    {
+      "voice": "filetree-open",
+      "en": "Opening the files opens Neovim,",
+      "text": "텍스트 파일을 열면 Neovim이 열리고,"
+    },
+    {
+      "voice": "filetree-open",
+      "en": "or Chromium to preview all kinds of media.",
+      "text": "온갖 미디어는 Chromium으로 미리 볼 수 있습니다."
+    },
+    {
+      "voice": "filetree-send-path",
+      "en": "You can also send file paths to the terminal,",
+      "text": "파일 경로를 터미널로 보낼 수도 있어서,"
+    },
+    {
+      "voice": "filetree-send-path",
+      "en": "allowing you to change directory or open files.",
+      "text": "디렉터리를 옮기거나 파일을 열 수 있습니다."
+    },
+    {
+      "voice": "chromium-markdown",
+      "en": "Get creative with Chromium.",
+      "text": "Chromium을 마음껏 활용해 보세요."
+    },
+    {
+      "voice": "chromium-markdown",
+      "en": "It's a versatile viewer that handles things",
+      "text": "다재다능한 뷰어라서"
+    },
+    {
+      "voice": "chromium-markdown",
+      "en": "traditional terminals often need workarounds for.",
+      "text": "기존 터미널에선 우회가 필요했던 일도 해냅니다."
+    },
+    {
+      "voice": "chromium-markdown",
+      "en": "For example, use the MarkdownPreview plugin",
+      "text": "예를 들어 MarkdownPreview 플러그인으로"
+    },
+    {
+      "voice": "chromium-markdown",
+      "en": "in Neovim to open Graffitty Chromium.",
+      "text": "Neovim에서 Graffitty Chromium을 열면"
+    },
+    {
+      "voice": "chromium-markdown",
+      "en": "Now you have a live Markdown preview",
+      "text": "실시간 Markdown 미리보기가"
+    },
+    {
+      "voice": "chromium-markdown",
+      "en": "right inside your terminal.",
+      "text": "터미널 안에 바로 생깁니다."
+    },
+    {
+      "voice": "chromium-diagram",
+      "en": "Ask Claude to explain with a diagram.",
+      "text": "Claude에게 다이어그램으로 설명해 달라고 하면"
+    },
+    {
+      "voice": "chromium-diagram",
+      "en": "Graffitty Chromium will open right beside your terminal.",
+      "text": "Graffitty Chromium이 터미널 바로 옆에 열립니다."
+    },
+    {
+      "voice": "chromium-automation",
+      "en": "Multiple agents can each use",
+      "text": "여러 에이전트가 각자"
+    },
+    {
+      "voice": "chromium-automation",
+      "en": "an isolated Chromium session,",
+      "text": "격리된 Chromium 세션을 쓸 수 있어서"
+    },
+    {
+      "voice": "chromium-automation",
+      "en": "so they can run end-to-end tests in parallel.",
+      "text": "end-to-end 테스트를 병렬로 돌릴 수 있습니다."
+    },
+    {
+      "voice": "chromium-native",
+      "en": "You can also use Chromium's native interface",
+      "text": "Chromium의 네이티브 인터페이스를"
+    },
+    {
+      "voice": "chromium-native",
+      "en": "in a separate window.",
+      "text": "별도 창으로 쓸 수도 있습니다."
+    },
+    {
+      "voice": "chromium-native",
+      "en": "Closing that window doesn't close Chromium.",
+      "text": "그 창을 닫아도 Chromium은 꺼지지 않고,"
+    },
+    {
+      "voice": "chromium-native",
+      "en": "It simply brings the same chromium back into Graffitty.",
+      "text": "같은 Chromium이 Graffitty 안으로 돌아옵니다."
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "One thing I find frustrating about agentic coding",
+      "text": "AI 에이전트로 코딩할 때 제가 답답했던 점은"
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "is how quickly agents can open a jumble of windows.",
+      "text": "에이전트가 순식간에 창을 잔뜩 열어 버린다는 겁니다."
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "They get in the way, steal focus,",
+      "text": "창이 앞을 가리고, 포커스를 빼앗고,"
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "and make it hard to tell which agent is using which browser.",
+      "text": "어떤 에이전트가 어떤 브라우저를 쓰는지 알기 어렵죠."
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "That's why Graffitty shows clear ownership",
+      "text": "그래서 Graffitty는 소유 관계를"
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "with a connecting line.",
+      "text": "연결선으로 분명하게 보여 줍니다."
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "You can move chromiums out of the main view",
+      "text": "Chromium을 메인 뷰 밖으로 옮겨도"
+    },
+    {
+      "voice": "chromium-ownership",
+      "en": "and still see who's using them.",
+      "text": "누가 쓰고 있는지 계속 보입니다."
+    },
+    {
+      "voice": "tabs-summary",
+      "en": "The down arrow gives you a summary of every tab,",
+      "text": "아래 화살표 버튼은 모든 탭의 요약을 보여 줍니다."
+    },
+    {
+      "voice": "tabs-summary",
+      "en": "including its panes, CPU and RAM usage,",
+      "text": "각 탭의 창, CPU와 RAM 사용량,"
+    },
+    {
+      "voice": "tabs-summary",
+      "en": "and agent status.",
+      "text": "에이전트 상태까지요."
+    },
+    {
+      "voice": "tabs-summary",
+      "en": "Type to fuzzy search tab and pane titles.",
+      "text": "입력해서 탭과 창 제목을 퍼지 검색할 수 있습니다."
+    },
+    {
+      "voice": "command-line",
+      "en": "Aren't you already used to Vim's command line?",
+      "text": "Vim의 명령줄, 이미 익숙하지 않으신가요?"
+    },
+    {
+      "voice": "command-line",
+      "en": "The same thing is here,",
+      "text": "여기에도 똑같은 게 있습니다."
+    },
+    {
+      "voice": "command-line",
+      "en": "with a fuzzy finder built in.",
+      "text": "퍼지 파인더까지 내장해서요."
+    },
+    {
+      "voice": "command-line",
+      "en": "You no longer have to keep",
+      "text": "이제 모든 터미널 기능마다"
+    },
+    {
+      "voice": "command-line",
+      "en": "every terminal feature as a key map.",
+      "text": "키 매핑을 만들어 둘 필요가 없습니다."
+    },
+    {
+      "voice": "command-line",
+      "en": "Search commands, switch tabs, or jump to a pane.",
+      "text": "명령을 검색하고, 탭을 바꾸고, 창으로 이동하세요."
+    },
+    {
+      "voice": "android-intro",
+      "en": "Just like tmux keeps your session alive",
+      "text": "tmux가 SSH 서버에서"
+    },
+    {
+      "voice": "android-intro",
+      "en": "on an SSH server,",
+      "text": "세션을 유지해 주듯이,"
+    },
+    {
+      "voice": "android-intro",
+      "en": "you can detach from Graffitty",
+      "text": "Graffitty에서 detach했다가"
+    },
+    {
+      "voice": "android-intro",
+      "en": "and attach again any time.",
+      "text": "언제든 다시 attach할 수 있습니다."
+    },
+    {
+      "voice": "android-intro",
+      "en": "It even has mobile clients,",
+      "text": "모바일 클라이언트도 있으니"
+    },
+    {
+      "voice": "android-intro",
+      "en": "so you can code wherever you are.",
+      "text": "어디서든 코딩할 수 있습니다."
+    },
+    {
+      "voice": "android-workspace",
+      "en": "Let me explain how the graph feature works.",
+      "text": "그래프 기능이 어떻게 동작하는지 설명할게요."
+    },
+    {
+      "voice": "android-workspace",
+      "en": "Each terminal pane can advertise itself as a node,",
+      "text": "각 터미널 창은 자신을 노드로 등록할 수 있어서,"
+    },
+    {
+      "voice": "android-workspace",
+      "en": "so it can queue messages to another pane.",
+      "text": "다른 창에게 보낼 메시지를 큐에 넣을 수 있습니다."
+    },
+    {
+      "voice": "android-wiring",
+      "en": "For example, Codex on the left implements a feature",
+      "text": "예를 들어 왼쪽의 Codex가 기능을 구현하고"
+    },
+    {
+      "voice": "android-wiring",
+      "en": "and sends its work to Claude in the middle.",
+      "text": "작업 결과를 가운데의 Claude에게 보냅니다."
+    },
+    {
+      "voice": "android-review",
+      "en": "Claude only sends to the Slack node",
+      "text": "Claude는 사용자가 알아야 할"
+    },
+    {
+      "voice": "android-review",
+      "en": "when a condition is met",
+      "text": "조건이 충족될 때만"
+    },
+    {
+      "voice": "android-review",
+      "en": "that the user needs to know about.",
+      "text": "Slack 노드로 보냅니다."
+    },
+    {
+      "voice": "android-implement",
+      "en": "Now ask Codex to implement the website.",
+      "text": "이제 Codex에게 웹사이트 구현을 맡깁니다."
+    },
+    {
+      "voice": "android-handoff",
+      "en": "When Codex finishes,",
+      "text": "Codex가 작업을 마치면"
+    },
+    {
+      "voice": "android-handoff",
+      "en": "Claude receives its session and checks the work.",
+      "text": "Claude가 그 세션을 받아 결과를 검토합니다."
+    },
+    {
+      "voice": "android-slack",
+      "en": "Claude finds missing requirements",
+      "text": "Claude가 빠진 요구 사항을 찾아내"
+    },
+    {
+      "voice": "android-slack",
+      "en": "and sends the review to Slack.",
+      "text": "리뷰를 Slack으로 보냅니다."
+    },
+    {
+      "voice": "systemone-intro",
+      "en": "Graph is very useful when you want",
+      "text": "그래프는 파이프라인의"
+    },
+    {
+      "voice": "systemone-intro",
+      "en": "to quickly prototype a pipeline.",
+      "text": "프로토타입을 빠르게 만들 때 유용합니다."
+    },
+    {
+      "voice": "systemone-intro",
+      "en": "This SystemOne node that calls",
+      "text": "가운데에 있는 SystemOne 노드는"
+    },
+    {
+      "voice": "systemone-intro",
+      "en": "the JEV decision model in the middle",
+      "text": "JEV 결정 모델을 호출해서"
+    },
+    {
+      "voice": "systemone-intro",
+      "en": "will route the session for you",
+      "text": "질문에 따라"
+    },
+    {
+      "voice": "systemone-intro",
+      "en": "based on your question!",
+      "text": "세션을 알아서 라우팅해 줍니다!"
+    },
+    {
+      "voice": "parallel-intro",
+      "en": "The parallel node waits",
+      "text": "Parallel 노드는"
+    },
+    {
+      "voice": "parallel-intro",
+      "en": "until every agent finishes.",
+      "text": "모든 에이전트가 끝날 때까지 기다립니다."
+    },
+    {
+      "voice": "parallel-combined",
+      "en": "Once all three finish,",
+      "text": "세 에이전트가 모두 끝나면"
+    },
+    {
+      "voice": "parallel-combined",
+      "en": "it sends their results and session references",
+      "text": "각자의 결과와 세션 참조를"
+    },
+    {
+      "voice": "parallel-combined",
+      "en": "together to the reviewer.",
+      "text": "한꺼번에 리뷰어에게 보냅니다."
+    },
+    {
+      "voice": "protocol-inspector",
+      "en": "You can even make your own custom node",
+      "text": "나만의 커스텀 노드도 만들 수 있습니다."
+    },
+    {
+      "voice": "protocol-inspector",
+      "en": "very easily with Graffitty Graph Protocol.",
+      "text": "Graffitty Graph Protocol을 쓰면 아주 쉽죠."
+    },
+    {
+      "voice": "protocol-inspector",
+      "en": "First, let's use the Payload Inspector node,",
+      "text": "먼저 Payload Inspector 노드를 써 보겠습니다."
+    },
+    {
+      "voice": "protocol-inspector",
+      "en": "which shows what data are sent through the graph.",
+      "text": "그래프로 어떤 데이터가 오가는지 보여 주는 노드입니다."
+    },
+    {
+      "voice": "protocol-payload",
+      "en": "It sends just enough information",
+      "text": "다음 노드가 처리하는 데"
+    },
+    {
+      "voice": "protocol-payload",
+      "en": "for the next node to process,",
+      "text": "꼭 필요한 정보만 보냅니다."
+    },
+    {
+      "voice": "protocol-payload",
+      "en": "like the session file path and the last message.",
+      "text": "세션 파일 경로와 마지막 메시지 같은 것들이죠."
+    },
+    {
+      "voice": "protocol-code",
+      "en": "Here is a minimal Python example",
+      "text": "최소한의 Python 예제를 보겠습니다."
+    },
+    {
+      "voice": "protocol-code",
+      "en": "that uses the GGP protocol",
+      "text": "GGP 프로토콜을 사용해"
+    },
+    {
+      "voice": "protocol-code",
+      "en": "to convert the data to uppercase.",
+      "text": "데이터를 대문자로 바꾸는 예제입니다."
+    },
+    {
+      "voice": "protocol-ports",
+      "en": "Define the input and output ports,",
+      "text": "입력 포트와 출력 포트를 정의하고,"
+    },
+    {
+      "voice": "protocol-ports",
+      "en": "process the data, and send it on.",
+      "text": "데이터를 처리해서 다음으로 보냅니다."
+    },
+    {
+      "voice": "protocol-run",
+      "en": "Run it.",
+      "text": "실행합니다."
+    },
+    {
+      "voice": "protocol-connect",
+      "en": "Connect the nodes,",
+      "text": "노드를 연결하고,"
+    },
+    {
+      "voice": "protocol-send",
+      "en": "Send the message.",
+      "text": "메시지를 보냅니다."
+    },
+    {
+      "voice": "protocol-result",
+      "en": "This node converts the message to uppercase.",
+      "text": "이 노드가 메시지를 대문자로 바꾸고,"
+    },
+    {
+      "voice": "protocol-result",
+      "en": "The Payload Inspector shows the result.",
+      "text": "Payload Inspector가 결과를 보여 줍니다."
+    },
+    {
+      "voice": "protocol-result",
+      "en": "That's it.",
+      "text": "이게 전부입니다."
+    },
+    {
+      "voice": "watcher-intro",
+      "en": "This makes your graph pipeline versatile.",
+      "text": "그래프 파이프라인을 다양하게 활용할 수 있습니다."
+    },
+    {
+      "voice": "watcher-intro",
+      "en": "For example, create a simple watcher node",
+      "text": "예를 들어 간단한 감시 노드를 만들어"
+    },
+    {
+      "voice": "watcher-intro",
+      "en": "that triggers your agent when a condition is met.",
+      "text": "조건이 충족되면 에이전트를 실행할 수 있죠."
+    },
+    {
+      "voice": "watcher-connect",
+      "en": "Connect the watcher to Claude.",
+      "text": "감시 노드를 Claude에 연결합니다."
+    },
+    {
+      "voice": "watcher-result",
+      "en": "A new email arrives,",
+      "text": "새 이메일이 도착하면"
+    },
+    {
+      "voice": "watcher-result",
+      "en": "and Claude makes a podcast just as it's told to!",
+      "text": "Claude가 지시받은 대로 팟캐스트를 만듭니다!"
+    }
+  ]
+}

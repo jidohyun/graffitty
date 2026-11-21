@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-device-stress"
+goal = "Check phone-specific GPU memory, touch delivery, and suspend/resume behavior that a VM cannot establish."
+instructions = "android-device-stress.md"
+runtime = "android"
+physical_device = true
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-device-stress"

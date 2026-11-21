@@ -1,0 +1,31 @@
+required_frontends = ["godot"]
+
+name = "pane-header-reachable"
+instructions = "pane-header-reachable.md"
+goal = "However a window is dragged toward or past the frame edges, its header stays below the tab bar with part of its handle on screen, so it can always be dragged again."
+verify = "header_reachable"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Prepare a window"
+tools = []
+
+[[stages]]
+name = "Drag toward every edge"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Hold at an edge to pan"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify it can be moved again"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-header-reachable.gd"

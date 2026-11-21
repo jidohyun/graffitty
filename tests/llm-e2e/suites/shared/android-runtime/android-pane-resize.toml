@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-pane-resize"
+goal = "Apply three different pane sizes through the client resize command; verify authoritative server grids and unchanged neighbor grids."
+instructions = "android-pane-resize.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-pane-resize"

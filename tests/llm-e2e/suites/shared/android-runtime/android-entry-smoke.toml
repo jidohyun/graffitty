@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-entry-smoke"
+goal = "Launch the production entry scene in a disposable Android APK and verify native loading, suspend/resume, and app-private state after restart/update."
+instructions = "android-entry-smoke.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py android-entry-smoke"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-entry-smoke"

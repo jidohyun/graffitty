@@ -1,0 +1,20 @@
+# Restore the user's normal startup-file directory before loading their files.
+if [[ -n ${GRAFFITTY_ORIGINAL_ZDOTDIR+x} ]]; then
+  export ZDOTDIR=$GRAFFITTY_ORIGINAL_ZDOTDIR
+else
+  unset ZDOTDIR
+fi
+unset GRAFFITTY_ORIGINAL_ZDOTDIR
+[[ ! -r ${ZDOTDIR-$HOME}/.zshenv ]] || source "${ZDOTDIR-$HOME}/.zshenv"
+if [[ -o interactive ]]; then
+  # Install after .zshrc has configured its prompt and hooks.
+  autoload -Uz add-zsh-hook
+  _graffitty_install() {
+    add-zsh-hook -d precmd _graffitty_install
+    source "$GRAFFITTY_RESOURCES_DIR/integration.sh"
+    __graffitty_semantic_precmd
+    __graffitty_osc7
+    unfunction _graffitty_install
+  }
+  add-zsh-hook precmd _graffitty_install
+fi

@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "mouse-reporting"
+goal = "Observe actual SGR mouse bytes from the server PTY: plain pan is not selection, double tap clicks, held double tap right-clicks, and drag reports motion."
+instructions = "mouse-reporting.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/mouse-reporting.gd"

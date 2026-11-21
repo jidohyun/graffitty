@@ -1,0 +1,12 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-multi-stream"
+goal = "Verify several moving browsers on one connection stay stable and responsive on a physical Android client."
+instructions = "android-chromium-multi-stream.md"
+runtime = "android"
+physical_device = true
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-multi-stream"

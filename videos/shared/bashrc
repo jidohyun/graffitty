@@ -1,0 +1,7 @@
+PS1='\[\e[36m\]\W\[\e[0m\] $ '
+unset PROMPT_COMMAND
+mkdir -p src docs tests assets
+printf '# demo\n' > README.md
+printf 'print("hello")\n' > src/main.py
+printf 'body { color: white; }\n' > src/style.css
+printf '\033[2J\033[H\033[8mCAPTURE_READY\033[0m\n'

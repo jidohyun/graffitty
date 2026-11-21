@@ -1,0 +1,31 @@
+{
+  "take": "videos/main-demo/assets/takes/android-manager/session-one-20261119",
+  "frames": 763,
+  "duration": 12.716666666666667,
+  "source_cut_frames": [],
+  "connected_at": 12.483,
+  "connect_clicked_at": 11.583,
+  "source": "assets/android-manager.webm",
+  "checks": [
+    "Saved server learns its OS through authentication",
+    "Saved server learns its OS through authentication",
+    "Show two saved computers before opening a workspace",
+    "Workspace manager shows compact stacked server cards",
+    "Centered Graffitty logo is visible",
+    "Sticky Connection and Settings navigation is visible",
+    "Saved Mac displays authenticated macOS artwork",
+    "Server address omits the WebSocket scheme",
+    "Three-line card shows hostname, status, then address",
+    "Saved Mac displays authenticated macOS artwork",
+    "Server address omits the WebSocket scheme",
+    "Three-line card shows hostname, status, then address",
+    "Chosen computer connects and enables Touch to start",
+    "Touch control exists",
+    "Touch target has an exposed area: @TextureRect@43",
+    "Touch control is visible: @TextureRect@43",
+    "Touch to start opens the connected workspace",
+    "Connecting preserves the Android window dimensions",
+    "Connected viewport fits the fixed capture without clipping",
+    "Mobile tab strip reserves no desktop window-button space"
+  ]
+}

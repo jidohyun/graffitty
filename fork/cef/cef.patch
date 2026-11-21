@@ -1,0 +1,131 @@
+diff --git a/BUILD.gn b/BUILD.gn
+index ae04ae3bb..2b03ee522 100644
+--- a/BUILD.gn
++++ b/BUILD.gn
+@@ -1067,6 +1067,9 @@ source_set("libcef_static") {
+ 
+   if (is_mac) {
+     sources += includes_mac + [
++      "libcef/browser/chrome_gpu_capture.cc",
++      "libcef/browser/chrome_gpu_capture.h",
++      "libcef/browser/chrome_gpu_capture_mac.mm",
+       "libcef/browser/chrome/chrome_content_browser_client_cef_mac.mm",
+       "libcef/browser/chrome/chrome_web_contents_view_delegate_cef_mac.mm",
+       "libcef/browser/native/browser_platform_delegate_native_mac.h",
+diff --git a/libcef/browser/browser_host_base.cc b/libcef/browser/browser_host_base.cc
+index c9f84e503..8654d5f0e 100644
+--- a/libcef/browser/browser_host_base.cc
++++ b/libcef/browser/browser_host_base.cc
+@@ -7,6 +7,9 @@
+ #include <tuple>
+ 
+ #include "base/logging.h"
++#if BUILDFLAG(IS_MAC)
++#include "cef/libcef/browser/chrome_gpu_capture.h"
++#endif
+ #include "cef/libcef/browser/browser_guest_util.h"
+ #include "cef/libcef/browser/browser_info_manager.h"
+ #include "cef/libcef/browser/browser_platform_delegate.h"
+@@ -1502,10 +1505,16 @@ void CefBrowserHostBase::OnAfterCreated() {
+       handler->OnAfterCreated(this);
+     }
+   }
++#if BUILDFLAG(IS_MAC)
++  MaybeStartChromeGpuCapture(this);
++#endif
+ }
+ 
+ void CefBrowserHostBase::OnBeforeClose() {
+   CEF_REQUIRE_UIT();
++#if BUILDFLAG(IS_MAC)
++  StopChromeGpuCapture(this);
++#endif
+   if (client_) {
+     if (auto handler = client_->GetLifeSpanHandler()) {
+       handler->OnBeforeClose(this);
+diff --git a/libcef/browser/browser_host_create.cc b/libcef/browser/browser_host_create.cc
+index 1d1f4b424..32398f4b2 100644
+--- a/libcef/browser/browser_host_create.cc
++++ b/libcef/browser/browser_host_create.cc
+@@ -253,6 +253,9 @@ void CefBrowserCreateParams::MaybeSetWindowInfo(
+   const bool is_chrome_style =
+       allow_chrome_style && IsChromeStyle(&new_window_info);
+   if (!is_chrome_style ||
++#if BUILDFLAG(IS_MAC)
++      new_window_info.hidden ||
++#endif
+       chrome_child_window::HasParentHandle(new_window_info)) {
+     window_info = std::make_unique<CefWindowInfo>(new_window_info);
+     if (!allow_chrome_style) {
+diff --git a/libcef/browser/browser_platform_delegate_create.cc b/libcef/browser/browser_platform_delegate_create.cc
+index b2f30ae0a..9f7c693dd 100644
+--- a/libcef/browser/browser_platform_delegate_create.cc
++++ b/libcef/browser/browser_platform_delegate_create.cc
+@@ -79,9 +79,9 @@ std::unique_ptr<CefBrowserPlatformDelegate> CefBrowserPlatformDelegate::Create(
+     std::unique_ptr<CefBrowserPlatformDelegateNative> native_delegate =
+         CreateNativeDelegate(window_info, background_color);
+ 
+-    if (create_params.window_info) {
+-      // CefWindowInfo should only be set if a parent handle was specified.
+-      DCHECK(chrome_child_window::HasParentHandle(window_info));
++    if (chrome_child_window::HasParentHandle(window_info)) {
++      // Hidden top-level windows also retain CefWindowInfo. Only an actual
++      // parent handle selects child-window hosting.
+       return std::make_unique<CefBrowserPlatformDelegateChromeChildWindow>(
+           std::move(native_delegate),
+           static_cast<CefBrowserViewImpl*>(create_params.browser_view.get()));
+diff --git a/libcef/browser/chrome/chrome_browser_host_impl.cc b/libcef/browser/chrome/chrome_browser_host_impl.cc
+index fd0128f64..ffd1d6782 100644
+--- a/libcef/browser/chrome/chrome_browser_host_impl.cc
++++ b/libcef/browser/chrome/chrome_browser_host_impl.cc
+@@ -448,6 +448,13 @@ Browser* ChromeBrowserHostImpl::CreateBrowser(
+   auto* browser = Browser::Create(chrome_params);
+ 
+   bool show_browser = true;
++#if BUILDFLAG(IS_MAC)
++  // Honor the native hidden flag for Chrome-style creation too. GPU capture
++  // initializes the render view independently; showing a top-level window is
++  // neither necessary nor authorized by an embedded browser creation request.
++  if (params.window_info && params.window_info->hidden)
++    show_browser = false;
++#endif
+ 
+   if (chrome_browser_view) {
+     // Initialize the BrowserWidget and BrowserView and create the controls that
+diff --git a/libcef/browser/osr/render_widget_host_view_osr.cc b/libcef/browser/osr/render_widget_host_view_osr.cc
+index 501889ac8..84c6e63ed 100644
+--- a/libcef/browser/osr/render_widget_host_view_osr.cc
++++ b/libcef/browser/osr/render_widget_host_view_osr.cc
+@@ -811,7 +811,6 @@ gfx::Rect CefRenderWidgetHostViewOSR::GetBoundsInRootWindow() {
+   return GetViewBounds();
+ }
+ 
+-#if !BUILDFLAG(IS_MAC)
+ viz::ScopedSurfaceIdAllocator
+ CefRenderWidgetHostViewOSR::DidUpdateVisualProperties(
+     const cc::RenderFrameMetadata& metadata) {
+@@ -820,7 +819,6 @@ CefRenderWidgetHostViewOSR::DidUpdateVisualProperties(
+       weak_ptr_factory_.GetWeakPtr(), metadata);
+   return viz::ScopedSurfaceIdAllocator(std::move(allocation_task));
+ }
+-#endif
+ 
+ viz::SurfaceId CefRenderWidgetHostViewOSR::GetCurrentSurfaceId() const {
+   return delegated_frame_host_ ? delegated_frame_host_->GetCurrentSurfaceId()
+diff --git a/libcef/browser/osr/render_widget_host_view_osr.h b/libcef/browser/osr/render_widget_host_view_osr.h
+index 91203c5fe..ee9bc0803 100644
+--- a/libcef/browser/osr/render_widget_host_view_osr.h
++++ b/libcef/browser/osr/render_widget_host_view_osr.h
+@@ -182,10 +182,10 @@ class CefRenderWidgetHostViewOSR
+   void TransformPointToRootSurface(gfx::PointF* point) override;
+   gfx::Rect GetBoundsInRootWindow() override;
+ 
+-#if !BUILDFLAG(IS_MAC)
++  // The renderer can advance its child surface sequence after GPU loss on
++  // macOS too. Embed the acknowledged ID instead of waiting on the old surface.
+   viz::ScopedSurfaceIdAllocator DidUpdateVisualProperties(
+       const cc::RenderFrameMetadata& metadata) override;
+-#endif
+ 
+   viz::SurfaceId GetCurrentSurfaceId() const override;
+   bool HasSavedCompositorFrame() const override;

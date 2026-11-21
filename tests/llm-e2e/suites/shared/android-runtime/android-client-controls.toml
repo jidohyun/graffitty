@@ -1,0 +1,16 @@
+runtime = "android"
+required_frontends = ["godot"]
+
+name = "android-client-controls"
+goal = "Android menu and keyboard parity, with bottom terminal status preserved during zoom"
+instructions = "android-client-controls.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Client controls and title masking"
+tools = []
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-client-controls"

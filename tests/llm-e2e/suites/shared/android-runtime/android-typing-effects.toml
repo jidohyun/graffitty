@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-typing-effects"
+goal = "Exercise real remote key input, animated typing state and cancellation across pane focus changes."
+instructions = "android-typing-effects.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-typing-effects"

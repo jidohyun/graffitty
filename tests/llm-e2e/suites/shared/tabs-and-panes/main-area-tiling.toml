@@ -1,0 +1,28 @@
+required_frontends = ["godot"]
+
+name = "main-area-tiling"
+instructions = "main-area-tiling.md"
+goal = "Main area and nested tiling: a window-sized main area with optional i3-style nested splits and draggable weighted dividers and freely positioned same-tab stashes, retaining live sessions."
+verify = "state_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Tile and split"
+tools = []
+
+[[stages]]
+name = "Resize tiled panes"
+tools = []
+
+[[stages]]
+name = "Resize and toggle"
+tools = []
+
+[[stages]]
+name = "Preserve sessions"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/main-area-tiling.gd"

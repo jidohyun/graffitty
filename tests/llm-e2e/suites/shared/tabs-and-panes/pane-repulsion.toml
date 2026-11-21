@@ -1,0 +1,20 @@
+required_frontends = ["godot"]
+
+name = "pane-repulsion"
+instructions = "pane-repulsion.md"
+goal = "Nearby floating terminals repel smoothly while anchors, typing panes and tiled leaves stay fixed, preserving real terminal processes and grids."
+verify = "timed_actual_pane_pixels_process_identity_per_tab_controls"
+tool_budget = 70
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect local repulsion and pinned panes"
+tools = []
+
+[[stages]]
+name = "Inspect per-tab settings and tiled behavior"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-repulsion.gd"

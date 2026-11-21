@@ -1,0 +1,28 @@
+required_frontends = ["godot"]
+
+name = "per-tab-tiling"
+instructions = "per-tab-tiling.md"
+goal = "Each tab independently owns its tiling mode and layout; an explicit future-tab default changes new tabs only, and local toggles never change that default."
+verify = "state_continuity"
+tool_budget = 140
+turn_timeout_seconds = 420
+
+[[stages]]
+name = "Prepare distinct spaces"
+tools = []
+
+[[stages]]
+name = "Toggle each tab independently"
+tools = []
+
+[[stages]]
+name = "Change the default for future tabs"
+tools = []
+
+[[stages]]
+name = "Verify continuity and cleanup"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/per-tab-tiling.gd"

@@ -1,0 +1,29 @@
+--- a/chrome/browser/sessions/session_data_service.cc
++++ b/chrome/browser/sessions/session_data_service.cc
+@@ -3,6 +3,12 @@
+ // found in the LICENSE file.
+ 
+ #include "chrome/browser/sessions/session_data_service.h"
++
++#include "cef/libcef/features/features.h"
++#if BUILDFLAG(ENABLE_CEF)
++// The implementation lives in libcef; keep this boundary free of CEF types.
++#include "cef/libcef/browser/session_lifetime.h"  // nogncheck
++#endif
+ 
+ #include "base/feature_list.h"
+ #include "base/functional/bind.h"
+@@ -134,6 +140,13 @@
+     return;
+   }
+ 
++#if BUILDFLAG(ENABLE_CEF)
++  // Closing DevTools is not the end of a session that still has Alloy pages.
++  if (GraffittyHasActiveAlloyPages(profile_)) {
++    return;
++  }
++#endif
++
+   // Session cookies should stay alive on platforms where the browser stays
+   // alive without windows.
+   bool skip_session_cookies = browser_defaults::kBrowserAliveWithNoWindows;

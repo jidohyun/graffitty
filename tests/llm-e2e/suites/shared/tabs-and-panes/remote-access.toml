@@ -1,0 +1,23 @@
+required_frontends = ["godot"]
+
+name = "remote-access"
+instructions = "remote-access.md"
+goal = "Remote sharing defaults closed and can be enabled, stopped, and restarted without restarting local terminals."
+verify = "runtime_remote_access"
+tool_budget = 40
+turn_timeout_seconds = 180
+
+[[stages]]
+name = "Runtime sharing"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/remote-access.gd"
+
+server_config = """
+[remote]
+enabled = false
+bind_address = "127.0.0.1"
+port = {{port}}
+"""

@@ -1,0 +1,22 @@
+required_frontends = ["godot"]
+
+name = "font-rendering"
+instructions = "font-rendering.md"
+goal = "Selectable fonts and ligatures change real glyphs without shifting terminal cells, selection or the shell process."
+verify = "rendered_glyphs_live_pty_and_exact_selection"
+tool_budget = 80
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Observe fonts and ligatures"
+tools = []
+
+[[stages]]
+name = "Select and recover"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "fonts"]

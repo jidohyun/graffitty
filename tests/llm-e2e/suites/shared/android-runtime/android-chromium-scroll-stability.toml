@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-scroll-stability"
+goal = "Repeatedly scroll real Chromium to both edges with wheel and touchpad input while checking decoded frames and browser responsiveness."
+instructions = "android-chromium-scroll-stability.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-scroll-stability"

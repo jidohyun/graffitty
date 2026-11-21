@@ -1,0 +1,31 @@
+required_frontends = ["godot"]
+
+name = "pinch-zoom-tab-flight"
+instructions = "pinch-zoom-tab-flight.md"
+goal = "In Bistro, after a pinch zoom, switching tabs flies to the next wall in one continuous motion and lands without a jump cut, restoring each destination tab's own zoom."
+verify = "visual_continuity"
+tool_budget = 80
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Open Bistro"
+tools = []
+
+[[stages]]
+name = "Pinch zoom a little"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Switch tabs and watch the flight"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify continuity"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/bistro-world/replays/pinch-zoom-tab-flight.gd"

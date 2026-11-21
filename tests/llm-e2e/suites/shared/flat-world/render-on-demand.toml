@@ -1,0 +1,25 @@
+required_frontends = ["godot"]
+
+name = "render-on-demand"
+requires_headful = true
+instructions = "render-on-demand.md"
+goal = "A static workspace stops rendering; terminal output, input, cursor blinking, chromium GPU frames, and animations wake the complete composition promptly, then allow it to sleep again, with rendering capped at 60 FPS."
+verify = "visual_continuity"
+tool_budget = 120
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Idle and terminal wake-up"
+tools = []
+
+[[stages]]
+name = "Input, navigation, and effects"
+tools = []
+
+[[stages]]
+name = "Chromium GPU frames"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/render-on-demand.gd"

@@ -1,0 +1,13 @@
+--- a/libavcodec/videotoolboxenc.c
++++ b/libavcodec/videotoolboxenc.c
+@@ -764,6 +764,10 @@
+     }
+ 
+     if (!sample_buffer) {
++        // Rate control dropped this frame. Queue an empty result: a low-delay
++        // caller waits for each frame's output, and a flush counts outputs
++        // against inputs, so either would otherwise wait forever.
++        vtenc_q_push(vtctx, info);
+         return;
+     }
+ 

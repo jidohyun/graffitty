@@ -1,0 +1,9 @@
+required_frontends = ["godot"]
+
+name = "status-strip-events"
+goal = "Update StatusStrip and resource-monitor text synchronously when resource samples or local/remote agent state arrive."
+instructions = "status-strip-events.md"
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/status-strip-events.gd"

@@ -1,0 +1,28 @@
+required_frontends = ["godot"]
+
+name = "per-tab-camera-view"
+instructions = "per-tab-camera-view.md"
+goal = "Tabs remember independent navigation zoom and pan; tab-switch flights land smoothly at each destination's saved view, including repeated and interrupted switches and a tab-local Main Area reset."
+verify = "visual_continuity"
+tool_budget = 140
+turn_timeout_seconds = 420
+
+[[stages]]
+name = "Prepare distinct views"
+tools = []
+
+[[stages]]
+name = "Restore the destination during the flight"
+tools = []
+
+[[stages]]
+name = "Update one remembered view"
+tools = []
+
+[[stages]]
+name = "Interrupt switches and reset one tab"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/per-tab-camera-view.gd"

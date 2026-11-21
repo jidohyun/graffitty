@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-native-input"
+goal = "Exercise actual Android touch delivery, installed IME typing and Back in the production connection form."
+instructions = "android-native-input.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py android-native-input"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-native-input"

@@ -1,0 +1,47 @@
+# Build outputs. Everything under these directories is generated and may be
+# deleted at any time; nothing in them is source. frontends/godot/project/dist
+# is a symlink to /dist, and tools/build_packs.gd marks it with .gdignore so
+# the editor does not import the packs it finds there.
+/build/
+/dist/
+/target/
+/frontends/godot/extension/target/
+/frontends/godot/project/dist
+/site/
+/shots/
+/artifacts/
+build/
+dist/
+node_modules/
+
+# Caches and editor state
+.cache/
+.godot/
+*.import
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+.playwright-mcp/
+.DS_Store
+*.log
+.env
+# Machine-local config and secrets (fnox.local.toml, mise.local.toml, ...)
+*.local.toml
+
+# DVC-managed tree; see assets.dvc.
+/assets
+# World repositories link themselves here while their pipelines run.
+/frontends/godot/project/worlds/
+
+# Files that tools write into fixed paths inside the Godot project.
+/frontends/godot/project/graffitty/build-info.json
+/frontends/godot/project/override.cfg
+/frontends/godot/project/export_credentials.cfg
+
+# Measurements from local runs. Harnesses, fixtures and authored benchmark
+# documentation stay tracked.
+/tests/conformance/reports/
+/docs/developers/internals/benchmarks/scene-*.json

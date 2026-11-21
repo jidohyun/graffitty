@@ -1,0 +1,66 @@
+extends "res://tests/mods_fixture.gd"
+## The Pane Status: the panel renders the host's published samples, docks
+## on every side with the shared lifecycle, and shows the compact rail/row.
+const MonitorDialog := preload("res://scenes/PaneStatusDialog.gd")
+
+func run() -> void:
+	var mobile := "--android" in OS.get_cmdline_user_args()
+	setup(mobile)
+	Input.emulate_mouse_from_touch = true
+	var dialog: Window = MonitorDialog.open(host)
+	await settle()
+	check(dialog.load_error.is_empty() and dialog.view.last_error().is_empty(), "Pane Status mod loads: " + dialog.view.last_error())
+	check(dialog.is_embedded() == mobile and dialog.force_native != mobile, "Pane Status uses the shared platform window policy")
+	check(MonitorDialog.open(host) == dialog and MonitorDialog.find(host) == dialog, "Reopening raises the same window-owned inspector")
+	check(has_text(dialog, "12.0%") and has_text(dialog, "%1") and "PID 123" in dialog.view.get_tooltip(dialog.view.hit_rect("metric-processes").get_center()),
+		"Inspector renders the selected pane's sample, details in row tooltips: %s" % [texts(dialog)])
+	check(dialog.footer.get_child_count() == 2, "Inspector has no selection action buttons")
+	host.sample.cpu = 37.0
+	app.mods.publish_resources(host)
+	await settle()
+	check(has_text(dialog, "37.0%"), "A new sample re-renders the readout")
+	var dock: Control = dialog._desktop
+	space.commit(dock, space.plan(dock, Vector2(2, 200)))
+	await settle()
+	check(dock.is_ancestor_of(dialog.view) and not dialog.visible, "Dock owns the same live view, not a copy")
+	check(host.workspace_view.insets.x > 0, "Pane Status reserves main content only")
+	var placement := dock.get_rect()
+	host.sample.cpu = 48.0
+	app.mods.publish_resources(host)
+	await settle()
+	check(has_text(dialog, "48.0%") and dock.get_rect() == placement, "Dock samples stay live without resizing the user's layout")
+	space.widths.left = 40
+	space.reflow()
+	await settle()
+	check(dock.size.x == 40 and dialog._body.size.x <= 40, "Monitor supports the same compact sidebar width")
+	check(dialog.compact and not dialog.compact_row, "Narrow sidebar switches to the compact rail")
+	var shown := texts(dialog)
+	check("48%" in shown and "1M" in shown and "%1" in shown and not has_text(dialog, "PID"), "Compact rail shows the pane and icon metrics, details move to the tooltip: %s" % [shown])
+	var pane_rect: Rect2 = dialog.view.hit_rect("pane")
+	check(pane_rect.position.x >= 6, "Compact metrics retain six-pixel side padding")
+	check("PID 123" in dialog.view.get_tooltip(pane_rect.get_center()), "Full details remain in the tooltip")
+	space.widths.left = 240
+	space.reflow()
+	await settle()
+	check(not dialog.compact and dialog.view.hit_rect("metric-peak").has_area(), "Expanded monitor restores the full readout")
+	dialog.set_workspace_active(false)
+	space.set_workspace_active(false)
+	check(not dock.visible and not dialog.visible, "Manager hides docked monitor")
+	space.set_workspace_active(true)
+	dialog.set_workspace_active(true)
+	check(dock.visible, "Returning restores docked monitor")
+	space.save_layout()
+	space.load_layout()
+	check(space._saved.pane_status.open and space._saved.pane_status.side == "left", "Current v1 schema accepts Pane Status placement")
+	dialog._close_panel()
+	await settle()
+	check(not space._saved.pane_status.open, "Close persists the closed state")
+	dialog = MonitorDialog.open(host)
+	await settle()
+	check(dialog._desktop.side == "left", "Reopening restores the last dock")
+	dialog.float_native()
+	check(dialog.visible and dialog.is_ancestor_of(dialog.view), "Undocking restores the same view to its window")
+	dialog._close_panel()
+	await settle()
+	check(host.workspace_view.insets == Vector4.ZERO, "Closing releases the monitor's reservation")
+	finish("PANE_STATUS_DOCK")

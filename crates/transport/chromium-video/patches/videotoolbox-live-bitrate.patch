@@ -1,0 +1,40 @@
+--- a/libavcodec/videotoolboxenc.c
++++ b/libavcodec/videotoolboxenc.c
+@@ -273,6 +273,8 @@
+     int frames_before;
+     int frames_after;
+     int constant_bit_rate;
++    /* The average bit rate the live session last accepted; see vtenc_send_frame. */
++    int64_t applied_bit_rate;
+ 
+     int allow_sw;
+     int require_sw;
+@@ -1278,6 +1280,8 @@
+             status = VTSessionSetProperty(vtctx->session,
+                                           kVTCompressionPropertyKey_AverageBitRate,
+                                           bit_rate_num);
++            if (!status)
++                vtctx->applied_bit_rate = bit_rate;
+         }
+ 
+         CFRelease(bit_rate_num);
+@@ -2485,6 +2489,19 @@
+     if (!node)
+         return AVERROR(ENOMEM);
+ 
++    // Interactive streams follow their viewer's link. VideoToolbox accepts a
++    // new average bit rate on the live session: no new session, no keyframe.
++    if (vtctx->applied_bit_rate && avctx->bit_rate > 0 &&
++        avctx->bit_rate != vtctx->applied_bit_rate) {
++        SInt32 rate = avctx->bit_rate;
++        CFNumberRef rate_num = CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &rate);
++        if (rate_num) {
++            if (!VTSessionSetProperty(vtctx->session, kVTCompressionPropertyKey_AverageBitRate, rate_num))
++                vtctx->applied_bit_rate = avctx->bit_rate;
++            CFRelease(rate_num);
++        }
++    }
++
+     status = create_cv_pixel_buffer(avctx, frame, &cv_img, node);
+     if (status)
+         goto out;

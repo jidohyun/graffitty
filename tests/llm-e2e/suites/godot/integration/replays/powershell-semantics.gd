@@ -1,0 +1,21 @@
+extends "launch-policy-seed.gd"
+func play() -> void:
+	directory=OS.get_environment("GRAFFITTY_INPUT_EVIDENCE")
+	terminal=host.active_terminal()
+	connection=host.session_backend.connection
+	await hold(1)
+	await type("Write-Output 'SEMANTIC_FIRST_OUTPUT_155'{enter}")
+	await until(func():return output_line("SEMANTIC_FIRST_OUTPUT_155"),"First real PowerShell command completes")
+	await hold(1)
+	check(terminal.copy_last_output(),"First command has automatic semantic output")
+	check(DisplayServer.clipboard_get().strip_edges()=="SEMANTIC_FIRST_OUTPUT_155","First semantic output exactly matches")
+	var target:=directory.path_join("shell-hooks.txt").replace("'","''")
+	await type("@('READLINE:', $function:PSConsoleHostReadLine.ToString(), 'PROMPT:', $function:prompt.ToString()) | Out-File -LiteralPath '%s'; Write-Output 'HOOKS_SAVED'{enter}" % target)
+	await until(func():return output_line("HOOKS_SAVED"),"Actual shell hook definitions saved")
+	await type("Write-Output 'SEMANTIC_REAL_OUTPUT_155'{enter}")
+	await until(func():return output_line("SEMANTIC_REAL_OUTPUT_155"),"Real PowerShell output completes")
+	await hold(1)
+	check(terminal.copy_last_output(),"Automatic integration supplies semantic output")
+	var copied:=DisplayServer.clipboard_get()
+	check(copied.strip_edges()=="SEMANTIC_REAL_OUTPUT_155","Semantic copy exactly matches output: "+JSON.stringify(copied))
+	FileAccess.open(directory.path_join("terminal.txt"),FileAccess.WRITE).store_string(terminal.get_text(true).text)

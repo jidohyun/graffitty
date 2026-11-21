@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-view-per-tab"
+goal = "Keep distinct pan/zoom values in two tabs across repeated touch switches and topology updates, without creating duplicate PTYs."
+instructions = "android-view-per-tab.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-view-per-tab"

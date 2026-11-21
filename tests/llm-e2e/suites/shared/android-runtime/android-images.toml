@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-images"
+goal = "Restore inline and server-file images on first attachment and reconnect, delete by ID, retain Unicode scrollback."
+instructions = "android-images.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-images"

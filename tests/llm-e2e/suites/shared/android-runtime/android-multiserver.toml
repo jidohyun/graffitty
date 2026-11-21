@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-multiserver"
+goal = "Run the existing multi-server and multi-workspace client scenario inside Android, including chromium, graph authority, images and detach/reattach."
+instructions = "android-multiserver.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-multiserver"

@@ -1,0 +1,13 @@
+if [[ -r /opt/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]]; then
+  source /opt/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+fi
+export TERM=xterm-ghostty
+HISTFILE=/dev/null
+RPROMPT=''
+PROMPT_EOL_MARK=''
+unsetopt PROMPT_SP
+PROMPT='%~ $ '
+export GIT_PAGER=cat
+source "$ZDOTDIR/integration.sh"
+
+printf '\033[2J\033[H\033[8mTILING_READY\033[0m\n'

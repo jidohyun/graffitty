@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-url"
+goal = "Navigate a real Chromium and see each new URL in the address bar within seconds."
+instructions = "android-chromium-url.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-url"

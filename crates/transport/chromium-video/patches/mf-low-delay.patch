@@ -1,0 +1,76 @@
+Hardware video MFTs can issue NeedInput ahead of HaveOutput for the same
+submission. Preserve pending input requests while waiting for low-delay output:
+a static browser page may never submit a second frame. Bound the wait for MFTs
+that require another input. Other modes retain their existing event handling.
+
+--- a/libavcodec/mfenc.c
++++ b/libavcodec/mfenc.c
+@@ -74,17 +74,26 @@
+ // Sentinel value only used by us.
+ #define MF_INVALID_TIME AV_NOPTS_VALUE
+ 
+-static int mf_wait_events(AVCodecContext *avctx)
+-{
+-    MFContext *c = avctx->priv_data;
++static int mf_wait_events(AVCodecContext *avctx, int wait_for_output)
++{
++    MFContext *c = avctx->priv_data;
++
++    int64_t deadline = av_gettime_relative() + 500000;
+ 
+     if (!c->async_events)
+         return 0;
+ 
+-    while (!(c->async_need_input || c->async_have_output || c->draining_done || c->async_marker)) {
++    while (!((c->async_need_input && !wait_for_output) || c->async_have_output || c->draining_done || c->async_marker)) {
+         IMFMediaEvent *ev = NULL;
+         MediaEventType ev_id = 0;
+-        HRESULT hr = IMFMediaEventGenerator_GetEvent(c->async_events, 0, &ev);
++        HRESULT hr = IMFMediaEventGenerator_GetEvent(c->async_events,
++                                                     wait_for_output ? MF_EVENT_FLAG_NO_WAIT : 0, &ev);
++        if (wait_for_output && hr == MF_E_NO_EVENTS_AVAILABLE) {
++            if (av_gettime_relative() >= deadline)
++                return AVERROR(EAGAIN);
++            av_usleep(1000);
++            continue;
++        }
+         if (FAILED(hr)) {
+             av_log(avctx, AV_LOG_ERROR, "IMFMediaEventGenerator_GetEvent() failed: %s\n",
+                    ff_hr_str(hr));
+@@ -94,7 +103,7 @@
+         switch (ev_id) {
+         case ff_METransformNeedInput:
+             if (!c->draining)
+-                c->async_need_input = 1;
++                c->async_need_input++;
+             break;
+         case ff_METransformHaveOutput:
+             c->async_have_output = 1;
+@@ -515,7 +524,7 @@
+ 
+     if (sample) {
+         if (c->async_events) {
+-            if ((ret = mf_wait_events(avctx)) < 0)
++            if ((ret = mf_wait_events(avctx, 0)) < 0)
+                 return ret;
+             if (!c->async_need_input)
+                 return AVERROR(EAGAIN);
+@@ -530,7 +539,8 @@
+             av_log(avctx, AV_LOG_ERROR, "failed processing input: %s\n", ff_hr_str(hr));
+             return AVERROR_EXTERNAL;
+         }
+-        c->async_need_input = 0;
++        if (c->async_events)
++            c->async_need_input--;
+     } else if (!c->draining) {
+         hr = IMFTransform_ProcessMessage(c->mft, MFT_MESSAGE_COMMAND_DRAIN, 0);
+         if (FAILED(hr))
+@@ -559,7 +569,7 @@
+         sample = NULL;
+ 
+         if (c->async_events) {
+-            if ((ret = mf_wait_events(avctx)) < 0)
++            if ((ret = mf_wait_events(avctx, !c->draining && (avctx->flags & AV_CODEC_FLAG_LOW_DELAY) && !avctx->max_b_frames)) < 0)
+                 return ret;
+             if (!c->async_have_output || c->draining_done) {
+                 ret = 0;

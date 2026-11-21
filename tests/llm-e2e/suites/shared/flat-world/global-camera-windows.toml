@@ -1,0 +1,31 @@
+required_frontends = ["godot"]
+
+name = "global-camera-windows"
+instructions = "global-camera-windows.md"
+goal = "Typing moves one camera over the flat world and every floating window together: zoom toward the focused window's cursor, a gentle lean, depth of field and depth lighting across all windows, exact placement at rest, and clicks that land through the zoomed camera."
+verify = "global_camera"
+tool_budget = 120
+turn_timeout_seconds = 360
+
+[[stages]]
+name = "Prepare two windows in one tab"
+tools = []
+
+[[stages]]
+name = "Type and watch the camera"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Interact while zoomed"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify rest"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/global-camera-windows.gd"

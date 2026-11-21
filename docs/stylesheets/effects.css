@@ -1,0 +1,49 @@
+.md-typeset .effects-gallery .effects-toolbar {
+  position: sticky;
+  top: var(--effects-header-height, 2.4rem);
+  z-index: 4;
+  display: flex;
+  justify-content: flex-end;
+  padding: .5rem 0;
+  background: var(--gft-bg, var(--md-default-bg-color));
+}
+.md-typeset .effects-gallery button {
+  cursor: pointer;
+  color: var(--md-accent-fg-color);
+  border: 1px solid currentColor;
+  border-radius: 1.5rem;
+  padding: .35rem .8rem;
+  background: var(--gft-bg, var(--md-default-bg-color));
+  font: inherit;
+}
+.md-typeset .effects-gallery nav { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.md-typeset .effects-gallery nav a { padding: .3rem .65rem; border-radius: 1.5rem; background: var(--md-accent-fg-color--transparent); }
+.md-typeset .effects-gallery section { scroll-margin-top: 6rem; }
+.md-typeset .effects-gallery .fx { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 2rem 1.25rem; }
+.md-typeset .effects-gallery figure { display: block; width: 100%; margin: 0; min-width: 0; max-width: none; }
+.md-typeset .effects-gallery video, .md-typeset .effects-gallery .pending { display: block; width: 100%; aspect-ratio: 8/5; border-radius: .6rem; background: var(--md-code-bg-color); }
+.md-typeset .effects-gallery .pending { display: grid; place-items: center; }
+.md-typeset .effects-gallery figcaption { margin: 0; max-width: none; font-style: normal; text-align: left; }
+.md-typeset .effects-gallery h3 { margin: .65rem 0 .25rem; font-weight: 600; }
+.md-typeset .effects-gallery figcaption p { margin: 0 0 .6rem; color: var(--md-default-fg-color--light); }
+.md-typeset .effect-setting-group { position: relative; margin-top: .6rem; }
+.md-typeset .effect-code { position: relative; }
+.md-typeset .effect-code [data-copy-settings] {
+  position: absolute; right: .25rem; left: auto; top: .25rem; z-index: 1;
+  display: grid; place-items: center; width: 1.6rem; height: 1.6rem;
+  padding: .25rem; border: 0; border-radius: .2rem;
+  color: var(--md-default-fg-color--light); background: transparent;
+}
+.md-typeset .effect-code [data-copy-settings]:is(:hover, :focus-visible) {
+  color: var(--md-accent-fg-color); background: var(--md-accent-fg-color--transparent);
+}
+.md-typeset .effect-code [data-copy-settings]:focus-visible { outline: 2px solid currentColor; }
+.md-typeset .effect-code [data-copy-settings] svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
+.md-typeset .effect-code .check-icon, .md-typeset .effect-code [data-copied] .copy-icon { display: none; }
+.md-typeset .effect-code [data-copied] .check-icon { display: block; }
+.md-typeset .effect-setting-group pre { margin: 0; }
+.md-typeset .effect-setting-group code { display: block; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .65rem; padding: .6rem 2.2rem .6rem .6rem; }
+
+.md-typeset .effect-setting-group button:not([data-copy-settings]) { display: none; }
+
+.md-typeset .effects-gallery video { height: auto; aspect-ratio: auto; object-fit: contain; }

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.21)
+project(GraffittyCEFWrapper LANGUAGES C CXX OBJCXX)
+set(CMAKE_CXX_STANDARD 20)
+get_filename_component(CEF_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../../../../fork/cef/artifacts/macos-arm64/sdk" ABSOLUTE)
+set(CMAKE_MODULE_PATH "${CEF_ROOT}/cmake")
+find_package(CEF REQUIRED)
+add_subdirectory("${CEF_LIBCEF_DLL_WRAPPER_PATH}" libcef_dll_wrapper)

@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "stash-navigation"
+instructions = "stash-navigation.md"
+goal = "Right-button dragging and pointer-anchored pinch let users inspect and type in stashed panes at readable scale without moving panes or stealing unmodified scrolling."
+verify = "state_continuity"
+tool_budget = 120
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Stash and inspect"
+tools = []
+
+[[stages]]
+name = "Navigate and type"
+tools = []
+
+[[stages]]
+name = "Worlds and reset"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/stash-navigation.gd"

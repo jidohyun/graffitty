@@ -1,0 +1,5 @@
+# Simulated Android messages-copy
+
+Run the shared `messages_copy` scenario in `tests/client_scenarios/workspace.gd` using the Mac Godot touch wrapper.
+
+Follow the same assertions and pass/fail rules as [the APK case](../android-runtime/android-messages-copy.md). This case uses a real isolated standalone server. It validates shared UI and protocol behavior; Android system services remain in the APK suite.

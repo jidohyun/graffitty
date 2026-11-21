@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-close-nearest"
+goal = "Close the focused pane among distant and nearby neighbors; focus and pan to the nearest survivor without zoom or typing effects."
+instructions = "android-close-nearest.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-close-nearest"

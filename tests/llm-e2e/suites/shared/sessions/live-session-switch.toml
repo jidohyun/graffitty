@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+name = "live-session-switch"
+instructions = "live-session-switch.md"
+goal = "Switch live named sessions while retaining each window's per-session pan and zoom, existing PTYs, authenticated owner, and independent clients."
+verify = "real_pty_and_authenticated_transport"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Live sessions and retained presentation"
+tools = []
+
+[adapters.godot]
+kind = "python"
+script = "../../../../godot/live_session_switch_e2e.py"

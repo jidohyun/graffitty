@@ -1,0 +1,8 @@
+required_frontends = ["godot"]
+name = "scrollbar-interactions"
+goal = "Drag the terminal scrollbar, page by clicking empty track, and repeat paging while held without moving the world or selecting text."
+instructions = "scrollbar-interactions.md"
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/scrollbar-interactions.gd"

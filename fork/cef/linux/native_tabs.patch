@@ -1,0 +1,62 @@
+--- a/libcef/browser/native_tabs.cc
++++ b/libcef/browser/native_tabs.cc
+@@ -4,6 +4,10 @@
+ #include <algorithm>
+ #include <map>
+ #include "base/functional/bind.h"
++#include "build/build_config.h"
++#if BUILDFLAG(IS_LINUX)
++#include "cef/libcef/browser/linux_native_window.h"
++#endif
+ #include "base/json/json_reader.h"
+ #include "base/json/json_writer.h"
+ #include "base/no_destructor.h"
+@@ -117,6 +121,12 @@
+   base::DictValue result;
+   result.Set("version", 1);
+   result.Set("tabs", std::move(tabs));
++#if BUILDFLAG(IS_LINUX)
++  base::ListValue native_windows;
++  for (auto [id, window] : windows)
++    native_windows.Append(GraffittyLinuxWindowState(window));
++  result.Set("windows", std::move(native_windows));
++#endif
+   return result;
+ }
+ void GraffittyNativeTabs::ScheduleUpdate() {
+@@ -155,6 +165,11 @@
+     error = "Native tab-strip control requires a Chrome-style page";
+   } else if (method == "Graffitty.tabs.subscribe") {
+     subscribed_ = true;
++#if BUILDFLAG(IS_LINUX)
++  } else if (method == "Graffitty.tabs.snapshot") {
++    // Snapshot below includes Ozone visibility and activation, which can change
++    // independently of the tab strip (for example after compositor activation).
++#endif
+   } else {
+     auto browser = Find(owner.get(), params->FindInt("browserId").value_or(0));
+     Browser* window = browser ? browser->browser() : nullptr;
+@@ -162,6 +177,23 @@
+     int index = model ? model->GetIndexOfWebContents(browser->GetWebContents()) : -1;
+     if (index < 0) {
+       error = "The requested Chrome tab is unavailable";
++#if BUILDFLAG(IS_LINUX)
++    } else if (method == "Graffitty.tabs.present") {
++      auto native = params->FindBool("native");
++      if (!native) error = "Expected boolean native presentation";
++      else {
++        std::set<Browser*> windows;
++        for (const auto& info : CefBrowserInfoManager::GetInstance()->GetBrowserInfoList()) {
++          auto page = info->browser();
++          if (!Owned(owner.get(), page.get())) continue;
++          auto chrome = ChromeBrowserHostImpl::GetBrowserForContents(page->GetWebContents());
++          if (chrome->browser()) windows.insert(chrome->browser());
++        }
++        for (auto* candidate : windows)
++          if (!GraffittyPresentLinuxWindow(candidate, *native && candidate == window))
++            error = "Native Ozone window is unavailable";
++      }
++#endif
+     } else if (method == "Graffitty.tabs.select") {
+       model->ActivateTabAt(index);
+     } else if (method == "Graffitty.tabs.move") {

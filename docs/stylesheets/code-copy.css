@@ -1,0 +1,24 @@
+/* Shared overlapping-pages icon and success check for every code block. */
+:root {
+  --gft-copy-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z'/%3E%3C/svg%3E");
+  --gft-copied-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+}
+.md-typeset .md-code__nav { top: .25rem; right: .25rem; left: auto; padding: 0; }
+.md-typeset .md-code__button[data-md-type="copy"] {
+  display: grid; place-items: center; width: 1.6rem; height: 1.6rem;
+  padding: .25rem; border: 0; border-radius: .2rem;
+  color: var(--md-default-fg-color--light); background: transparent;
+}
+.md-typeset .md-code__button[data-md-type="copy"]:is(:hover, :focus-visible) {
+  color: var(--md-accent-fg-color); background: var(--md-accent-fg-color--transparent);
+}
+.md-typeset .md-code__button[data-md-type="copy"]::after {
+  width: 1.1rem; height: 1.1rem;
+  mask-image: var(--gft-copy-icon); -webkit-mask-image: var(--gft-copy-icon);
+}
+.md-typeset .md-code__button[data-md-type="copy"][data-copied]::after {
+  mask-image: var(--gft-copied-icon); -webkit-mask-image: var(--gft-copied-icon);
+}
+.md-typeset pre > code { padding-right: 2.2rem; }
+/* The gallery supplies its own accessible button, using the same icon. */
+.md-typeset .effect-setting-group .md-code__nav { display: none; }

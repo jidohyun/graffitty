@@ -1,0 +1,6 @@
+outs:
+- md5: 594b652f56e82ceac6f7e8dfee948c1c.dir
+  size: 196990338
+  nfiles: 5
+  hash: md5
+  path: linux-x64

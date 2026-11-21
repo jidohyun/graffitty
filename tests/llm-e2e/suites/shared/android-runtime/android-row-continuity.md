@@ -1,0 +1,1 @@
+Fill scrollback with numbered glyph rows. Scroll slowly in both directions across fractional and whole-row boundaries. Every interior row must remain visible; inspect glyphs, not just coloured backgrounds. The replay counts rendered glyph pixels in each projected row band.

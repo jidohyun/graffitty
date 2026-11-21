@@ -1,0 +1,6 @@
+outs:
+- md5: 6ceb3fd1bad9ab026b573d614a8ba28b.dir
+  size: 200934073
+  nfiles: 5
+  hash: md5
+  path: linux-arm64

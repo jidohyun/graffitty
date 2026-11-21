@@ -1,0 +1,12 @@
+{
+  "url": "https://www.youtube.com/watch?v=xDpY0SPJgVQ",
+  "provided_url": "https://youtu.be/xDpY0SPJgVQ?si=CjOXAUMZjQh21cbv",
+  "start_seconds": 31,
+  "end_seconds": 36,
+  "format_id": "303",
+  "format": "1920x1080, 60 fps, SDR VP9, silent",
+  "asset": "videos/main-demo/assets/fixtures/video.webm",
+  "purpose": "Filetree video-opening demo; distinct from the later phone chapter",
+  "rebuild": "uv run videos/main-demo/recording/tiling/make_media.py --refresh-video",
+  "storage": "Only the five-second cut is retained in DVC. The downloader requests 00:31–00:36 and uses temporary storage outside the repository; temporary media is removed after conversion."
+}

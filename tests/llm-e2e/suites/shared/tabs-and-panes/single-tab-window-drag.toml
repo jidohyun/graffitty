@@ -1,0 +1,39 @@
+required_frontends = ["godot"]
+
+name = "single-tab-window-drag"
+instructions = "single-tab-window-drag.md"
+goal = "Dragging a desktop window's only tab moves that same window and session; creating another window allocates a new numbered session, and merging into another window transfers the live tab into its session without restarting shells."
+verify = "native_window_identity_and_tab_merge"
+tool_budget = 140
+turn_timeout_seconds = 360
+requires_headful = true
+
+[[stages]]
+name = "Prepare two windows and record their identities"
+tools = []
+
+[[stages]]
+name = "Move the original window by its only tab"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Leave or cancel a merge preview"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Merge into another window"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Check the transition between one and multiple tabs"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "python"
+script = "../../../../godot/tab_window_e2e.py"
+args = ["--scenario", "window", "--gpu"]
+coverage_gaps = ["Record physical pointer dragging and compare with native title-bar motion, including leaving a merge target and returning to ordinary multi-tab reorder.", "Verify CLI session listing and explicit reattachment with retained terminal output after each complete UI drop route."]

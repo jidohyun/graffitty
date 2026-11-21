@@ -1,0 +1,961 @@
+{
+  "take": "videos/main-demo/assets/takes/watcher-demo/systemone-first-20261119/parallel",
+  "continuous_workspace": {
+    "world": "bistro",
+    "session": "$2",
+    "prepared_sessions": 4
+  },
+  "session_navigation": {
+    "prepared": {
+      "Custom nodes": {
+        "id": "$3",
+        "pane": "%10",
+        "place": "dining-room"
+      },
+      "Parallel": {
+        "id": "$2",
+        "pane": "%5",
+        "place": "terrace-tables"
+      },
+      "SystemOne": {
+        "id": "$1",
+        "pane": "%1",
+        "place": "cafe-awning"
+      },
+      "Watcher": {
+        "id": "$4",
+        "pane": "%14",
+        "place": "bottle-shelves"
+      }
+    },
+    "transitions": [
+      {
+        "arrival": true,
+        "camera_distance": 11.9905529022217,
+        "camera_frames": [
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005482971668,
+            "flight": false,
+            "focus_depth": 0.981340289115906,
+            "frame": 3356,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005482971668,
+            "flight": false,
+            "focus_depth": 0.981340289115906,
+            "frame": 3357,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006339788437,
+            "flight": false,
+            "focus_depth": 0.981339335441589,
+            "frame": 3358,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006019413471,
+            "flight": false,
+            "focus_depth": 0.981339693069458,
+            "frame": 3359,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006019413471,
+            "flight": false,
+            "focus_depth": 0.981339693069458,
+            "frame": 3360,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006019413471,
+            "flight": false,
+            "focus_depth": 0.981339693069458,
+            "frame": 3361,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006019413471,
+            "flight": false,
+            "focus_depth": 0.981339693069458,
+            "frame": 3362,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005587279797,
+            "flight": false,
+            "focus_depth": 0.981340169906616,
+            "frame": 3363,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005587279797,
+            "flight": false,
+            "focus_depth": 0.981340169906616,
+            "frame": 3364,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006444096565,
+            "flight": false,
+            "focus_depth": 0.9813392162323,
+            "frame": 3365,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006444096565,
+            "flight": false,
+            "focus_depth": 0.9813392162323,
+            "frame": 3366,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006019413471,
+            "flight": false,
+            "focus_depth": 0.981339693069458,
+            "frame": 3367,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121006019413471,
+            "flight": false,
+            "focus_depth": 0.981339693069458,
+            "frame": 3368,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3369,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3370,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3371,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3372,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3373,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3374,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3375,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3376,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3377,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3378,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3379,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": false,
+            "focus_depth": 0.981339931488037,
+            "frame": 3380,
+            "pending_capture": true,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3381,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3382,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3383,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3384,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3385,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3386,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3387,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121005803346634,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3388,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121025405824184,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3389,
+            "pending_capture": false,
+            "rotation": [
+              0.0203751288354397,
+              -2.04804825782776,
+              6.35293702089257e-07
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121083840727806,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3390,
+            "pending_capture": false,
+            "rotation": [
+              0.0203744042664766,
+              -2.04800796508789,
+              1.04422929325665e-06
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121180579066277,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3391,
+            "pending_capture": false,
+            "rotation": [
+              0.0203727167099714,
+              -2.0479142665863,
+              2.00089607460541e-06
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121315188705921,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3392,
+            "pending_capture": false,
+            "rotation": [
+              0.0203694738447666,
+              -2.04773449897766,
+              3.8303924156935e-06
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121487282216549,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3393,
+            "pending_capture": false,
+            "rotation": [
+              0.0203642155975103,
+              -2.04744267463684,
+              6.79820232107886e-06
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121696554124355,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3394,
+            "pending_capture": false,
+            "rotation": [
+              0.0203565023839474,
+              -2.04701471328735,
+              1.11530362119083e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.121942728757858,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3395,
+            "pending_capture": false,
+            "rotation": [
+              0.0203459076583385,
+              -2.04642724990845,
+              1.71231167769292e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.122225627303123,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3396,
+            "pending_capture": false,
+            "rotation": [
+              0.0203320384025574,
+              -2.04565858840942,
+              2.49254826485412e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.122545100748539,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3397,
+            "pending_capture": false,
+            "rotation": [
+              0.0203145239502192,
+              -2.04468822479248,
+              3.4763193980325e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.122901052236557,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3398,
+            "pending_capture": false,
+            "rotation": [
+              0.0202930066734552,
+              -2.04349660873413,
+              4.68169710075017e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.123293466866016,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3399,
+            "pending_capture": false,
+            "rotation": [
+              0.0202671512961388,
+              -2.0420663356781,
+              6.12516960245557e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.123722344636917,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3400,
+            "pending_capture": false,
+            "rotation": [
+              0.0202366448938847,
+              -2.04038023948669,
+              7.82210336183198e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.124187760055065,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3401,
+            "pending_capture": false,
+            "rotation": [
+              0.0202012006193399,
+              -2.03842306137085,
+              9.78572425083257e-05
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.124689839780331,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3402,
+            "pending_capture": false,
+            "rotation": [
+              0.0201605372130871,
+              -2.03618001937866,
+              0.000120270276966039
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.125228732824326,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3403,
+            "pending_capture": false,
+            "rotation": [
+              0.0201144032180309,
+              -2.03363847732544,
+              0.000145556972711347
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.125804677605629,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3404,
+            "pending_capture": false,
+            "rotation": [
+              0.0200625490397215,
+              -2.03078651428223,
+              0.000173794614966027
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.126417919993401,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3405,
+            "pending_capture": false,
+            "rotation": [
+              0.020004753023386,
+              -2.02761268615723,
+              0.000205040953005664
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.127068787813187,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3406,
+            "pending_capture": false,
+            "rotation": [
+              0.0199408121407032,
+              -2.02410745620728,
+              0.000239338827668689
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.127757623791695,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3407,
+            "pending_capture": false,
+            "rotation": [
+              0.019870525225997,
+              -2.02026271820068,
+              0.00027670493000187
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.12848487496376,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3408,
+            "pending_capture": false,
+            "rotation": [
+              0.0197937190532684,
+              -2.01606965065002,
+              0.000317140220431611
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.129250973463058,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3409,
+            "pending_capture": false,
+            "rotation": [
+              0.0197102352976799,
+              -2.0115225315094,
+              0.000360631587682292
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.13005642592907,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3410,
+            "pending_capture": false,
+            "rotation": [
+              0.0196199174970388,
+              -2.00661540031433,
+              0.000407137034926564
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.130901828408241,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3411,
+            "pending_capture": false,
+            "rotation": [
+              0.0195226352661848,
+              -2.00134325027466,
+              0.000456607464002445
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.13178776204586,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3412,
+            "pending_capture": false,
+            "rotation": [
+              0.0194182712584734,
+              -1.99570298194885,
+              0.00050896592438221
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.13271489739418,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3413,
+            "pending_capture": false,
+            "rotation": [
+              0.0193067118525505,
+              -1.98969173431396,
+              0.000564114947337657
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.133683949708939,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3414,
+            "pending_capture": false,
+            "rotation": [
+              0.0191878713667393,
+              -1.98330724239349,
+              0.000621955783572048
+            ]
+          },
+          {
+            "blur_radius": 0.0,
+            "defocus_weight": 0.0,
+            "depth_range": 0.134695708751678,
+            "flight": true,
+            "focus_depth": 0.981339931488037,
+            "frame": 3415,
+            "pending_capture": false,
+            "rotation": [
+              0.0190616715699434,
+              -1.97654891014099,
+              0.000682354089803994
+            ]
+          }
+        ],
+        "camera_travel_frames": 134,
+        "click_frame": 41,
+        "compact": true,
+        "departure": true,
+        "end_frame": 178,
+        "from": "$1",
+        "from_place": "cafe-awning",
+        "isolated_departure_frames": 135,
+        "name": "Parallel",
+        "prepared_count": 4,
+        "start_frame": 0,
+        "to": "$2",
+        "to_place": "terrace-tables"
+      }
+    ]
+  },
+  "workspace_source_frames": [
+    3355,
+    4211
+  ],
+  "source_frames": [
+    0,
+    856
+  ],
+  "playback_rate": 1.0,
+  "wire_styles": {
+    "turn_completed": "solid",
+    "combined": "solid"
+  },
+  "start": 254.35000033333336,
+  "duration": 14.266666666666667,
+  "subtitle": "Parallel node: wait until all agents finish",
+  "window": {
+    "x": 288,
+    "y": 56,
+    "width": 1344,
+    "height": 840,
+    "source_width": 2400,
+    "source_height": 1500
+  },
+  "traffic_lights_source": {
+    "x": 20,
+    "y": 14,
+    "width": 68,
+    "height": 16
+  },
+  "beats": [
+    {
+      "action": "Parallel: session click",
+      "frame": 0,
+      "seconds": 0.0
+    },
+    {
+      "action": "Parallel session clicked",
+      "frame": 41,
+      "seconds": 0.6833333333333333
+    },
+    {
+      "action": "Parallel: three workers running",
+      "frame": 178,
+      "seconds": 2.966666666666667
+    },
+    {
+      "action": "Parallel: one completed; reviewer still waiting",
+      "frame": 233,
+      "seconds": 3.8833333333333333
+    },
+    {
+      "action": "Parallel: two completed; reviewer still waiting",
+      "frame": 373,
+      "seconds": 6.216666666666667
+    },
+    {
+      "action": "Parallel: final worker finishing; follow combined handoff",
+      "frame": 464,
+      "seconds": 7.733333333333333
+    },
+    {
+      "action": "Parallel: all three completed; compare combined implementation",
+      "frame": 521,
+      "seconds": 8.683333333333334
+    }
+  ],
+  "failures": []
+}

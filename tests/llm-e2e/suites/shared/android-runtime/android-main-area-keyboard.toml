@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-main-area-keyboard"
+goal = "The active Android client sizes Main View to its usable screen, reflows rows above the keyboard, and stays in Main View through keyboard and orientation changes."
+instructions = "android-main-area-keyboard.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-main-area-keyboard"

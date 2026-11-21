@@ -1,0 +1,21 @@
+required_frontends = ["godot"]
+
+name = "clipboard-and-link-actions"
+instructions = "clipboard-and-link-actions.md"
+goal = "Terminal clipboard requests require the configured consent and hyperlink clicks activate the actual terminal target without desktop interference."
+verify = "actual_frontend_prompt_exact_pty_replies_and_projected_link_target"
+tool_budget = 80
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect clipboard consent"
+tools = []
+
+[[stages]]
+name = "Reject stale consent and activate links"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_protocol_actions_e2e.py"

@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "command-line"
+instructions = "command-line.md"
+goal = "The prefix command line ranks commands and tab.pane targets, runs only spelled-out matches, and never leaks keys."
+verify = "state_continuity"
+tool_budget = 100
+turn_timeout_seconds = 180
+
+[[stages]]
+name = "Command line"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/command-line.gd"

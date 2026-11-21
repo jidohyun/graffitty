@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "shift-drag-selection"
+instructions = "shift-drag-selection.md"
+goal = "Shift+drag always selects terminal text, including inside applications with mouse capture, without delivering the gesture to the application."
+verify = "terminal_selection_overrides_mouse_capture"
+tool_budget = 80
+turn_timeout_seconds = 420
+
+[[stages]]
+name = "Mouse capture and selection"
+tools = []
+
+[[stages]]
+name = "Modifiers and pane routing"
+tools = []
+
+[[stages]]
+name = "Node forms and real applications"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/shift-drag-selection.gd"

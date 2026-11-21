@@ -1,0 +1,15 @@
+--- a/libavcodec/videotoolboxenc.c
++++ b/libavcodec/videotoolboxenc.c
+@@ -2579,7 +2579,11 @@
+         goto end_nopkt;
+     }
+ 
+-    status = vtenc_q_pop(vtctx, !frame, &buf, &sei);
++    // Chromium damage capture can stop after a single update. With no B-frames,
++    // low-delay submission must wait for its asynchronous VT output instead of
++    // leaving the last frame queued until the next page update arrives.
++    status = vtenc_q_pop(vtctx, !frame ||
++                        ((avctx->flags & AV_CODEC_FLAG_LOW_DELAY) && !vtctx->has_b_frames), &buf, &sei);
+     if (status) goto end_nopkt;
+     if (!buf)   goto end_nopkt;
+ 

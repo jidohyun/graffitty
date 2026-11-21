@@ -1,0 +1,59 @@
+# Configure tmux navigation manually
+
+Use this instead of the TPM plugin in [Neovim and tmux](nvim-tmux-navigator.md).
+Paste it into `~/.tmux.conf` after other navigation bindings.
+
+```tmux
+# Neovim handles its splits; tmux handles its panes; gft runs only at the edge.
+# Keep the calling client context current when attaching an existing server.
+# tmux 3.3 does not expose this array option as a format; inspect it at load time.
+if-shell 'tmux show-options -gv update-environment | grep -Fxq GRAFFITTY_SOCKET' '' 'set-option -ag update-environment " GRAFFITTY_SOCKET"'
+if-shell 'tmux show-options -gv update-environment | grep -Fxq GRAFFITTY_TOKEN' '' 'set-option -ag update-environment " GRAFFITTY_TOKEN"'
+if-shell 'tmux show-options -gv update-environment | grep -Fxq GRAFFITTY_BIN' '' 'set-option -ag update-environment " GRAFFITTY_BIN"'
+if-shell 'tmux show-options -gv update-environment | grep -Fxq GRAFFITTY_PANE' '' 'set-option -ag update-environment " GRAFFITTY_PANE"'
+# Foreground applications (including Neovim and SSH) retain their keys.
+# Copy mode retains its keys, and a zoomed pane is an outer boundary.
+
+bind-key -n C-h if-shell -F '#{||:#{pane_in_mode},#{==:#{m/r:^-?(sh|bash|zsh|fish|dash|ksh|nu)$,#{pane_current_command}},0}}' {
+    send-keys C-h
+} {
+    if-shell -F '#{||:#{window_zoomed_flag},#{pane_at_left}}' {
+        run-shell '"${GRAFFITTY_BIN:-gft}" pane select -L --client-tty #{q:client_tty} >/dev/null'
+    } { select-pane -L }
+}
+
+bind-key -n C-j if-shell -F '#{||:#{pane_in_mode},#{==:#{m/r:^-?(sh|bash|zsh|fish|dash|ksh|nu)$,#{pane_current_command}},0}}' {
+    send-keys C-j
+} {
+    if-shell -F '#{||:#{window_zoomed_flag},#{pane_at_bottom}}' {
+        run-shell '"${GRAFFITTY_BIN:-gft}" pane select -D --client-tty #{q:client_tty} >/dev/null'
+    } { select-pane -D }
+}
+
+bind-key -n C-k if-shell -F '#{||:#{pane_in_mode},#{==:#{m/r:^-?(sh|bash|zsh|fish|dash|ksh|nu)$,#{pane_current_command}},0}}' {
+    send-keys C-k
+} {
+    if-shell -F '#{||:#{window_zoomed_flag},#{pane_at_top}}' {
+        run-shell '"${GRAFFITTY_BIN:-gft}" pane select -U --client-tty #{q:client_tty} >/dev/null'
+    } { select-pane -U }
+}
+
+bind-key -n C-l if-shell -F '#{||:#{pane_in_mode},#{==:#{m/r:^-?(sh|bash|zsh|fish|dash|ksh|nu)$,#{pane_current_command}},0}}' {
+    send-keys C-l
+} {
+    if-shell -F '#{||:#{window_zoomed_flag},#{pane_at_right}}' {
+        run-shell '"${GRAFFITTY_BIN:-gft}" pane select -R --client-tty #{q:client_tty} >/dev/null'
+    } { select-pane -R }
+}
+```
+
+Reload the config:
+
+```sh
+tmux source-file ~/.tmux.conf
+```
+
+The configuration is also available in
+`integrations/tmux-graffitty/scripts/navigation.conf` in the Graffitty checkout.
+You can copy its contents into your config or source that file using its
+absolute path.

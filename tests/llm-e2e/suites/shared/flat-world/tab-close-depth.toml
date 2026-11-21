@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "tab-close-depth"
+goal = "Closing a selected tab keeps outgoing captures in Flat 2D, Flat 3D and Bistro; Push/Pull uses whole panes, direction, blur and a short handoff."
+instructions = "tab-close-depth.md"
+verify = "visual_continuity"
+turn_timeout_seconds = 300
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/tab-close-depth.gd"

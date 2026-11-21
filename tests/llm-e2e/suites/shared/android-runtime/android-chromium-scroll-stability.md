@@ -1,0 +1,7 @@
+# Chromium scroll stability
+
+Run `uv run tests/android/test_android_runtime.py android-chromium-scroll-stability --serial SERIAL` for the physical Android client, or use `--simulated` for the Mac Godot client. Build the current Android extension first with `uv run --no-project tools/build_android.py`.
+
+The shared workspace scenario loads a tall colored page and sends production ChromiumSession wheel and pan-gesture input. Three round trips per input mode verify every top/bottom DOM position, continued hardware video delivery, connection health, and three nonblack pixels across the presented top edge after settling. A fixed color marker changes at each endpoint; the decoded texture must reach that color within the assertion deadline, so a stale colored frame cannot pass. Clients advertising hardware codecs must retain a negotiated video codec throughout; PNG fallback fails the test. The original terminal must survive browser close.
+
+Retain runtime state, logs, and recording. Each CHROMIUM_SCROLL_SAMPLE records presented frame count, codec, GPU sharing state, elapsed time, and observed interframe gap. These gaps exclude trailing idle and assertion waits and are diagnostic, not a throughput guarantee. Input events exercise the production browser adapter but are synthesized inside Godot; this case does not validate Android's physical gesture recognizer. Endpoint pixel checks do not rule out transient black strips during motion.

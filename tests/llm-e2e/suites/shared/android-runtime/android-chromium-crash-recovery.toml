@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-crash-recovery"
+goal = "Stop the Chromium host, then a page renderer, on the server computer and verify the client alerts the user, restarts the browser in the same pane and reloads the crashed page."
+instructions = "android-chromium-crash-recovery.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-crash-recovery"

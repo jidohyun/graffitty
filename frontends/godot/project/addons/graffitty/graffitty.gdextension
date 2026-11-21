@@ -1,0 +1,13 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.7
+reloadable = false
+
+[libraries]
+linux.x86_64 = "res://addons/graffitty/bin/libgraffitty.linux.x86_64.so"
+linux.arm64 = "res://addons/graffitty/bin/libgraffitty.linux.arm64.so"
+macos = "res://addons/graffitty/bin/libgraffitty.macos.dylib"
+windows.x86_64 = "res://addons/graffitty/bin/libgraffitty.windows.x86_64.dll"
+
+android.arm64 = "res://addons/graffitty/bin/libgraffitty.android.arm64.so"
+ios.arm64 = "res://addons/graffitty/bin/libgraffitty.ios.arm64.dylib"

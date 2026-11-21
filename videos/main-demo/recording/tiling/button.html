@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Button test</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:18px;font:15px system-ui;background:#f3f5f8;color:#202c3b}
+main{max-width:480px;margin:auto}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+h1{font-size:18px;margin:0}output{font-size:30px;font-weight:650;font-variant-numeric:tabular-nums;color:#375fba}
+button{background:#375fba;color:white;border:0;border-radius:7px;padding:9px 18px;font:inherit;cursor:pointer}
+button:active{background:#204899}small{margin-left:12px;color:#6a7686}
+</style><main><header><h1>Button test</h1><output id="count" aria-live="polite">0</output></header>
+<button id="increment">Increment</button><small>Clicks counted</small></main>
+<script>document.querySelector('button').onclick=()=>{const c=document.querySelector('output');c.textContent=Number(c.textContent)+1}</script></html>

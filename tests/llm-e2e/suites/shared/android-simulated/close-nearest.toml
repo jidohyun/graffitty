@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "close-nearest"
+goal = "Close the focused pane among distant and nearby neighbors; focus and pan to the nearest survivor without zoom or typing effects."
+instructions = "close-nearest.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/close-nearest.gd"

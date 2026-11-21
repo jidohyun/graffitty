@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "messages-copy"
+instructions = "messages-copy.md"
+goal = "Copy selected diagnostic text or all messages with the platform copy shortcut."
+verify = "diagnostic_clipboard"
+tool_budget = 40
+turn_timeout_seconds = 180
+
+[[stages]]
+name = "Copy messages"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/messages-copy.gd"

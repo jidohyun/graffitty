@@ -1,0 +1,28 @@
+required_frontends = ["godot"]
+name = "title-toggle"
+instructions = "title-toggle.md"
+goal = "Filetree header toggles the live pane and shows blue while open; title tracks Fyler's displayed root independently of the shell cwd."
+verify = "filetree_root_and_toggle"
+tool_budget = 160
+turn_timeout_seconds = 240
+[[stages]]
+name = "Prepare real Fyler with a different root"
+tools = []
+[[stages]]
+name = "Open with the header button"
+tools = []
+[[stages]]
+name = "Change Fyler root independently"
+tools = []
+[[stages]]
+name = "Toggle off closes the pane"
+tools = []
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/filetree/replays/title-toggle.gd"
+server_config = """
+[filetree]
+command = ["nvim"]
+[filetree.environment]
+NVIM_APPNAME = "nvim-e2e-filetree"
+"""

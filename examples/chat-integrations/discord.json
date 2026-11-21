@@ -1,0 +1,4 @@
+{
+  "name": "Discord Send",
+  "message_template": "{text: (.text // \"\"), content: (.content // []), renderings: (.renderings // {})}"
+}

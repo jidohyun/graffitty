@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "scrollback-search"
+goal = "Stream 180 Unicode lines, find an off-screen match, copy it, scroll to retained history and return to the live bottom."
+instructions = "scrollback-search.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/scrollback-search.gd"

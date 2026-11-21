@@ -1,0 +1,14 @@
+HISTFILE=/dev/null
+RPROMPT=''
+PROMPT_EOL_MARK=''
+unsetopt PROMPT_SP
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%1~%f %F{magenta}$(git branch --show-current 2>/dev/null)%f $ '
+export GIT_PAGER=cat PORT=8090
+export PYTHONDONTWRITEBYTECODE=1
+source "$ZDOTDIR/integration.sh"
+nvim() { NVIM_APPNAME=bistro-nvim command nvim "$@"; }
+bat() { command bat --style=plain --paging=never --color=always --theme=TwoDark "$@"; }
+claude() { command python3 "$DEMO_RUNTIME/launch.py" claude; }
+codex() { command python3 "$DEMO_RUNTIME/launch.py" codex; }
+printf '\033[2J\033[H'

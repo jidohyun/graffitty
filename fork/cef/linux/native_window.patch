@@ -1,0 +1,112 @@
+--- a/libcef/browser/chrome/chrome_browser_host_impl.cc
++++ b/libcef/browser/chrome/chrome_browser_host_impl.cc
+@@ -21,6 +21,9 @@
+ #include "chrome/browser/ui/tabs/tab_strip_model.h"
+ #include "chrome/browser/ui/views/frame/contents_web_view.h"
+ #include "chrome/common/pref_names.h"
++#if BUILDFLAG(IS_LINUX)
++#include "cef/libcef/browser/linux_native_window.h"
++#endif
+ 
+ // static
+ CefRefPtr<ChromeBrowserHostImpl> ChromeBrowserHostImpl::Create(
+@@ -447,6 +450,12 @@
+   // BrowserManagerService.
+   auto* browser = Browser::Create(chrome_params);
+ 
++#if BUILDFLAG(IS_LINUX)
++  // Configure capture before the first Show(), so no Wayland toplevel or X11
++  // window is ever mapped for an embedded page. DevTools has no render handler.
++  GraffittyInitializeLinuxWindow(browser, params.client);
++#endif
++
+   bool show_browser = true;
+ 
+   if (chrome_browser_view) {
+--- a/libcef/browser/osr/video_consumer_osr.h
++++ b/libcef/browser/osr/video_consumer_osr.h
+@@ -5,6 +5,7 @@
+ 
+ #include "base/functional/callback.h"
+ #include "base/memory/raw_ptr.h"
++#include "base/timer/timer.h"
+ #include "components/viz/host/client_frame_sink_video_capturer.h"
+ #include "media/capture/mojom/video_capture_types.mojom.h"
+ 
+@@ -26,6 +27,8 @@
+   void RequestRefreshFrame(const std::optional<gfx::Rect>& bounds_in_pixels);
+ 
+  private:
++  void RefreshUntilSized();
++
+   // viz::mojom::FrameSinkVideoConsumer implementation.
+   void OnFrameCaptured(
+       media::mojom::VideoBufferHandlePtr data,
+@@ -44,8 +47,10 @@
+   const raw_ptr<CefRenderWidgetHostViewOSR> view_;
+   std::unique_ptr<viz::ClientFrameSinkVideoCapturer> video_capturer_;
+ 
++  bool active_ = false;
+   gfx::Size size_in_pixels_;
+   std::optional<gfx::Rect> bounds_in_pixels_;
++  base::RepeatingTimer resize_refresh_timer_;
+ };
+ 
+ #endif  // LIBCEF_BROWSER_OSR_VIDEO_CONSUMER_OSR_H_
+--- a/libcef/browser/osr/video_consumer_osr.cc
++++ b/libcef/browser/osr/video_consumer_osr.cc
+@@ -4,6 +4,7 @@
+ 
+ #include "cef/libcef/browser/osr/video_consumer_osr.h"
+ 
++#include "base/functional/bind.h"
+ #include "cef/libcef/browser/osr/render_widget_host_view_osr.h"
+ #include "media/base/video_frame_metadata.h"
+ #include "media/capture/mojom/video_capture_buffer.mojom.h"
+@@ -47,13 +48,16 @@
+ CefVideoConsumerOSR::~CefVideoConsumerOSR() = default;
+ 
+ void CefVideoConsumerOSR::SetActive(bool active) {
++  active_ = active;
+   if (active) {
+     video_capturer_->Start(
+         this,
+         use_shared_texture_
+             ? viz::mojom::BufferFormatPreference::kPreferMappableSharedImage
+             : viz::mojom::BufferFormatPreference::kDefault);
++    RefreshUntilSized();
+   } else {
++    resize_refresh_timer_.Stop();
+     video_capturer_->Stop();
+   }
+ }
+@@ -71,6 +75,20 @@
+   // Capture resolution will be held constant.
+   video_capturer_->SetResolutionConstraints(size_in_pixels, size_in_pixels,
+                                             true /* use_fixed_aspect_ratio */);
++  RefreshUntilSized();
++}
++
++void CefVideoConsumerOSR::RefreshUntilSized() {
++  if (!active_ || resize_refresh_timer_.IsRunning())
++    return;
++  // A refresh issued while an old-size frame is in flight can be coalesced.
++  // Static pages need no further damage, so retry until a frame acknowledges
++  // the requested size. Stop immediately on success, hide, or destruction.
++  resize_refresh_timer_.Start(
++      FROM_HERE, base::Milliseconds(100),
++      base::BindRepeating([](CefVideoConsumerOSR* self) {
++        self->video_capturer_->RequestRefreshFrame();
++      }, base::Unretained(this)));
+ }
+ 
+ void CefVideoConsumerOSR::RequestRefreshFrame(
+@@ -94,6 +112,8 @@
+     mojo::PendingRemote<viz::mojom::FrameSinkVideoConsumerFrameCallbacks>
+         callbacks) {
+   ScopedVideoFrameDone scoped_done(std::move(callbacks));
++  if (info->coded_size == size_in_pixels_)
++    resize_refresh_timer_.Stop();
+ 
+   media::VideoFrameMetadata metadata = info->metadata;
+   gfx::Rect damage_rect;

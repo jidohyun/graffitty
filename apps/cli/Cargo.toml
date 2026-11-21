@@ -1,0 +1,68 @@
+[package]
+name = "graffitty-cli"
+version.workspace = true
+edition = "2024"
+license = "Apache-2.0"
+
+[[bin]]
+name = "gft"
+path = "src/main.rs"
+
+[features]
+default = []
+
+[dependencies]
+graffitty-secrets = { path = "../../crates/secrets" }
+graffitty-server = { path = "../server" }
+graffitty-protocol = { path = "../../crates/protocol" }
+graffitty-graph-protocol = { path = "../../crates/graph-protocol" }
+graffitty-workspace-core = { path = "../../crates/workspace-core" }
+graffitty-platform = { path = "../../crates/platform" }
+graffitty-session-transport = { path = "../../crates/transport/ipc" }
+graffitty-transport = { path = "../../crates/transport" }
+usage-rs = { version = "7.3.0", features = ["completions"] }
+serde_json = "1.0.151"
+uuid = { version = "1.27.0", features = ["v4"] }
+sha2 = "0.11.0"
+dunce = "1"
+libc = "0.2.190"
+fs2 = "0.4.3"
+ctrlc = { version = "3.5.2", features = ["termination"] }
+toml_edit = { version = "0.25.15", features = ["serde"] }
+similar = "3.2.0"
+tungstenite = "0.30.0"
+unicode-width = "0.2.2"
+serde = { version = "1.0.229", features = ["derive"] }
+jaq-core = "3.1.1"
+jaq-std = "3.0.3"
+jaq-json = { version = "2.0.3", features = ["serde"] }
+jiff = "0.2.37"
+ratatui = { version = "0.30.2", features = ["unstable-rendered-line-info"] }
+ratatui-textarea = "0.9.2"
+crossterm = "0.29.0"
+syntect = { version = "5", default-features = false, features = ["parsing", "regex-onig"] }
+two-face = { version = "0.5", default-features = false, features = ["syntect-onig"] }
+unicode-segmentation = "1"
+textwrap = { version = "0.16", default-features = false, features = ["unicode-linebreak", "unicode-width"] }
+
+reqwest = { version = "0.13.5", default-features = false, features = ["blocking", "json", "multipart", "form", "rustls"] }
+notify-rust = "4.18.1"
+base64 = "0.23.1"
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "gif", "webp", "bmp", "tiff"] }
+csscolorparser = "0.9.0"
+tempfile = "3.27.0"
+
+[dev-dependencies]
+graffitty-terminal-core = { path = "../../crates/terminal-core" }
+
+[target."cfg(windows)".dependencies]
+windows = { version = "0.62.2", features = ["Data_Xml_Dom", "UI_Notifications", "Foundation", "Win32_Graphics_Dxgi"] }
+uds_windows = "1.2.1"
+windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_Graphics_Gdi", "Win32_System_Registry", "Win32_Security", "Win32_Storage_FileSystem", "Win32_System_Console", "Win32_System_Diagnostics_Debug", "Win32_System_Diagnostics_ToolHelp", "Win32_System_Threading", "Win32_System_Power", "Win32_UI_WindowsAndMessaging", "Win32_NetworkManagement_IpHelper", "Win32_Networking_WinSock"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6.4"
+objc2-foundation = { version = "0.3.2", features = ["NSUserNotification", "NSRunLoop", "NSDate", "NSArray", "NSString"] }
+
+[target.'cfg(all(unix, not(target_os = "macos")))'.dependencies]
+zbus = { version = "5.19.0", features = ["blocking-api"] }

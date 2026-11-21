@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-messages-copy"
+goal = "Use native Android selection and Copy for Unicode diagnostics, open the selectable log, and verify no interception after dismissal."
+instructions = "android-messages-copy.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-messages-copy"

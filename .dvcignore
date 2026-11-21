@@ -1,0 +1,10 @@
+# Add patterns of files dvc should ignore, which could improve
+# the performance. Learn more at
+# https://dvc.org/doc/user-guide/dvcignore
+
+/frontends/godot/extension/target/
+**/__pycache__/
+**/.DS_Store
+
+# Small editable SVG source files are tracked in Git.
+/apps/cli/assets/icons/

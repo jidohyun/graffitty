@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "android-agent-attention"
+goal = "List a real server agent in the production Android client and play attention audio with Godot's Dummy driver, releasing native output afterward."
+instructions = "android-agent-attention.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-agent-attention"

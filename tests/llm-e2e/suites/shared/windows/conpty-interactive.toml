@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+platforms = ["windows"]
+name = "conpty-interactive"
+instructions = "conpty-interactive.md"
+goal = "ConPTY 1.25 terminal behavior"
+verify = "native_windows_recording_and_shell_assertions"
+requires_headful = true
+
+[[stages]]
+name = "Verify the loaded ConPTY runtime"
+tools = []
+
+[[stages]]
+name = "Exercise terminal queries and mouse modes"
+tools = []
+
+[[stages]]
+name = "Exercise native node input"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/windows/replays/conpty-interactive.gd"
+coverage_gaps = ["Loaded runtime module identity; physical wheel/scroll review; icat pixel and continuous-recording review; native node input acceptance."]

@@ -1,0 +1,37 @@
+required_frontends = ["godot"]
+name = "connected-surfaces"
+instructions = "connected-surfaces.md"
+goal = "Every graph or ownership connection stays within a tab; moving a chromium, filetree, opened editor, or owner moves its entire live connected component with matching wire previews."
+verify = "all_connection_endpoints_share_tab"
+tool_budget = 200
+turn_timeout_seconds = 360
+
+[[stages]]
+name = "Prepare real connected surfaces"
+tools = []
+[[stages]]
+name = "Move from the chromium"
+tools = []
+recall_marker = true
+[[stages]]
+name = "Move from the filetree"
+tools = []
+recall_marker = true
+[[stages]]
+name = "Move from the opened Neovim and preview chromium"
+tools = []
+recall_marker = true
+[[stages]]
+name = "Move from the owner and cancel"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/agent-graph/replays/connected-surfaces.gd"
+server_config = """
+[filetree]
+command = ["nvim"]
+[filetree.environment]
+NVIM_APPNAME = "nvim-e2e-filetree"
+"""

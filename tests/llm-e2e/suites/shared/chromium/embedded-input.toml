@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "embedded-input"
+goal = "Desktop Chromium accepts clicks, typing, selection and scrolling inside its GPU pane"
+instructions = "embedded-input.md"
+verify = "state"
+requires_headful = true
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Embedded chromium gestures"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/chromium/replays/embedded-input.gd"

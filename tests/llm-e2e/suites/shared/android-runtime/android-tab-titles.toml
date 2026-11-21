@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-tab-titles"
+goal = "Rename a tab using the real server CLI; preserve that name across OSC program titles and tab switching."
+instructions = "android-tab-titles.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-tab-titles"

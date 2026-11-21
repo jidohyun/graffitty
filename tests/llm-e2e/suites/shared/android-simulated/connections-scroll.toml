@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "connections-scroll"
+goal = "Connect eight workspaces, open Connections by touch, scroll its constrained list, detach the bottom row and preserve the original connection."
+instructions = "connections-scroll.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/connections-scroll.gd"

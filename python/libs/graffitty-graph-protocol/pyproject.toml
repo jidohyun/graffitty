@@ -1,0 +1,18 @@
+[project]
+name = "graffitty-graph-protocol"
+version = "0.0.1.4"
+description = "Pydantic messages and a small custom-node runtime for Graffitty"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = ["pydantic>=2.10,<3"]
+
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

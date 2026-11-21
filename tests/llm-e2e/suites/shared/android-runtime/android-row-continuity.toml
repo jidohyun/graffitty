@@ -1,0 +1,16 @@
+runtime = "android"
+required_frontends = ["godot"]
+
+name = "android-row-continuity"
+goal = "Every rendered glyph row survives fractional scroll transitions"
+instructions = "android-row-continuity.md"
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Row continuity"
+tools = []
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-row-continuity"

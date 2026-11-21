@@ -1,0 +1,22 @@
+required_frontends = ["godot"]
+
+name = "mouse-selection"
+instructions = "mouse-selection.md"
+goal = "Native pointer gestures select exact terminal text and configured mouse actions respect application reporting, clipboard policy and streamed VT lifetime."
+verify = "projected_pointer_real_vt_raw_pty_and_godot_controls"
+tool_budget = 60
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect line and rectangular selection"
+tools = []
+
+[[stages]]
+name = "Inspect mouse preferences and raw PTY evidence"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_private_replay.py"
+args = ["--replay", "tests/llm-e2e/suites/godot/integration/replays/mouse-selection.gd"]

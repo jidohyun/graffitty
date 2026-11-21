@@ -1,0 +1,125 @@
+diff --git a/content/browser/renderer_host/browser_compositor_view_mac.h b/content/browser/renderer_host/browser_compositor_view_mac.h
+index 334823ca62..b73645f65e 100644
+--- a/content/browser/renderer_host/browser_compositor_view_mac.h
++++ b/content/browser/renderer_host/browser_compositor_view_mac.h
+@@ -99,6 +99,10 @@ class CONTENT_EXPORT BrowserCompositorMac : public DelegatedFrameHostClient,
+   // Specify if the ui::Layer should be visible or not.
+   void SetViewVisible(bool visible);
+ 
++  // Use an independent compositor while capturing a Chrome-style page whose
++  // native UI hierarchy is hidden. Keep tracking its native parent for return.
++  void SetCaptureActive(bool active);
++
+   // Sets or clears the parent ui::Layer and updates state to reflect that
+   // we are now using the ui::Compositor from |parent_ui_layer| (if non-nullptr)
+   // or one from |recyclable_compositor_| (if a compositor is needed).
+@@ -181,6 +185,7 @@ class CONTENT_EXPORT BrowserCompositorMac : public DelegatedFrameHostClient,
+   // |root_layer_| to be under |parent_ui_layer_|, if needed.
+   raw_ptr<ui::Layer> parent_ui_layer_ = nullptr;
+   bool render_widget_host_is_hidden_ = true;
++  bool capture_active_ = false;
+ 
+   raw_ptr<BrowserCompositorMacClient> client_ = nullptr;
+   raw_ptr<ui::AcceleratedWidgetMacNSView> accelerated_widget_mac_ns_view_ =
+diff --git a/content/browser/renderer_host/browser_compositor_view_mac.mm b/content/browser/renderer_host/browser_compositor_view_mac.mm
+index d135e17de9..66bee19cd4 100644
+--- a/content/browser/renderer_host/browser_compositor_view_mac.mm
++++ b/content/browser/renderer_host/browser_compositor_view_mac.mm
+@@ -72,6 +72,8 @@ BrowserCompositorMac::~BrowserCompositorMac() {
+   weak_factory_.InvalidateWeakPtrs();
+ 
+   TransitionToState(HasNoCompositor);
++  if (parent_ui_layer_)
++    parent_ui_layer_->RemoveObserver(this);
+   delegated_frame_host_.reset();
+   root_layer_.reset();
+ 
+@@ -99,7 +101,7 @@ const gfx::CALayerParams* BrowserCompositorMac::GetLastCALayerParams() const {
+ }
+ 
+ viz::FrameSinkId BrowserCompositorMac::GetRootFrameSinkId() {
+-  if (parent_ui_layer_)
++  if (state_ == UseParentLayerCompositor && parent_ui_layer_)
+     return parent_ui_layer_->GetCompositor()->frame_sink_id();
+   if (recyclable_compositor_)
+     return recyclable_compositor_->compositor()->frame_sink_id();
+@@ -190,15 +192,23 @@ void BrowserCompositorMac::SetViewVisible(bool visible) {
+   root_layer_->SetVisible(visible);
+ }
+ 
++void BrowserCompositorMac::SetCaptureActive(bool active) {
++  if (capture_active_ == active)
++    return;
++  capture_active_ = active;
++  UpdateState();
++}
++
+ void BrowserCompositorMac::UpdateState() {
+-  // Always use the parent ui::Layer's ui::Compositor if available.
+-  if (parent_ui_layer_) {
++  // A hidden native hierarchy cannot drive page capture. Use the existing
++  // independent compositor until the capture lease ends.
++  if (parent_ui_layer_ && !capture_active_) {
+     TransitionToState(UseParentLayerCompositor);
+     return;
+   }
+ 
+   // If the host is visible and a compositor is required then create one.
+-  if (!render_widget_host_is_hidden_) {
++  if (!render_widget_host_is_hidden_ || capture_active_) {
+     TransitionToState(HasOwnCompositor);
+     return;
+   }
+@@ -224,7 +234,6 @@ void BrowserCompositorMac::TransitionToState(State new_state) {
+   if (state_ == UseParentLayerCompositor) {
+     DCHECK(root_layer_->parent());
+     state_ = HasNoCompositor;
+-    root_layer_->parent()->RemoveObserver(this);
+     root_layer_->parent()->Remove(root_layer_.get());
+   }
+   if (state_ == HasOwnCompositor) {
+@@ -247,7 +256,6 @@ void BrowserCompositorMac::TransitionToState(State new_state) {
+   if (new_state == UseParentLayerCompositor) {
+     DCHECK(parent_ui_layer_);
+     parent_ui_layer_->Add(root_layer_.get());
+-    parent_ui_layer_->AddObserver(this);
+     state_ = UseParentLayerCompositor;
+   }
+   if (new_state == HasOwnCompositor) {
+@@ -385,10 +393,16 @@ void BrowserCompositorMac::SetParentUiLayer(ui::Layer* new_parent_ui_layer) {
+   // Set |parent_ui_layer_| to the new value, which potentially not match the
+   // value of |root_layer_->parent()|. The call to UpdateState will re-parent
+   // |root_layer_|.
+-  DCHECK_EQ(root_layer_->parent(), parent_ui_layer_);
++  DCHECK_EQ(root_layer_->parent(),
++            state_ == UseParentLayerCompositor ? parent_ui_layer_.get() : nullptr);
++  if (parent_ui_layer_)
++    parent_ui_layer_->RemoveObserver(this);
+   parent_ui_layer_ = new_parent_ui_layer;
++  if (parent_ui_layer_)
++    parent_ui_layer_->AddObserver(this);
+   UpdateState();
+-  DCHECK_EQ(root_layer_->parent(), parent_ui_layer_);
++  DCHECK_EQ(root_layer_->parent(),
++            state_ == UseParentLayerCompositor ? parent_ui_layer_.get() : nullptr);
+ }
+ 
+ void BrowserCompositorMac::ForceNewSurfaceForTesting() {
+@@ -414,7 +428,7 @@ const viz::LocalSurfaceId& BrowserCompositorMac::GetRendererLocalSurfaceId() {
+ 
+ void BrowserCompositorMac::TransformPointToRootSurface(gfx::PointF* point) {
+   gfx::Transform transform_to_root;
+-  if (parent_ui_layer_)
++  if (state_ == UseParentLayerCompositor && parent_ui_layer_)
+     parent_ui_layer_->GetTargetTransformRelativeTo(nullptr, &transform_to_root);
+   *point = transform_to_root.MapPoint(*point);
+ }
+@@ -425,7 +439,7 @@ void BrowserCompositorMac::LayerDestroyed(ui::Layer* layer) {
+ }
+ 
+ ui::Compositor* BrowserCompositorMac::GetCompositor() const {
+-  if (parent_ui_layer_)
++  if (state_ == UseParentLayerCompositor && parent_ui_layer_)
+     return parent_ui_layer_->GetCompositor();
+   if (recyclable_compositor_)
+     return recyclable_compositor_->compositor();

@@ -1,0 +1,13 @@
+{
+  "question": "What is the review outcome?",
+  "options": {
+    "approved": "The reviewer explicitly approves the changes.",
+    "needs_changes": "The reviewer requests fixes before approval.",
+    "unclear": "Neither approval nor a request for fixes is clear."
+  },
+  "output_colors": {
+    "approved": "#89ddbd",
+    "needs_changes": "#ff8585",
+    "unclear": "#ffd47a"
+  }
+}

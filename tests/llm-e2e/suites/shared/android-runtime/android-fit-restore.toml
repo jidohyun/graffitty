@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-fit-restore"
+goal = "Fit and restore the exact saved view, reverse an in-flight fit without a jump, interrupt with pinch, and use the Android Fit toolbar."
+instructions = "android-fit-restore.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-fit-restore"

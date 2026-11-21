@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-text-size"
+goal = "Resize only the focused terminal or Chrome page with the floating minus/plus pill and Ctrl shortcuts; verify one-shot Ctrl produces actual PTY control bytes."
+instructions = "android-text-size.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-text-size"

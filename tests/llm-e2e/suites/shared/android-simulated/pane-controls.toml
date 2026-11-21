@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "pane-controls"
+goal = "Tap right/below split buttons with the centered pointer, split an unfocused pane, verify input isolation, close only the new pane."
+instructions = "pane-controls.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/pane-controls.gd"

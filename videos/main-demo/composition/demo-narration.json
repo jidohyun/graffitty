@@ -1,0 +1,167 @@
+{
+  "provider": "gemini",
+  "tts_model": "gemini-3.8-flash-tts",
+  "voice": "Charon",
+  "lang": "en",
+  "style": "A warm, clear adult male voice explaining his own software demo to a fellow developer. Conversational and confident, with natural sentence pauses, around 155 words per minute. Neutral English accent. No announcer voice, no music or sound effects. Pronounce Graffitty like graffiti, Neovim like nee-oh-vim, and MarkdownPreview as Markdown Preview. Read only the supplied transcript.",
+  "lines": [
+    {
+      "id": "intro",
+      "text": "Graffitty is a terminal emulator, with a tiling manager and Chromium."
+    },
+    {
+      "id": "workspace-space",
+      "text": "But if you zoom out, you'll notice there's much more space to work with."
+    },
+    {
+      "id": "workspace-status",
+      "text": "Each pane shows CPU, RAM usage, and agent status."
+    },
+    {
+      "id": "workspace-stash",
+      "text": "Stash a pane outside the main view."
+    },
+    {
+      "id": "workspace-main",
+      "text": "You can return to the main view at any time."
+    },
+    {
+      "id": "workspace-pane",
+      "text": "Or jump back to your previous view and take a closer look at any pane."
+    },
+    {
+      "id": "filetree-cwd",
+      "text": "The builtin filetree is synchronised with the shell's current working directory."
+    },
+    {
+      "id": "filetree-rename",
+      "text": "You can edit the file name like editing a vim buffer, and save to apply it."
+    },
+    {
+      "id": "filetree-open",
+      "text": "Opening the files opens neovim, or chromium to preview all kinds of media."
+    },
+    {
+      "id": "filetree-send-path",
+      "text": "You can also send file paths to the terminal, allowing you to change directory or open files."
+    },
+    {
+      "id": "chromium-markdown",
+      "text": "Get creative with Chromium. It's a versatile viewer that handles things traditional terminals often need workarounds for. For example, use the MarkdownPreview plugin in Neovim to open Graffitty Chromium. Now you have a live Markdown preview right inside your terminal."
+    },
+    {
+      "id": "chromium-diagram",
+      "text": "Ask Claude to explain with a diagram. Graffitty Chromium will open right beside your terminal.",
+      "style": "A warm, clear adult male voice explaining his own software demo to a fellow developer. Conversational and confident, with natural sentence pauses, around 155 words per minute. Neutral English accent. No announcer voice, no music or sound effects. Pronounce Graffitty like graffiti, Neovim like nee-oh-vim, and MarkdownPreview as Markdown Preview. Read only the supplied transcript. In the second sentence, graffiti Chromium is a single product name. Say the two words smoothly together as one connected noun phrase, with no pause, comma, or reset of intonation between graffiti and Chromium. Keep the whole clip around six seconds."
+    },
+    {
+      "id": "chromium-automation",
+      "text": "Multiple agents can each use an isolated Chromium session, so they can run end-to-end tests in parallel."
+    },
+    {
+      "id": "chromium-native",
+      "text": "You can also use Chromium's native interface in a separate window. Closing that window doesn't close Chromium. It simply brings the same chromium back into Graffitty."
+    },
+    {
+      "id": "chromium-ownership",
+      "text": "One thing I find frustrating about agentic coding is how quickly agents can open a jumble of windows. They get in the way, steal focus, and make it hard to tell which agent is using which browser. That's why Graffitty shows clear ownership with a connecting line. You can move chromiums out of the main view and still see who's using them."
+    },
+    {
+      "id": "tabs-summary",
+      "text": "The down arrow gives you a summary of every tab, including its panes, CPU and RAM usage, and agent status. Type to fuzzy search tab and pane titles."
+    },
+    {
+      "id": "command-line",
+      "text": "Aren't you already used to Vim's command line? The same thing is here, with a fuzzy finder built in. You no longer have to keep every terminal feature as a key map. Search commands, switch tabs, or jump to a pane."
+    },
+    {
+      "id": "android-intro",
+      "text": "Just like tmux keeps your session alive on an SSH server, you can detach from Graffitty and attach again any time. It even has mobile clients, so you can code wherever you are.",
+      "style": "A warm, clear adult male voice explaining his own software demo to a fellow developer. Conversational and confident, with natural sentence pauses, around 155 words per minute. Neutral English accent. No announcer voice, no music or sound effects. Pronounce Graffitty like graffiti, Neovim like nee-oh-vim, and MarkdownPreview as Markdown Preview. Read only the supplied transcript. Pronounce tmux as tee-mux. Clearly say detach from Graffitty, then ATTACH again; attach must not have a leading D sound."
+    },
+    {
+      "id": "android-workspace",
+      "text": "Let me explain how the graph feature works. Each terminal pane can advertise itself as a node, so it can queue messages to another pane."
+    },
+    {
+      "id": "android-wiring",
+      "text": "For example, Codex on the left implements a feature and sends its work to Claude in the middle."
+    },
+    {
+      "id": "android-review",
+      "text": "Claude only sends to the Slack node when a condition is met that the user needs to know about."
+    },
+    {
+      "id": "android-implement",
+      "text": "Now ask Codex to implement the website."
+    },
+    {
+      "id": "android-handoff",
+      "text": "When Codex finishes, Claude receives its session and checks the work."
+    },
+    {
+      "id": "android-slack",
+      "text": "Claude finds missing requirements and sends the review to Slack."
+    },
+    {
+      "id": "parallel-intro",
+      "text": "The parallel node waits until every agent finishes."
+    },
+    {
+      "id": "parallel-combined",
+      "text": "Once all three finish, it sends their results and session references together to the reviewer."
+    },
+    {
+      "id": "systemone-intro",
+      "text": "Graph is very useful when you want to quickly prototype a pipeline. This SystemOne node that calls the JEV decision model in the middle will route the session for you based on your question!"
+    },
+    {
+      "id": "protocol-inspector",
+      "text": "You can even make your own custom node very easily with Graffitty Graph Protocol. First, let's use the Payload Inspector node, which shows what data are sent through the graph."
+    },
+    {
+      "id": "protocol-payload",
+      "text": "It sends just enough information for the next node to process, like the session file path and the last message."
+    },
+    {
+      "id": "protocol-code",
+      "text": "Here is a minimal Python example that uses the GGP protocol to convert the data to uppercase."
+    },
+    {
+      "id": "protocol-ports",
+      "text": "Define the input and output ports, process the data, and send it on."
+    },
+    {
+      "id": "protocol-run",
+      "text": "Run it."
+    },
+    {
+      "id": "protocol-connect",
+      "text": "Connect the nodes,",
+      "style": "Say only the words: Connect the nodes. Use a light continuing intonation, as though a comma follows nodes and the next instruction will follow. Keep the final pitch gently level or slightly lifted, not a sentence-final downward cadence and not a question. Warm, natural, concise developer explanation. Same Charon voice and neutral English accent. No extra words, filler, breathy tail, or spoken punctuation."
+    },
+    {
+      "id": "protocol-send",
+      "text": "Send the message."
+    },
+    {
+      "id": "protocol-result",
+      "text": "This node converts the message to uppercase. The Payload Inspector shows the result. That's it."
+    },
+    {
+      "id": "watcher-intro",
+      "text": "This makes your graph pipeline versatile. For example, create a simple watcher node that triggers your agent when a condition is met."
+    },
+    {
+      "id": "watcher-connect",
+      "text": "Connect the watcher to Claude."
+    },
+    {
+      "id": "watcher-result",
+      "text": "A new email arrives, and Claude makes a podcast just as it's told to!"
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

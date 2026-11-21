@@ -1,0 +1,11 @@
+[
+  {"id": "soupe-oignon", "name": "Soupe à l'oignon", "price": 9.0, "course": "starter"},
+  {"id": "salade-nicoise", "name": "Salade niçoise", "price": 14.0, "course": "starter"},
+  {"id": "croque-monsieur", "name": "Croque-monsieur", "price": 12.5, "course": "main"},
+  {"id": "steak-frites", "name": "Steak frites", "price": 24.0, "course": "main"},
+  {"id": "moules", "name": "Moules marinières", "price": 19.5, "course": "main"},
+  {"id": "creme-brulee", "name": "Crème brûlée", "price": 8.0, "course": "dessert"},
+  {"id": "tarte-tatin", "name": "Tarte tatin", "price": 8.5, "course": "dessert"},
+  {"id": "espresso", "name": "Espresso", "price": 3.0, "course": "drink"},
+  {"id": "cafe-creme", "name": "Café crème", "price": 4.5, "course": "drink"}
+]

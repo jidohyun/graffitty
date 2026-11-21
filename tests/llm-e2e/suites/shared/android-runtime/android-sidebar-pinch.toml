@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "android-sidebar-pinch"
+goal = "Pinch the workspace with one finger on a docked sidebar and one on the main area, without breaking sidebar taps, sidebar scrolling or a pane drag."
+instructions = "android-sidebar-pinch.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-sidebar-pinch"

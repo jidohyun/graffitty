@@ -1,0 +1,12 @@
+{
+  "cef": "a832838fd79a5646693eca9f6f3be6b14223635d",
+  "chromium": "86539fc5de947c93970452ebcc56eb68a36f7ce2",
+  "chromium_ref": "refs/tags/150.0.7871.253",
+  "depot_tools": "f4fadaf6a5ba1bced9d3d9021060667b563bf583",
+  "branch": "7871",
+  "automate_sha256": "fe0c880fd2a91ac3ab4c82301f596295cecc1901e503507e36300a5b58578dcd",
+  "output": "Release_GN_arm64",
+  "target": "cef_framework",
+  "gn_defines": "dcheck_always_on=false is_official_build=false is_component_build=false symbol_level=0 blink_symbol_level=0 target_cpu=\"arm64\" use_remoteexec=false",
+  "validated_toolchain": {"xcode": "26.2", "xcode_build": "17C52", "macos_sdk": "26.2", "host_arch": "arm64"}
+}

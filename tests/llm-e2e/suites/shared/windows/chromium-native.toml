@@ -1,0 +1,20 @@
+required_frontends = ["godot"]
+platforms = ["windows"]
+name = "chromium-native"
+instructions = "chromium-native.md"
+goal = "Windows native Chromium tabs, verified GPU frames and presentation preserve one live chromium"
+verify = "native_windows_chromium_identity_and_recording"
+requires_headful = true
+
+[[stages]]
+name = "Exercise native chromium tabs"
+tools = []
+
+[[stages]]
+name = "Open and close native presentation twice"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/windows/replays/chromium-native.gd"
+shell = "pwsh.exe"

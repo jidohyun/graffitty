@@ -1,0 +1,47 @@
+[mild.lighting]
+strength = 0.6
+minimum = 0.0
+maximum = 1.4
+color = "#fff0dc"
+
+[mild.camera]
+dof_blur_tint = "#6f5fa8"
+dof_blur_tint_strength = 0.85
+zoom = 1.15
+tilt_limit_deg = 4.0
+drift_px = 2.0
+drift_speed = 0.7
+
+[mild.sheet]
+typing_shape = "saddle"
+ripple = 0.04
+curvature_deg = 1.5
+
+[mild.splash]
+scale = 0.2
+speed = 300.0
+life = 0.45
+
+[exaggerated.lighting]
+strength = 1.8
+minimum = 0.0
+maximum = 1.4
+color = "#fff0dc"
+
+[exaggerated.camera]
+dof_blur_tint = "#6f5fa8"
+dof_blur_tint_strength = 0.35
+zoom = 2.0
+tilt_limit_deg = 18.0
+drift_px = 20.0
+drift_speed = 2.0
+
+[exaggerated.sheet]
+typing_shape = "saddle"
+ripple = 1.5
+curvature_deg = 24.0
+
+[exaggerated.splash]
+scale = 2.5
+speed = 900.0
+life = 1.1

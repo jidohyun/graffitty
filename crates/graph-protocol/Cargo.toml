@@ -1,0 +1,21 @@
+[package]
+name = "graffitty-graph-protocol"
+version.workspace = true
+edition = "2024"
+license = "Apache-2.0"
+description = "Typed Graffitty graph messages and a small custom-node runtime"
+
+[dependencies]
+graffitty-protocol = { path = "../protocol" }
+graffitty-session-transport = { path = "../transport/ipc" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4"] }
+ctrlc = { version = "3", features = ["termination"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2.190"
+
+[dev-dependencies]
+graffitty-workspace-core = { path = "../workspace-core" }
+tempfile = "3"

@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "tunneled-media-capabilities"
+instructions = "tunneled-media-capabilities.md"
+goal = "MUST select GPU and shared-memory transports by successful native resource import, never localhost or socket type; SSH forwarding must use verified portable fallback."
+verify = "visual_and_transport_evidence"
+tool_budget = 150
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Exercise SSH TCP and Unix-socket forwarding"
+tools = []
+
+[[stages]]
+name = "Exercise independent capability failure and renegotiation"
+tools = []

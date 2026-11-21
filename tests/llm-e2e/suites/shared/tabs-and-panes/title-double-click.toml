@@ -1,0 +1,28 @@
+required_frontends = ["godot"]
+
+name = "title-double-click"
+instructions = "title-double-click.md"
+goal = "Title clicks preserve tiling; double-click shares the keyboard fit/restore toggle, including the 30% no-history fallback, at every zoom level without changing sessions or layout."
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "First launch without view history"
+tools = []
+
+[[stages]]
+name = "Single pane and clicks"
+tools = []
+
+[[stages]]
+name = "Two panes at every zoom"
+tools = []
+
+[[stages]]
+name = "Three panes and interruption"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/title-double-click.gd"

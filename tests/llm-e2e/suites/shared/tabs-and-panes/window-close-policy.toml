@@ -1,0 +1,20 @@
+required_frontends = ["godot"]
+
+name = "window-close-policy"
+instructions = "window-close-policy.md"
+goal = "Window close always asks with Cancel focused; Detach keeps sessions, Kill Server ends the local server, and remote windows only detach."
+verify = "actual_dialog_buttons_and_process_birth_identities"
+tool_budget = 120
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Cancel with Enter and Escape"
+tools = []
+
+[[stages]]
+name = "Detach and Kill Server through the actual dialog buttons"
+tools = []
+
+[[stages]]
+name = "Remote windows and server shutdown rejection"
+tools = []

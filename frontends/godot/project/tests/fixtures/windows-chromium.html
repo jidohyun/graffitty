@@ -1,0 +1,5 @@
+<!doctype html><meta charset="utf-8"><title>Graffitty Windows GPU chromium</title>
+<style>body{background:#17384e;color:white;font:24px sans-serif;padding:45px}#motion{width:70px;height:70px;background:#32df98;animation:slide 2s infinite alternate}@keyframes slide{to{transform:translateX(340px)}}input{font:inherit;padding:8px} .corner{position:fixed;width:25px;height:25px;top:0;left:0;background:#ff0000}.right{left:auto;right:0;background:#00ff00}.bottom{top:auto;bottom:0;background:#0000ff}</style>
+<div class="corner"></div><div class="corner right"></div><div class="corner bottom"></div>
+<h1>Graffitty · Windows chromium</h1><p>CEF → D3D11 → D3D12 → Godot</p><input value="한글 — persistent page state"><p id="counter"></p><div id="motion"></div>
+<script>window.identity=crypto.randomUUID();window.frames=0;function tick(){document.querySelector('#counter').textContent='Animation frame '+(++window.frames);requestAnimationFrame(tick)}tick()</script>

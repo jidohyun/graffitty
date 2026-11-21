@@ -1,0 +1,20 @@
+[package]
+name = "graffitty-terminal-core"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+graffitty-protocol = { path = "../protocol" }
+libghostty-vt = { git = "https://github.com/uzaaft/libghostty-rs", rev = "768add93c54ccdba3f5c4d8763789ab6416f3151" }
+serde = { version = "1.0.229", features = ["derive"] }
+fancy-regex = "0.20.1"
+base64 = "0.23.1"
+png = "0.18.1"
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "webp", "bmp"] }
+blake3 = "1.8.7"
+
+[dev-dependencies]
+serde_json = "1.0.151"
+uuid = { version = "1.27.0", features = ["v4"] }

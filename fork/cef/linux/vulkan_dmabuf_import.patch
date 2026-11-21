@@ -1,0 +1,18 @@
+--- a/gpu/vulkan/vulkan_image_linux.cc
++++ b/gpu/vulkan/vulkan_image_linux.cc
+@@ -102,7 +102,14 @@
+       image_tiling, usage, flags,
+       VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT,
+       &external_memory_properties);
+-  if (vk_result == VK_SUCCESS) {
++  // Omit export info on NVIDIA's proprietary driver. With it, allocation
++  // succeeds but uses private memory instead of the imported DMA-BUF.
++  // Only the DMA-BUF handle type is exportable from that import.
++  // NativePixmap keeps the original file descriptors.
++  const bool export_breaks_import =
++      device_queue->vk_physical_device_driver_properties().driverID ==
++      VK_DRIVER_ID_NVIDIA_PROPRIETARY;
++  if (vk_result == VK_SUCCESS && !export_breaks_import) {
+     export_memory_info.handleTypes =
+         external_memory_properties.compatibleHandleTypes;
+ 

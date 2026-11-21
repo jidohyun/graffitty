@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+
+name = "title-content-clipping"
+goal = "Zoomed titles cover top rows without displacing bottom terminal status lines"
+instructions = "title-content-clipping.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Title masking"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/title-content-clipping.gd"

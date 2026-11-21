@@ -1,0 +1,7 @@
+{
+  "name": "graffitty-opencode",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { "./tui": "./tui.js", "./server": "./server.js" }
+}

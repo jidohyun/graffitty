@@ -1,0 +1,3 @@
+Import("env", "env_modules")
+
+env_modules.add_source_files(env.modules_sources, "register_types.cpp")

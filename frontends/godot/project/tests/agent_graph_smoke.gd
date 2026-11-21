@@ -1,0 +1,88 @@
+extends "../../../../tests/llm-e2e/replay/replay.gd"
+
+
+func play() -> void:
+	await camera_at_rest()
+	var graph: Node = app.agent_api.graph
+	var first := "%%%d" % host.active_session_id
+	host.create_terminal_window(first)
+	await hold(2.5)
+	var second := "%%%d" % host.active_session_id
+	check(first != second, "Two real terminals exist")
+	# Shell panes have no ports. Establish the actual advertised/built-in graph
+	# identities used by this fixture before connecting them.
+	graph.set_process(false)
+	await graph.dispatch(int(first.substr(1)), "agent.event", {"provider": "claude", "event": "SessionStart", "integrated": true})
+	await graph.dispatch(int(second.substr(1)), "agent.event", {"provider": "adapter", "event": "SessionStart", "integrated": true})
+	await graph.dispatch(int(second.substr(1)), "agent.register", {"name": "Receiver", "inputs": [{"id": "in"}], "outputs": [{"id": "reply"}]})
+	var connected: Dictionary = await graph.dispatch(int(first.substr(1)), "graph.connect", {"from": first, "to": second, "turn_completed": true})
+	check(connected.has("result"), "Terminal graph connects")
+	host.workspace_view.show_overview()
+	await hold(0.2)
+	var canvas_graph: Control = host.workspace_view.agent_links
+	check(canvas_graph.wire_pattern({"read": true}) == "dashed", "Read permission uses dashed wires")
+	check(canvas_graph.wire_pattern({"read": true, "turn_completed": true}) == "solid", "Automatic completion notifications use solid wires")
+	check(canvas_graph.wire_pattern({"send": true}) == "dashed", "Agent-chosen Send uses dashed wires")
+	check(canvas_graph.wire_pattern({"turn_completed": true, "muted": true}) == "dotted", "Muting overrides the normal wire pattern")
+	check(canvas_graph.editing, "Overview exposes inline graph editing")
+	check(canvas_graph.links.size() == 1, "Terminal canvas displays one directed connection")
+	await graph.dispatch(int(second.substr(1)), "graph.connect", {"from": second, "to": first, "send": true})
+	await hold(.2)
+	check(canvas_graph.links.size() == 2, "Return connection uses its own port and lane")
+	var hit_size: Vector2 = canvas_graph.sockets(true)[first + "/turn_completed"].size
+	check(hit_size.is_equal_approx(Vector2(24, 24)), "Small ports retain a 24 pixel hit target: %s" % hit_size)
+	await graph.dispatch(int(second.substr(1)), "graph.disconnect", {"from": second, "to": first})
+	host.workspace_view.show_main()
+	await graph.dispatch(int(first.substr(1)), "agent.event", {"provider": "claude", "event": "UserPromptSubmit", "session_id": "smoke-session", "integrated": true})
+	await graph.dispatch(int(second.substr(1)), "agent.event", {"provider": "telegram", "event": "SessionStart"})
+	var path := OS.get_cache_dir().path_join("graffitty-session-read-%d.jsonl" % OS.get_process_id())
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_string('{"message":{"role":"assistant","content":[{"text":"PRIVATE_HISTORY"}]}}\n')
+	file.close()
+	await graph.dispatch(int(first.substr(1)), "agent.event", {"provider": "claude", "event": "Ready", "transcript_path": path})
+	var reference: Dictionary = await graph.dispatch(int(second.substr(1)), "graph.read", {"node": first})
+	check(reference.result.sessions[0].path == path and reference.result.size > 0, "Default read returns session file metadata")
+	check(not reference.result.has("text") and not "PRIVATE_HISTORY" in JSON.stringify(reference), "Default read never loads history into context")
+	var chunk: Dictionary = await graph.dispatch(int(second.substr(1)), "graph.read", {"node": first, "offset": 0})
+	check("PRIVATE_HISTORY" in chunk.result.text, "Explicit offset opts into transcript content")
+	await graph.dispatch(int(first.substr(1)), "agent.event", {"provider": "claude", "event": "Stop", "text": "APPROVED: test complete"})
+	var events: Dictionary = await graph.dispatch(int(second.substr(1)), "graph.take", {})
+	check(events.result.events.size() == 1, "Stop routes one completion event to connected adapter")
+	check(events.result.events[0].text == "APPROVED: test complete", "Completion content is preserved")
+	await graph.dispatch(int(first.substr(1)), "agent.event", {"provider": "claude", "event": "Stop", "text": "APPROVED: test complete"})
+	events = await graph.dispatch(int(second.substr(1)), "graph.take", {})
+	check(events.result.events.size() == 1, "Duplicate stop is not delivered twice")
+	host.pane_status_visible = true
+	host.focus_pane(first)
+	host.workspace_view._update_monitor()
+	var monitor: Window = preload("res://scenes/PaneStatusDialog.gd").find(host)
+	monitor.compact = false
+	await hold(.3)
+	monitor.texts()
+	var badge_tip: String = monitor.view.get_tooltip(monitor.view.hit_rect("agent").get_center())
+	check("smoke-session" in badge_tip, "Full monitor agent tooltip shows session identity")
+	var compact: Dictionary = host.workspace_view._compact_resources(first)
+	check(compact.agent.provider == "claude" and compact.agent.status == "idle" and not "smoke-session" in compact.agent.tooltip, "Small monitor shows status without session ID")
+	await graph.dispatch(int(first.substr(1)), "graph.disconnect", {"from": first, "to": second})
+	var denied: Dictionary = await graph.dispatch(int(second.substr(1)), "graph.read", {"node": first})
+	check(denied.has("error"), "File reference still requires a Read edge")
+	check(denied.error.code == "connection_changed" and denied.error.adjacent.incoming.is_empty(), "Denied read teaches the live disconnected graph")
+	var refresh: Dictionary = await graph.dispatch(int(second.substr(1)), "agent.event", {"provider": "telegram", "event": "PreToolUse"})
+	check(refresh.result.graph_changed and refresh.result.adjacent.incoming.is_empty(), "Next tool hook refreshes disconnected permissions")
+	refresh = await graph.dispatch(int(second.substr(1)), "agent.event", {"provider": "telegram", "event": "PostToolUse"})
+	check(not refresh.result.graph_changed, "Unchanged graph avoids repeated hook context")
+	await graph.dispatch(int(first.substr(1)), "graph.connect", {"from": first, "to": second, "turn_completed": true})
+	refresh = await graph.dispatch(int(second.substr(1)), "agent.event", {"provider": "telegram", "event": "PreToolUse"})
+	check(refresh.result.graph_changed and refresh.result.adjacent.incoming.size() == 1, "Reconnection refreshes the next hook")
+	var restored: Dictionary = await graph.dispatch(int(second.substr(1)), "graph.read", {"node": first})
+	check(restored.has("result") and restored.result.sessions[0].path == path, "Reconnected session reads without restarting")
+	await graph.dispatch(int(first.substr(1)), "graph.disconnect", {"from": first, "to": second})
+	DirAccess.remove_absolute(path)
+	events = await graph.dispatch(int(second.substr(1)), "graph.take", {})
+	check(events.result.events.is_empty(), "Disconnect cancels pending Telegram notification")
+	graph.set_process(false)
+	await graph.dispatch(int(first.substr(1)), "agent.event", {"provider": "claude", "event": "SessionEnd"})
+	var ended_deadline := Time.get_ticks_msec() + 5000
+	while graph.nodes[first].status != "offline" and Time.get_ticks_msec() < ended_deadline:
+		await process_frame
+	check(graph.nodes[first].status == "offline", "Owner lifecycle end reaches the presentation as offline")

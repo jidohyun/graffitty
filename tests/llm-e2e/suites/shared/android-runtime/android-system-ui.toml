@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "android-system-ui"
+goal = "Verify the Android system boundaries used by the client."
+instructions = "android-system-ui.md"
+runtime = "android"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-system-ui"

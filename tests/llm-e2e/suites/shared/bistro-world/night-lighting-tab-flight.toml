@@ -1,0 +1,27 @@
+required_frontends = ["godot"]
+
+name = "night-lighting-tab-flight"
+instructions = "night-lighting-tab-flight.md"
+goal = "The baked Bistro's fixtures illuminate readable scenery at all nine sessions, and session flights, interruptions, and saved-view returns land without a late directional flick or abrupt stop."
+verify = "visual_continuity"
+tool_budget = 150
+turn_timeout_seconds = 420
+[[stages]]
+name = "Open the baked Bistro"
+tools = []
+[[stages]]
+name = "Inspect every destination"
+tools = []
+[[stages]]
+name = "Watch continuous flights"
+tools = []
+[[stages]]
+name = "Interrupt and revisit"
+tools = []
+[[stages]]
+name = "Resize during a flight"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/bistro-world/replays/night-lighting-tab-flight.gd"

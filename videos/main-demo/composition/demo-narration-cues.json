@@ -1,0 +1,311 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash-tts",
+  "voice": "Charon",
+  "cues": [
+    {
+      "id": "intro",
+      "path": "assets/voice/intro.flac",
+      "start": 0.25,
+      "duration": 4.16,
+      "end": 4.41,
+      "volume": 0.91201084
+    },
+    {
+      "id": "workspace-space",
+      "path": "assets/voice/workspace-space.flac",
+      "start": 6.9,
+      "duration": 3.64,
+      "end": 10.540000000000001,
+      "volume": 0.91201084
+    },
+    {
+      "id": "workspace-status",
+      "path": "assets/voice/workspace-status.flac",
+      "start": 11.35,
+      "duration": 4.12,
+      "end": 15.469999999999999,
+      "volume": 0.91201084
+    },
+    {
+      "id": "workspace-stash",
+      "path": "assets/voice/workspace-stash.flac",
+      "start": 16.283333333333335,
+      "duration": 2.24,
+      "end": 18.523333333333333,
+      "volume": 0.91201084
+    },
+    {
+      "id": "workspace-main",
+      "path": "assets/voice/workspace-main.flac",
+      "start": 19.333333333333332,
+      "duration": 2.6,
+      "end": 21.933333333333334,
+      "volume": 0.91201084
+    },
+    {
+      "id": "workspace-pane",
+      "path": "assets/voice/workspace-pane.flac",
+      "start": 22.75,
+      "duration": 3.76,
+      "end": 26.509999999999998,
+      "volume": 0.91201084
+    },
+    {
+      "id": "filetree-cwd",
+      "path": "assets/voice/filetree-cwd.flac",
+      "start": 32.18333333333333,
+      "duration": 3.64,
+      "end": 35.82333333333333,
+      "volume": 0.91201084
+    },
+    {
+      "id": "filetree-rename",
+      "path": "assets/voice/filetree-rename.flac",
+      "start": 39.65,
+      "duration": 3.92,
+      "end": 43.57,
+      "volume": 0.91201084
+    },
+    {
+      "id": "filetree-open",
+      "path": "assets/voice/filetree-open.flac",
+      "start": 49.06666666666667,
+      "duration": 5.2,
+      "end": 54.26666666666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "filetree-send-path",
+      "path": "assets/voice/filetree-send-path.flac",
+      "start": 62.91666666666667,
+      "duration": 4.96,
+      "end": 67.87666666666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "chromium-markdown",
+      "path": "assets/voice/chromium-markdown.flac",
+      "start": 68.93333333333334,
+      "duration": 15.2,
+      "end": 84.13333333333334,
+      "volume": 0.91201084
+    },
+    {
+      "id": "chromium-diagram",
+      "path": "assets/voice/chromium-diagram.flac",
+      "start": 88.65,
+      "duration": 5.2,
+      "end": 93.85000000000001,
+      "volume": 0.91201084
+    },
+    {
+      "id": "chromium-automation",
+      "path": "assets/voice/chromium-automation.flac",
+      "start": 105.85,
+      "duration": 5.68,
+      "end": 111.53,
+      "volume": 0.91201084
+    },
+    {
+      "id": "chromium-native",
+      "path": "assets/voice/chromium-native.flac",
+      "start": 117.01666666666667,
+      "duration": 8.4,
+      "end": 125.41666666666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "chromium-ownership",
+      "path": "assets/voice/chromium-ownership.flac",
+      "start": 128.66666666666669,
+      "duration": 19.08,
+      "end": 147.74666666666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "tabs-summary",
+      "path": "assets/voice/tabs-summary.flac",
+      "start": 150.71666666666664,
+      "duration": 9.8,
+      "end": 160.51666666666665,
+      "volume": 0.91201084
+    },
+    {
+      "id": "command-line",
+      "path": "assets/voice/command-line.flac",
+      "start": 162.10000000000002,
+      "duration": 11.72,
+      "end": 173.82000000000002,
+      "volume": 0.91201084
+    },
+    {
+      "id": "android-intro",
+      "path": "assets/voice/android-intro.flac",
+      "start": 174.63333333333333,
+      "duration": 9.92,
+      "end": 184.5533333333333,
+      "volume": 0.91201084
+    },
+    {
+      "id": "android-workspace",
+      "path": "assets/voice/android-workspace.flac",
+      "start": 188.783,
+      "duration": 7.12,
+      "end": 195.903,
+      "volume": 0.91201084
+    },
+    {
+      "id": "android-wiring",
+      "path": "assets/voice/android-wiring.flac",
+      "start": 195.96699999999998,
+      "duration": 5.68,
+      "end": 201.647,
+      "volume": 0.91201084
+    },
+    {
+      "id": "android-review",
+      "path": "assets/voice/android-review.flac",
+      "start": 201.71699999999998,
+      "duration": 4.84,
+      "end": 206.557,
+      "volume": 0.91201084
+    },
+    {
+      "id": "android-implement",
+      "path": "assets/voice/android-implement.flac",
+      "start": 213.21699999999998,
+      "duration": 3.12,
+      "end": 216.337,
+      "volume": 0.91201084
+    },
+    {
+      "id": "android-handoff",
+      "path": "assets/voice/android-handoff.flac",
+      "start": 217.79999999999998,
+      "duration": 4.08,
+      "end": 221.88,
+      "volume": 0.91201084
+    },
+    {
+      "id": "android-slack",
+      "path": "assets/voice/android-slack.flac",
+      "start": 228.283,
+      "duration": 3.6,
+      "end": 231.88299999999998,
+      "volume": 0.91201084
+    },
+    {
+      "id": "systemone-intro",
+      "path": "assets/voice/systemone-intro.flac",
+      "start": 234.616667,
+      "duration": 9.6,
+      "end": 244.216667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "parallel-intro",
+      "path": "assets/voice/parallel-intro.flac",
+      "start": 255.0333336666667,
+      "duration": 3.04,
+      "end": 258.0733336666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "parallel-combined",
+      "path": "assets/voice/parallel-combined.flac",
+      "start": 263.0333336666667,
+      "duration": 5.08,
+      "end": 268.1133336666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-inspector",
+      "path": "assets/voice/protocol-inspector.flac",
+      "start": 271.5333336666667,
+      "duration": 9.48,
+      "end": 281.0133336666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-payload",
+      "path": "assets/voice/protocol-payload.flac",
+      "start": 281.816667,
+      "duration": 6.32,
+      "end": 288.136667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-code",
+      "path": "assets/voice/protocol-code.flac",
+      "start": 288.9500003333333,
+      "duration": 6.36,
+      "end": 295.31000033333333,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-ports",
+      "path": "assets/voice/protocol-ports.flac",
+      "start": 296.116667,
+      "duration": 4.6,
+      "end": 300.71666700000003,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-run",
+      "path": "assets/voice/protocol-run.flac",
+      "start": 301.516667,
+      "duration": 0.88,
+      "end": 302.396667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-connect",
+      "path": "assets/voice/protocol-connect.flac",
+      "start": 302.4000003333333,
+      "duration": 1.56,
+      "end": 303.9600003333333,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-send",
+      "path": "assets/voice/protocol-send.flac",
+      "start": 305.46666700000003,
+      "duration": 1.16,
+      "end": 306.62666700000005,
+      "volume": 0.91201084
+    },
+    {
+      "id": "protocol-result",
+      "path": "assets/voice/protocol-result.flac",
+      "start": 311.68333366666667,
+      "duration": 6.16,
+      "end": 317.8433336666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "watcher-intro",
+      "path": "assets/voice/watcher-intro.flac",
+      "start": 320.8333336666667,
+      "duration": 6.68,
+      "end": 327.5133336666667,
+      "volume": 0.91201084
+    },
+    {
+      "id": "watcher-connect",
+      "path": "assets/voice/watcher-connect.flac",
+      "start": 333.51666700000004,
+      "duration": 1.92,
+      "end": 335.43666700000006,
+      "volume": 0.91201084
+    },
+    {
+      "id": "watcher-result",
+      "path": "assets/voice/watcher-result.flac",
+      "start": 336.25000033333333,
+      "duration": 4.28,
+      "end": 340.5300003333333,
+      "volume": 0.91201084
+    }
+  ]
+}

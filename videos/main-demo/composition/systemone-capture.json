@@ -1,0 +1,72 @@
+{
+  "continuous_workspace": {
+    "world": "bistro",
+    "session": "$1",
+    "prepared_sessions": 4
+  },
+  "session_navigation": {
+    "prepared": {
+      "Custom nodes": {
+        "id": "$3",
+        "pane": "%10",
+        "place": "dining-room"
+      },
+      "Parallel": {
+        "id": "$2",
+        "pane": "%5",
+        "place": "terrace-tables"
+      },
+      "SystemOne": {
+        "id": "$1",
+        "pane": "%1",
+        "place": "cafe-awning"
+      },
+      "Watcher": {
+        "id": "$4",
+        "pane": "%14",
+        "place": "bottle-shelves"
+      }
+    },
+    "transitions": []
+  },
+  "workspace_source_frames": [
+    2171,
+    3355
+  ],
+  "take": "videos/main-demo/assets/takes/watcher-demo/systemone-first-20261119/systemone",
+  "start": 234.616667,
+  "duration": 19.733333333333334,
+  "subtitle": "SystemOne node: choose an agent for each prompt",
+  "window": {
+    "x": 288,
+    "y": 112,
+    "width": 1344,
+    "height": 840,
+    "source_width": 2400,
+    "source_height": 1500
+  },
+  "beats": [
+    {
+      "action": "SystemOne: intro",
+      "frame": 0,
+      "seconds": 0.0
+    },
+    {
+      "action": "SystemOne: prompt",
+      "frame": 624,
+      "seconds": 10.4
+    },
+    {
+      "action": "SystemOne: route",
+      "frame": 918,
+      "seconds": 15.3
+    }
+  ],
+  "failures": [],
+  "mock": true,
+  "routing_edges": 3,
+  "route": "claude",
+  "jev_title": "SystemOne JEV",
+  "manual_output_style": "solid",
+  "routing_output_style": "solid"
+}

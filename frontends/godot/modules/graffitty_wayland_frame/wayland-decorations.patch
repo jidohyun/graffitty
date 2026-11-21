@@ -1,0 +1,64 @@
+--- a/platform/linuxbsd/wayland/wayland_thread.cpp
++++ b/platform/linuxbsd/wayland/wayland_thread.cpp
+@@ -4382,7 +4382,9 @@
+ 	bool decorated = false;
+ 
+ #ifdef LIBDECOR_ENABLED
+-	if (!decorated && libdecor_context) {
++	// Negotiate directly when the compositor supports xdg-decoration.
++	// libdecor can select a server frame even when its own frame is hidden.
++	if (!decorated && libdecor_context && !registry.xdg_decoration_manager) {
+ 		ws.libdecor_frame = libdecor_decorate(libdecor_context, ws.wl_surface, (struct libdecor_frame_interface *)&libdecor_frame_interface, &ws);
+ 		libdecor_frame_map(ws.libdecor_frame);
+ 
+@@ -4682,7 +4684,12 @@
+ 	WindowState &ws = windows[p_window_id];
+ 	SeatState *ss = wl_seat_get_seat_state(wl_seat_current);
+ 
+-	if (ss && ws.xdg_toplevel) {
++	// Input may already have delivered the release by the time the main thread runs.
++	if (!ss || ss->pointer_data.pressed_button_mask == MouseButtonMask::NONE) {
++		return;
++	}
++
++	if (ws.xdg_toplevel) {
+ 		xdg_toplevel_move(ws.xdg_toplevel, ss->wl_seat, ss->pointer_data.button_serial);
+ 	}
+ 
+@@ -4698,7 +4705,12 @@
+ 	WindowState &ws = windows[p_window];
+ 	SeatState *ss = wl_seat_get_seat_state(wl_seat_current);
+ 
+-	if (ss && ws.xdg_toplevel) {
++	// Input may already have delivered the release by the time the main thread runs.
++	if (!ss || ss->pointer_data.pressed_button_mask == MouseButtonMask::NONE) {
++		return;
++	}
++
++	if (ws.xdg_toplevel) {
+ 		xdg_toplevel_resize_edge edge = XDG_TOPLEVEL_RESIZE_EDGE_NONE;
+ 		switch (p_edge) {
+ 			case DisplayServerEnums::WINDOW_EDGE_TOP_LEFT: {
+--- a/platform/linuxbsd/wayland/display_server_wayland.cpp
++++ b/platform/linuxbsd/wayland/display_server_wayland.cpp
+@@ -875,7 +875,6 @@
+ 			wayland_thread.window_set_min_size(p_window_id, wd.min_size);
+ 			wayland_thread.window_set_max_size(p_window_id, wd.max_size);
+ 			wayland_thread.window_set_app_id(p_window_id, _get_app_id_from_context(context));
+-			wayland_thread.window_set_borderless(p_window_id, window_get_flag(DisplayServerEnums::WINDOW_FLAG_BORDERLESS, p_window_id));
+ 
+ 			// Since it can't have a position. Let's tell the window node the news by
+ 			// sending the actual rect to it.
+@@ -903,6 +902,12 @@
+ 			_send_window_event(DisplayServerEnums::WINDOW_EVENT_FORCE_CLOSE, p_window_id);
+ 
+ 			return;
++		}
++
++		// libdecor needs a configured content size before hiding its frame.
++		// Apply the preference before attaching the first visible buffer.
++		if (!window_get_flag(DisplayServerEnums::WINDOW_FLAG_POPUP_WM_HINT, p_window_id)) {
++			wayland_thread.window_set_borderless(p_window_id, window_get_flag(DisplayServerEnums::WINDOW_FLAG_BORDERLESS, p_window_id));
+ 		}
+ 
+ 		// NOTE: The XDG shell protocol is built in a way that causes the window to

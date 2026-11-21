@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "pane-font-size"
+instructions = "pane-font-size.md"
+goal = "Font shortcuts affect only the focused terminal pane; the last explicitly chosen size becomes a persistent recent preference for new panes without resizing existing panes."
+verify = "pane_font_sizes_and_recent_preference"
+tool_budget = 100
+turn_timeout_seconds = 420
+
+[[stages]]
+name = "Independent existing panes"
+tools = []
+
+[[stages]]
+name = "Recent preference for new panes"
+tools = []
+
+[[stages]]
+name = "Reset and persistence"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-font-size.gd"

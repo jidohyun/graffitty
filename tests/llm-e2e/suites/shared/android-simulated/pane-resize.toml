@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "pane-resize"
+goal = "Apply three different pane sizes through the client resize command; verify authoritative server grids and unchanged neighbor grids."
+instructions = "pane-resize.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/pane-resize.gd"

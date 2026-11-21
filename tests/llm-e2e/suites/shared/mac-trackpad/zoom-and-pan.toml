@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+
+name = "zoom-and-pan"
+instructions = "zoom-and-pan.md"
+goal = "Mac pinch and deliberate two-finger pan move a remembered imaginary zoom point continuously."
+verify = "visual_continuity"
+tool_budget = 50
+turn_timeout_seconds = 180
+[[stages]]
+name = "Zoom and pan"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/mac-trackpad/replays/zoom-and-pan.gd"

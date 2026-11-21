@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "messages-copy"
+goal = "Touch the intentional Unicode diagnostic, copy with the platform shortcut, dismiss it, and verify no Copy button or stale shortcut interception."
+instructions = "messages-copy.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/messages-copy.gd"

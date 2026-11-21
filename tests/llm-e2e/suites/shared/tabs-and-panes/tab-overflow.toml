@@ -1,0 +1,21 @@
+required_frontends = ["godot"]
+
+name = "tab-overflow"
+instructions = "tab-overflow.md"
+goal = "Overflow tabs cycle through authored world positions and keep stable selection and geometry while server updates arrive."
+verify = "tab_overflow"
+tool_budget = 120
+turn_timeout_seconds = 360
+
+[[stages]]
+name = "Open more tabs than world positions"
+tools = []
+
+[[stages]]
+name = "Select scrolled tabs without moving or deselecting them"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-overflow.gd"

@@ -1,0 +1,1964 @@
+{
+  "chapters": [
+    {
+      "start": 0,
+      "text": "Terminal with tiling windows",
+      "duration": 32.18333333333333
+    },
+    {
+      "start": 32.18333333333333,
+      "text": "Filetree",
+      "duration": 7.466666666666669
+    },
+    {
+      "start": 39.65,
+      "text": "Filetree: Edit filenames like a vim buffer",
+      "duration": 9.716666666666669
+    },
+    {
+      "start": 49.36666666666667,
+      "text": "Filetree: Open text files in nvim, and image/video/pdf in chromium",
+      "duration": 13.550000000000004
+    },
+    {
+      "start": 62.91666666666667,
+      "text": "Filetree: Send paths to the terminal",
+      "duration": 5.766666666666666
+    },
+    {
+      "start": 68.68333333333334,
+      "text": "Chromium: Markdown preview",
+      "duration": 16.0
+    },
+    {
+      "start": 84.68333333333334,
+      "text": "Chromium: Visual explanations",
+      "duration": 14.899999999999991
+    },
+    {
+      "start": 99.58333333333333,
+      "text": "Chromium: Automation",
+      "duration": 50.88333333333331
+    },
+    {
+      "start": 150.46666666666664,
+      "text": "Tabs: Status at a glance",
+      "duration": 11.383333333333383
+    },
+    {
+      "start": 161.85000000000002,
+      "text": "Command line: Fuzzy finder built in",
+      "duration": 12.533333333333303
+    },
+    {
+      "start": 174.38333333333333,
+      "duration": 21.333666666666666,
+      "text": "Connect to your PC from another computer\u2014or your phone."
+    },
+    {
+      "start": 195.71699999999998,
+      "duration": 38.899667,
+      "text": "Node-based agent orchestration: Connect how agent should interact"
+    },
+    {
+      "start": 234.616667,
+      "duration": 19.733333333333334,
+      "text": "SystemOne node: Choose an agent for each prompt"
+    },
+    {
+      "start": 254.35000033333336,
+      "duration": 14.266666666666667,
+      "text": "Parallel node: Wait until all agents finish"
+    },
+    {
+      "start": 268.616667,
+      "duration": 51.55,
+      "text": "Graffitty Graph Protocol (GGP): Make your custom node"
+    },
+    {
+      "start": 320.166667,
+      "duration": 21.683333333333334,
+      "text": "Watcher: Turn new email into a podcast"
+    }
+  ],
+  "subtitles": [
+    {
+      "voice": "intro",
+      "text": "Graffitty is a terminal emulator,",
+      "start": 0.36666666666666664,
+      "end": 2.25
+    },
+    {
+      "voice": "intro",
+      "text": "with a tiling manager and Chromium.",
+      "start": 2.25,
+      "end": 4.216666666666667
+    },
+    {
+      "voice": "workspace-space",
+      "text": "But if you zoom out, you'll notice",
+      "start": 7.116666666666666,
+      "end": 8.716666666666667
+    },
+    {
+      "voice": "workspace-space",
+      "text": "there's much more space to work with.",
+      "start": 8.716666666666667,
+      "end": 10.533333333333333
+    },
+    {
+      "voice": "workspace-status",
+      "text": "Each pane shows CPU, RAM usage,",
+      "start": 11.6,
+      "end": 13.983333333333333
+    },
+    {
+      "voice": "workspace-status",
+      "text": "and agent status.",
+      "start": 13.983333333333333,
+      "end": 15.469999999999999
+    },
+    {
+      "voice": "workspace-stash",
+      "text": "Stash a pane outside the main view.",
+      "start": 16.3,
+      "end": 18.4
+    },
+    {
+      "voice": "workspace-main",
+      "text": "You can return to the main view at any time.",
+      "start": 19.516666666666666,
+      "end": 21.716666666666665
+    },
+    {
+      "voice": "workspace-pane",
+      "text": "Or jump back to your previous view",
+      "start": 22.766666666666666,
+      "end": 24.466666666666665
+    },
+    {
+      "voice": "workspace-pane",
+      "text": "and take a closer look at any pane.",
+      "start": 24.466666666666665,
+      "end": 25.966666666666665
+    },
+    {
+      "voice": "filetree-cwd",
+      "text": "The builtin filetree is synchronised",
+      "start": 32.35,
+      "end": 34.06666666666667
+    },
+    {
+      "voice": "filetree-cwd",
+      "text": "with the shell's current working directory.",
+      "start": 34.06666666666667,
+      "end": 35.65
+    },
+    {
+      "voice": "filetree-rename",
+      "text": "You can edit the file name like editing a vim buffer,",
+      "start": 39.833333333333336,
+      "end": 42.28333333333333
+    },
+    {
+      "voice": "filetree-rename",
+      "text": "and save to apply it.",
+      "start": 42.28333333333333,
+      "end": 43.57
+    },
+    {
+      "voice": "filetree-open",
+      "text": "Opening the files opens Neovim,",
+      "start": 49.36666666666667,
+      "end": 51.266666666666666
+    },
+    {
+      "voice": "filetree-open",
+      "text": "or Chromium to preview all kinds of media.",
+      "start": 51.266666666666666,
+      "end": 54.2
+    },
+    {
+      "voice": "filetree-send-path",
+      "text": "You can also send file paths to the terminal,",
+      "start": 63.1,
+      "end": 65.3
+    },
+    {
+      "voice": "filetree-send-path",
+      "text": "allowing you to change directory or open files.",
+      "start": 65.3,
+      "end": 67.87666666666667
+    },
+    {
+      "voice": "chromium-markdown",
+      "text": "Get creative with Chromium.",
+      "start": 69.13333333333334,
+      "end": 70.75
+    },
+    {
+      "voice": "chromium-markdown",
+      "text": "It's a versatile viewer that handles things",
+      "start": 70.75,
+      "end": 72.61666666666666
+    },
+    {
+      "voice": "chromium-markdown",
+      "text": "traditional terminals often need workarounds for.",
+      "start": 72.61666666666666,
+      "end": 75.11666666666666
+    },
+    {
+      "voice": "chromium-markdown",
+      "text": "For example, use the MarkdownPreview plugin",
+      "start": 75.3,
+      "end": 78.13333333333334
+    },
+    {
+      "voice": "chromium-markdown",
+      "text": "in Neovim to open Graffitty Chromium.",
+      "start": 78.13333333333334,
+      "end": 80.43333333333334
+    },
+    {
+      "voice": "chromium-markdown",
+      "text": "Now you have a live Markdown preview",
+      "start": 80.43333333333334,
+      "end": 82.36666666666666
+    },
+    {
+      "voice": "chromium-markdown",
+      "text": "right inside your terminal.",
+      "start": 82.36666666666666,
+      "end": 84.01666666666667
+    },
+    {
+      "voice": "chromium-diagram",
+      "text": "Ask Claude to explain with a diagram.",
+      "start": 88.86666666666666,
+      "end": 90.91666666666667
+    },
+    {
+      "voice": "chromium-diagram",
+      "text": "Graffitty Chromium will open right beside your terminal.",
+      "start": 90.91666666666667,
+      "end": 93.81666666666666
+    },
+    {
+      "voice": "chromium-automation",
+      "text": "Multiple agents can each use",
+      "start": 106.11666666666666,
+      "end": 107.31666666666666
+    },
+    {
+      "voice": "chromium-automation",
+      "text": "an isolated Chromium session,",
+      "start": 107.31666666666666,
+      "end": 109.13333333333334
+    },
+    {
+      "voice": "chromium-automation",
+      "text": "so they can run end-to-end tests in parallel.",
+      "start": 109.13333333333334,
+      "end": 111.53
+    },
+    {
+      "voice": "chromium-native",
+      "text": "You can also use Chromium's native interface",
+      "start": 117.23333333333333,
+      "end": 119.41666666666667
+    },
+    {
+      "voice": "chromium-native",
+      "text": "in a separate window.",
+      "start": 119.41666666666667,
+      "end": 120.71666666666667
+    },
+    {
+      "voice": "chromium-native",
+      "text": "Closing that window doesn't close Chromium.",
+      "start": 120.88333333333334,
+      "end": 122.76666666666667
+    },
+    {
+      "voice": "chromium-native",
+      "text": "It simply brings the same chromium back into Graffitty.",
+      "start": 122.76666666666667,
+      "end": 125.41666666666667
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "One thing I find frustrating about agentic coding",
+      "start": 128.9,
+      "end": 131.83333333333334
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "is how quickly agents can open a jumble of windows.",
+      "start": 131.93333333333334,
+      "end": 134.86666666666667
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "They get in the way, steal focus,",
+      "start": 135.15,
+      "end": 137.1
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "and make it hard to tell which agent is using which browser.",
+      "start": 137.1,
+      "end": 140.55
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "That's why Graffitty shows clear ownership",
+      "start": 140.68333333333334,
+      "end": 142.71666666666667
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "with a connecting line.",
+      "start": 142.71666666666667,
+      "end": 144.18333333333334
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "You can move chromiums out of the main view",
+      "start": 144.18333333333334,
+      "end": 146.13333333333333
+    },
+    {
+      "voice": "chromium-ownership",
+      "text": "and still see who's using them.",
+      "start": 146.15,
+      "end": 147.74666666666667
+    },
+    {
+      "voice": "tabs-summary",
+      "text": "The down arrow gives you a summary of every tab,",
+      "start": 150.91666666666666,
+      "end": 153.58333333333334
+    },
+    {
+      "voice": "tabs-summary",
+      "text": "including its panes, CPU and RAM usage,",
+      "start": 153.58333333333334,
+      "end": 155.91666666666666
+    },
+    {
+      "voice": "tabs-summary",
+      "text": "and agent status.",
+      "start": 155.91666666666666,
+      "end": 157.11666666666667
+    },
+    {
+      "voice": "tabs-summary",
+      "text": "Type to fuzzy search tab and pane titles.",
+      "start": 157.11666666666667,
+      "end": 160.51666666666665
+    },
+    {
+      "voice": "command-line",
+      "text": "Aren't you already used to Vim's command line?",
+      "start": 162.38333333333333,
+      "end": 165.03333333333333
+    },
+    {
+      "voice": "command-line",
+      "text": "The same thing is here,",
+      "start": 165.03333333333333,
+      "end": 166.2
+    },
+    {
+      "voice": "command-line",
+      "text": "with a fuzzy finder built in.",
+      "start": 166.2,
+      "end": 167.98333333333332
+    },
+    {
+      "voice": "command-line",
+      "text": "You no longer have to keep",
+      "start": 167.98333333333332,
+      "end": 169.08333333333334
+    },
+    {
+      "voice": "command-line",
+      "text": "every terminal feature as a key map.",
+      "start": 169.08333333333334,
+      "end": 171.31666666666666
+    },
+    {
+      "voice": "command-line",
+      "text": "Search commands, switch tabs, or jump to a pane.",
+      "start": 171.31666666666666,
+      "end": 173.66666666666666
+    },
+    {
+      "voice": "android-intro",
+      "text": "Just like tmux keeps your session alive",
+      "start": 174.86666666666667,
+      "end": 176.71666666666667
+    },
+    {
+      "voice": "android-intro",
+      "text": "on an SSH server,",
+      "start": 176.71666666666667,
+      "end": 178.15
+    },
+    {
+      "voice": "android-intro",
+      "text": "you can detach from Graffitty",
+      "start": 178.15,
+      "end": 179.53333333333333
+    },
+    {
+      "voice": "android-intro",
+      "text": "and attach again any time.",
+      "start": 179.53333333333333,
+      "end": 181.15
+    },
+    {
+      "voice": "android-intro",
+      "text": "It even has mobile clients,",
+      "start": 181.15,
+      "end": 182.73333333333332
+    },
+    {
+      "voice": "android-intro",
+      "text": "so you can code wherever you are.",
+      "start": 182.73333333333332,
+      "end": 184.25
+    },
+    {
+      "voice": "android-workspace",
+      "text": "Let me explain how the graph feature works.",
+      "start": 188.95,
+      "end": 190.86666666666667
+    },
+    {
+      "voice": "android-workspace",
+      "text": "Each terminal pane can advertise itself as a node,",
+      "start": 190.86666666666667,
+      "end": 193.68333333333334
+    },
+    {
+      "voice": "android-workspace",
+      "text": "so it can queue messages to another pane.",
+      "start": 193.68333333333334,
+      "end": 195.86666666666667
+    },
+    {
+      "voice": "android-wiring",
+      "text": "For example, Codex on the left implements a feature",
+      "start": 196.16666666666666,
+      "end": 199.28333333333333
+    },
+    {
+      "voice": "android-wiring",
+      "text": "and sends its work to Claude in the middle.",
+      "start": 199.28333333333333,
+      "end": 201.43333333333334
+    },
+    {
+      "voice": "android-review",
+      "text": "Claude only sends to the Slack node",
+      "start": 202.03333333333333,
+      "end": 204.0
+    },
+    {
+      "voice": "android-review",
+      "text": "when a condition is met",
+      "start": 204.0,
+      "end": 205.0
+    },
+    {
+      "voice": "android-review",
+      "text": "that the user needs to know about.",
+      "start": 205.0,
+      "end": 206.15
+    },
+    {
+      "voice": "android-implement",
+      "text": "Now ask Codex to implement the website.",
+      "start": 213.46666666666667,
+      "end": 216.33333333333334
+    },
+    {
+      "voice": "android-handoff",
+      "text": "When Codex finishes,",
+      "start": 218.08333333333334,
+      "end": 219.16666666666666
+    },
+    {
+      "voice": "android-handoff",
+      "text": "Claude receives its session and checks the work.",
+      "start": 219.31666666666666,
+      "end": 221.88
+    },
+    {
+      "voice": "android-slack",
+      "text": "Claude finds missing requirements",
+      "start": 228.61666666666667,
+      "end": 230.16666666666666
+    },
+    {
+      "voice": "android-slack",
+      "text": "and sends the review to Slack.",
+      "start": 230.16666666666666,
+      "end": 231.41666666666666
+    },
+    {
+      "voice": "systemone-intro",
+      "text": "Graph is very useful when you want",
+      "start": 234.81666666666666,
+      "end": 236.43333333333334
+    },
+    {
+      "voice": "systemone-intro",
+      "text": "to quickly prototype a pipeline.",
+      "start": 236.43333333333334,
+      "end": 238.16666666666666
+    },
+    {
+      "voice": "systemone-intro",
+      "text": "This SystemOne node that calls",
+      "start": 238.31666666666666,
+      "end": 240.11666666666667
+    },
+    {
+      "voice": "systemone-intro",
+      "text": "the JEV decision model in the middle",
+      "start": 240.11666666666667,
+      "end": 241.43333333333334
+    },
+    {
+      "voice": "systemone-intro",
+      "text": "will route the session for you",
+      "start": 241.43333333333334,
+      "end": 243.0
+    },
+    {
+      "voice": "systemone-intro",
+      "text": "based on your question!",
+      "start": 243.0,
+      "end": 244.15
+    },
+    {
+      "voice": "parallel-intro",
+      "text": "The parallel node waits",
+      "start": 255.23333333333332,
+      "end": 256.43333333333334
+    },
+    {
+      "voice": "parallel-intro",
+      "text": "until every agent finishes.",
+      "start": 256.43333333333334,
+      "end": 258.0733336666667
+    },
+    {
+      "voice": "parallel-combined",
+      "text": "Once all three finish,",
+      "start": 263.26666666666665,
+      "end": 264.46666666666664
+    },
+    {
+      "voice": "parallel-combined",
+      "text": "it sends their results and session references",
+      "start": 264.46666666666664,
+      "end": 266.75
+    },
+    {
+      "voice": "parallel-combined",
+      "text": "together to the reviewer.",
+      "start": 266.75,
+      "end": 267.9
+    },
+    {
+      "voice": "protocol-inspector",
+      "text": "You can even make your own custom node",
+      "start": 271.7,
+      "end": 273.4166666666667
+    },
+    {
+      "voice": "protocol-inspector",
+      "text": "very easily with Graffitty Graph Protocol.",
+      "start": 273.4166666666667,
+      "end": 276.01666666666665
+    },
+    {
+      "voice": "protocol-inspector",
+      "text": "First, let's use the Payload Inspector node,",
+      "start": 276.06666666666666,
+      "end": 278.96666666666664
+    },
+    {
+      "voice": "protocol-inspector",
+      "text": "which shows what data are sent through the graph.",
+      "start": 278.96666666666664,
+      "end": 281.0133336666667
+    },
+    {
+      "voice": "protocol-payload",
+      "text": "It sends just enough information",
+      "start": 281.81666666666666,
+      "end": 283.71666666666664
+    },
+    {
+      "voice": "protocol-payload",
+      "text": "for the next node to process,",
+      "start": 283.71666666666664,
+      "end": 285.15
+    },
+    {
+      "voice": "protocol-payload",
+      "text": "like the session file path and the last message.",
+      "start": 285.15,
+      "end": 287.93333333333334
+    },
+    {
+      "voice": "protocol-code",
+      "text": "Here is a minimal Python example",
+      "start": 289.1333333333333,
+      "end": 291.01666666666665
+    },
+    {
+      "voice": "protocol-code",
+      "text": "that uses the GGP protocol",
+      "start": 291.01666666666665,
+      "end": 292.68333333333334
+    },
+    {
+      "voice": "protocol-code",
+      "text": "to convert the data to uppercase.",
+      "start": 292.68333333333334,
+      "end": 295.21666666666664
+    },
+    {
+      "voice": "protocol-ports",
+      "text": "Define the input and output ports,",
+      "start": 296.3333333333333,
+      "end": 298.3
+    },
+    {
+      "voice": "protocol-ports",
+      "text": "process the data, and send it on.",
+      "start": 298.45,
+      "end": 300.48333333333335
+    },
+    {
+      "voice": "protocol-run",
+      "text": "Run it.",
+      "start": 301.73333333333335,
+      "end": 302.15
+    },
+    {
+      "voice": "protocol-connect",
+      "text": "Connect the nodes,",
+      "start": 302.6666666666667,
+      "end": 303.9600003333333
+    },
+    {
+      "voice": "protocol-send",
+      "text": "Send the message.",
+      "start": 305.71666666666664,
+      "end": 306.62666700000005
+    },
+    {
+      "voice": "protocol-result",
+      "text": "This node converts the message to uppercase.",
+      "start": 311.8833333333333,
+      "end": 314.68333333333334
+    },
+    {
+      "voice": "protocol-result",
+      "text": "The Payload Inspector shows the result.",
+      "start": 314.68333333333334,
+      "end": 317.0
+    },
+    {
+      "voice": "protocol-result",
+      "text": "That's it.",
+      "start": 317.0833333333333,
+      "end": 317.8433336666667
+    },
+    {
+      "voice": "watcher-intro",
+      "text": "This makes your graph pipeline versatile.",
+      "start": 321.05,
+      "end": 322.95
+    },
+    {
+      "voice": "watcher-intro",
+      "text": "For example, create a simple watcher node",
+      "start": 323.06666666666666,
+      "end": 324.76666666666665
+    },
+    {
+      "voice": "watcher-intro",
+      "text": "that triggers your agent when a condition is met.",
+      "start": 324.76666666666665,
+      "end": 327.45
+    },
+    {
+      "voice": "watcher-connect",
+      "text": "Connect the watcher to Claude.",
+      "start": 333.96666666666664,
+      "end": 335.43666700000006
+    },
+    {
+      "voice": "watcher-result",
+      "text": "A new email arrives,",
+      "start": 336.26666666666665,
+      "end": 337.6666666666667
+    },
+    {
+      "voice": "watcher-result",
+      "text": "and Claude makes a podcast just as it's told to!",
+      "start": 337.6666666666667,
+      "end": 340.3666666666667
+    }
+  ],
+  "window_y": 112,
+  "title_center_y": 62,
+  "subtitle_center_y": 1008,
+  "title_label_color": "#b8d8f8",
+  "text_color": "#f1f2f4",
+  "shortcuts": [
+    {
+      "combo": "cmd",
+      "label": "Return to Main View",
+      "start": 18.716666666666665,
+      "duration": 0.18333333333333332,
+      "start_frame": 1123,
+      "end_frame": 1134,
+      "svg": "assets/shortcut-return-to-main-view-cmd.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Return to Main View",
+      "start": 18.9,
+      "duration": 0.016666666666666666,
+      "start_frame": 1134,
+      "end_frame": 1135,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-reflow-0.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Return to Main View",
+      "start": 18.916666666666668,
+      "duration": 0.016666666666666666,
+      "start_frame": 1135,
+      "end_frame": 1136,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-reflow-1.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Return to Main View",
+      "start": 18.933333333333334,
+      "duration": 0.016666666666666666,
+      "start_frame": 1136,
+      "end_frame": 1137,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-reflow-2.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Return to Main View",
+      "start": 18.95,
+      "duration": 0.016666666666666666,
+      "start_frame": 1137,
+      "end_frame": 1138,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-reflow-3.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Return to Main View",
+      "start": 18.966666666666665,
+      "duration": 0.016666666666666666,
+      "start_frame": 1138,
+      "end_frame": 1139,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-reflow-4.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Return to Main View",
+      "start": 18.983333333333334,
+      "duration": 0.016666666666666666,
+      "start_frame": 1139,
+      "end_frame": 1140,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-reflow-5.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Return to Main View",
+      "start": 19.0,
+      "duration": 0.08333333333333333,
+      "start_frame": 1140,
+      "end_frame": 1145,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Return to Main View",
+      "start": 19.083333333333332,
+      "duration": 0.016666666666666666,
+      "start_frame": 1145,
+      "end_frame": 1146,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-0.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Return to Main View",
+      "start": 19.1,
+      "duration": 0.016666666666666666,
+      "start_frame": 1146,
+      "end_frame": 1147,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-1.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Return to Main View",
+      "start": 19.116666666666667,
+      "duration": 0.016666666666666666,
+      "start_frame": 1147,
+      "end_frame": 1148,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-2.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Return to Main View",
+      "start": 19.133333333333333,
+      "duration": 0.016666666666666666,
+      "start_frame": 1148,
+      "end_frame": 1149,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-3.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Return to Main View",
+      "start": 19.15,
+      "duration": 0.016666666666666666,
+      "start_frame": 1149,
+      "end_frame": 1150,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-4.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Return to Main View",
+      "start": 19.166666666666668,
+      "duration": 0.016666666666666666,
+      "start_frame": 1150,
+      "end_frame": 1151,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-5.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-enter-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Return to Main View",
+      "start": 19.183333333333334,
+      "duration": 2.95,
+      "start_frame": 1151,
+      "end_frame": 1328,
+      "svg": "assets/shortcut-return-to-main-view-cmd-alt-enter.svg",
+      "path": "assets/shortcut-return-to-main-view-cmd-alt-enter.png",
+      "x": 1512,
+      "y": 792,
+      "group": 0,
+      "keydown": 19.083333333333332,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd",
+      "label": "Restore previous view",
+      "start": 22.133333333333333,
+      "duration": 0.18333333333333332,
+      "start_frame": 1328,
+      "end_frame": 1339,
+      "svg": "assets/shortcut-restore-previous-view-cmd.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Restore previous view",
+      "start": 22.316666666666666,
+      "duration": 0.016666666666666666,
+      "start_frame": 1339,
+      "end_frame": 1340,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-reflow-0.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Restore previous view",
+      "start": 22.333333333333332,
+      "duration": 0.016666666666666666,
+      "start_frame": 1340,
+      "end_frame": 1341,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-reflow-1.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Restore previous view",
+      "start": 22.35,
+      "duration": 0.016666666666666666,
+      "start_frame": 1341,
+      "end_frame": 1342,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-reflow-2.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Restore previous view",
+      "start": 22.366666666666667,
+      "duration": 0.016666666666666666,
+      "start_frame": 1342,
+      "end_frame": 1343,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-reflow-3.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Restore previous view",
+      "start": 22.383333333333333,
+      "duration": 0.016666666666666666,
+      "start_frame": 1343,
+      "end_frame": 1344,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-reflow-4.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Restore previous view",
+      "start": 22.4,
+      "duration": 0.016666666666666666,
+      "start_frame": 1344,
+      "end_frame": 1345,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-reflow-5.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt",
+      "label": "Restore previous view",
+      "start": 22.416666666666668,
+      "duration": 0.08333333333333333,
+      "start_frame": 1345,
+      "end_frame": 1350,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Restore previous view",
+      "start": 22.5,
+      "duration": 0.016666666666666666,
+      "start_frame": 1350,
+      "end_frame": 1351,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-0.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Restore previous view",
+      "start": 22.516666666666666,
+      "duration": 0.016666666666666666,
+      "start_frame": 1351,
+      "end_frame": 1352,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-1.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Restore previous view",
+      "start": 22.533333333333335,
+      "duration": 0.016666666666666666,
+      "start_frame": 1352,
+      "end_frame": 1353,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-2.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Restore previous view",
+      "start": 22.55,
+      "duration": 0.016666666666666666,
+      "start_frame": 1353,
+      "end_frame": 1354,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-3.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Restore previous view",
+      "start": 22.566666666666666,
+      "duration": 0.016666666666666666,
+      "start_frame": 1354,
+      "end_frame": 1355,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-4.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Restore previous view",
+      "start": 22.583333333333332,
+      "duration": 0.016666666666666666,
+      "start_frame": 1355,
+      "end_frame": 1356,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-5.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-enter-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+alt+enter",
+      "label": "Restore previous view",
+      "start": 22.6,
+      "duration": 1.1833333333333333,
+      "start_frame": 1356,
+      "end_frame": 1427,
+      "svg": "assets/shortcut-restore-previous-view-cmd-alt-enter.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-alt-enter.png",
+      "x": 1512,
+      "y": 792,
+      "group": 1,
+      "keydown": 22.5,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd",
+      "label": "Zoom to pane",
+      "start": 23.783333333333335,
+      "duration": 0.18333333333333332,
+      "start_frame": 1427,
+      "end_frame": 1438,
+      "svg": "assets/shortcut-zoom-to-pane-cmd.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Zoom to pane",
+      "start": 23.966666666666665,
+      "duration": 0.016666666666666666,
+      "start_frame": 1438,
+      "end_frame": 1439,
+      "svg": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-0.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Zoom to pane",
+      "start": 23.983333333333334,
+      "duration": 0.016666666666666666,
+      "start_frame": 1439,
+      "end_frame": 1440,
+      "svg": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-1.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Zoom to pane",
+      "start": 24.0,
+      "duration": 0.016666666666666666,
+      "start_frame": 1440,
+      "end_frame": 1441,
+      "svg": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-2.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Zoom to pane",
+      "start": 24.016666666666666,
+      "duration": 0.016666666666666666,
+      "start_frame": 1441,
+      "end_frame": 1442,
+      "svg": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-3.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Zoom to pane",
+      "start": 24.033333333333335,
+      "duration": 0.016666666666666666,
+      "start_frame": 1442,
+      "end_frame": 1443,
+      "svg": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-4.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Zoom to pane",
+      "start": 24.05,
+      "duration": 0.016666666666666666,
+      "start_frame": 1443,
+      "end_frame": 1444,
+      "svg": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-5.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd-enter-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Zoom to pane",
+      "start": 24.066666666666666,
+      "duration": 2.816666666666667,
+      "start_frame": 1444,
+      "end_frame": 1613,
+      "svg": "assets/shortcut-zoom-to-pane-cmd-enter.svg",
+      "path": "assets/shortcut-zoom-to-pane-cmd-enter.png",
+      "x": 1512,
+      "y": 792,
+      "group": 2,
+      "keydown": 23.966666666666665,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd",
+      "label": "Restore previous view",
+      "start": 26.883333333333333,
+      "duration": 0.18333333333333332,
+      "start_frame": 1613,
+      "end_frame": 1624,
+      "svg": "assets/shortcut-restore-previous-view-cmd.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Restore previous view",
+      "start": 27.066666666666666,
+      "duration": 0.016666666666666666,
+      "start_frame": 1624,
+      "end_frame": 1625,
+      "svg": "assets/shortcut-restore-previous-view-cmd-enter-reflow-0.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-enter-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Restore previous view",
+      "start": 27.083333333333332,
+      "duration": 0.016666666666666666,
+      "start_frame": 1625,
+      "end_frame": 1626,
+      "svg": "assets/shortcut-restore-previous-view-cmd-enter-reflow-1.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-enter-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Restore previous view",
+      "start": 27.1,
+      "duration": 0.016666666666666666,
+      "start_frame": 1626,
+      "end_frame": 1627,
+      "svg": "assets/shortcut-restore-previous-view-cmd-enter-reflow-2.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-enter-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Restore previous view",
+      "start": 27.116666666666667,
+      "duration": 0.016666666666666666,
+      "start_frame": 1627,
+      "end_frame": 1628,
+      "svg": "assets/shortcut-restore-previous-view-cmd-enter-reflow-3.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-enter-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Restore previous view",
+      "start": 27.133333333333333,
+      "duration": 0.016666666666666666,
+      "start_frame": 1628,
+      "end_frame": 1629,
+      "svg": "assets/shortcut-restore-previous-view-cmd-enter-reflow-4.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-enter-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Restore previous view",
+      "start": 27.15,
+      "duration": 0.016666666666666666,
+      "start_frame": 1629,
+      "end_frame": 1630,
+      "svg": "assets/shortcut-restore-previous-view-cmd-enter-reflow-5.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-enter-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0
+    },
+    {
+      "combo": "cmd+enter",
+      "label": "Restore previous view",
+      "start": 27.166666666666668,
+      "duration": 3.15,
+      "start_frame": 1630,
+      "end_frame": 1819,
+      "svg": "assets/shortcut-restore-previous-view-cmd-enter.svg",
+      "path": "assets/shortcut-restore-previous-view-cmd-enter.png",
+      "x": 1512,
+      "y": 792,
+      "group": 3,
+      "keydown": 27.066666666666666,
+      "fade_out": 0.25
+    },
+    {
+      "combo": "2",
+      "label": "Send to pane 2",
+      "start": 64.26666666666667,
+      "duration": 0.18333333333333332,
+      "start_frame": 3856,
+      "end_frame": 3867,
+      "svg": "assets/shortcut-send-to-pane-2-2.svg",
+      "path": "assets/shortcut-send-to-pane-2-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0
+    },
+    {
+      "combo": "2+minus",
+      "label": "Send to pane 2",
+      "start": 64.45,
+      "duration": 0.016666666666666666,
+      "start_frame": 3867,
+      "end_frame": 3868,
+      "svg": "assets/shortcut-send-to-pane-2-2-minus-reflow-0.svg",
+      "path": "assets/shortcut-send-to-pane-2-2-minus-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0
+    },
+    {
+      "combo": "2+minus",
+      "label": "Send to pane 2",
+      "start": 64.46666666666667,
+      "duration": 0.016666666666666666,
+      "start_frame": 3868,
+      "end_frame": 3869,
+      "svg": "assets/shortcut-send-to-pane-2-2-minus-reflow-1.svg",
+      "path": "assets/shortcut-send-to-pane-2-2-minus-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0
+    },
+    {
+      "combo": "2+minus",
+      "label": "Send to pane 2",
+      "start": 64.48333333333333,
+      "duration": 0.016666666666666666,
+      "start_frame": 3869,
+      "end_frame": 3870,
+      "svg": "assets/shortcut-send-to-pane-2-2-minus-reflow-2.svg",
+      "path": "assets/shortcut-send-to-pane-2-2-minus-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0
+    },
+    {
+      "combo": "2+minus",
+      "label": "Send to pane 2",
+      "start": 64.5,
+      "duration": 0.016666666666666666,
+      "start_frame": 3870,
+      "end_frame": 3871,
+      "svg": "assets/shortcut-send-to-pane-2-2-minus-reflow-3.svg",
+      "path": "assets/shortcut-send-to-pane-2-2-minus-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0
+    },
+    {
+      "combo": "2+minus",
+      "label": "Send to pane 2",
+      "start": 64.51666666666667,
+      "duration": 0.016666666666666666,
+      "start_frame": 3871,
+      "end_frame": 3872,
+      "svg": "assets/shortcut-send-to-pane-2-2-minus-reflow-4.svg",
+      "path": "assets/shortcut-send-to-pane-2-2-minus-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0
+    },
+    {
+      "combo": "2+minus",
+      "label": "Send to pane 2",
+      "start": 64.53333333333333,
+      "duration": 0.016666666666666666,
+      "start_frame": 3872,
+      "end_frame": 3873,
+      "svg": "assets/shortcut-send-to-pane-2-2-minus-reflow-5.svg",
+      "path": "assets/shortcut-send-to-pane-2-2-minus-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0
+    },
+    {
+      "combo": "2+minus",
+      "label": "Send to pane 2",
+      "start": 64.55,
+      "duration": 3.15,
+      "start_frame": 3873,
+      "end_frame": 4062,
+      "svg": "assets/shortcut-send-to-pane-2-2-minus.svg",
+      "path": "assets/shortcut-send-to-pane-2-2-minus.png",
+      "x": 1512,
+      "y": 792,
+      "group": 4,
+      "keydown": 64.45,
+      "fade_out": 0.25
+    },
+    {
+      "combo": "ctrl",
+      "label": "Open command line",
+      "start": 161.66666666666666,
+      "duration": 0.18333333333333332,
+      "start_frame": 9700,
+      "end_frame": 9711,
+      "svg": "assets/shortcut-open-command-line-ctrl.svg",
+      "path": "assets/shortcut-open-command-line-ctrl.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a",
+      "label": "Open command line",
+      "start": 161.85,
+      "duration": 0.016666666666666666,
+      "start_frame": 9711,
+      "end_frame": 9712,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-reflow-0.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a",
+      "label": "Open command line",
+      "start": 161.86666666666667,
+      "duration": 0.016666666666666666,
+      "start_frame": 9712,
+      "end_frame": 9713,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-reflow-1.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a",
+      "label": "Open command line",
+      "start": 161.88333333333333,
+      "duration": 0.016666666666666666,
+      "start_frame": 9713,
+      "end_frame": 9714,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-reflow-2.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a",
+      "label": "Open command line",
+      "start": 161.9,
+      "duration": 0.016666666666666666,
+      "start_frame": 9714,
+      "end_frame": 9715,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-reflow-3.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a",
+      "label": "Open command line",
+      "start": 161.91666666666666,
+      "duration": 0.016666666666666666,
+      "start_frame": 9715,
+      "end_frame": 9716,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-reflow-4.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a",
+      "label": "Open command line",
+      "start": 161.93333333333334,
+      "duration": 0.016666666666666666,
+      "start_frame": 9716,
+      "end_frame": 9717,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-reflow-5.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a",
+      "label": "Open command line",
+      "start": 161.95,
+      "duration": 0.16666666666666666,
+      "start_frame": 9717,
+      "end_frame": 9727,
+      "svg": "assets/shortcut-open-command-line-ctrl-a.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a+comma+colon",
+      "label": "Open command line",
+      "start": 162.11666666666667,
+      "duration": 0.016666666666666666,
+      "start_frame": 9727,
+      "end_frame": 9728,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-0.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-0.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a+comma+colon",
+      "label": "Open command line",
+      "start": 162.13333333333333,
+      "duration": 0.016666666666666666,
+      "start_frame": 9728,
+      "end_frame": 9729,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-1.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-1.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a+comma+colon",
+      "label": "Open command line",
+      "start": 162.15,
+      "duration": 0.016666666666666666,
+      "start_frame": 9729,
+      "end_frame": 9730,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-2.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-2.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a+comma+colon",
+      "label": "Open command line",
+      "start": 162.16666666666666,
+      "duration": 0.016666666666666666,
+      "start_frame": 9730,
+      "end_frame": 9731,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-3.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-3.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a+comma+colon",
+      "label": "Open command line",
+      "start": 162.18333333333334,
+      "duration": 0.016666666666666666,
+      "start_frame": 9731,
+      "end_frame": 9732,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-4.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-4.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a+comma+colon",
+      "label": "Open command line",
+      "start": 162.2,
+      "duration": 0.016666666666666666,
+      "start_frame": 9732,
+      "end_frame": 9733,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-5.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-comma-colon-reflow-5.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0
+    },
+    {
+      "combo": "ctrl+a+comma+colon",
+      "label": "Open command line",
+      "start": 162.21666666666667,
+      "duration": 3.15,
+      "start_frame": 9733,
+      "end_frame": 9922,
+      "svg": "assets/shortcut-open-command-line-ctrl-a-comma-colon.svg",
+      "path": "assets/shortcut-open-command-line-ctrl-a-comma-colon.png",
+      "x": 1512,
+      "y": 792,
+      "group": 5,
+      "keydown": 162.11666666666667,
+      "fade_out": 0.25
+    }
+  ],
+  "underlines": [
+    {
+      "id": "inspector-terminal",
+      "voice": "protocol-inspector",
+      "start": 277.26666666666665,
+      "end": 281.0133336666667,
+      "lines": [],
+      "arrow": null,
+      "box": [
+        924,
+        240,
+        632,
+        606
+      ]
+    },
+    {
+      "id": "routing-question",
+      "voice": "systemone-intro",
+      "start": 243.0,
+      "end": 244.96666666666667,
+      "lines": [
+        [
+          426,
+          472,
+          514
+        ]
+      ],
+      "arrow": [
+        944,
+        440,
+        "left"
+      ]
+    },
+    {
+      "id": "session-path",
+      "voice": "protocol-payload",
+      "start": 285.68333333333334,
+      "end": 288.136667,
+      "lines": [
+        [
+          744,
+          582,
+          582
+        ],
+        [
+          616,
+          601,
+          298
+        ]
+      ],
+      "arrow": [
+        1080,
+        478,
+        "down"
+      ]
+    },
+    {
+      "id": "last-message",
+      "voice": "protocol-payload",
+      "start": 287.03333333333336,
+      "end": 288.136667,
+      "lines": [
+        [
+          711,
+          742,
+          482
+        ]
+      ],
+      "arrow": [
+        940,
+        638,
+        "down"
+      ]
+    },
+    {
+      "id": "ggp-import",
+      "voice": "protocol-code",
+      "start": 291.85,
+      "end": 295.31000033333333,
+      "lines": [
+        [
+          500,
+          326,
+          358
+        ]
+      ],
+      "arrow": [
+        700,
+        328,
+        "up"
+      ]
+    },
+    {
+      "id": "input-port",
+      "voice": "protocol-ports",
+      "start": 296.76666666666665,
+      "end": 298.45,
+      "lines": [
+        [
+          723,
+          481,
+          690
+        ]
+      ],
+      "arrow": [
+        1062,
+        367,
+        "down"
+      ]
+    },
+    {
+      "id": "output-port",
+      "voice": "protocol-ports",
+      "start": 297.35,
+      "end": 298.45,
+      "lines": [
+        [
+          738,
+          512,
+          771
+        ],
+        [
+          426,
+          541,
+          267
+        ]
+      ],
+      "arrow": [
+        1062,
+        514,
+        "up"
+      ]
+    },
+    {
+      "id": "uppercase-call",
+      "voice": "protocol-ports",
+      "start": 298.45,
+      "end": 299.7,
+      "lines": [
+        [
+          947,
+          701,
+          310
+        ]
+      ],
+      "arrow": [
+        1062,
+        582,
+        "down"
+      ]
+    },
+    {
+      "id": "send-output",
+      "voice": "protocol-ports",
+      "start": 299.7,
+      "end": 300.71666700000003,
+      "lines": [
+        [
+          485,
+          701,
+          365
+        ]
+      ],
+      "arrow": [
+        621,
+        703,
+        "up"
+      ]
+    },
+    {
+      "id": "uppercase-output",
+      "voice": "protocol-result",
+      "start": 313.95,
+      "end": 317.8433336666667,
+      "lines": [
+        [
+          711,
+          812,
+          95
+        ]
+      ],
+      "arrow": [
+        827,
+        780,
+        "left"
+      ]
+    },
+    {
+      "id": "slack-arrival",
+      "voice": null,
+      "start": 228.61666666666667,
+      "end": 232.98333333333332,
+      "lines": [],
+      "arrow": [
+        1330,
+        206,
+        "left"
+      ]
+    }
+  ]
+}

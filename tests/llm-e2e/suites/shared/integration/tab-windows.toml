@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "tab-windows"
+instructions = "tab-windows.md"
+goal = "Readable tab overflow and individual window transfers preserve exclusive ownership, live terminals, views and local return from a remote child."
+verify = "godot_controls_and_live_process_identity"
+tool_budget = 150
+turn_timeout_seconds = 420
+
+[[stages]]
+name = "Move tabs individually and select through the real chooser"
+tools = []
+
+[[stages]]
+name = "Navigate overflowing tabs"
+tools = []
+
+[[stages]]
+name = "Preserve the remote child's suspended local return"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "tab-windows"]

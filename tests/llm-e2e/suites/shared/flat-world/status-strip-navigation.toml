@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+name = "status-strip-navigation"
+goal = "Plan status placement once per navigation destination and animate around pane edges without learning intermediate positions or jumping at completion."
+instructions = "status-strip-navigation.md"
+verify = "sampled_status_geometry_opacity_and_placement_history"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Main View, pane fit, reversals, and edge changes in Flat and Flat 2D"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/status-strip-navigation.gd"

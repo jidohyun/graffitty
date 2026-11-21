@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+name = "tab-boundary"
+instructions = "tab-boundary.md"
+goal = "Tabs reject cross-tab graph links; dragging any connected pane carries the entire component with visible wires and unchanged pre-drag geometry."
+verify = "graph_tab_boundary_and_group_preview"
+tool_budget = 160
+turn_timeout_seconds = 360
+
+[[stages]]
+name = "Prepare a connected group"
+tools = []
+[[stages]]
+name = "Reject cross-tab connections"
+tools = []
+[[stages]]
+name = "Preview and move the connected group"
+tools = []
+recall_marker = true
+[[stages]]
+name = "Move to a new tab and cancel a move"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/agent-graph/replays/tab-boundary.gd"

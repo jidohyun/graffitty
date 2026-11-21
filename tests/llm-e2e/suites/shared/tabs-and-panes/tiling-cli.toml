@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "tiling-cli"
+instructions = "tiling-cli.md"
+goal = "AeroSpace-style CLI commands change the calling tab's opt-in terminal space, preserving live shells and rejecting invalid or inactive-tab operations."
+verify = "state_continuity"
+tool_budget = 90
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Layout and split"
+tools = []
+
+[[stages]]
+name = "Focus, join and move"
+tools = []
+
+[[stages]]
+name = "View and scope"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tiling-cli.gd"

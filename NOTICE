@@ -1,0 +1,24 @@
+Graffitty
+Copyright 2026 Kiyoon Kim
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The Godot native extension in frontends/godot/extension is forked from godotty
+v0.9.6 (https://github.com/ingur/godotty, commit
+bad2d0a9712ba12eb13f6f4b34a64497fdd1498f), Copyright (c) 2026 ingur, under the
+MIT License. Its notice is kept in licenses/godotty-MIT.txt and ships with the
+addon as addons/graffitty/godotty-LICENSE.
+
+Other third-party components keep their own licenses; see the licenses/
+directory and the license files beside each component.
+
+Terminal file staging and clipboard paste routing are adapted from Herdr:
+- herdr-core, crates/herdr-core/src/put.rs, revision
+  c84d6e76156a6c2aac1da20efbe800f10acfe897
+  https://github.com/herdrdev/herdr-core
+- herdr-app, src/terminal.rs, revision
+  b67715e8985e6097f83f8120fc9b9e52e6596f50
+  https://github.com/herdrdev/herdr-app
+Both are licensed under Apache-2.0 (see licenses/herdr-Apache-2.0.txt).
+Graffitty modifications use its authenticated RPC, bounded chunk transfers,
+atomic file publication and platform clipboard adapters.

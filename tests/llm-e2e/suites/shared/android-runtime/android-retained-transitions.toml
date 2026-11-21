@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "android-retained-transitions"
+goal = "Both built-in worlds are selectable on mobile; Ctrl+D closes a real remote shell while Push/Pull retains native drawing state through source destruction and releases it after landing."
+instructions = "android-retained-transitions.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-retained-transitions"

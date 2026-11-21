@@ -1,0 +1,32 @@
+required_frontends = ["godot"]
+
+name = "tab-new-window"
+instructions = "tab-new-window.md"
+goal = "When its source window has multiple tabs, a workspace tab dropped outside the application, or onto its own tab content, becomes a separate desktop window in a new numbered live server session, keeping the same shells."
+verify = "new_window"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Prepare labelled tabs"
+tools = []
+
+[[stages]]
+name = "Drop a tab onto its own content"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Drag a tab out of the window"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify the windows"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-new-window.gd"
+coverage_gaps = ["Verify CLI session listing and explicit reattachment to every new numbered session with retained output."]

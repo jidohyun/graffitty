@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "mouse-bindings"
+instructions = "mouse-bindings.md"
+goal = "Physical side buttons, configurable wheels and terminal mouse reporting preserve exact actions and PTY bytes."
+verify = "raw_pty_bytes_and_frontend_events"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Exercise side buttons and local wheel mappings"
+tools = []
+
+[[stages]]
+name = "Verify application SGR codes and reporting bypass"
+tools = []
+
+[[stages]]
+name = "Review local search and configuration rejection"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_input_acceptance.py"
+args = ["--suite", "mouse"]

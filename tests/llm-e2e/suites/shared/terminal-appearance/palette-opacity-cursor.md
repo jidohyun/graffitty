@@ -1,0 +1,5 @@
+Godot Windows: run `python tests/platform/windows/windows_appearance_e2e.py --mode palette --evidence <fresh-directory> --project <frozen-project>`. This uses an isolated window station, real ConPTY and projected Godot controls, then checks native/window pixels. Review captures as described below.
+
+Inspect `results.json` and all PNGs. Compare the two cursor-phase images: the red bar should blink without shifting text or the pane. In the opaque and translucent pair, world scenery should become visible through the default backdrop; glyphs, explicit red application background and header remain readable. Inspect the actual Terminal menu and Appearance dialog for readable labels and controls, including opacity, cursor defaults and blink rate.
+
+Do not infer visual correctness from JSON preferences or a nonblank image. Report a failed pixel assertion or clipped/unreadable dialog as a failure, preserving the failed evidence directory. Application-selected cursor shape and application color overrides take precedence over configured defaults; real-VT unit tests additionally check OSC reset behavior, sparse palettes and truecolor preservation.

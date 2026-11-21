@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-backend"
+goal = "Control native browser tabs and popups from Android and verify their actual rendered pixels."
+instructions = "android-chromium-backend.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-backend"

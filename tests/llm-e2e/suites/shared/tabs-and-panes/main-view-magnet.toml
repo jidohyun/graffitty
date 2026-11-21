@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "main-view-magnet"
+instructions = "main-view-magnet.md"
+goal = "Pinch and pan snap near Main, continued movement releases the magnet, and saved framing, panes and shell processes remain correct."
+verify = "state_continuity"
+tool_budget = 90
+turn_timeout_seconds = 180
+
+[[stages]]
+name = "Interaction and continuity"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/main-view-magnet.gd"

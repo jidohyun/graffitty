@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bistro — tonight</title>
+<style>
+  :root { --ink: #2b211b; --paper: #f6efe3; --accent: #9b2f24; --muted: #8a7a68; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 17px/1.45 Georgia, "Times New Roman", serif; color: var(--ink);
+         background: var(--paper); padding: 34px 40px; }
+  h1 { font-size: 40px; margin: 0; letter-spacing: .04em; }
+  h1 small { display: block; font-size: 15px; letter-spacing: .3em; color: var(--accent);
+             text-transform: uppercase; margin-top: 4px; }
+  .grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; margin-top: 26px; }
+  h2 { font-size: 14px; letter-spacing: .25em; text-transform: uppercase; color: var(--accent);
+       border-bottom: 1px solid #d8c9b2; padding-bottom: 6px; margin: 18px 0 8px; }
+  .dish { display: flex; justify-content: space-between; padding: 3px 0; }
+  .dish span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .order { background: #fffaf2; border: 1px solid #e3d5bf; border-radius: 6px;
+           padding: 8px 12px; margin-bottom: 8px; font-size: 15px; }
+  .order b { color: var(--accent); }
+  .empty { color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+<h1>Bistro<small>Ce soir · Tonight</small></h1>
+<div class="grid">
+  <section id="menu"></section>
+  <section>
+    <h2>Kitchen queue</h2><div id="orders" class="empty">No open orders</div>
+    <h2>Reservations</h2><div id="reservations" class="empty">No reservations yet</div>
+  </section>
+</div>
+<script>
+const courses = {starter: "Entrées", main: "Plats", dessert: "Desserts", drink: "Boissons"};
+let names = {};
+async function menu() {
+  const items = await (await fetch("/menu")).json();
+  names = Object.fromEntries(items.map(item => [item.id, item.name]));
+  document.querySelector("#menu").innerHTML = Object.entries(courses).map(([course, title]) =>
+    `<h2>${title}</h2>` + items.filter(item => item.course === course).map(item =>
+      `<div class="dish"><span>${item.name}</span><span>€${item.price.toFixed(2)}</span></div>`).join("")).join("");
+}
+async function refresh() {
+  const open = await (await fetch("/orders?watch=1")).json();
+  const booked = await (await fetch("/reservations?watch=1")).json();
+  const orders = document.querySelector("#orders");
+  orders.className = open.length ? "" : "empty";
+  if (open.length) orders.innerHTML = open.slice(-4).reverse().map(order =>
+    `<div class="order"><b>Table ${order.table}</b> · ${order.items.map(id => names[id]).join(", ")} · €${order.total.toFixed(2)}</div>`).join("");
+  const reservations = document.querySelector("#reservations");
+  reservations.className = booked.length ? "" : "empty";
+  if (booked.length) reservations.innerHTML = booked.map(booking =>
+    `<div class="dish"><span>${booking.slot} · ${booking.name}</span><span>table ${booking.table}</span></div>`).join("");
+}
+menu().then(refresh);
+// Refresh only while the page is on screen; catch up as soon as it returns.
+setInterval(() => { if (!document.hidden) refresh(); }, 1000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
+</script>
+</body>
+</html>

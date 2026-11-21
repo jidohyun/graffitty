@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-remote-notifications"
+goal = "Deliver OSC 9 and OSC 99 from a Mac PTY to Android without desktop-helper errors and verify continued input."
+instructions = "android-remote-notifications.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-remote-notifications"

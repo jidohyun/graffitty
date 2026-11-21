@@ -1,0 +1,9 @@
+required_frontends = ["godot"]
+name = "tab-close-touch"
+goal = "Touch tab closes retain widths for two seconds, then expand smoothly."
+instructions = "../tabs-and-panes/tab-strip-layout.md"
+verify = "visual_continuity"
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-close-touch.gd"

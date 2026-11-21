@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "windows"
+instructions = "windows.md"
+goal = "Independent frontend windows render and route their own workspaces while sharing durable terminal sessions and preserving local contexts across a remote roundtrip."
+verify = "multiple_real_offscreen_adapters_and_pty"
+tool_budget = 180
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Create independent visible contexts"
+tools = []
+
+[[stages]]
+name = "Move detach and close without restarting terminals"
+tools = []
+
+[[stages]]
+name = "Keep local and remote windows independent"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "windows"]

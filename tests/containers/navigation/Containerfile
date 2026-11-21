@@ -1,0 +1,20 @@
+FROM docker.io/library/rust:1.98-bookworm
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates curl git python3 zsh tmux ncurses-bin fonts-dejavu-core \
+    pkg-config libssl-dev libopus-dev cmake clang && rm -rf /var/lib/apt/lists/*
+ARG NVIM_VERSION=v0.11.5
+ARG ZIG_VERSION=0.15.2
+RUN case "$(uname -m)" in aarch64) nvim_arch=arm64; zig_arch=aarch64 ;; x86_64) nvim_arch=x86_64; zig_arch=x86_64 ;; esac && \
+    curl -fL "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-${nvim_arch}.tar.gz" -o /tmp/nvim.tar.gz && \
+    mkdir /opt/nvim && tar -xzf /tmp/nvim.tar.gz -C /opt/nvim --strip-components=1 && \
+    curl -fL "https://ziglang.org/download/${ZIG_VERSION}/zig-${zig_arch}-linux-${ZIG_VERSION}.tar.xz" -o /tmp/zig.tar.xz && \
+    mkdir /opt/zig && tar -xJf /tmp/zig.tar.xz -C /opt/zig --strip-components=1 && \
+    rm /tmp/nvim.tar.gz /tmp/zig.tar.xz
+RUN git clone https://github.com/tmux-plugins/tpm /opt/tpm && \
+    git -C /opt/tpm checkout e261deb1b47614eed3400089ce7197dc68acc4eb
+COPY --from=ghcr.io/astral-sh/uv:0.13.0 /uv /usr/local/bin/uv
+RUN apt-get update && apt-get install -y --no-install-recommends lld && rm -rf /var/lib/apt/lists/*
+COPY init.lua tmux.conf /opt/navigation-profile/
+ENV PATH=/target/debug:/opt/nvim/bin:/opt/zig:/usr/local/cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV TERM=xterm-256color LANG=C.UTF-8 CARGO_TARGET_DIR=/target CARGO_BUILD_JOBS=1
+WORKDIR /workspace

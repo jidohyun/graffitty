@@ -1,0 +1,171 @@
+# Tools this project pins.
+#
+# Rust is deliberately absent: cargo comes from the machine's own toolchain and
+# gdext only needs a recent stable, so pinning it here would fight rustup for no
+# benefit.
+#
+# Zig is here because the terminal's VT engine is ghostty's, and
+# `libghostty-vt` is Zig source that its -sys crate builds from scratch during
+# `cargo build`.
+#
+# The version is exact rather than a range: ghostty's `build.zig.zon` sets
+# `minimum_zig_version = "0.17.0"` and its `requireZig()` rejects other minor
+# versions outright, so a different Zig fails the build instead of warning.
+#
+# tools/build_godot.py reads this pin.
+[tools]
+zig = "0.17.1"
+# Match the extension's Godot 4.7 API and expose the native executable to tasks.
+godot = "4.7.2-stable"
+"pipx:zensical" = "0.1.0"
+"github:GDQuest/GDScript-formatter" = { version = "0.28.0", rename_exe = "gdscript-formatter" }
+ruff = "0.17.4"
+bun = "1.4.4"
+# bunx preserves Node shebangs; HyperFrames and Node compatibility tests use it.
+node = "24.22.2"
+oxfmt = "0.77.0"
+"pipx:clang-format" = "23.1.5"
+uv = "0.13"
+dvc = { version = "3", extras = ["azure"], depends = ["uv"] }
+
+[tasks."cli:build"]
+description = "Incrementally build the native CLI and stage it for the app"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py cli:build"
+
+[tasks."core:build"]
+description = "Build and stage gft with its session server"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py core:build"
+
+[tasks."dev:build"]
+description = "Build the incremental Godot dev extension and desktop dependencies without opening a window"
+depends = ["core:build"]
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/build_godot.py --profile dev"
+
+[tasks.dev]
+description = "Build and open Graffitty; --reload skips builds and watches GDScript changes"
+raw = true
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py dev"
+
+[tasks."godot:build"]
+description = "Build and stage the thin Godot extension"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/build_godot.py"
+
+[tasks."types:audit"]
+description = "Inventory dictionary and dynamic JSON usage across the repo"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/audit_dictionaries.py"
+
+[tasks."godot:check"]
+description = "Check GDScript headlessly; fail on engine errors even with exit code zero"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/check_godot.py"
+
+[tasks.format]
+description = "Format Python, Rust, C/C++/Objective-C, GDScript, JS/TS, CSS, HTML, workflow YAML, and selected TOML configs"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py format"
+
+[tasks."test:python"]
+description = "Run Python contracts and integrations with isolated application state"
+dir = "{{ config_root }}"
+run = "uv run tests/run.py"
+
+[tasks."test:shared:catalog"]
+description = "Validate the mandatory shared E2E catalog"
+dir = "{{ config_root }}"
+run = "uv run --no-project tests/llm-e2e/shared_e2e.py --validate"
+
+[tasks."test:shared"]
+description = "Run shared frontend adapters and report missing coverage (requires --evidence)"
+dir = "{{ config_root }}"
+run = "uv run tests/llm-e2e/shared_e2e.py --run"
+
+[tasks."copy-mode:record"]
+description = "Record the Neovim copy-mode oracle (tracked in DVC) for recorded_neovim_parity"
+dir = "{{ config_root }}"
+tools = { neovim = "0.12.5" }
+run = "uv run --no-project crates/terminal-core/tests/copy-mode/record.py"
+
+[tasks.docs]
+description = "Preview the documentation site in your browser"
+dir = "{{ config_root }}"
+run = "zensical serve --open"
+
+[tasks."docs:build"]
+description = "Build the static documentation site"
+dir = "{{ config_root }}"
+run = "zensical build"
+
+[tasks."server:build"]
+description = "Build gft with its headless session server (no Godot required)"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py server:build"
+
+[tasks."server:bundle"]
+description = "Build the unified gft remote bundle for this computer's OS/CPU"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/build_remote_bundle.py"
+
+[tasks."remote:server"]
+description = "Run the standalone headless session server"
+depends = ["server:build"]
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py remote:server"
+
+[tasks."remote:share"]
+description = "Share an ordinary Graffitty desktop through a localhost endpoint"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py remote:share"
+
+[tasks."android:build"]
+description = "Build the ARM64 Android remote client APK (requires Android SDK/NDK and Godot templates)"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/build_android.py"
+
+[tasks."ios:build"]
+description = "Build the iOS 16 remote client (requires Xcode, Godot templates, IOS_DEVELOPMENT_TEAM)"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/build_ios.py"
+
+[tasks."android:vm"]
+description = "Start the isolated ARM64 Android E2E emulator (see tests/llm-e2e/ANDROID.md)"
+dir = "{{ config_root }}"
+run = "uv run --no-project tools/mise_tasks.py android:vm"
+
+[tasks."android:test"]
+description = "Run Android runtime checks; requires a built APK staging project and booted emulator/device"
+dir = "{{ config_root }}"
+run = "uv run tests/android/test_android_runtime.py"
+
+[tasks."windows:bundle"]
+description = "Export the Windows desktop and collect its runtime dependencies"
+depends = ["cli:build", "godot:build"]
+dir = "{{ config_root }}"
+run = "uv run --no-project packaging/windows/prepare_bundle.py"
+
+[tasks."windows:archive"]
+description = "Pack the Windows bundle into the release archive that install.ps1 installs"
+depends = ["windows:bundle"]
+dir = "{{ config_root }}"
+run = "uv run --no-project packaging/windows/build_archive.py"
+
+[tasks."windows:installer"]
+description = "Compile the per-user Inno Setup Windows installer (not published; releases use windows:archive)"
+depends = ["windows:bundle"]
+dir = "{{ config_root }}"
+run = "uv run --no-project packaging/windows/build_installer.py"
+
+[tasks."scene:test"]
+description = "Test shared scene algorithms and compare native Godot bindings with stable Godot traces (build extension first)"
+dir = "{{ config_root }}"
+run = "uv run --no-project tests/godot/test_scene_core.py"
+
+[tasks."linux:package"]
+description = "Build a Linux release in its glibc 2.35 baseline container (--arch arm64|x86_64)"
+dir = "{{ config_root }}"
+run = "uv run --no-project packaging/linux/build_container.py"

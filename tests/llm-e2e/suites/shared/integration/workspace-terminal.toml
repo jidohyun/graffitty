@@ -1,0 +1,28 @@
+required_frontends = ["godot"]
+
+name = "workspace-terminal"
+instructions = "workspace-terminal.md"
+goal = "Real terminal processes survive pane and tab actions, honor terminal input/state, and render inside the 3D world workspace."
+verify = "real_pty_state_and_rendered_ui"
+tool_budget = 120
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Use a real shell"
+tools = []
+
+[[stages]]
+name = "Split and resize"
+tools = []
+
+[[stages]]
+name = "Inspect weighted layouts and tab transfer"
+tools = []
+
+[[stages]]
+name = "Navigate independent tabs"
+tools = []
+
+[[stages]]
+name = "Inspect scrolling and input"
+tools = []

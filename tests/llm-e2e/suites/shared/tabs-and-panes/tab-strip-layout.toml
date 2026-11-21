@@ -1,0 +1,19 @@
+required_frontends = ["godot"]
+name = "tab-strip-layout"
+instructions = "tab-strip-layout.md"
+goal = "Crowded tabs preserve their numbers and animate insertion/removal through continuous bounds using Chromium's 200 ms ease-out."
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Animate adding and closing tabs"
+tools = []
+
+[[stages]]
+name = "Keep numbers visible at both compact widths"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-strip-layout.gd"

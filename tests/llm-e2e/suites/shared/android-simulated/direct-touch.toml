@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+
+name = "direct-touch"
+goal = "Direct targeting, pane and wire dragging, title fit, anchored pinch, and continuous pan through finger lift/rejoin"
+instructions = "direct-touch.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Direct touch navigation"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/direct-touch.gd"

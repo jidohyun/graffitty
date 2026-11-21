@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "tab-move-world-place"
+instructions = "tab-move-world-place.md"
+goal = "Reordering tabs preserves the session's authored world location and settled camera, while the tab order changes and every shell survives."
+verify = "tab_world_place"
+tool_budget = 120
+turn_timeout_seconds = 360
+
+[[stages]]
+name = "Open Bistro with labelled tabs"
+tools = []
+
+[[stages]]
+name = "Move the shown tab"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify the places"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-move-world-place.gd"

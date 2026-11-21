@@ -1,0 +1,141 @@
+.md-header__button.md-logo img {
+  height: 2.4rem;
+  width: auto;
+}
+
+/* The theme hides the header logo below its desktop breakpoint, leaving it
+   only in the drawer. Keep it next to the menu button on narrow screens. */
+@media screen and (max-width: 76.234375em) {
+  .md-header__button.md-logo {
+    display: block;
+    margin-left: 0;
+    padding: 0.2rem;
+  }
+
+  .md-header__button.md-logo img {
+    height: 1.8rem;
+  }
+}
+
+/* Graffitty UIAccent.gd, DialogTheme.gd and ModService.gd supply the
+   lavender accents, blue-gray surfaces and pastel syntax colors.
+   Light mode adapts their hues for readable contrast on pale surfaces. */
+[data-md-color-scheme="slate"] {
+  --gft-bg: #20242c;
+  --gft-surface: #242830;
+  --gft-fg: #d8dde6;
+  --gft-muted: #a2a4ae;
+  --gft-accent: #c6a0f6;
+  --gft-selection: #68408d;
+  --gft-border: #414853;
+  --gft-green: #a9b86d;
+  --gft-yellow: #ffd078;
+  --gft-coral: #ff8080;
+  --gft-cyan: #89ddbd;
+  --color-foreground: 216 221 230;
+  --color-background: 32 36 44;
+  --color-background-subtle: 36 40 48;
+  --color-backdrop: 26 27 31;
+  --md-footer-bg-color: #1a1b1f;
+  --md-footer-bg-color--dark: #1a1b1f;
+}
+
+[data-md-color-scheme="default"] {
+  --gft-bg: #f7f7fa;
+  --gft-surface: #eeedf3;
+  --gft-fg: #343b46;
+  --gft-muted: #606878;
+  --gft-accent: #7544a1;
+  --gft-selection: #e4d6f3;
+  --gft-border: #d3d5df;
+  --gft-green: #526724;
+  --gft-yellow: #855710;
+  --gft-coral: #b63d47;
+  --gft-cyan: #23745d;
+  --color-foreground: 52 59 70;
+  --color-background: 247 247 250;
+  --color-background-subtle: 238 237 243;
+  --color-backdrop: 228 230 237;
+  --md-footer-bg-color: #eeedf3;
+  --md-footer-bg-color--dark: #e4e6ed;
+}
+
+[data-md-color-scheme] {
+  --md-hue: 220;
+  --md-default-bg-color: var(--gft-bg);
+  --md-default-bg-color--light: color-mix(in srgb, var(--gft-bg) 54%, transparent);
+  --md-default-bg-color--lighter: color-mix(in srgb, var(--gft-bg) 26%, transparent);
+  --md-default-bg-color--lightest: color-mix(in srgb, var(--gft-bg) 7%, transparent);
+  --md-default-fg-color: var(--gft-fg);
+  --md-default-fg-color--light: var(--gft-muted);
+  --md-default-fg-color--lighter: color-mix(in srgb, var(--gft-fg) 40%, transparent);
+  --md-default-fg-color--lightest: color-mix(in srgb, var(--gft-fg) 12%, transparent);
+  --md-primary-fg-color: var(--gft-accent);
+  --md-primary-fg-color--light: var(--gft-accent);
+  --md-primary-fg-color--dark: #7544a1;
+  --md-primary-bg-color: var(--gft-bg);
+  --md-accent-fg-color: var(--gft-accent);
+  --md-accent-fg-color--transparent: color-mix(in srgb, var(--gft-accent) 12%, transparent);
+  --md-typeset-color: var(--gft-fg);
+  --md-typeset-a-color: var(--gft-accent);
+  --md-code-fg-color: var(--gft-fg);
+  --md-code-bg-color: var(--gft-surface);
+  --md-code-bg-color--light: color-mix(in srgb, var(--gft-surface) 90%, transparent);
+  --md-code-bg-color--lighter: color-mix(in srgb, var(--gft-surface) 54%, transparent);
+  --md-code-hl-keyword-color: var(--gft-accent);
+  --md-code-hl-function-color: var(--gft-accent);
+  --md-code-hl-string-color: var(--gft-green);
+  --md-code-hl-number-color: var(--gft-yellow);
+  --md-code-hl-constant-color: var(--gft-coral);
+  --md-code-hl-special-color: var(--gft-cyan);
+  --md-code-hl-comment-color: var(--gft-muted);
+  --md-code-hl-color: var(--gft-accent);
+  --md-code-hl-color--light: color-mix(in srgb, var(--gft-accent) 12%, transparent);
+  --md-typeset-table-color: var(--gft-border);
+  --md-typeset-table-color--light: color-mix(in srgb, var(--gft-accent) 4%, transparent);
+  --md-typeset-kbd-color: var(--gft-surface);
+  --md-typeset-kbd-accent-color: var(--gft-bg);
+  --md-typeset-kbd-border-color: var(--gft-border);
+  --md-typeset-mark-color: color-mix(in srgb, var(--gft-yellow) 25%, transparent);
+  --md-footer-fg-color: var(--gft-fg);
+  --md-footer-fg-color--light: var(--gft-muted);
+}
+
+[data-md-color-scheme] .md-header,
+[data-md-color-scheme] .md-tabs {
+  background-color: var(--gft-bg);
+  color: var(--gft-fg);
+}
+
+[data-md-color-scheme] .md-header__title,
+[data-md-color-scheme] :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--gft-fg);
+}
+
+[data-md-color-scheme] ::selection {
+  background: var(--gft-selection);
+}
+
+/* Exact SVGs from the app's MobileMenu.GROUP_ICONS. Keep labels beside them. */
+.md-typeset img.menu-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  vertical-align: -0.15em;
+  opacity: 0.85;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+[data-md-color-scheme="default"] .md-typeset img.menu-icon {
+  filter: brightness(0);
+}
+
+.md-typeset img.menu-icon::selection {
+  background: transparent;
+}
+
+.md-sidebar--secondary .md-nav__title,
+.md-sidebar--secondary .md-nav__link--active { color: var(--gft-accent); }

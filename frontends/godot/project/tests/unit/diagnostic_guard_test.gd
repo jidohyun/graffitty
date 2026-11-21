@@ -1,0 +1,61 @@
+extends "res://tests/unit/test_case.gd"
+const Guard := preload("res://tests/diagnostic_guard.gd")
+const Diagnostics := preload("res://graffitty/diagnostics.gd")
+
+func test_unexpected_panel_stays_failed_after_immediate_dismissal() -> void:
+	var guard := Guard.new()
+	var panel := preload("res://scenes/DiagnosticPanel.gd").new()
+	panel.panel = PanelContainer.new()
+	panel.messages = preload("res://scenes/SelectableText.gd").new()
+	panel.add_child(panel.panel)
+	panel.panel.add_child(panel.messages)
+	guard._watch(panel)
+	var previous := Diagnostics.history.duplicate(true)
+	Diagnostics.history.assign([{"message": "Unexpected failure", "file": "test.gd", "line": 3, "warning": false}])
+	panel.refresh()
+	panel.panel.hide()
+	expect(guard.failures.size() == 1, "A presented error fails even when dismissed before the next frame")
+	panel.refresh()
+	expect(guard.failures.size() == 1, "Repeated presentation does not duplicate the failure")
+	Diagnostics.history.assign(previous)
+	panel.free()
+
+func test_dismissed_messages_do_not_return_with_new_ones() -> void:
+	var panel := preload("res://scenes/DiagnosticPanel.gd").new()
+	panel.panel = PanelContainer.new()
+	panel.messages = preload("res://scenes/SelectableText.gd").new()
+	panel.add_child(panel.panel)
+	panel.panel.add_child(panel.messages)
+	var previous := Diagnostics.history.duplicate(true)
+	var entry := func(message: String) -> Dictionary:
+		return {"message": message, "file": "test.gd", "line": 1, "warning": false}
+	Diagnostics.history.assign([entry.call("Old failure")])
+	panel.refresh()
+	expect(panel.panel.visible, "A new error opens the panel")
+	panel.dismiss_messages()
+	panel.refresh()
+	expect(not panel.panel.visible, "Dismissed messages stay hidden without new ones")
+	Diagnostics.history.append(entry.call("New failure"))
+	panel.refresh()
+	var shown: String = panel.messages.text
+	expect(panel.panel.visible and "New failure" in shown, "A later error opens the panel")
+	expect("Old failure" not in shown, "A dismissed error does not return with a later one")
+	panel.show_history()
+	shown = panel.messages.text
+	expect("Old failure" in shown and "New failure" in shown, "Messages still lists the whole history")
+	panel.dismiss_messages()
+	Diagnostics.history.assign([entry.call("After trimming")])
+	panel.refresh()
+	expect(panel.panel.visible, "Entries remain new after history trims the dismissed one")
+	Diagnostics.history.assign(previous)
+	panel.free()
+
+func test_expected_fixture_does_not_allow_unrelated_errors() -> void:
+	var guard := Guard.new()
+	guard.allow("Intentional fixture", "fixture.gd", 1)
+	guard.observe([{"message": "Intentional fixture", "file": "fixture.gd", "line": 1, "warning": false}])
+	expect(guard.failures.is_empty(), "Exact expected fixture is allowed")
+	guard.observe([{"message": "Intentional fixture", "file": "other.gd", "line": 1, "warning": false}])
+	expect(guard.failures.size() == 1, "Same text at a different source still fails")
+	guard.observe([{"message": "Unexpected warning", "file": "fixture.gd", "line": 2, "warning": true}])
+	expect(guard.failures.size() == 2, "Unexpected warning dialogs also fail")

@@ -1,0 +1,3 @@
+Fill scrollback with numbered glyph rows. Scroll slowly in both directions across fractional and whole-row boundaries. Every interior row must remain visible; inspect glyphs, not just coloured backgrounds. The replay counts rendered glyph pixels in each projected row band.
+
+Use the Mac font and effects. Check the physical bottom of a pane whose height is not divisible by cell height, at scroll fractions 0, 0.25, 0.5, and 0.75. Full-cell block glyphs must reach that edge in both the terminal texture and the final composited frame. Do not combine top and bottom pixel counts: a visible top row must not hide a missing bottom row.

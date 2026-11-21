@@ -1,0 +1,8 @@
+{
+  "kind": "turn.completed",
+  "text": "Build passed.",
+  "sessions": [],
+  "payload": {"build_id": 42},
+  "content": [],
+  "renderings": {}
+}

@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "main-area-keyboard"
+goal = "Exercise Android main-area claims, portrait/landscape sizing and keyboard reflow without losing Main View through the production server manager."
+instructions = "main-area-keyboard.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/main-area-keyboard.gd"

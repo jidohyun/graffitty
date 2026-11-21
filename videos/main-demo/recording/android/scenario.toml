@@ -1,0 +1,24 @@
+name = "android-agent-handoff-demo"
+goal = "Show Android tiling, a ready Claude reviewer, a Codex completion with a session reference, and a simulated Slack delivery through real node connections."
+instructions = "scenario.md"
+verify = "state_continuity_and_visual_review"
+replay = "AndroidDemo.gd"
+
+[[stages]]
+name = "Launch two agents"
+tools = []
+[[stages]]
+name = "Move outside Main View"
+tools = []
+[[stages]]
+name = "Create Slack before prompting"
+tools = []
+[[stages]]
+name = "Connect the named ports"
+tools = []
+[[stages]]
+name = "Prepare the reviewer, then run the sender"
+tools = []
+[[stages]]
+name = "Capture and review"
+tools = []

@@ -1,0 +1,8 @@
+required_frontends = ["godot"]
+name = "scrollbar-interactions"
+goal = "With touch controls enabled, scrollbar dragging, track clicks and held paging must not trigger world gestures."
+instructions = "../flat-world/scrollbar-interactions.md"
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/scrollbar-interactions.gd"

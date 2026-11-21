@@ -1,0 +1,139 @@
+[project]
+site_name = "Graffitty"
+site_description = "A terminal workspace for your shells, browsers and coding agents"
+docs_dir = "docs"
+site_dir = "site"
+# Local test evidence is maintained in the repository, not the user guide.
+exclude_docs = """
+developers/internals/tests/**
+"""
+extra_css = ["stylesheets/theme.css", "stylesheets/effects.css", "stylesheets/code-copy.css"]
+extra_javascript = ["javascripts/effects.js", "javascripts/code-copy.js"]
+# Repository URL reserved for the upcoming public launch.
+repo_url = "https://github.com/graffitty/graffitty"
+repo_name = "graffitty/graffitty"
+nav = [
+  { "Start here" = [
+    { "Overview" = "index.md" },
+    { "Install" = "start-here/install.md" },
+    { "First steps" = "start-here/getting-started.md" },
+    { "Keyboard shortcuts" = "start-here/shortcuts.md" },
+  ] },
+  { "Everyday use" = [
+    { "Tabs and panes" = "everyday-use/workspaces.md" },
+    { "Multiple windows" = "everyday-use/multi-window.md" },
+    { "Sessions" = "everyday-use/sessions.md" },
+    { "Checkpoints" = "everyday-use/checkpoints.md" },
+    { "Copy, search, and navigate" = "everyday-use/terminal-integration.md" },
+    { "Copy-mode keys" = "everyday-use/copy-mode.md" },
+    { "Resource Monitor" = "everyday-use/resource-monitor.md" },
+    { "Quick Select" = "everyday-use/quick-select.md" },
+    { "Filetree" = "everyday-use/filetree.md" },
+    { "Touch controls" = "everyday-use/touch-controls.md" },
+    { "Dictation" = "everyday-use/dictation.md" },
+    { "Command line" = "everyday-use/cli.md" },
+    { "Record a video" = "everyday-use/recording-videos.md" },
+  ] },
+  { "Customize" = [
+    { "Make it yours" = "customize/customization.md" },
+    { "Effects gallery" = "customize/effects.md" },
+    { "Configuration" = "customize/configuration.md" },
+    { "Terminal appearance" = "customize/configuration-appearance.md" },
+    { "Workspace appearance" = "customize/configuration-workspace.md" },
+    { "Keyboard and menus" = "customize/configuration-keyboard.md" },
+    { "Shell and font settings" = "customize/server-configuration.md" },
+    { "Chromium profiles" = "customize/chromium-profiles.md" },
+    { "Power saving" = "customize/power-saving.md" },
+    { "Neovim and tmux" = "customize/nvim-tmux-navigator.md" },
+    { "File manager integration" = "customize/file-manager.md" },
+    { "Markdown preview" = "customize/markdown-preview.md" },
+  ] },
+  { "Agents" = [
+    { "Set up an agent" = "agents/agent-setup.md" },
+    { "Agents and sounds" = "agents/agents.md" },
+    { "Connect agents" = "agents/connect-agents.md" },
+    { "Automation nodes" = "agents/automation.md" },
+    { "Parallel: wait for branches" = "agents/parallel.md" },
+    { "Filter messages" = "agents/filter.md" },
+    { "SystemOne" = "agents/systemone.md" },
+    { "Chat integrations" = "agents/chat-integrations.md" },
+    { "Chat message formatting" = "agents/chat-message-format.md" },
+    { "Desktop notifications" = "agents/system-notification.md" },
+  ] },
+  { "Remote access" = "remote-access/index.md" },
+  { "Developers" = [
+    { "Overview" = "developers/index.md" },
+    { "Build and run" = [
+      { "CLI development" = "developers/build-and-run/cli.md" },
+      { "Development launches" = "developers/build-and-run/development-launches.md" },
+      { "SSH server deployment" = "developers/build-and-run/remote-server.md" },
+      { "Packaging and releases" = "developers/build-and-run/packaging.md" },
+      { "macOS packaging" = "developers/build-and-run/packaging-macos.md" },
+      { "Linux packaging" = "developers/build-and-run/packaging-linux.md" },
+      { "iOS builds" = "developers/build-and-run/ios.md" },
+      { "Windows builds" = "developers/build-and-run/windows-build.md" },
+      { "Windows packaging" = "developers/build-and-run/packaging-windows.md" },
+      { "Third-party forks" = "developers/build-and-run/forks.md" },
+      { "Terminal extension" = "developers/build-and-run/terminal-extension.md" },
+      { "CEF on macOS" = "developers/build-and-run/cef-build.md" },
+      { "CEF on Linux" = "developers/build-and-run/cef-linux.md" },
+      { "CEF on Windows" = "developers/build-and-run/cef-windows.md" },
+      { "CEF artifacts" = "developers/build-and-run/cef-artifacts.md" },
+    ] },
+    { "Automation and extensions" = [
+      { "Agent graph design" = "developers/automation-and-extensions/agent-graph.md" },
+      { "Python graph SDK" = "developers/automation-and-extensions/graph-python.md" },
+      { "Rust graph SDK" = "developers/automation-and-extensions/graph-rust.md" },
+      { "Browser automation" = "developers/automation-and-extensions/agent-chromium-api.md" },
+      { "Playwright compatibility" = "developers/automation-and-extensions/playwright-compatibility.md" },
+      { "Credential sources" = "developers/automation-and-extensions/secrets.md" },
+      { "JavaScript mods" = "developers/automation-and-extensions/mods.md" },
+      { "Shell integration" = "developers/automation-and-extensions/terminal-integration.md" },
+      { "Effect holds" = "developers/automation-and-extensions/effect-holds.md" },
+      { "Scripted agents" = "developers/automation-and-extensions/agent-playback.md" },
+    ] },
+    { "Worlds and plugins" = [
+      { "Author a world" = "developers/worlds-and-plugins/authoring-a-world.md" },
+      { "Plugin design" = "developers/worlds-and-plugins/design-plugins.md" },
+      { "Publish a world" = "developers/worlds-and-plugins/publishing-a-world.md" },
+      { "World UI API" = "developers/worlds-and-plugins/world-ui-api.md" },
+      { "Terminal effects API" = "developers/worlds-and-plugins/terminal-effects-api.md" },
+      { "Texture import" = "developers/worlds-and-plugins/texture-import.md" },
+    ] },
+    { "Internals" = [
+      { "Terminal host" = "developers/internals/terminal-host.md" },
+      { "Workspace implementation" = "developers/internals/workspace-reference.md" },
+      { "Render cost" = "developers/internals/render-cost.md" },
+      { "Effects recording" = "developers/internals/effects-recording.md" },
+      { "Resource monitor API" = "developers/internals/resource-monitor-api.md" },
+      { "Resource monitor design" = "developers/internals/terminal-resource-monitor-design.md" },
+      { "Chromium architecture" = "developers/internals/chromium-prototype.md" },
+      { "Hidden browser capture" = "developers/internals/chromium-hidden-capture.md" },
+      { "Korean input" = "developers/internals/korean-input.md" },
+    ] },
+  ] },
+]
+
+[project.theme]
+features = ["content.code.copy"]
+logo = "images/graffitty-icon-rounded.png"
+favicon = "images/graffitty-icon-rounded.png"
+
+[project.theme.icon]
+repo = "fontawesome/brands/github"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "deep purple"
+accent = "deep purple"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "deep purple"
+accent = "deep purple"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to light mode"

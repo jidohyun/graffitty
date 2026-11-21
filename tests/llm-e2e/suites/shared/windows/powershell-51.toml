@@ -1,0 +1,30 @@
+required_frontends = ["godot"]
+platforms = ["windows"]
+name = "powershell-51"
+instructions = "powershell-51.md"
+goal = "Windows PowerShell 5.1"
+verify = "native_windows_recording_and_shell_assertions"
+requires_headful = true
+
+[[stages]]
+name = "Start an isolated Windows PowerShell 5.1 pane"
+tools = []
+
+[[stages]]
+name = "Exercise Unicode cwd and filetree"
+tools = []
+
+[[stages]]
+name = "Exercise input and interrupts"
+tools = []
+
+[[stages]]
+name = "Review the native recording"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/windows/replays/powershell-51.gd"
+shell = "powershell.exe"
+server_config = "[terminal]\nshell_integration = true\n"
+coverage_gaps = ["Physical keyboard and Korean IME review; filetree cwd/rename review; startup without shell integration; continuous recording review."]

@@ -1,0 +1,4 @@
+use runtime
+use path
+if (path:is-regular &follow-symlink=$true $runtime:rc-path) { eval (slurp < $runtime:rc-path) }
+eval (slurp < $E:GRAFFITTY_RESOURCES_DIR/integration.elv)

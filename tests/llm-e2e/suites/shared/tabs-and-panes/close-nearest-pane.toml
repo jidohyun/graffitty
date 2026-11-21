@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "close-nearest-pane"
+instructions = "close-nearest-pane.md"
+goal = "Closing a pane focuses the spatially nearest visible survivor and moves the camera there, leaving the pointer in place, without zooming or triggering typing effects"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 180
+
+[[stages]]
+name = "Nearest survivor at multiple zoom levels in flat worlds"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/close-nearest-pane.gd"

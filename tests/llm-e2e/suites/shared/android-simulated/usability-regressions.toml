@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "usability-regressions"
+goal = "Rendered first-row and Korean glyphs, live resources, keyboard occlusion, and reconnect after last detach/cancel."
+instructions = "usability-regressions.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/usability-regressions.gd"

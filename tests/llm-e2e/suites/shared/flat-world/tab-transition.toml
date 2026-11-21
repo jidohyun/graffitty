@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "tab-transition"
+instructions = "tab-transition.md"
+goal = "Both Flat renderers push whole panes away and pull the destination in on one shared clock, restoring the destination camera at the same deadline."
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Push the outgoing panes"
+tools = []
+
+[[stages]]
+name = "Cross while the destination arrives"
+tools = []
+
+[[stages]]
+name = "Interrupt and preserve sessions"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/tab-transition.gd"

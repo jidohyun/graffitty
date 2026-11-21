@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "camera-zoom-tab-switch"
+instructions = "camera-zoom-tab-switch.md"
+goal = "Switching tabs during typing zoom preserves continuous camera motion, blur, tint and brightness across every rendered handoff, for Scatter."
+verify = "visual_continuity"
+tool_budget = 80
+turn_timeout_seconds = 240
+
+[[stages]]
+name = "Prepare config and tabs"
+tools = []
+
+[[stages]]
+name = "Type and switch while zoomed"
+tools = []
+
+[[stages]]
+name = "Verify animation continuity"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/camera-zoom-tab-switch.gd"

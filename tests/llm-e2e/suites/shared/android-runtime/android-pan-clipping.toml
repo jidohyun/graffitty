@@ -1,0 +1,16 @@
+runtime = "android"
+required_frontends = ["godot"]
+
+name = "android-pan-clipping"
+goal = "Panning clips off-screen terminal cells without squeezing content"
+instructions = "android-pan-clipping.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Off-screen pan"
+tools = []
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-pan-clipping"

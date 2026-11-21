@@ -1,0 +1,5 @@
+outs:
+- md5: 0b73018711df82ce9075c512dacb833d
+  size: 2761560
+  hash: md5
+  path: neovim.json

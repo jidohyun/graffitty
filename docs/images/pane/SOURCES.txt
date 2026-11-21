@@ -1,0 +1,4 @@
+Chromium: exact copy of assets/icons/chromium.svg. Font Awesome Free 7.3.1 brands/chrome, CC BY 4.0. https://fontawesome.com/icons/chrome?f=brands
+License: https://creativecommons.org/licenses/by/4.0/
+
+Split icons: exact SVG strings from WorkspaceView.gd split_icon(), with its right/down divider. Original Graffitty artwork.

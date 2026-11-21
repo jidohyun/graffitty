@@ -1,0 +1,8 @@
+{
+  "delay_ms": 650,
+  "decisions": [
+    {"contains": "What", "answer": {"type": "choice", "choice": "sonnet"}},
+    {"contains": "Implement", "answer": {"type": "choice", "choice": "opus"}},
+    {"contains": "Review", "answer": {"type": "choice", "choice": "astra"}}
+  ]
+}

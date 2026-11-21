@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "chromium-tab-layout"
+goal = "Chromium's new-tab button stays clickable through overflow, and browser-focused workspace tabs animate in both Flat renderers."
+instructions = "chromium-tab-layout.md"
+verify = "visual_continuity"
+turn_timeout_seconds = 300
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/chromium-tab-layout.gd"

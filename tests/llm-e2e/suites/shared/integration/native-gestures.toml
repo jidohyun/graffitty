@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "native-gestures"
+instructions = "native-gestures.md"
+goal = "Zoom-only pinches preserve the cursor anchor; simultaneous panning moves the remembered zoom point without a jump."
+verify = "projected_coordinates_and_rendered_frames"
+tool_budget = 60
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Replay zoom-only intent"
+tools = []
+
+[[stages]]
+name = "Replay zoom with panning"
+tools = []
+
+[[stages]]
+name = "Restore ordinary scrolling"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_private_replay.py"
+args = ["--replay", "tests/llm-e2e/suites/godot/integration/replays/native-gestures.gd"]

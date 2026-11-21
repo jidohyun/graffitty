@@ -1,0 +1,66 @@
+Select the oneVPL hardware implementation on the capture adapter. Intel's
+Windows dispatcher accepts DXGIAdapterIndex even when the installed runtime
+does not report the extended device-ID properties requested by FFmpeg. Resolve
+the index by LUID within the capture device's own DXGI factory.
+
+--- a/libavutil/hwcontext_qsv.c
++++ b/libavutil/hwcontext_qsv.c
+@@ -860,37 +860,27 @@
+         return ret;
+     }
+ 
+-    impl_value.Type = MFX_VARIANT_TYPE_U16;
+-    impl_value.Data.U16 = adapterDesc.DeviceId;
+-    sts = MFXSetConfigFilterProperty(cfg,
+-                                     (const mfxU8 *)"mfxExtendedDeviceId.DeviceID", impl_value);
+-    if (sts != MFX_ERR_NONE) {
+-        av_log(ctx, AV_LOG_ERROR, "Error adding a MFX configuration"
+-               "DeviceID property: %d.\n", sts);
+-        goto fail;
+-    }
+-
+-    impl_value.Type = MFX_VARIANT_TYPE_PTR;
+-    impl_value.Data.Ptr = &adapterDesc.AdapterLuid;
+-    sts = MFXSetConfigFilterProperty(cfg,
+-                                     (const mfxU8 *)"mfxExtendedDeviceId.DeviceLUID", impl_value);
+-    if (sts != MFX_ERR_NONE) {
+-        av_log(ctx, AV_LOG_ERROR, "Error adding a MFX configuration"
+-               "DeviceLUID property: %d.\n", sts);
+-        goto fail;
+-    }
+-
+-    impl_value.Type = MFX_VARIANT_TYPE_U32;
+-    impl_value.Data.U32 = 0x0001;
+-    sts = MFXSetConfigFilterProperty(cfg,
+-                                     (const mfxU8 *)"mfxExtendedDeviceId.LUIDDeviceNodeMask", impl_value);
+-    if (sts != MFX_ERR_NONE) {
+-        av_log(ctx, AV_LOG_ERROR, "Error adding a MFX configuration"
+-               "LUIDDeviceNodeMask property: %d.\n", sts);
+-        goto fail;
+-    }
+-
+-    ret = 0;
++    IDXGIFactory *factory = NULL;
++    hr = IDXGIAdapter_GetParent(pDXGIAdapter, &IID_IDXGIFactory, (void **)&factory);
++    if (FAILED(hr))
++        goto fail;
++    for (UINT index = 0; ; index++) {
++        IDXGIAdapter *candidate = NULL;
++        DXGI_ADAPTER_DESC desc;
++        if (FAILED(IDXGIFactory_EnumAdapters(factory, index, &candidate)))
++            break;
++        hr = IDXGIAdapter_GetDesc(candidate, &desc);
++        IDXGIAdapter_Release(candidate);
++        if (FAILED(hr) || memcmp(&desc.AdapterLuid, &adapterDesc.AdapterLuid, sizeof(LUID)))
++            continue;
++        impl_value.Type = MFX_VARIANT_TYPE_U32;
++        impl_value.Data.U32 = index;
++        sts = MFXSetConfigFilterProperty(cfg, (const mfxU8 *)"DXGIAdapterIndex", impl_value);
++        if (sts == MFX_ERR_NONE)
++            ret = 0;
++        break;
++    }
++    IDXGIFactory_Release(factory);
+ 
+ fail:
+     IDXGIAdapter_Release(pDXGIAdapter);

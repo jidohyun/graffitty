@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-touch"
+goal = "Drag a real Chromium page with one finger like mobile Chrome, then tap it to click."
+instructions = "android-chromium-touch.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-touch"

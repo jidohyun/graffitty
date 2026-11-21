@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-connections-scroll"
+goal = "Connect eight workspaces, open Connections by touch, scroll its constrained list, detach the bottom row and preserve the original connection."
+instructions = "android-connections-scroll.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-connections-scroll"

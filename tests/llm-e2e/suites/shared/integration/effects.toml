@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "effects"
+instructions = "effects.md"
+goal = "Configured cursor trails, particles and typing camera affect real terminal pixels and decay without corrupting caret placement."
+verify = "actual_caret_projection_timed_particles_trails_and_effects_controls"
+tool_budget = 90
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect cursor trails from terminal output"
+tools = []
+
+[[stages]]
+name = "Inspect particle presets and configured typing camera"
+tools = []
+
+[[stages]]
+name = "Inspect Effects controls"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "effects"]

@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "desktop-defaults"
+instructions = "desktop-defaults.md"
+goal = "Local chromium profiles persist actual chromium storage, explicit temporary profiles stay isolated, and private listener controls respect headless startup."
+verify = "real_chromium_storage_and_rendered_controls"
+tool_budget = 60
+turn_timeout_seconds = 600
+
+[[stages]]
+name = "Replay persistent and temporary chromium profiles"
+tools = []
+
+[[stages]]
+name = "Verify isolated listener lifecycle"
+tools = []
+
+[[stages]]
+name = "Review profile controls and preserved chromium content"
+tools = []
+
+[adapters.godot]
+kind = "python"
+script = "../../../../chromium/desktop_defaults_godot_e2e.py"

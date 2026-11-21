@@ -1,0 +1,6 @@
+outs:
+- md5: a754edd66ecee8e244e364427a336410.dir
+  size: 167491959
+  nfiles: 732
+  hash: md5
+  path: macos-arm64

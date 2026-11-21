@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-pane-tab-transfer"
+goal = "Move a pane to another tab by touch, refuse redundant or new-window moves without misleading previews, reorder tabs, send input, and keep a tab selected while another is being created."
+instructions = "android-pane-tab-transfer.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-pane-tab-transfer"

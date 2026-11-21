@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-tab-reorder"
+goal = "Drag a tab with one finger to the end, preserve its selected state and order through server updates, and send input afterward."
+instructions = "android-tab-reorder.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-tab-reorder"

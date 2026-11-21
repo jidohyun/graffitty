@@ -1,0 +1,13 @@
+{
+  "source": "videos/main-demo/assets/takes/android-demo/session-one-20261119",
+  "screen_source_start": 0.0,
+  "arrival_seconds": 42.233,
+  "arrival_frame": 2534,
+  "arrival_event": "delivery_logged",
+  "fps": 60,
+  "duration": 48.516666666666666,
+  "frames": 2911,
+  "source_system_bars_cropped": false,
+  "capture_backend": "desktop-mobile",
+  "notification_simulated": true
+}

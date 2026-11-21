@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+name = "retained-terminal-crop"
+instructions = "retained-terminal-crop.md"
+goal = "Retained terminal panes remain fully rendered after creating 11 tabs and switching Flat/Bistro, even when the owner layout exceeds the client canvas at normal zoom."
+verify = "visual_and_geometry"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Retained layout and world switching"
+tools = []
+
+[adapters.godot]
+kind = "python"
+script = "../../../../godot/retained_terminal_crop_e2e.py"
+coverage_gaps = ["Review continuous navigation, interrupted arrivals and world switching; the automated regression captures one completed tab handoff plus settled images and geometry."]

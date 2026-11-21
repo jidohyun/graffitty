@@ -1,0 +1,115 @@
+# Copy selected settings to $XDG_CONFIG_HOME/graffitty/server.toml
+# (normally ~/.config/graffitty/server.toml). Omitted keys retain server defaults.
+[filetree]
+# Empty runs the bundled, sandboxed Neovim filetree shipped with Graffitty.
+# To use your own Neovim and config instead (see docs/customize/configuration.md#filetree):
+# command = ["nvim", "-u", "/home/me/.config/nvim-filetree/init.lua"]
+command = []
+
+# Environment for a custom command only, e.g. its Neovim profile:
+# [filetree.environment]
+# NVIM_APPNAME = "nvim-filetree"
+
+[checkpoints]
+enabled = true
+interval_seconds = 1800 # 30 minutes after the last successful automatic save.
+history = 20 # Retained automatic checkpoints; explicit saves use the manual tag.
+
+[resource_monitor]
+cpu_percent_scale = "all_cores" # 100% is every core; "one_core": 100% is one busy core.
+
+[chromium]
+backend = "chrome" # Native Chrome tabs and window; or "alloy" for windowless embedded pages.
+profile = "" # Temporary by default; use an absolute server directory to persist.
+profile_template = "" # Or copy this profile into each temporary chromium profile.
+sessions_directory = '%(temp)/graffitty/chromium/sessions'
+# Or '%(state)/chromium/sessions', or an absolute server directory.
+delete_session_on_close = true # False retains generated profiles and session artifacts.
+
+[terminal]
+# The shell accepts an executable followed by literal arguments.
+# - Unix tries the server's $SHELL, then /bin/sh.
+# - Windows tries pwsh.exe -NoLogo, then powershell.exe -NoLogo.
+# shell = ["/bin/zsh"]
+#
+# Login shells default to on for Unix and off for Windows.
+# login_shell = true
+#
+# Logical size of a new tab until a fitting client claims it.
+# workspace_size = [1280, 800]
+#
+# Insets are left, top, right, bottom and include the pane header.
+# content_insets = [12, 38, 12, 12]
+shell_integration = false         # Existing headless server default.
+
+[terminal.environment]
+# EDITOR = "nvim"
+
+[terminal.limits]
+scrollback_bytes = 50000000       # 50 MB per terminal.
+kitty_image_storage_mb = 320
+kitty_image_transmission_mib = 32  # Use 65 here if desired.
+
+[nodes]
+pending_per_node = 10000
+run_messages = 10000
+status_history = 20
+receipts = 100
+tracked_runs = 4096
+delivery_history = 200
+delivery_transitions = 20
+
+[workers]
+concurrency = 4
+timeout_seconds = 30
+output_bytes = 4194304
+
+[remote]
+enabled = false
+bind_address = "127.0.0.1"
+port = 7183
+
+# Fonts are loaded by the server and downloaded/cached by Godot clients.
+# No client-side font installation is required.
+[terminal.font]
+size = 16
+# family = "JetBrainsMono Nerd Font Mono" # Installed on the SERVER. paths =
+# ["fonts/Regular.ttf", "fonts/Bold.ttf", "fonts/Italic.ttf",
+# "fonts/BoldItalic.ttf"] Explicit paths override family; omitted styles reuse
+# Regular.
+#
+# Relative to this TOML. fallbacks = ["Noto Sans CJK KR"] # Server families,
+# in priority order. Empty fallbacks choose an available server CJK family;
+# bundled math/emoji always included.
+line_height = 1.0
+column_width = 1.0
+
+# Live microphone transcription is opt-in. Credentials stay on the server.
+[dictation]
+enabled = false # Set true explicitly to let clients use the server's API key.
+provider = "auto" # Gemini first when its server key is configured.
+language = "" # Auto-detect, or a hint such as fr-FR / ko-KR.
+
+[dictation.providers.gemini]
+model = "gemini-3.5-transcribe-live"
+# credential = "dictation_gemini" # Optional secrets.toml reference; otherwise GRAFFITTY_GEMINI_API_KEY.
+base_url = "https://generativelanguage.googleapis.com/v1beta"
+
+# To use OpenAI, set provider = "openai" above and configure this server key.
+# These are the defaults; both OpenAI and Gemini stream text while speaking.
+[dictation.providers.openai]
+model = "gpt-live-transcribe" # Choose gpt-transcribe for transcription after release.
+# credential = "dictation_openai" # Optional secrets.toml reference; otherwise GRAFFITTY_OPENAI_API_KEY.
+base_url = "https://api.openai.com/v1"
+
+# Server-owned shell and managed filetree navigation.
+[navigator]
+enabled = false # Set true for Ctrl-H/J/K/L shell navigation.
+filetree = true
+algorithm = "spatial" # Alternatives: "weighted", "nearest"
+
+[navigator.bindings]
+"ctrl+h" = "left"
+"ctrl+j" = "down"
+"ctrl+k" = "up"
+"ctrl+l" = "right"

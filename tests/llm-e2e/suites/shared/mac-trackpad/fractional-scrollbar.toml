@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+
+name = "fractional-scrollbar"
+goal = "Scrollbar and terminal share the same fractional scroll position"
+instructions = "fractional-scrollbar.md"
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Fractional scrollbar"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/mac-trackpad/replays/fractional-scrollbar.gd"

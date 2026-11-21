@@ -1,0 +1,7 @@
+Exact copies of the menu SVGs in frontends/godot/project/scenes/icons/.
+The mapping comes from MobileMenu.gd's GROUP_ICONS:
+Shell: square-terminal; Edit: square-pen; View: eye;
+Sessions: panels-top-left; Help: circle-help.
+
+Lucide 0.468.0, ISC license. See LUCIDE-LICENSE.
+The app assets use white strokes; docs CSS adjusts their contrast in light mode.

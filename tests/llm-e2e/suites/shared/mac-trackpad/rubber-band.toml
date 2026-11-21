@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "rubber-band"
+instructions = "rubber-band.md"
+goal = "A terminal pulled past either end of its scrollback stretches under the fingers and springs back on release, as Chromium's rubber band does."
+verify = "visual_continuity"
+tool_budget = 70
+turn_timeout_seconds = 180
+[[stages]]
+name = "Pull, release and bounce"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/mac-trackpad/replays/rubber-band.gd"
+coverage_gaps = ["A physical trackpad or touchscreen: the replay injects phased gestures, so finger feel, real momentum timing, and the Windows, Wayland, Android and iOS input paths are not exercised."]

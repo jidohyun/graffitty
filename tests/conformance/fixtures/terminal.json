@@ -1,0 +1,6 @@
+[
+  {"name":"unicode-and-title","columns":40,"rows":8,"stream":"\u001b]2;Bistro\u0007Café 한글 🏰\r\nready","contains":"Café 한글 🏰"},
+  {"name":"alternate-screen-return","columns":40,"rows":8,"stream":"retained\u001b[?1049h\u001b[2Jtemporary\u001b[?1049l","contains":"retained"},
+  {"name":"styled-cursor-edit","columns":40,"rows":8,"stream":"\u001b[31;1mred\u001b[0m normal\r\nabc\u001b[2DXY","contains":"aXY"},
+  {"name":"scrollback","columns":40,"rows":3,"stream":"one\r\ntwo\r\nthree\r\nfour\r\nfive","contains":"one"}
+]

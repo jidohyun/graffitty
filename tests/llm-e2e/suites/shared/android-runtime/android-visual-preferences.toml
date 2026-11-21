@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-visual-preferences"
+goal = "Change the focused remote pane font independently and select every cursor trail style, including Off, while terminal output continues."
+instructions = "android-visual-preferences.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-visual-preferences"

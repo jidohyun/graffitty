@@ -1,0 +1,12 @@
+[package]
+name = "graffitty-conformance"
+version.workspace = true
+edition = "2024"
+publish = false
+
+[dev-dependencies]
+graffitty-client-core = { path = "../../crates/client-core" }
+graffitty-terminal-core = { path = "../../crates/terminal-core" }
+graffitty-workspace-core = { path = "../../crates/workspace-core" }
+serde_json = "1"
+

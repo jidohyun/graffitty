@@ -1,0 +1,62 @@
+{
+  "model": "GPT-6-Astra xhigh fast",
+  "think_ms": 1800,
+  "char_ms": 14,
+  "response": "The implementation is ready. All checks pass.",
+  "turns": [
+    {
+      "contains": "dashboard",
+      "title": "Build the analytics dashboard",
+      "steps": [
+        {
+          "type": "think",
+          "ms": 6500
+        },
+        {
+          "type": "message",
+          "text": "I'll inspect the existing app, then build the dashboard using its components."
+        },
+        {
+          "type": "tool",
+          "name": "Bash",
+          "input": "rg --files src",
+          "output": "src/app.tsx\nsrc/components/chart.tsx\nsrc/styles.css",
+          "ms": 1000
+        },
+        {
+          "type": "think",
+          "ms": 2200,
+          "text": "Building the dashboard"
+        },
+        {
+          "type": "edit",
+          "path": "src/app.tsx",
+          "line": 42,
+          "before": "export function Dashboard() {\n  return <div>Dashboard</div>;\n}\n",
+          "after": "export function Dashboard() {\n  return <main aria-label=\"Analytics\">\n    <RevenueChart />\n    <ActivityFeed />\n  </main>;\n}\n",
+          "ms": 900
+        },
+        {
+          "type": "tool",
+          "name": "Bash",
+          "input": "npm test -- --run",
+          "output": " RUN  v3.2.0\n\n ✓ chart.test.tsx (5 tests)\n ✓ activity.test.tsx (4 tests)\n ✓ app.test.tsx (3 tests)\n\n Test Files  3 passed (3)\n      Tests  12 passed (12)\n   Duration  1.42s",
+          "ms": 1800
+        }
+      ],
+      "response": "Built the analytics dashboard with revenue charts, activity history, and responsive cards. **All 12 tests pass.**"
+    },
+    {
+      "response": "Reviewed the request. The implementation is ready and all checks pass."
+    }
+  ],
+  "stream": {
+    "mode": "words",
+    "jitter_percent": 45,
+    "seed": 1
+  },
+  "completion": {
+    "elapsed_ms": 1120000,
+    "completed_at": "11:13 PM"
+  }
+}

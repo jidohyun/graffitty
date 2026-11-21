@@ -1,0 +1,69 @@
+# Neutral base for isolated effects recordings.
+[effects.behavior]
+enter_duration = 0.5
+idle_after = 1.2
+leave_duration = 1.5
+
+[effects.camera]
+zoom = 1.0
+drift_px = 0.0
+drift_speed = 2.5
+shake_px = 0.0
+shake_seconds = 0.18
+tilt_limit_deg = 0.0
+dof_blur_tint = "#9db2d6"
+dof_blur_amount = 0.0
+decay = 0.8
+overscroll = 0.5
+left_preserving_cursor_follow_threshold = 0.5
+top_preserving_cursor_follow_threshold = 0.5
+zoom_sensitivity = 0.15
+graphics_plane_tilt_scale = 1.0
+graphics_plane_lift = 0.0
+
+[effects.sheet]
+ripple = 0.0
+ripple_wavelength = 0.35
+ripple_speed = 2.5
+ripple_falloff = 0.3
+edge_margin = 0.0
+corner_radius = 0.0
+edge_blur = 0.0
+edge_shadow = 0.0
+edge_shadow_width = 48.0
+content_gloss = 0.0
+
+[terminal.effects.typing_particles]
+preset = "none"
+amount = 12
+scale = 1.0
+
+[effects.splash]
+scale = 0.0
+speed = 600.0
+life = 0.7
+
+[effects.lighting]
+strength = 0.0
+minimum = 0.45
+maximum = 1.15
+color = "#fff0dc"
+
+[terminal.effects.cursor_trail]
+style = "smear"
+delay_ms = 0
+decay = [0.1, 0.4]
+start_threshold = [2.0, 2.0]
+
+[terminal.effects.cursor_trail.smear]
+color = "none"
+
+[worlds.flat-3d.tab_switch]
+effect = "none"
+
+[worlds.flat-3d.session_switch]
+effect = "none"
+
+[terminal.background]
+color = "#282c34"
+alpha = 1.0

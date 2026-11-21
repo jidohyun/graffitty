@@ -1,0 +1,30 @@
+required_frontends = ["godot"]
+platforms = ["windows"]
+name = "powershell-7"
+instructions = "powershell-7.md"
+goal = "PowerShell 7"
+verify = "native_windows_recording_and_shell_assertions"
+requires_headful = true
+
+[[stages]]
+name = "Start an isolated PowerShell 7 pane"
+tools = []
+
+[[stages]]
+name = "Exercise Unicode cwd and filetree"
+tools = []
+
+[[stages]]
+name = "Exercise input and interrupts"
+tools = []
+
+[[stages]]
+name = "Review the native recording"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/windows/replays/powershell-7.gd"
+shell = "pwsh.exe"
+server_config = "[terminal]\nshell_integration = true\n"
+coverage_gaps = ["Physical keyboard and Korean IME review; filetree cwd/rename review; startup without shell integration; continuous recording review."]

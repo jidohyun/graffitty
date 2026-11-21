@@ -1,0 +1,59 @@
+{
+  "click_intro": {
+    "frames": 22,
+    "playback_rate": 1.0,
+    "source_frames": [
+      8038.0,
+      8060.0
+    ]
+  },
+  "cursor_return_frames": 45,
+  "cursor_return_hotspot": [
+    1555.83154296875,
+    663.036071777344
+  ],
+  "cursor_return_source": [
+    2263.98486328125,
+    983.992980957031
+  ],
+  "cursor_scale": 1.344,
+  "end_frame": 8444.0,
+  "fps": 60.0,
+  "height": 1000.0,
+  "motion": "Captured native window; title-bar drag composited in HyperFrames",
+  "pid": 79138.0,
+  "point_pixel_scale": 2.0,
+  "pointer_source": [
+    1131.99243164062,
+    491.996490478516
+  ],
+  "reused_from": "videos/main-demo/assets/takes/main-demo/direct-splits-markdown-20261114-214050",
+  "start_frame": 8060.0,
+  "title": "Task list",
+  "width": 1800.0,
+  "window_id": 4497.0,
+  "active_chrome_frame": 0,
+  "timeline_start": 0.0,
+  "timeline_end": 6.399999999999977,
+  "composition_size": [
+    1008.0000000000001,
+    560.0
+  ],
+  "drag_poses": [
+    {
+      "seconds": 0,
+      "x": 650,
+      "y": 160
+    },
+    {
+      "seconds": 1.8,
+      "x": 390,
+      "y": 230
+    },
+    {
+      "seconds": 3.1,
+      "x": 670,
+      "y": 150
+    }
+  ]
+}

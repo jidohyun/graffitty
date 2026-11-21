@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "selection-cursor-details"
+instructions = "selection-cursor-details.md"
+goal = "Selected glyph foreground, cached text outlines and cursor policies render correctly without changing terminal state or title pixels."
+verify = "raw_pty_selection_outline_cursor_pixels_and_godot_controls"
+tool_budget = 80
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect selection and outlines"
+tools = []
+
+[[stages]]
+name = "Inspect cursor policies"
+tools = []
+
+[[stages]]
+name = "Inspect Appearance controls"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_appearance_e2e.py"
+args = ["--mode", "details"]

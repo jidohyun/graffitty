@@ -1,0 +1,16 @@
+runtime = "android"
+required_frontends = ["godot"]
+
+name = "android-fractional-scroll"
+goal = "Fractional scrollback rendering preserves remote terminal geometry"
+instructions = "android-fractional-scroll.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 180
+[[stages]]
+name = "Fractional scrolling"
+tools = []
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-fractional-scroll"

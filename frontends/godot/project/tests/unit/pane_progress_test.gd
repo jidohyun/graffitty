@@ -1,0 +1,15 @@
+extends "res://tests/unit/test_case.gd"
+func test_reported_progress_and_clear() -> void:
+	var bar := preload("res://scenes/PaneProgress.gd").new()
+	bar.set_progress(1, 45)
+	expect(bar.visible and bar.value == 45 and not bar.indeterminate, "Known progress displays its percentage as fill")
+	bar.set_progress(3, -1)
+	expect(bar.visible and bar.indeterminate, "Unknown progress animates")
+	bar.set_progress(2, 45)
+	expect(bar.get_theme_stylebox("fill").bg_color == Color("ff8080"), "Error progress uses error color")
+	bar.set_progress(4, 45)
+	expect(bar.get_theme_stylebox("fill").bg_color == Color("ffd078"), "Paused progress uses pause color")
+	bar.set_progress(0, -1)
+	expect(not bar.visible and not bar.indeterminate, "Clearing progress hides and stops it")
+	expect(bar.mouse_filter == Control.MOUSE_FILTER_IGNORE, "Overlay cannot intercept touch or mouse input")
+	bar.free()

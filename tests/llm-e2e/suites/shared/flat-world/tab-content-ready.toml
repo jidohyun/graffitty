@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "tab-content-ready"
+goal = "Push/Pull keeps departing and arriving terminals live, waits only for destination geometry and pixels, and releases background rendering and subscriptions after landing."
+instructions = "tab-content-ready.md"
+verify = "visual_continuity"
+turn_timeout_seconds = 300
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/tab-content-ready.gd"

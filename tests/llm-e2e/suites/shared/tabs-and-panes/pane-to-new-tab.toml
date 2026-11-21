@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "pane-to-new-tab"
+instructions = "pane-to-new-tab.md"
+goal = "Dragging a window's header from a tab onto the tab bar turns that window into a new tab at the indicated position, keeping its shell, size and position."
+verify = "pane_new_tab"
+tool_budget = 120
+turn_timeout_seconds = 360
+
+[[stages]]
+name = "Prepare a tab with two windows"
+tools = []
+
+[[stages]]
+name = "Drag a window onto the tab bar"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify the new tab"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/pane-to-new-tab.gd"

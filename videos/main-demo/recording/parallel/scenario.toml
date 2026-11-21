@@ -1,0 +1,6 @@
+name = "parallel-agent-comparison-demo"
+goal = "Three parallel workers feed one real Parallel join; only after all finish does the ready reviewer receive their combined implementations and session references."
+instructions = "scenario.md"
+replay = "ParallelDemo.gd"
+verify = "state_continuity_and_visual_review"
+subtitle = "Parallel node: wait until all agents finish"

@@ -1,0 +1,22 @@
+required_frontends = ["godot"]
+
+name = "terminal-tools"
+instructions = "terminal-tools.md"
+goal = "Search, keyboard copy mode and Quick Select use real scrollback and never leak modal keystrokes into the PTY."
+verify = "visible_selection_labels_and_exact_raw_pty_bytes"
+tool_budget = 90
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Search and navigate"
+tools = []
+
+[[stages]]
+name = "Select and copy"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_private_replay.py"
+args = ["--replay", "tests/llm-e2e/suites/godot/integration/replays/terminal-tools.gd"]

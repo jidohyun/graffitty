@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "system-notification"
+instructions = "system-notification.md"
+goal = "Native notification clicks select and fit the emitting pane, including across tabs and minimized windows."
+verify = "visual_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Notify and activate emitter"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/agent-graph/replays/system-notification.gd"

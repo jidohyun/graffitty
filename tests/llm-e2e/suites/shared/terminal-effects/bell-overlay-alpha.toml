@@ -1,0 +1,20 @@
+required_frontends = ["godot"]
+
+name = "bell-overlay-alpha"
+instructions = "bell-overlay-alpha.md"
+goal = "Real BEL output honors configured RGBA opacity and lifetime over opaque and translucent terminal backgrounds."
+verify = "real_bel_callback_timed_pixel_alpha_and_exact_baseline_restore"
+tool_budget = 45
+turn_timeout_seconds = 300
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/terminal-effects/replays/bell-overlay-alpha.gd"
+
+[[stages]]
+name = "Inspect alpha and duration"
+tools = []
+
+[[stages]]
+name = "Inspect translucent backdrop composition"
+tools = []

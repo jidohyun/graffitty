@@ -1,0 +1,24 @@
+required_frontends = ["godot"]
+
+name = "stash-outside-main-area"
+instructions = "stash-outside-main-area.md"
+goal = "Stash windows outside the main area: a window-sized main area with optional i3-style nested splits and freely positioned same-tab stashes, retaining live sessions."
+verify = "state_continuity"
+tool_budget = 100
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Stash in Bistro"
+tools = []
+
+[[stages]]
+name = "Return and retrieve"
+tools = []
+
+[[stages]]
+name = "Switch worlds"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/stash-outside-main-area.gd"

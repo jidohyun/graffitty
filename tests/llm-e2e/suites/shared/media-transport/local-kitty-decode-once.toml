@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "local-kitty-decode-once"
+instructions = "local-kitty-decode-once.md"
+goal = "MUST decode Kitty PNG uploads once on the server and deliver verified pixels over shared memory or IPC without client PNG decoding, including reconnect."
+verify = "visual_and_transport_evidence"
+tool_budget = 150
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Verify live image delivery without client PNG decoding"
+tools = []
+
+[[stages]]
+name = "Verify reconnect, replacement and cleanup"
+tools = []

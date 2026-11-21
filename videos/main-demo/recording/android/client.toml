@@ -1,0 +1,6 @@
+# Desktop capture of the Android UI uses the same default renderer as Android.
+[world]
+path = "flat-2d"
+
+[mods.status-line]
+enabled = false

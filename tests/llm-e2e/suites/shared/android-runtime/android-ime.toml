@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "android-ime"
+goal = "Verify Android keyboard composition, commits, and keyboard insets reach the focused remote terminal."
+instructions = "android-ime.md"
+runtime = "android"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-ime"

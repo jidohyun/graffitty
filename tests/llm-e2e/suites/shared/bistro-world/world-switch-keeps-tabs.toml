@@ -1,0 +1,31 @@
+required_frontends = ["godot"]
+
+name = "world-switch-keeps-tabs"
+instructions = "world-switch-keeps-tabs.md"
+goal = "Changing the world keeps every tab and window exactly as it was: the same tabs in the same order and names, the same windows where they were, the same shells and the same focused window. The new world only gives the tabs places; it adds no tabs of its own, and a tab opened there stands at a place of its own."
+verify = "state_continuity"
+tool_budget = 90
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Arrange tabs and windows"
+tools = []
+
+[[stages]]
+name = "Change to Bistro"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Open a new tab in Bistro"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Change back to the flat world"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/bistro-world/replays/world-switch-keeps-tabs.gd"

@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "per-tab-tiling"
+goal = "Switch repeatedly between independently tiled and floating tabs, preserving each layout and its live terminals."
+instructions = "per-tab-tiling.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/per-tab-tiling.gd"

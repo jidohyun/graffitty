@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "zoomed-text-stays-sharp"
+instructions = "zoomed-text-stays-sharp.md"
+goal = "Zooming the camera in, by typing or by pinching, keeps terminal text as crisp as at rest: glyph edges stay sharp instead of turning into a blurred or pixelated enlargement."
+verify = "text_sharpness"
+tool_budget = 80
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Print text and look at rest"
+tools = []
+
+[[stages]]
+name = "Zoom in by pinching"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Compare with Bistro"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/text-quality/replays/zoomed-text-stays-sharp.gd"

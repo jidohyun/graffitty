@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "pane-tab-transfer"
+goal = "Move a pane to another tab by touch, refuse redundant or new-window moves without misleading previews, reorder tabs, send input, and keep a tab selected while another is being created."
+instructions = "pane-tab-transfer.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/pane-tab-transfer.gd"

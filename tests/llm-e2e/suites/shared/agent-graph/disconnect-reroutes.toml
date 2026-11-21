@@ -1,0 +1,22 @@
+required_frontends = ["godot"]
+
+name = "disconnect-reroutes"
+instructions = "disconnect-reroutes.md"
+goal = "Disconnecting terminal nodes removes orphaned reroute dots, preserves shared reroutes still in use, and supports undo/redo without resurrecting stale routes."
+verify = "graph_topology_and_visual_cleanup"
+
+[[stages]]
+name = "Single connection"
+tools = []
+
+[[stages]]
+name = "Shared branches"
+tools = []
+
+[[stages]]
+name = "External disconnect"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/agent-graph/replays/disconnect-reroutes.gd"

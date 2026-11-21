@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "validated-startup-precedence"
+instructions = "validated-startup-precedence.md"
+goal = "Declarative file precedence and validation configure the first real PTY atomically without changing source files."
+verify = "actual_cli_validation_and_initial_pty"
+tool_budget = 120
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Validate actual automatic and explicit overlays"
+tools = []
+
+[[stages]]
+name = "Reject malformed configuration before startup"
+tools = []
+
+[[stages]]
+name = "Inspect the configured first terminal and subsequent split"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_feature_acceptance.py"
+args = ["--suite", "configuration"]

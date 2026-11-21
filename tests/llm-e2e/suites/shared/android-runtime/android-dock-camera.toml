@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "android-dock-camera"
+goal = "Keep the real terminal cursor visible during typing zoom with left, right and resized double sidebars; preserve pinch anchoring."
+instructions = "android-dock-camera.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-dock-camera"

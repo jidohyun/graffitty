@@ -1,0 +1,67 @@
+# Reproducible editor caches are not source media.
+**/.hyperframes/
+**/.media/
+**/.hf-*/
+**/.thumbnails/
+**/.transcode-cache/
+**/node_modules/
+**/.godot/
+/*/assets/cache/
+
+# Recorded footage and evidence stay; disposable recorder environments do not.
+/*/assets/takes/**/project/
+/*/assets/takes/**/runtime/
+/*/assets/takes/**/cache/
+/*/assets/takes/**/data/
+/*/assets/takes/**/state/
+/*/assets/takes/**/config/
+/*/assets/takes/**/plugins/
+/*/assets/takes/**/fast-syntax-highlighting/
+/*/assets/takes/**/session-owner/
+/*/assets/takes/**/fixture/
+/*/assets/takes/**/venv/
+/*/assets/takes/**/.zshrc
+/*/assets/takes/**/animation-clock
+/*/assets/takes/**/parallel-clock
+/*/assets/takes/**/command.json
+/*/assets/takes/**/server.log
+/*/assets/takes/**/filetree-setup.log
+/*/assets/takes/**/nvim-setup.log
+/*/assets/takes/**/container-zshrc
+/*/assets/takes/**/shell.sh
+/*/assets/takes/**/launch.py
+/*/assets/takes/**/pyproject.toml
+/*/assets/takes/**/uv.lock
+# Generated mock settings contain local runtime paths. Recreate them with the
+# checked-in fixture builders; keep only portable capture/verification evidence.
+/*/assets/takes/**/claude.json
+/*/assets/takes/**/codex.json
+/*/assets/takes/**/sonnet.json
+/*/assets/takes/**/opus.json
+/*/assets/takes/**/astra.json
+/*/assets/takes/**/A.json
+/*/assets/takes/**/B.json
+/*/assets/takes/**/C.json
+/*/assets/takes/**/reviewer.json
+/*/assets/takes/**/watcher-claude.json
+/*/assets/takes/**/decisions.json
+/*/assets/takes/**/workers-*/
+/*/assets/takes/**/server.json
+/*/assets/takes/**/laptop-server.json
+/*/assets/takes/**/auth.json
+/*/assets/takes/**/laptop-auth.json
+/*/assets/takes/**/manager-settings.json
+/*/assets/takes/**/host-shell/
+/*/assets/takes/**/bin/
+/*/assets/takes/**/*.apk
+/*/assets/takes/**/*.apk.idsig
+/*/assets/takes/**/server.lock
+# Raw native screenshots are encoded into native-window.mp4; retain the
+# separate first-frame silhouette and frame-cue JSON as portable source assets.
+/*/assets/takes/**/native-window/[0-9]*.png
+# The popup's transparent WebM is frozen in composition assets; keep its named
+# proof still and metadata, not the intermediate lossless frame sequence.
+/*/assets/takes/**/typo-search-menu/[0-9]*.png
+
+# Generated final exports.
+/artifacts/

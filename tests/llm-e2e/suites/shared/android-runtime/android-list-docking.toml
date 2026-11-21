@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+name = "android-list-docking"
+goal = "Touch-resize, dock and fold workspace lists, then verify the connection manager never overlaps them."
+instructions = "android-list-docking.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-list-docking"

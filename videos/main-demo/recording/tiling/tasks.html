@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Task list</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:14px 18px;font:14px system-ui;background:#f3f5f8;color:#202c3b}
+main{max-width:480px;margin:auto}h1{font-size:18px;margin:0 0 10px}form{display:flex;gap:8px}
+input{min-width:0;flex:1;border:1px solid #ccd3dd;border-radius:6px;padding:7px 10px;font:inherit}
+button{border:0;border-radius:6px;padding:7px 13px;font:inherit;background:#375fba;color:white;cursor:pointer}
+ul{padding:0;list-style:none;margin:8px 0 0}li{display:flex;justify-content:space-between;align-items:center;padding:6px 0}
+li.done span{text-decoration:line-through;color:#64748b}li.done button{background:#357656}
+</style><main><h1>Task list</h1><form><input aria-label="New task" placeholder="New task" required><button>Add task</button></form><ul></ul></main>
+<script>
+document.querySelector('form').onsubmit=e=>{e.preventDefault();const input=document.querySelector('input'),li=document.createElement('li'),label=document.createElement('span'),button=document.createElement('button');
+label.textContent=input.value;button.textContent='Complete';button.onclick=()=>{li.classList.add('done');button.textContent='Done';button.disabled=true};li.append(label,button);document.querySelector('ul').replaceChildren(li);input.value=''};
+</script></html>

@@ -1,0 +1,228 @@
+{
+  "particles-sparks": {
+    "overrides": [
+      "state.typing:typing.particles=sparks"
+    ],
+    "category": "Typing",
+    "title": "Sparks"
+  },
+  "particles-dots": {
+    "overrides": [
+      "state.typing:typing.particles=dots"
+    ],
+    "category": "Typing",
+    "title": "Dots"
+  },
+  "particles-fireworks": {
+    "overrides": [
+      "state.typing:typing.particles=fireworks"
+    ],
+    "category": "Typing",
+    "title": "Fireworks"
+  },
+  "particles-flames": {
+    "overrides": [
+      "state.typing:typing.particles=flames"
+    ],
+    "category": "Typing",
+    "title": "Flames"
+  },
+  "particles-glitter": {
+    "overrides": [
+      "state.typing:typing.particles=glitter"
+    ],
+    "category": "Typing",
+    "title": "Glitter"
+  },
+  "particles-amount": {
+    "overrides": [
+      "state.typing:typing.particles=sparks",
+      "scene.typing:particles_amount=90",
+      "scene.typing:particles_scale=1.4"
+    ],
+    "category": "Typing",
+    "title": "Particle density"
+  },
+  "particles-scale": {
+    "overrides": [
+      "state.typing:typing.particles=sparks",
+      "scene.typing:particles_amount=8",
+      "scene.typing:particles_scale=7.0"
+    ],
+    "category": "Typing",
+    "title": "Particle size"
+  },
+  "cursor-trail": {
+    "overrides": [
+      "scene.cursor_trail:delay=1",
+      "scene.cursor_trail:style=smear",
+      "scene.cursor_trail:decay=\"0.1 0.4\"",
+      "scene.cursor_trail:start_threshold=\"0\"",
+      "scene.cursor_trail.smear:color=\"#80cfff\""
+    ],
+    "demo": "cursor_motion",
+    "category": "Cursor",
+    "title": "Smear"
+  },
+  "cursor-splash": {
+    "overrides": [
+      "scene.typing:splash_scale=2.5"
+    ],
+    "category": "Typing",
+    "title": "Splash"
+  },
+  "camera-zoom": {
+    "overrides": [
+      "scene.camera:zoom_mode=typing",
+      "state.typing:camera.zoom=1.8"
+    ],
+    "category": "Camera",
+    "title": "Typing zoom"
+  },
+  "camera-drift": {
+    "overrides": [
+      "state.typing:camera.drift_px=22",
+      "state.typing:camera.drift_speed=2.5"
+    ],
+    "category": "Camera",
+    "title": "Drift"
+  },
+  "camera-shake": {
+    "overrides": [
+      "state.typing:camera.shake_px=14",
+      "state.typing:camera.shake_seconds=0.18"
+    ],
+    "category": "Camera",
+    "title": "Shake"
+  },
+  "camera-tilt": {
+    "overrides": [
+      "state.typing:camera.tilt_limit_deg=18"
+    ],
+    "category": "Camera",
+    "title": "Tilt"
+  },
+  "sheet-ripple": {
+    "overrides": [
+      "state.typing:sheet.ripple=1.5",
+      "scene.sheet:ripple_wavelength=0.22",
+      "scene.sheet:ripple_speed=2.2",
+      "scene.sheet:ripple_falloff=1.0"
+    ],
+    "category": "Sheet",
+    "title": "Ripple"
+  },
+  "sheet-saddle": {
+    "overrides": [
+      "scene.sheet:typing_shape=\"saddle\"",
+      "scene.sheet:curvature_deg=45"
+    ],
+    "category": "Sheet",
+    "title": "Saddle curvature"
+  },
+  "sheet-edges": {
+    "overrides": [
+      "scene.sheet:corner_radius=28",
+      "scene.sheet:edge_margin=25",
+      "scene.sheet:edge_blur=4",
+      "scene.sheet:edge_shadow=0.7"
+    ],
+    "category": "Sheet",
+    "title": "Soft edges"
+  },
+  "sheet-gloss": {
+    "overrides": [
+      "scene.sheet:content_gloss=1.0",
+      "state.typing:camera.tilt_limit_deg=18"
+    ],
+    "category": "Sheet",
+    "title": "Gloss"
+  },
+  "lighting-shadow-color": {
+    "overrides": [
+      "scene.camera:dof_blur_tint=\"#2f6bff\"",
+      "scene.lighting:strength=1.8"
+    ],
+    "setup_overrides": [
+      "state.idle:camera.tilt_limit_deg=0",
+      "state.typing:camera.tilt_limit_deg=18"
+    ],
+    "category": "Lighting",
+    "title": "Lighting"
+  },
+  "depth-of-field": {
+    "overrides": [
+      "scene.camera:dof_blur_amount=0.5"
+    ],
+    "setup_overrides": [
+      "state.typing:camera.tilt_limit_deg=35",
+      "state.typing:camera.zoom=1.0"
+    ],
+    "category": "Camera",
+    "title": "Depth of field"
+  },
+  "session-switch-fly-away-and-in": {
+    "overrides": [
+      "scene.session_switch:effect=\"fly_away_and_in\""
+    ],
+    "transition": "session",
+    "category": "Transitions",
+    "title": "Fly away and in"
+  },
+  "cursor-trail-blaze": {
+    "category": "Cursor",
+    "title": "Blaze",
+    "demo": "cursor_motion",
+    "overrides": [
+      "scene.cursor_trail:delay=1",
+      "scene.cursor_trail:style=blaze",
+      "scene.cursor_trail:start_threshold=\"0\""
+    ]
+  },
+  "cursor-trail-lightning": {
+    "category": "Cursor",
+    "title": "Lightning",
+    "demo": "cursor_motion",
+    "overrides": [
+      "scene.cursor_trail:delay=1",
+      "scene.cursor_trail:style=lightning",
+      "scene.cursor_trail:start_threshold=\"0\""
+    ]
+  },
+  "tab-switch-push-pull": {
+    "category": "Transitions",
+    "title": "Push / pull",
+    "transition": "tab",
+    "overrides": [
+      "scene.tab_switch:effect=push_pull"
+    ]
+  },
+  "session-switch-fly-away": {
+    "category": "Transitions",
+    "title": "Fly away",
+    "transition": "session",
+    "overrides": [
+      "scene.session_switch:effect=fly_away"
+    ]
+  },
+  "camera-adaptive": {
+    "title": "Adaptive zoom",
+    "category": "Camera",
+    "overrides": [
+      "scene.camera:zoom_mode=adaptive",
+      "scene.camera:adaptive_group={\"main_view\": false}",
+      "scene.camera:adaptive_zoom_in_seconds=2.0",
+      "scene.camera:adaptive_zoom_out_seconds=2.0",
+      "behavior:idle_after=4.0"
+    ],
+    "demo": "adaptive_zoom"
+  },
+  "pane-zoom": {
+    "title": "Typing pane zoom",
+    "category": "Camera",
+    "demo": "pane_zoom",
+    "overrides": [
+      "scene.typing:pane_zoom=1.15"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+# Castle recordings: half-transparent terminals over the scenery.
+[worlds.edinburgh-castle.terminal.background]
+alpha = 0.5

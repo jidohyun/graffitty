@@ -1,0 +1,7 @@
+[project]
+name = "terminal-demo"
+version = "1.0.0"
+
+[display]
+theme = "one-dark"
+animations = true

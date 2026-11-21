@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>Terminal with tiling windows</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face {
+      font-family: "Demo Open Sans";
+      src: url("assets/OpenSans-Semibold.ttf") format("truetype");
+      font-weight: 600; font-style: normal;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    #root {
+      width: 100%; height: 100%; position: relative;
+      background: #15181f; color: #f1f2f4;
+      display: flex; flex-direction: column; align-items: center;
+      padding-top: 112px; gap: 16px;
+    }
+    /* Adapted from the registry chromium-device-stage framing primitive.
+       The app already has a title bar. Preserve its reserved button space. */
+    #window {
+      --footage-scale: 0.560000;
+      position: relative; width: 1344px; height: 840px; flex: none;
+      border-radius: 20px; overflow: hidden; background: #4a4d54;
+      box-shadow: 0 24px 70px #080a1080, 0 0 0 1px #73798350;
+    }
+    .footage { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+    #traffic-lights {
+      position: absolute; top: calc(36px * var(--footage-scale));
+      left: calc(20px * var(--footage-scale)); display: flex;
+      gap: calc(18px * var(--footage-scale));
+      height: calc(28px * var(--footage-scale)); z-index: 2; pointer-events: none;
+    }
+    .light { width: calc(28px * var(--footage-scale)); height: calc(28px * var(--footage-scale)); border-radius: 50%; border: 1px solid #00000030; }
+    .close { background: #ec6765; }
+    .minimize { background: #f2ca44; }
+    .maximize { background: #65c466; }
+    .chapter-title {
+      position:absolute;left:100px;top:34px;width:1720px;height:56px;margin:0;z-index:10;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      font-family:"Demo Open Sans",sans-serif;font-weight:600;font-size:40px;line-height:1.2;
+    }
+    .chapter-title span { display:block; }
+    .voice-subtitle {
+      position:absolute;left:192px;top:978px;width:1536px;height:60px;margin:0;z-index:10;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      font-family:"Demo Open Sans",sans-serif;font-weight:600;font-size:34px;line-height:1.2;
+      text-shadow:0 1px 2px #0008;
+    }
+  </style>
+</head><body>
+  <div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-duration="7.150000" data-fps="60">
+    <div id="window">
+      <video id="footage" class="clip footage" src="assets/native-background.mp4" muted playsinline data-start="0" data-duration="7.150000" data-track-index="0"></video>
+      <div data-hf-id="hf-yitn" id="traffic-lights" class="clip" data-start="0.000000" data-duration="7.150000" data-track-index="1" data-track-kind="overlay" aria-label="macOS window controls">
+        <span data-hf-id="hf-ypij" class="light close"></span><span data-hf-id="hf-oj4p" class="light minimize"></span><span data-hf-id="hf-k42r" class="light maximize"></span>
+      </div>
+    </div>
+        <!-- native-window:start -->
+    <div id="native-chromium" style="position:absolute;inset:0;transform:translateY(56px);pointer-events:none">
+      <div id="native-chromium-motion" style="position:absolute;left:0;top:0;width:1008.000px;height:560.000px;border-radius:30px;box-shadow:0 22px 64px #00000088,0 0 0 1px #00000038;will-change:transform;opacity:0">
+        <video id="native-chromium-video" class="clip" src="assets/native-window.mp4" muted playsinline data-start="0.000000" data-duration="6.400000" data-track-index="3" data-media-start="0" style="display:block;width:100%;height:100%;object-fit:fill;mask-image:url(assets/native-window-shape.png);mask-size:100% 100%;mask-mode:alpha"></video>
+        <img src="assets/native-window-active-chrome.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;mask-image:url(assets/native-window-shape.png);mask-size:100% 100%;mask-mode:alpha;clip-path:inset(0 0 calc(100% - 97.440px) 0);pointer-events:none">
+        <svg id="native-traffic-hover" viewBox="0 0 160 70" width="89.6" height="39.2" style="position:absolute;left:0;top:0;opacity:0;pointer-events:none" aria-hidden="true">
+          <circle id="native-close-pressed" cx="40" cy="41" r="13.3" fill="#b83b37" style="opacity:0"/>
+          <path d="M35 36L45 46M45 36L35 46" fill="none" stroke="#651b18" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M80 41H92" fill="none" stroke="#795800" stroke-width="2.5"/>
+          <path d="M126 35H133L126 42ZM138 47H131L138 40Z" fill="#15551d"/>
+        </svg>
+      </div>
+      <div id="native-chromium-pointer" class="clip" data-start="0.000000" data-duration="7.150000" data-track-index="4" data-track-kind="overlay" style="position:absolute;inset:0">
+       <div id="native-chromium-cursor" style="position:absolute;left:0;top:0;width:36.288px;height:49.728px;will-change:transform">
+        <svg width="36.288" height="49.728" viewBox="0 0 27 37" style="display:block;overflow:visible"><path d="M0 0V26L7 20L12 31L17 29L12 18H20Z" fill="white" stroke="black" stroke-width="1.6666667" stroke-linejoin="round"/></svg>
+       </div>
+      </div>
+    </div>
+    <!-- native-window:end -->
+  </div>
+  <script>
+    window.__timelines["main"] = gsap.timeline({paused:true});
+        // native-window-stage:start
+    {
+      const tl = window.__timelines["main"];
+      const at = 0.000000;
+      tl.set("#native-chromium-motion", {x:650, y:160, opacity:1}, at);
+      tl.set("#native-chromium-motion", {opacity:0}, 6.400000);
+      tl.set("#native-chromium-cursor", {x:1555.8315, y:607.0361}, at);
+      tl.set("#traffic-lights .light", {backgroundColor:"#8b8e93", borderColor:"#00000022"}, at);
+      tl.set("#window", {boxShadow:"0 12px 38px #777b8428, 0 0 0 1px #73798340"}, at);
+      tl.to("#native-chromium-cursor", {x:1204.4000, y:181, duration:.4, ease:"power2.inOut"}, at + .25);
+      tl.to("#native-chromium-motion", {x:390, y:230, duration:1, ease:"sine.inOut"}, at + .8);
+      tl.to("#native-chromium-cursor", {x:944.4000, y:251, duration:1, ease:"sine.inOut"}, at + .8);
+      tl.to("#native-chromium-motion", {x:670, y:150, duration:1, ease:"sine.inOut"}, at + 2.1);
+      tl.to("#native-chromium-cursor", {x:1224.4000, y:171, duration:1, ease:"sine.inOut"}, at + 2.1);
+      tl.to("#native-chromium-cursor", {x:692, y:171, duration:.8, ease:"power2.inOut"}, at + 4.900000);
+      tl.to("#native-chromium-cursor", {x:1555.8315, y:607.0361, duration:.65, ease:"sine.inOut"}, 6.400000);
+      // macOS reveals all three glyphs when the pointer enters the controls.
+      tl.set("#native-traffic-hover", {opacity:0}, at);
+      tl.set("#native-close-pressed", {opacity:0}, at);
+      tl.set("#native-traffic-hover", {opacity:1}, at + 5.460000);
+      tl.set("#native-close-pressed", {opacity:1}, at + 6.100000);
+      tl.set("#traffic-lights .close", {backgroundColor:"#ec6765", borderColor:"#00000030"}, 6.400000);
+      tl.set("#traffic-lights .minimize", {backgroundColor:"#f2ca44", borderColor:"#00000030"}, 6.400000);
+      tl.set("#traffic-lights .maximize", {backgroundColor:"#65c466", borderColor:"#00000030"}, 6.400000);
+      tl.set("#window", {boxShadow:"0 24px 70px #080a1080, 0 0 0 1px #73798350"}, 6.400000);
+    }
+    // native-window-stage:end
+  </script>
+</body></html>

@@ -1,0 +1,163 @@
+{
+  "scope": "Godot extension boundary and its GDScript callers; ownership, repeated conversion, mutable snapshots, typed containers and frame transport",
+  "reviewed_areas": [
+    "scene navigation, camera, geometry, physics and touch",
+    "workspace layout and command search",
+    "session client, private transport, remote mapping and authentication",
+    "terminal scene handles, terminal rendering and input",
+    "chromium video and native GPU handoff",
+    "fonts and cache, resource monitoring",
+    "audio, clipboard, window integration, recording and editor plugin/sync"
+  ],
+  "fixed": [
+    "Navigation graph retained in Rust, replaced on world load and reweighted after position edits",
+    "Curve sampling converts at most two points instead of copying the whole curve; four-point controls use a stack array",
+    "Camera frame and target snapshots no longer alias mutable native presentation dictionaries",
+    "Remote graph mapping accepts nested typed Godot dictionaries",
+    "Each command model retains native fuzzy-ranking candidates until labels change; removed missing-extension fallback",
+    "Local chromium frames cross as prepared header/payload instead of repacking and unpacking the full frame"
+  ],
+  "retained_by_design": [
+    "Physics owns spatial index and velocities; frontend-owned pane rectangles and constraints remain inputs. The view stops physics processing when asleep.",
+    "Workspace tree mutations remain frontend-owned and synchronize at layout events; no persistent duplicate without an invalidation contract.",
+    "Terminal commits and image assets already use native handles; chromium GPU paths already retain native resources.",
+    "Worker queue payload copies establish cross-thread ownership. Font hashing and OS resource queries already have caches/workers."
+  ],
+  "validation": {
+    "godot_unit_tests": 351,
+    "godot_scripts_checked": 459,
+    "scene_core_tests_macos_linux": 59,
+    "frozen_godot_conformance": "pass",
+    "e2e": [
+      "Authored world routing",
+      "rendered graph ports",
+      "rendered scatter camera flights",
+      "rendered Chromium input",
+      "shared server detach/reconnect",
+      "scrollbar drag/click/hold desktop and Android-controls mode",
+      "scrollbar lifecycle"
+    ]
+  },
+  "curve_sampling": {
+    "before": {
+      "checksum": 453910212.152972,
+      "godot": "4.7.2-stable (official)",
+      "nav_nodes": 375,
+      "results": [
+        {
+          "batch_count": 65536,
+          "gdscript_samples_us": [
+            0.719406127929688,
+            0.722000122070312,
+            0.720733642578125,
+            0.722686767578125,
+            0.72265625,
+            0.72222900390625,
+            0.717453002929688,
+            0.720550537109375,
+            0.7222900390625,
+            0.719985961914062,
+            0.72406005859375
+          ],
+          "gdscript_us": 0.722000122070312,
+          "rust_samples_us": [
+            0.746566772460938,
+            0.751663208007812,
+            0.7567138671875,
+            0.768081665039062,
+            0.749282836914062,
+            0.75146484375,
+            0.74993896484375,
+            0.752426147460938,
+            0.751327514648438,
+            0.750473022460938,
+            0.747177124023438
+          ],
+          "rust_us": 0.751327514648438,
+          "samples": 11,
+          "speedup": 0.960965901013424,
+          "workload": "graph_sample"
+        }
+      ],
+      "undirected_nav_edges": 32698
+    },
+    "after": {
+      "checksum": 472669629.915326,
+      "godot": "4.7.2-stable (official)",
+      "nav_nodes": 375,
+      "results": [
+        {
+          "batch_count": 32768,
+          "gdscript_samples_us": [
+            6.26300048828125,
+            5.55609130859375,
+            5.38677978515625,
+            5.43316650390625,
+            5.36361694335938,
+            5.3629150390625,
+            5.33319091796875,
+            5.3536376953125,
+            5.40597534179688,
+            5.40762329101562,
+            5.37152099609375
+          ],
+          "gdscript_us": 5.38677978515625,
+          "rust_samples_us": [
+            1.96640014648438,
+            1.38967895507812,
+            1.33267211914062,
+            1.35015869140625,
+            1.33486938476562,
+            1.33657836914062,
+            1.35086059570312,
+            1.33163452148438,
+            1.3511962890625,
+            1.330078125,
+            1.33612060546875
+          ],
+          "rust_us": 1.33657836914062,
+          "samples": 11,
+          "speedup": 4.03027604630454,
+          "workload": "camera_frame"
+        },
+        {
+          "batch_count": 65536,
+          "gdscript_samples_us": [
+            0.723052978515625,
+            0.739883422851562,
+            0.725799560546875,
+            0.740020751953125,
+            0.723373413085938,
+            0.7188720703125,
+            0.717666625976562,
+            0.721710205078125,
+            0.722671508789062,
+            0.727462768554688,
+            0.7359619140625
+          ],
+          "gdscript_us": 0.723373413085938,
+          "rust_samples_us": [
+            0.706405639648438,
+            0.7169189453125,
+            0.719802856445312,
+            0.742782592773438,
+            0.703445434570312,
+            0.709060668945312,
+            0.704986572265625,
+            0.704376220703125,
+            0.705978393554688,
+            0.71728515625,
+            0.723602294921875
+          ],
+          "rust_us": 0.709060668945312,
+          "samples": 11,
+          "speedup": 1.02018550001076,
+          "workload": "graph_sample"
+        }
+      ],
+      "undirected_nav_edges": 32698
+    },
+    "note": "About 0.75 to 0.71 microseconds for the ordinary short curve. The structural gain is eliminating O(points) copying; no claim of a noticeable short-curve speedup."
+  },
+  "native_sha256": "b47fa085226f8181203b6173b7ca17a88a646f9b1852d038a08370167b2fa69c"
+}

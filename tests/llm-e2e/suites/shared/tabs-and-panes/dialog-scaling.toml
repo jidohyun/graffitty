@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "dialog-scaling"
+goal = "Dialogs use readable 20-point text and the same display scaling as the main window, without double-scaling embedded dialogs"
+instructions = "dialog-scaling.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Native and embedded dialog typography and DPI"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/dialog-scaling.gd"

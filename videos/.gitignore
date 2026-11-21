@@ -1,0 +1,13 @@
+# Generated editor/renderer state; source media is tracked by per-video DVC outputs.
+**/.hyperframes/
+**/.media/
+**/.hf-*/
+**/.thumbnails/
+**/.transcode-cache/
+**/node_modules/
+**/renders/
+**/snapshots/
+/*/assets/cache/
+
+# Generated final exports.
+/artifacts/

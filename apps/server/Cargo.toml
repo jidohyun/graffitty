@@ -1,0 +1,47 @@
+[package]
+name = "graffitty-server"
+version.workspace = true
+edition = "2024"
+license = "Apache-2.0"
+
+[features]
+default = []
+
+[dependencies]
+graffitty-secrets = { path = "../../crates/secrets" }
+graffitty-dictation-audio = { path = "../../crates/dictation-audio" }
+usage-rs = { version = "7.3.0" }
+fontdb = "0.24.0"
+ttf-parser = "0.25.1"
+sha2 = "0.11.1"
+figment = { version = "0.10.19", features = ["toml", "env"] }
+graffitty-platform = { path = "../../crates/platform" }
+graffitty-terminal-core = { path = "../../crates/terminal-core" }
+graffitty-protocol = { path = "../../crates/protocol" }
+graffitty-workspace-core = { path = "../../crates/workspace-core" }
+graffitty-chromium-video = { path = "../../crates/transport/chromium-video" }
+graffitty-session-transport = { path = "../../crates/transport/ipc" }
+terminal-resource-monitor = { path = "../../crates/platform/resource-monitor" }
+graffitty-remote-auth = { path = "../../crates/transport/auth" }
+graffitty-video-datagram = { path = "../../crates/transport/datagram" }
+rpassword = "7.5.4"
+# Match the desktop engine exactly, including Unicode and escape handling.
+portable-pty = { path = "../../fork/portable-pty" }
+serde_json = "1.0.151"
+url = "2.5"
+ureq = { version = "3.4.2", features = ["json"] }
+base64 = "0.23.1"
+png = "0.18.1"
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "webp", "bmp"] }
+blake3 = "1.8.7"
+serde = { version = "1.0.229", features = ["derive"] }
+tungstenite = { version = "0.30.0", features = ["native-tls"] }
+uuid = { version = "1.27.0", features = ["v4"] }
+libc = "0.2.190"
+fs2 = "0.4.3"
+fancy-regex = "0.20.1"
+ctrlc = { version = "3.5.2", features = ["termination"] }
+
+[target.'cfg(windows)'.dependencies]
+# The terminal holder link: Unix-domain sockets, as on macOS and Linux.
+uds_windows = "1.2.1"

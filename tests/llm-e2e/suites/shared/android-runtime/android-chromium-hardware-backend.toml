@@ -1,0 +1,12 @@
+required_frontends = ["godot"]
+
+name = "android-chromium-hardware-backend"
+goal = "Verify hardware browser streaming, adaptive resolution, and native tabs on a physical Android client."
+instructions = "android-chromium-hardware-backend.md"
+runtime = "android"
+physical_device = true
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-chromium-hardware-backend"

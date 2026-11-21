@@ -1,0 +1,36 @@
+required_frontends = ["godot"]
+
+name = "tab-hover-merge"
+instructions = "tab-hover-merge.md"
+goal = "Holding a dragged tab on another tab for half a second previews that tab; moving into its content and releasing merges both tabs' windows into it, while Escape during the preview restores everything."
+verify = "tab_merge"
+tool_budget = 120
+turn_timeout_seconds = 360
+
+[[stages]]
+name = "Prepare labelled tabs"
+tools = []
+
+[[stages]]
+name = "Cancel a preview"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Hover to preview"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Drop into the previewed content"
+tools = []
+recall_marker = true
+
+[[stages]]
+name = "Verify the merged tab"
+tools = []
+recall_marker = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/tabs-and-panes/replays/tab-hover-merge.gd"

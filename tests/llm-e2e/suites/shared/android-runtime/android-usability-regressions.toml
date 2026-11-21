@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-usability-regressions"
+goal = "Rendered first-row and Korean glyphs, live resources, keyboard occlusion, and reconnect after last detach/cancel."
+instructions = "android-usability-regressions.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-usability-regressions"

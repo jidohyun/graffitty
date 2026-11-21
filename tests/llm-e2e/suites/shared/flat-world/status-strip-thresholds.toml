@@ -1,0 +1,16 @@
+required_frontends = ["godot"]
+
+name = "status-strip-thresholds"
+goal = "Pane titles keep a constant readable on-screen font size inside their frames; only right-side icons hide at half size, independently of StatusStrip"
+instructions = "status-strip-thresholds.md"
+verify = "state"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Readable fixed-size titles and independent icon visibility"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/flat-world/replays/status-strip-thresholds.gd"

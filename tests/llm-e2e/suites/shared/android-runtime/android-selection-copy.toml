@@ -1,0 +1,11 @@
+required_frontends = ["godot"]
+
+name = "android-selection-copy"
+goal = "Use Android double-tap-and-drag to select multiline Korean and emoji in a streamed terminal, then copy the actual selection."
+instructions = "android-selection-copy.md"
+runtime = "android"
+automation = "tests/android/test_android_runtime.py"
+
+[adapters.godot]
+kind = "android-runtime"
+case = "android-selection-copy"

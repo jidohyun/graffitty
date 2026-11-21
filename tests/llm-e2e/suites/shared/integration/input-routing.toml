@@ -1,0 +1,26 @@
+required_frontends = ["godot"]
+
+name = "input-routing"
+instructions = "input-routing.md"
+goal = "Configured keys and terminal wheel events deliver their intended actions and exact PTY bytes without leaking consumed shortcuts or changing speed with font size."
+verify = "raw_pty_bytes_and_rendered_ui"
+tool_budget = 150
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Exercise configured keys against a raw PTY"
+tools = []
+
+[[stages]]
+name = "Verify fractional and application scrolling"
+tools = []
+
+[[stages]]
+name = "Review visible configuration and failure preservation"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_input_acceptance.py"
+args = ["--suite", "input"]

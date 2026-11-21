@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "tab-titles"
+goal = "Rename a tab using the real server CLI; preserve that name across OSC program titles and tab switching."
+instructions = "tab-titles.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/tab-titles.gd"

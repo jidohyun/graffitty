@@ -1,0 +1,22 @@
+required_frontends = ["godot"]
+
+name = "notifications"
+instructions = "notifications.md"
+goal = "Terminal notifications retain application actions and owning-pane focus, and configured bells visibly fade without disturbing the human desktop."
+verify = "actual_bell_controls_exact_pty_replies_and_bell_pixels"
+tool_budget = 80
+turn_timeout_seconds = 300
+
+[[stages]]
+name = "Inspect notifications and activate the owning pane"
+tools = []
+
+[[stages]]
+name = "Inspect visual bell lifetime"
+tools = []
+
+[adapters.godot]
+kind = "python"
+platforms = ["windows"]
+script = "../../../../platform/windows/windows_private_replay.py"
+args = ["--replay", "tests/llm-e2e/suites/godot/integration/replays/notifications.gd"]

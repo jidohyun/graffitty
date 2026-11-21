@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "graph-editing"
+goal = "Register two live node manifests through the CLI, connect their ports, compare the server graph, then disconnect without deleting nodes."
+instructions = "graph-editing.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/graph-editing.gd"

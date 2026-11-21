@@ -1,0 +1,20 @@
+required_frontends = ["godot"]
+name = "local-startup"
+instructions = "local-startup.md"
+goal = "MUST open one fresh local session in the launch/configured directory without server setup or a Connect form; explicit attachment preserves existing shells and initializes empty workspaces."
+verify = "visual_and_session_state"
+tool_budget = 100
+turn_timeout_seconds = 120
+
+[[stages]]
+name = "Automatic local launch"
+tools = []
+
+[[stages]]
+name = "Empty workspace recovery and retained sessions"
+tools = []
+
+[adapters.godot]
+kind = "python"
+script = "../../../../godot/local_startup_e2e.py"
+coverage_gaps = ["Record and review the real development launcher and fresh automatic owner startup; the headless regression uses an isolated prestarted owner.", "Observe window presentation and keyboard focus in a rendered frontend; headless checks only verify dialog visibility state and real terminal input/replay."]

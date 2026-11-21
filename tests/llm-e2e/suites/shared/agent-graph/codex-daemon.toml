@@ -1,0 +1,25 @@
+required_frontends = ["godot"]
+
+name = "codex-daemon"
+instructions = "codex-daemon.md"
+goal = "Discover an unwrapped real Codex frontend, deliver through its native queue, preserve drafts, and reconnect without changing the session."
+verify = "real_agent_transcript_and_graph_state"
+tool_budget = 60
+turn_timeout_seconds = 480
+
+[[stages]]
+name = "Launch and identify"
+tools = []
+
+[[stages]]
+name = "Native delivery"
+tools = []
+
+[[stages]]
+name = "Mute and reconnect"
+tools = []
+
+[adapters.godot]
+kind = "python"
+script = "../../../../agents/test_agent_e2e.py"
+args = ["--case", "codex-daemon"]

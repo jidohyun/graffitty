@@ -1,0 +1,10 @@
+required_frontends = ["godot"]
+
+name = "working-directory"
+goal = "Split from a shell in /tmp, change another pane to /, and split the unfocused original; each child inherits its source shell directory."
+instructions = "working-directory.md"
+record_client = true
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/android-simulated/replays/working-directory.gd"

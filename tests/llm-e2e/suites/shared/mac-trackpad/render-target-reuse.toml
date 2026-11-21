@@ -1,0 +1,15 @@
+required_frontends = ["godot"]
+
+name = "render-target-reuse"
+instructions = "render-target-reuse.md"
+goal = "Mac navigation reuses render targets while preserving cropped terminal pixels and restoring resolution afterward."
+verify = "visual_continuity"
+tool_budget = 50
+turn_timeout_seconds = 180
+[[stages]]
+name = "Render reuse and clipping"
+tools = []
+
+[adapters.godot]
+kind = "godot-replay"
+replay = "../../godot/mac-trackpad/replays/render-target-reuse.gd"
