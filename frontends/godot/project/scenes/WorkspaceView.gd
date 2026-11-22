@@ -31,8 +31,7 @@ const EDGE_PAN_MAX_SPEED := 800.0
 ## typing zoom magnifies the canvas without softening text.
 const SUPERSAMPLING := 2.0
 ## Camera zoom up to this factor keeps the resting raster; beyond it, density
-## follows the zoom. High-density displays reserve this headroom instead of
-## multiplying SUPERSAMPLING.
+## follows the zoom.
 const UNTRACKED_ZOOM := 1.15
 const TEXTURE_MAX_SIDE := 8192.0
 ## A wall far wider than the window must not cost a canvas far larger than it.
@@ -459,11 +458,11 @@ func canvas_scale() -> float:
 
 
 ## Canvas texels per layout pixel, in half-steps to avoid per-frame reallocs.
-## Phones keep their device density; desktops supersample low-density
-## displays and give high-density ones only the untracked-zoom headroom.
+## Desktops supersample low-density displays and render high-density ones at
+## device density; phones keep device density.
 static func raster_density(physical: float, zoom: float, mobile: bool) -> float:
 	var screen := maxf(physical, 1.0)
-	var base := screen if mobile else maxf(SUPERSAMPLING, screen * UNTRACKED_ZOOM)
+	var base := screen if mobile else maxf(SUPERSAMPLING, screen)
 	return ceilf(base * zoom * 2.0) / 2.0
 
 

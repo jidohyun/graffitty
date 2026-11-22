@@ -15,8 +15,8 @@ func _initialize() -> void:
 func run() -> void:
 	var WorkspaceView: GDScript = load('res://scenes/WorkspaceView.gd')
 	check(WorkspaceView.raster_density(1.0, 1.0, false) == 2.0, 'Low-density desktops keep 2x supersampling')
-	check(WorkspaceView.raster_density(2.0, 1.0, false) == 2.5, 'High-density desktops add only untracked-zoom headroom')
-	check(WorkspaceView.raster_density(2.0, 2.0, false) == 5.0, 'High-density raster density follows tracked zoom')
+	check(WorkspaceView.raster_density(2.0, 1.0, false) == 2.0, 'High-density desktops render at device density')
+	check(WorkspaceView.raster_density(2.0, 2.0, false) == 4.0, 'High-density raster density follows tracked zoom')
 	check(WorkspaceView.raster_density(3.0, 1.0, true) == 3.0, 'Phones keep their device density')
 	OS.set_environment(
 		'XDG_CONFIG_HOME',
