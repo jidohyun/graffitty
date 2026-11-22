@@ -10,6 +10,8 @@ const INTERVAL_MSEC := 30000
 const FrameProfile := preload("res://graffitty/frame_profile.gd")
 static var _next_msec := 0
 static var _enabled := -1
+static var _hooks_connected := false
+static var _last_frames_drawn := -1
 
 
 static func enabled() -> bool:
@@ -20,12 +22,23 @@ static func enabled() -> bool:
 
 static func tick(tree: SceneTree) -> void:
 	if not enabled() or tree == null: return
+	_connect_frame_hooks(tree)
 	FrameProfile.frame()
 	var now := Time.get_ticks_msec()
 	if now < _next_msec: return
 	_next_msec = now + INTERVAL_MSEC
+	var frames_drawn := Engine.get_frames_drawn()
+	var drawn := 0 if _last_frames_drawn < 0 else frames_drawn - _last_frames_drawn
+	_last_frames_drawn = frames_drawn
 	print(report(tree))
-	print(FrameProfile.take())
+	print(FrameProfile.take(drawn))
+
+
+static func _connect_frame_hooks(tree: SceneTree) -> void:
+	if _hooks_connected: return
+	tree.process_frame.connect(FrameProfile.process_frame_started)
+	RenderingServer.frame_post_draw.connect(FrameProfile.frame_post_draw)
+	_hooks_connected = true
 
 
 static func report(tree: SceneTree) -> String:
