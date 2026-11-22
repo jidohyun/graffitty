@@ -16,6 +16,41 @@ static func valid_blur_radius(value: Variant) -> bool:
 	return (value is float or value is int) and is_finite(float(value)) and float(value) >= 0.0 and float(value) <= 64.0
 
 
+## Copies only the screen region a translucent surface's blur samples, before
+## the surface draws. Without it, Godot copies and mipmaps the whole render
+## target for every screen-texture redraw.
+class BackdropCopy extends BackBufferCopy:
+	var radius := 0.0
+
+	## Region around a surface of `size`, in its local pixels. Linear mipmap
+	## lookups at lod log2(radius) reach about two mip texels of `radius` past
+	## the edge; four keeps every sampled texel freshly copied.
+	static func region(size: Vector2, blur_radius: float) -> Rect2:
+		var reach := Vector2.ONE * 4.0 * ceilf(maxf(blur_radius, 1.0))
+		return Rect2(-reach, size + reach * 2.0)
+
+	func fit() -> void:
+		rect = region((get_parent() as Control).size, radius)
+
+
+static func _sync_backdrop_copy(surface: Control, radius: float) -> void:
+	var copy := surface.get_node_or_null(^"BackdropCopy") as BackdropCopy
+	if copy == null:
+		copy = BackdropCopy.new()
+		copy.name = "BackdropCopy"
+		copy.copy_mode = BackBufferCopy.COPY_MODE_RECT
+		copy.show_behind_parent = true
+		surface.add_child(copy, false, Node.INTERNAL_MODE_FRONT)
+		surface.resized.connect(copy.fit)
+	copy.radius = radius
+	copy.fit()
+
+
+static func _remove_backdrop_copy(surface: Control) -> void:
+	var copy := surface.get_node_or_null(^"BackdropCopy")
+	if copy != null: copy.free()
+
+
 func apply_background() -> void:
 	super()
 	_update_docked_backdrop()
@@ -26,12 +61,14 @@ func _update_docked_backdrop() -> void:
 	if not is_instance_valid(_desktop): return
 	if not background_blur or background_blur_radius <= 0.0 or not translucent():
 		_desktop.material = null
+		_remove_backdrop_copy(_desktop)
 		return
 	var material := _desktop.material as ShaderMaterial
 	if material == null:
 		material = ShaderMaterial.new()
 		material.shader = BACKDROP_SHADER
 		_desktop.material = material
+	_sync_backdrop_copy(_desktop, background_blur_radius)
 	var owner_window := _desktop.get_window()
 	var density := owner_window.content_scale_factor if owner_window != null else 1.0
 	material.set_shader_parameter("radius", background_blur_radius * density)
@@ -70,6 +107,7 @@ func _update_embedded_backdrop() -> void:
 		get_parent().get_viewport().add_child(_embedded_backdrop)
 	_embedded_backdrop.position = Vector2(position)
 	_embedded_backdrop.size = Vector2(size)
+	_sync_backdrop_copy(_embedded_backdrop, background_blur_radius)
 	var owner_window := _embedded_backdrop.get_window()
 	var density := owner_window.content_scale_factor if owner_window != null else 1.0
 	(_embedded_backdrop.material as ShaderMaterial).set_shader_parameter("radius", background_blur_radius * density)

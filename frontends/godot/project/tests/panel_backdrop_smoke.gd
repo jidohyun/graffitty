@@ -1,5 +1,6 @@
 extends SceneTree
 const SHADER := preload("res://scenes/mods/panel_backdrop.gdshader")
+const PANEL_WINDOW := preload("res://scenes/TranslucentPanelWindow.gd")
 var failed := false
 func _initialize() -> void: run.call_deferred()
 func check(ok: bool, message: String) -> void:
@@ -14,12 +15,14 @@ func run() -> void:
 	vp.transparent_bg = true
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(vp)
+	var stripes: Array[ColorRect] = []
 	for x in 64:
 		var stripe := ColorRect.new()
 		stripe.position = Vector2(x * 2, 0)
 		stripe.size = Vector2(2, 128)
 		stripe.color = Color.WHITE if x % 2 == 0 else Color.BLACK
 		vp.add_child(stripe)
+		stripes.append(stripe)
 	var panel := Panel.new()
 	panel.position = Vector2(16, 16)
 	panel.size = Vector2(96, 96)
@@ -50,6 +53,25 @@ func run() -> void:
 	check(blurred.get_pixel(48, 48).r > 0.95 and blurred.get_pixel(48, 48).g < 0.05, "Panel children stay sharp and untinted")
 	check(absf(blurred.get_pixel(2, 8).r - blurred.get_pixel(4, 8).r) > 0.9, "Pixels outside the panel remain sharp")
 	check(blurred.get_pixel(64, 70).a > 0.99, "Opaque background is not spuriously made transparent")
+	# A panel-sized copy must sample what a full-screen copy does, even when
+	# everything outside the copied region still holds the previous backdrop.
+	PANEL_WINDOW._sync_backdrop_copy(panel, 16.0)
+	for stripe in stripes:
+		stripe.color = Color.RED
+	await frame()
+	await frame()
+	var region_copy := vp.get_texture().get_image()
+	PANEL_WINDOW._remove_backdrop_copy(panel)
+	await frame()
+	await frame()
+	var full_copy := vp.get_texture().get_image()
+	var worst := 0.0
+	for y in range(16, 112):
+		for x in range(16, 112):
+			var a := region_copy.get_pixel(x, y)
+			var b := full_copy.get_pixel(x, y)
+			worst = maxf(worst, maxf(maxf(absf(a.r - b.r), absf(a.g - b.g)), maxf(absf(a.b - b.b), absf(a.a - b.a))))
+	check(worst <= 1.0 / 255.0, "Panel-sized backdrop copy matches a full-screen copy (max channel diff %.4f)" % worst)
 	mat.set_shader_parameter("tint_surface", false)
 	await frame()
 	await frame()
