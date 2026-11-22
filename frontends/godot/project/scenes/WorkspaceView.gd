@@ -27,9 +27,13 @@ const EDGE_PAN_DELAY := .25
 ## Ease from rest to the cap after the dwell, in screen pixels per second.
 const EDGE_PAN_RAMP := .8
 const EDGE_PAN_MAX_SPEED := 800.0
-## Canvas texels per window pixel, as the single-terminal sheet had: typing
-## zoom magnifies the canvas without softening text.
+## Minimum canvas texels per layout pixel, as the single-terminal sheet had:
+## typing zoom magnifies the canvas without softening text.
 const SUPERSAMPLING := 2.0
+## Camera zoom up to this factor keeps the resting raster; beyond it, density
+## follows the zoom. High-density displays reserve this headroom instead of
+## multiplying SUPERSAMPLING.
+const UNTRACKED_ZOOM := 1.15
 const TEXTURE_MAX_SIDE := 8192.0
 ## A wall far wider than the window must not cost a canvas far larger than it.
 const TEXTURE_MAX_PIXELS := 20_000_000.0
@@ -454,6 +458,15 @@ func canvas_scale() -> float:
 	)
 
 
+## Canvas texels per layout pixel, in half-steps to avoid per-frame reallocs.
+## Phones keep their device density; desktops supersample low-density
+## displays and give high-density ones only the untracked-zoom headroom.
+static func raster_density(physical: float, zoom: float, mobile: bool) -> float:
+	var screen := maxf(physical, 1.0)
+	var base := screen if mobile else maxf(SUPERSAMPLING, screen * UNTRACKED_ZOOM)
+	return ceilf(base * zoom * 2.0) / 2.0
+
+
 func sync_canvas() -> void:
 	var layout := Vector2i(canvas_size())
 	if layout.x < 1 or layout.y < 1:
@@ -467,12 +480,11 @@ func sync_canvas() -> void:
 	var pixel_budget := 4_000_000.0 if mobile else TEXTURE_MAX_PIXELS
 	var zoom := 1.0
 	var world: Node = host.world
-	if world != null and (is_overview() or world.fx_cam_zoom * world.gesture_zoom > 1.15) and world.fly_dur <= 0.0 and world.tab_fx_t < 0.0:
+	if world != null and (is_overview() or world.fx_cam_zoom * world.gesture_zoom > UNTRACKED_ZOOM) and world.fly_dur <= 0.0 and world.tab_fx_t < 0.0:
 		zoom = maxf(world._navigation_camera_zoom() if is_overview() else world.fx_cam_zoom * world.gesture_zoom, 0.05)
 	# The crop includes off-screen padding and perspective bounds. A fixed-size
 	# target spends pixels on that padding and loses text density while zooming.
-	# Preserve screen density, in half-step increments to avoid per-frame reallocs.
-	var density := ceilf((1.0 if mobile else SUPERSAMPLING) * maxf(physical, 1.0) * zoom * 2.0) / 2.0
+	var density := raster_density(physical, zoom, mobile)
 	var scale := minf(
 		density,
 		TEXTURE_MAX_SIDE / maxf(raster_region.size.x, raster_region.size.y),
