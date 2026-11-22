@@ -948,7 +948,10 @@ func _process_body(dt: float) -> void:
 			_ensure_tab_visible.call_deferred(_reveal_selected)
 			_reveal_selected = -1
 		set_process(false)
-	queue_redraw()
+	# The strip itself draws only the external drop line, whose position follows
+	# scrolling; hint changes redraw from set_external_drop_hint().
+	if external_drop_hint >= 0:
+		queue_redraw()
 
 
 func set_drag_external(value: bool) -> void:
