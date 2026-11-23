@@ -1,6 +1,7 @@
 extends RefCounted
 ## Session state stays on the owner; only visible replicas prepare visual work.
 ## Shared across windows/hosts, not multiplied by the number of saved tabs.
+const RenderUpdates := preload("res://scenes/RenderUpdates.gd")
 const MAX_SIDE := 8192.0
 static var _viewports: Array[WeakRef] = []
 
@@ -45,16 +46,23 @@ static func configure(viewport: SubViewport, terminal: Node) -> void:
 	viewport.set_meta("terminal_render_visible", true)
 	viewport.set_meta("terminal_render_node", weakref(terminal))
 	if terminal.has_signal("frame_changed"):
-		terminal.connect("frame_changed", request.bind(viewport))
+		terminal.connect("frame_changed", request.bind(viewport, true))
 		# The Control's own background can change independently of its cell RIDs.
-		terminal.connect("draw", request.bind(viewport))
-		viewport.size_changed.connect(request.bind(viewport))
+		terminal.connect("draw", request.bind(viewport, false))
+		viewport.size_changed.connect(request.bind(viewport, true))
+	if terminal.has_signal("output"):
+		terminal.connect("output", _wake_activity)
 	_rebalance()
-	request(viewport)
+	request(viewport, false)
 
-static func request(viewport: SubViewport) -> void:
+static func request(viewport: SubViewport, wake := true) -> void:
 	if not is_instance_valid(viewport) or not is_active(viewport): return
+	if wake: RenderUpdates.activity()
 	viewport.render_target_update_mode = SubViewport.UPDATE_ONCE if viewport.get_meta("terminal_frame_events", false) else SubViewport.UPDATE_ALWAYS
+
+
+static func _wake_activity(_bytes: int) -> void:
+	RenderUpdates.activity()
 
 static func set_visible(viewport: SubViewport, visible: bool) -> void:
 	var was_active := is_active(viewport)

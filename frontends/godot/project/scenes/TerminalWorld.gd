@@ -2444,6 +2444,8 @@ func _process_body(dt: float) -> void:
 		return
 	if probe_freeze:
 		return
+	if fly_dur > 0.0 or tab_fx_t >= 0.0 or lens_transition_t >= 0.0 or scenery_continuous:
+		RenderUpdates.activity()
 	if film_dt > 0.0:
 		dt = film_dt
 	# Navigation and scatter are analytic animations: retain elapsed wall time
@@ -2895,6 +2897,7 @@ func _on_effect_typed(uv: Vector2) -> void:
 
 
 func _fx_key(ev: InputEventKey) -> void:
+	RenderUpdates.activity()
 	## Follow the real cursor from Graffitty via `_read_cursor()` when tilting
 	## the camera. Count keys only if the library cannot report the cursor.
 	##

@@ -57,6 +57,19 @@ func test_before_draw_work_follows_the_change_sample_once() -> void:
 	OS.low_processor_usage_mode = low_processor
 
 
+func test_activity_wakes_then_returns_to_idle_rendering() -> void:
+	# Given an idle application loop.
+	var low_processor := OS.low_processor_usage_mode
+	OS.low_processor_usage_mode = true
+	# When activity is reported.
+	var generation := RenderUpdates.activity()
+	expect(not OS.low_processor_usage_mode, "Activity wakes the normal render loop")
+	# Then a quiet application returns to low-processor rendering.
+	RenderUpdates._finish_activity(generation)
+	expect(OS.low_processor_usage_mode, "Quiet activity returns to idle rendering")
+	OS.low_processor_usage_mode = low_processor
+
+
 func test_layered_page_frames_keep_texture_until_frame_pre_draw() -> void:
 	var low_processor := OS.low_processor_usage_mode
 	OS.low_processor_usage_mode = true

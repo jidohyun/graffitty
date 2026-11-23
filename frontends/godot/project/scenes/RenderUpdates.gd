@@ -18,11 +18,13 @@ static var _before_draw: Array[Callable] = []
 static var _draw_hooks: Array[Callable] = []
 ## before_draw() suspended low-processor mode to draw one frame.
 static var _resume_low_processor := false
+static var _activity_generation := 0
 ## Whether the latest frame_pre_draw saw rendering changes.
 static var last_frame_changed := true
 ## A changes_only viewport also renders this often while frames are drawn,
 ## for anything that would reach it without a rendering-server write.
 const CHANGES_ONLY_REFRESH_MSEC := 250
+const ACTIVITY_HOLD_SECS := 0.35
 
 
 static func prepare(viewport: SubViewport) -> void:
@@ -48,9 +50,26 @@ static func configure(viewport: SubViewport, changes_only := false) -> void:
 static func before_draw(callback: Callable) -> void:
 	_connect()
 	if not _before_draw.has(callback): _before_draw.append(callback)
+	activity()
+	_resume_low_processor = true
+
+
+## Keep the normal frame loop alive while input, animation, or rendering work
+## continues, then return to idle rendering after the work has gone quiet.
+static func activity() -> int:
+	_activity_generation += 1
+	var generation := _activity_generation
 	if OS.low_processor_usage_mode:
 		OS.low_processor_usage_mode = false
-		_resume_low_processor = true
+	var tree := Engine.get_main_loop() as SceneTree
+	if tree != null:
+		tree.create_timer(ACTIVITY_HOLD_SECS).timeout.connect(_finish_activity.bind(generation))
+	return generation
+
+
+static func _finish_activity(generation: int) -> void:
+	if generation == _activity_generation:
+		OS.low_processor_usage_mode = true
 
 
 ## Called at every frame_pre_draw after before_draw() work and before the

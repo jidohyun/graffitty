@@ -378,7 +378,7 @@ func _save_presentation() -> void:
 
 
 func register_host(host: Node) -> void:
-	OS.low_processor_usage_mode = true
+	_configure_idle_render_loop()
 	if notifications == null:
 		notifications = preload("res://scenes/AppNotifications.gd").new()
 		add_child(notifications)
@@ -419,6 +419,11 @@ func register_host(host: Node) -> void:
 		_remote_startup_applied = true
 		if _remote_controller().bind(self):
 			_sync_remote_access.call_deferred()
+
+
+static func _configure_idle_render_loop() -> void:
+	# Idle workspaces sleep until input or rendering activity wakes them.
+	OS.low_processor_usage_mode = true
 
 
 
