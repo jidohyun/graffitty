@@ -98,6 +98,18 @@ var lens := Vector4(1, 0, 1, 24)
 var minimum_radius := 0.0
 
 
+static func band_window(max_radius: float, blur_limit: float, minimum: float) -> Vector2i:
+	var lower := clampf(minimum, 0.0, minf(blur_limit, BAND_RADII.back()))
+	var upper := minf(blur_limit, max_radius * 2.0) if max_radius > 0.0 else lower
+	var first := 0
+	var last := BAND_RADII.size() - 1
+	while first < last and BAND_RADII[first + 1] <= lower:
+		first += 1
+	while last > first and BAND_RADII[last - 1] >= upper:
+		last -= 1
+	return Vector2i(first, last)
+
+
 func _init() -> void:
 	effect_callback_type = EFFECT_CALLBACK_TYPE_POST_TRANSPARENT
 	access_resolved_color = true
@@ -171,13 +183,12 @@ func _render_callback(kind: int, data: RenderData) -> void:
 		texture_size = size
 	var inverse: Projection = data.get_render_scene_data().get_cam_projection().inverse()
 	# Only adjacent bands receive a source's coverage. Fly Away's authored
-	# arrival has one uniform radius, often between the 3 and 6 px bands.
-	var lower := clampf(minimum, 0.0, minf(parameters.w, BAND_RADII.back()))
-	var upper := minf(parameters.w, BAND_RADII.back()) if parameters.y > 0.0 else lower
-	var first := 0
-	var last := BAND_RADII.size() - 1
-	while first < last and BAND_RADII[first + 1] <= lower: first += 1
-	while last > first and BAND_RADII[last - 1] >= upper: last -= 1
+	# arrival has one uniform radius, often between the 3 and 6 px bands. The
+	# measured sheet depth range bounds every source footprint, so blur_radius
+	# is also a safe upper bound for the bands that can receive coverage.
+	var bands := band_window(parameters.y, parameters.w, minimum)
+	var first := bands.x
+	var last := bands.y
 	var resolve_step := 1 + (last - first + 1) * 2
 	for view in buffers.get_view_count():
 		var color := buffers.get_color_layer(view)

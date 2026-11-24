@@ -2,6 +2,9 @@ extends SceneTree
 ## Render thin strokes against transparency; blur must spread coverage in both
 ## axes without the sharp silhouettes or square holes of depth-edge rejection.
 var failures := 0
+const InkDepthOfField := preload("res://scenes/InkDepthOfField.gd")
+
+
 func _initialize() -> void:
 	preload("../../../../tests/llm-e2e/replay/background.gd").install(self)
 	run.call_deferred()
@@ -18,6 +21,12 @@ func check(ok: bool, message: String) -> void:
 	print(("PASS " if ok else "FAIL ") + message)
 	if not ok: failures += 1
 func run() -> void:
+	# Given the sheet's measured blur radius is below the final band.
+	# When the compositor chooses its source bands.
+	# Then it must not dispatch bands that cannot receive any coverage.
+	check(InkDepthOfField.band_window(4.0, 24.0, 0.0) == Vector2i(0, 3), "Blur radius with depth headroom bounds the active band window")
+	check(InkDepthOfField.band_window(1.0, 24.0, 0.0) == Vector2i(0, 1), "Small blur radius keeps only the 3 px band")
+	check(InkDepthOfField.band_window(0.0, 24.0, 6.0) == Vector2i(2, 2), "Uniform minimum radius keeps its exact band")
 	var view := SubViewport.new()
 	view.size = Vector2i(256, 256)
 	view.transparent_bg = true
